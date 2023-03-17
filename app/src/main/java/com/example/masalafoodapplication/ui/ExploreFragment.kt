@@ -17,4 +17,5 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
     override fun onClicks() {
 
     }
+
 }
