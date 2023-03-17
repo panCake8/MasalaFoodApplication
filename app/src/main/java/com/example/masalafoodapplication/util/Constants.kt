@@ -6,7 +6,7 @@ object Constants {
         const val INGREDIENTS = 1
         const val TIME_MINUTES = 2
         const val CUISINE = 3
-        const val HOW_TO_MAKE_RECIPE = 4
+        const val MAKE_RECIPE = 4
         const val URL = 5
         const val CLEANED = 6
         const val IMAGE_URL = 7

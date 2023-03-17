@@ -10,7 +10,7 @@ class CsvParser {
             ingredients = tokens[Constants.ColumnIndex.INGREDIENTS],
             timeMinutes = tokens[Constants.ColumnIndex.TIME_MINUTES],
             Cuisine = tokens[Constants.ColumnIndex.CUISINE],
-            makeRecipe = tokens[Constants.ColumnIndex.HOW_TO_MAKE_RECIPE],
+            makeRecipe = tokens[Constants.ColumnIndex.MAKE_RECIPE],
             url = tokens[Constants.ColumnIndex.URL],
             cleaned = tokens[Constants.ColumnIndex.CLEANED],
             imageUrl = tokens[Constants.ColumnIndex.IMAGE_URL],
