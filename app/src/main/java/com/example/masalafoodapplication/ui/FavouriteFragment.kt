@@ -15,6 +15,7 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {
     }
 
     override fun onClicks() {
+
     }
 
 
