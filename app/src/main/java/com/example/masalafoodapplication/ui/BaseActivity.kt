@@ -18,6 +18,8 @@ private const val CSV_NAME = "indianFood.csv"
 
 class BaseActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
+    private val exploreFragment = ExploreFragment()
+    private val favouriteFragment = FavouriteFragment()
     private lateinit var binding: ActivityBaseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +43,11 @@ class BaseActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_explore -> {
-                    setFragment(homeFragment, SetFragmentType.REPLACE)
+                    setFragment(exploreFragment, SetFragmentType.REPLACE)
                     true
                 }
                 R.id.nav_favourite -> {
-                    setFragment(homeFragment, SetFragmentType.REPLACE)
+                    setFragment(favouriteFragment, SetFragmentType.REPLACE)
                     true
                 }
                 else -> false
