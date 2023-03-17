@@ -4,7 +4,7 @@ import com.kiko.fillapp.data.domain.Food
 
 class CsvParser {
     fun parse(line: String): Food {
-        val tokens = line.split(",")
+        val tokens = line.split(";")
         return Food(
             recipeName = tokens[Constants.ColumnIndex.RECIPE_NAME],
             ingredients = tokens[Constants.ColumnIndex.INGREDIENTS],
