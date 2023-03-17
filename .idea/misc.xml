@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kikok/AndroidStudioProjects/MasalaFoodApplication/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.134" />
+        <entry key="..\:/Users/kikok/AndroidStudioProjects/MasalaFoodApplication/app/src/main/res/layout/activity_base.xml" value="0.2" />
         <entry key="..\:/Users/kikok/AndroidStudioProjects/MasalaFoodApplication/app/src/main/res/layout/activity_main.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/kikok/AndroidStudioProjects/MasalaFoodApplication/app/src/main/res/menu/nav_items.xml" value="0.20512820512820512" />
       </map>
