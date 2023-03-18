@@ -14,7 +14,6 @@ import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
 
-private const val CSV_NAME = "indianFood.csv"
 
 class BaseActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
@@ -26,7 +25,7 @@ class BaseActivity : AppCompatActivity() {
         installSplashScreen()
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setFragment(homeFragment, SetFragmentType.ADD)
+        initSubViews()
         setup()
         onClicks()
     }
@@ -63,6 +62,11 @@ class BaseActivity : AppCompatActivity() {
             val food = csvParser.parse(line)
             DataManager.addFood(food)
         }
+
+    }
+
+    private fun initSubViews() {
+        setFragment(homeFragment, SetFragmentType.ADD)
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType) {
@@ -84,5 +88,9 @@ class BaseActivity : AppCompatActivity() {
             replace(binding.fragmentContainer.id, fragment)
             setReorderingAllowed(true)
         }
+    }
+
+    companion object {
+        private const val CSV_NAME = "indian_food.csv"
     }
 }
