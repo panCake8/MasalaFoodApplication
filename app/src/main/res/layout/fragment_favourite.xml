@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="FragmentFavourite"
+        android:textColor="#000"
         android:textSize="@dimen/text_large" />
 
 </FrameLayout>
