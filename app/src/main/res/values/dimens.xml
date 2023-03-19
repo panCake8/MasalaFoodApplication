@@ -32,4 +32,6 @@
     <dimen name="card_scroll_radius">48dp</dimen>
 
     <dimen name="elevation_small">8dp</dimen>
+    <dimen name="no_elevation">0dp</dimen>
+
 </resources>
