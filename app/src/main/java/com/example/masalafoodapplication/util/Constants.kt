@@ -12,4 +12,6 @@ object Constants {
         const val IMAGE_URL = 7
         const val COUNT = 8
     }
+
+    const val KEY = "KEY"
 }
