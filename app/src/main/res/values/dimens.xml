@@ -16,6 +16,7 @@
     <dimen name="app_bar_text">18sp</dimen>
     <dimen name="text_title">16sp</dimen>
     <dimen name="text_body">12sp</dimen>
+    <dimen name="text_btn">14sp</dimen>
 
     <dimen name="small_stroke">1dp</dimen>
 
