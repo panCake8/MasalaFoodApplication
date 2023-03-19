@@ -18,6 +18,9 @@
     <string name="quick_recipes">Quick recipes</string>
     <string name="ingredient">Ingredient</string>
     <string name="steps">Steps</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="img_description">logo</string>
+    <string name="italian_kitchen">Italian Kitchen</string>
+    <string name="kashmir_kitchen">kashmir Kitchen</string>
+    <string name="asian_kitchen">Asian Kitchen</string>
+    <string name="arabian_kitchen">Arabian Kitchen</string>
 </resources>
