@@ -5,11 +5,11 @@
         <item name="colorPrimary">@color/nav_selected_text_color</item>
         <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
     </style>
+    <!-- custom style-->
 
+    <!-- nav bottom style-->
     <style name="Widget.Material3.BottomNavigationView.ActiveIndicator" parent="">
         <item name="android:width" tools:ignore="PrivateResource">
             @dimen/m3_bottom_nav_item_active_indicator_width
@@ -27,6 +27,8 @@
     </style>
 
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">@color/selected_item</item>
+        <item name="android:color">@color/nav_selected_item</item>
     </style>
+
+
 </resources>
