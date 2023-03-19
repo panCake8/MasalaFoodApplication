@@ -20,4 +20,221 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/details_toolbar" />
+
+    <ImageView
+        android:id="@+id/details_img_poster"
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:contentDescription="@string/img_description"
+        android:scaleType="fitXY"
+        android:src="@drawable/chief_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_stroke" />
+
+    <TextView
+        android:id="@+id/scroll_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_large"
+        android:fontFamily="@font/work_sans_semibold"
+        android:text="@string/popular_dishes"
+        android:textColor="@color/text_dark"
+        android:textSize="@dimen/text_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/details_img_poster" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/no_height"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scroll_text"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="@dimen/padding_large">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_one"
+                style="@style/CardViewPopular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.46">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/ImageKitchenDetails"
+                        android:contentDescription="@string/img_description"
+                        android:src="@drawable/red_chief_image" />
+
+                    <TextView
+                        style="@style/TextKitchen.Title"
+                        android:textSize="@dimen/text_large"
+                        android:text="Pizza" />
+
+                    <TextView
+                        style="@style/TextKitchen.Body"
+                        android:text="Pizaa Master is very good" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_two"
+                style="@style/CardViewPopular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/card_one"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.46">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/ImageKitchenDetails"
+                        android:contentDescription="@string/img_description"
+                        android:src="@drawable/red_chief_image" />
+
+                    <TextView
+                        style="@style/TextKitchen.Title"
+                        android:textSize="@dimen/text_large"
+                        android:text="Pizza" />
+
+                    <TextView
+                        style="@style/TextKitchen.Body"
+                        android:text="Pizaa Master is very good" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_three"
+                style="@style/CardViewPopular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_one"
+                app:layout_constraintWidth_percent="0.46">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/ImageKitchenDetails"
+                        android:contentDescription="@string/img_description"
+                        android:src="@drawable/red_chief_image" />
+
+                    <TextView
+                        style="@style/TextKitchen.Title"
+                        android:textSize="@dimen/text_large"
+                        android:text="Pizza" />
+
+                    <TextView
+                        style="@style/TextKitchen.Body"
+                        android:text="Pizaa Master is very good" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_four"
+                style="@style/CardViewPopular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_two"
+                app:layout_constraintWidth_percent="0.46">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/ImageKitchenDetails"
+                        android:contentDescription="@string/img_description"
+                        android:src="@drawable/red_chief_image" />
+
+                    <TextView
+                        style="@style/TextKitchen.Title"
+                        android:textSize="@dimen/text_large"
+                        android:text="Pizza" />
+
+                    <TextView
+                        style="@style/TextKitchen.Body"
+                        android:text="Pizaa Master is very good" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_five"
+                style="@style/CardViewPopular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_three"
+                app:layout_constraintWidth_percent="0.46">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/ImageKitchenDetails"
+                        android:contentDescription="@string/img_description"
+                        android:src="@drawable/red_chief_image" />
+
+                    <TextView
+                        style="@style/TextKitchen.Title"
+                        android:textSize="@dimen/text_large"
+                        android:text="Pizza" />
+
+                    <TextView
+                        style="@style/TextKitchen.Body"
+                        android:text="Pizaa Master is very good" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_six"
+                style="@style/CardViewPopular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_four"
+                app:layout_constraintWidth_percent="0.46">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/ImageKitchenDetails"
+                        android:contentDescription="@string/img_description"
+                        android:src="@drawable/red_chief_image" />
+
+                    <TextView
+                        style="@style/TextKitchen.Title"
+                        android:textSize="@dimen/text_large"
+                        android:text="Pizza" />
+
+                    <TextView
+                        style="@style/TextKitchen.Body"
+                        android:text="Pizaa Master is very good" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
