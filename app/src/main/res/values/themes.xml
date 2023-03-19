@@ -119,37 +119,6 @@
     <style name="CardViewPopular.Left">
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
     </style>
-    <!--card image kitchen-->
-    <style name="ImageKitchens">
-        <item name="android:layout_width">@dimen/image_kitchen_width</item>
-        <item name="android:layout_height">@dimen/image_kitchen_height</item>
-        <item name="android:scaleType">fitXY</item>
-    </style>
-
-    <!--card text kitchen-->
-    <style name="KitchenTitle">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/margin_medium</item>
-        <item name="android:layout_marginTop">@dimen/margin_medium</item>
-    </style>
-
-    <!--card title name kitchen-->
-    <style name="KitchenTitle.Name">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">@color/text_dark</item>
-        <item name="android:fontFamily">@font/work_sans_medium</item>
-        <item name="android:textSize">@dimen/text_medium</item>
-    </style>
-
-    <!--card title info kitchen-->
-    <style name="KitchenTitle.Info">
-        <item name="android:layout_width">@dimen/no_width</item>
-        <item name="android:textColor">@color/text_light</item>
-        <item name="android:fontFamily">@font/work_sans</item>
-        <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:maxLines">2</item>
-    </style>
 
     <style name="AppBar">
         <item name="android:layout_width">match_parent</item>
