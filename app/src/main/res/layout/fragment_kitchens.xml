@@ -9,22 +9,15 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/kitchen_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/tool_bar_color"
-        app:elevation="@dimen/elevation_small"
+        style="@style/AppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:title="@string/kitchens"
-        app:titleTextColor="@color/app_bar_text_color" />
+        app:title="@string/kitchens" />
 
     <View
         android:id="@+id/toolbar_stroke"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/small_stroke"
-        android:background="@color/app_bar_stroke"
+        style="@style/AppBarStroke"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/kitchen_toolbar" />
