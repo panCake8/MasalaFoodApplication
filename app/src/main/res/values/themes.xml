@@ -63,14 +63,56 @@
         <item name="chipCornerRadius">@dimen/radius_small</item>
     </style>
     <!-- selected chips style-->
-    <style name="Chips.SelectedChips" >
+    <style name="Chips.SelectedChips">
         <item name="android:backgroundTint">@color/selected_chip_color</item>
     </style>
     <!-- non selected chips style-->
-    <style name="Chips.NonSelectedChips" >
+    <style name="Chips.NonSelectedChips">
         <item name="chipStrokeWidth">@dimen/small_stroke</item>
         <item name="android:backgroundTint">@color/white</item>
         <item name="chipStrokeColor">@color/non_selected_chip_stroke_color</item>
     </style>
 
+    <!--card view-->
+    <style name="CardViewFood" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginStart">@dimen/margin_large</item>
+        <item name="android:layout_marginEnd">@dimen/margin_large</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="cardElevation">@dimen/elevation_small</item>
+    </style>
+    <!--card Fav-->
+    <style name="CardViewFood.Fav">
+        <item name="cardCornerRadius">@dimen/radius_large</item>
+    </style>
+    <!--card Kitchen-->
+    <style name="CardViewFood.Kitchen">
+        <item name="cardCornerRadius">@dimen/radius_medium</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+    </style>
+    <!--card choose-->
+    <style name="CardViewFood.ChooseKitchen">
+        <item name="cardCornerRadius">@dimen/radius_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_large</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
+
+    <!--card popular-->
+    <style name="CardViewPopular" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="cardElevation">@dimen/elevation_small</item>
+    </style>
+    <!--card popular Right-->
+    <style name="CardViewPopular.Right" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginStart">@dimen/margin_large</item>
+    </style>
+    <!--card popular Left-->
+    <style name="CardViewPopular.Left">
+        <item name="android:layout_marginEnd">@dimen/margin_large</item>
+    </style>
 </resources>
