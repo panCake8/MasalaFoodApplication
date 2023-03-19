@@ -26,4 +26,6 @@
 
     <color name="white">#FFFFFFFF</color>
     <color name="black">#121212</color>
+    <color name="tool_bar_color">#FAFAFA</color>
+    <color name="app_bar_stroke">#14121212</color>
 </resources>
