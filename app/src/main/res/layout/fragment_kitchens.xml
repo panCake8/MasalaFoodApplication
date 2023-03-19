@@ -30,11 +30,187 @@
         app:layout_constraintTop_toBottomOf="@id/kitchen_toolbar" />
 
     <com.google.android.material.card.MaterialCardView
-       style="@style/CardViewFood.Kitchen"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_stroke"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/asian_kitchen_card"
+        style="@style/CardViewFood.Kitchen"
+        android:layout_marginTop="@dimen/margin_large"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/margin_large">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_stroke">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/asian_kitchen_img"
+                style="@style/ImageKitchens"
+                android:contentDescription="@string/img_description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/chief_image" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_asian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.70" />
+
+            <TextView
+                android:id="@+id/asian_kitchen_name"
+                style="@style/KitchenTitle.Name"
+                android:text="@string/asian_kitchen"
+                app:layout_constraintStart_toEndOf="@id/asian_kitchen_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/asian_kitchen_info"
+                style="@style/KitchenTitle.Info"
+                app:layout_constraintEnd_toStartOf="@id/line_asian"
+                app:layout_constraintStart_toEndOf="@id/asian_kitchen_img"
+                app:layout_constraintTop_toBottomOf="@id/asian_kitchen_name"
+                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/arab_kitchen_card"
+        style="@style/CardViewFood.Kitchen"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/asian_kitchen_card">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/arab_kitchen_img"
+                style="@style/ImageKitchens"
+                android:contentDescription="@string/img_description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/chief_image" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_arab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.70" />
+
+            <TextView
+                android:id="@+id/arab_kitchen_name"
+                style="@style/KitchenTitle.Name"
+                android:text="@string/arabian_kitchen"
+                app:layout_constraintStart_toEndOf="@id/arab_kitchen_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/arab_kitchen_info"
+                style="@style/KitchenTitle.Info"
+                app:layout_constraintEnd_toStartOf="@id/line_arab"
+                app:layout_constraintStart_toEndOf="@id/arab_kitchen_img"
+                app:layout_constraintTop_toBottomOf="@id/arab_kitchen_name"
+                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/italian_kitchen_card"
+        style="@style/CardViewFood.Kitchen"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/arab_kitchen_card">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/italian_kitchen_img"
+                style="@style/ImageKitchens"
+                android:contentDescription="@string/img_description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/chief_image" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_italian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.70" />
+
+            <TextView
+                android:id="@+id/italian_kitchen_name"
+                style="@style/KitchenTitle.Name"
+                android:text="@string/italian_kitchen"
+                app:layout_constraintStart_toEndOf="@id/italian_kitchen_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/italian_kitchen_info"
+                style="@style/KitchenTitle.Info"
+                app:layout_constraintEnd_toStartOf="@id/line_italian"
+                app:layout_constraintStart_toEndOf="@id/italian_kitchen_img"
+                app:layout_constraintTop_toBottomOf="@id/italian_kitchen_name"
+                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/kashmir_kitchen_card"
+        style="@style/CardViewFood.Kitchen"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/italian_kitchen_card">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/kashmir_kitchen_img"
+                style="@style/ImageKitchens"
+                android:contentDescription="@string/img_description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/chief_image" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_kashmir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.70" />
+
+            <TextView
+                android:id="@+id/kashmir_kitchen_name"
+                style="@style/KitchenTitle.Name"
+                android:text="@string/kashmir_kitchen"
+                app:layout_constraintStart_toEndOf="@id/kashmir_kitchen_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/kashmir_kitchen_info"
+                style="@style/KitchenTitle.Info"
+                app:layout_constraintEnd_toStartOf="@id/line_kashmir"
+                app:layout_constraintStart_toEndOf="@id/kashmir_kitchen_img"
+                app:layout_constraintTop_toBottomOf="@id/kashmir_kitchen_name"
+                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
