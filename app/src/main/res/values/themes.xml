@@ -56,12 +56,19 @@
     <!-- chips style-->
     <style name="Chips" parent="Widget.Material3.ChipGroup">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">32dp</item>
         <item name="android:textColor">@color/text_chips</item>
         <item name="android:fontFamily">@font/work_sans_medium</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">@dimen/text_small</item>
         <item name="chipCornerRadius">@dimen/radius_small</item>
+        <item name="chipEndPadding">@dimen/margin_large</item>
+        <item name="chipStartPadding">@dimen/margin_large</item>
+        <item name="android:checkable">true</item>
+        <item name="chipMinTouchTargetSize">0dp</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">@dimen/small_stroke</item>
     </style>
     <!-- selected chips style-->
     <style name="Chips.SelectedChips">
