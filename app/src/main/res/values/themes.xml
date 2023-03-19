@@ -82,6 +82,9 @@
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
         <item name="android:backgroundTint">@color/white</item>
         <item name="cardElevation">@dimen/elevation_small</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="rippleColor">@color/text_light</item>
     </style>
     <!--card Fav-->
     <style name="CardViewFood.Fav">
