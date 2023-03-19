@@ -4,8 +4,26 @@
     <color name="nav_non_selected_logo_color">#99121212</color>
     <color name="nav_selected_text_color">#DE121212</color>
     <color name="nav_non_selected_text_color">#99121212</color>
-    <color name="selected_item">#61E32227</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="nav_selected_item">#61E32227</color>
     <color name="nav_background">#DEFFFFFF</color>
+
+    <color name="app_bar_text_color">#121212</color>
+    <color name="text_dark">#DE121212</color>
+    <color name="text_medium">#99121212</color>
+    <color name="text_light">#5E121212</color>
+    <color name="text_on_image_color">#DEFFFFFF</color>
+    <color name="text_reset_btn_color">#FF1747</color>
+    <color name="view_more_text_color">#DEFF1747</color>
+    <color name="text_chips">#DEFF1747</color>
+
     <color name="base_color">#E32227</color>
+    <color name="primary_button_color">#FF355F</color>
+    <color name="selected_chip_color">#14FF1747</color>
+    <color name="non_selected_chip_stroke_color">#DEFF1747</color>
+    <color name="line_color">#5EFF1747</color>
+    <color name="chips_stroke_color">#DEFF1747</color>
+    <color name="delete_icon_color">#FF1747</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#121212</color>
 </resources>

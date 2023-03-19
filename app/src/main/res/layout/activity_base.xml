@@ -24,7 +24,7 @@
         app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
         app:itemBackground="@color/nav_background"
         app:itemIconTint="@drawable/bottom_navigation_selector"
-        app:itemRippleColor="@color/selected_item"
+        app:itemRippleColor="@color/nav_selected_item"
         app:itemTextColor="@drawable/bottom_navigation_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
