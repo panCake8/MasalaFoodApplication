@@ -17,6 +17,8 @@
     <dimen name="text_title">16sp</dimen>
     <dimen name="text_body">12sp</dimen>
 
+    <dimen name="small_stroke">1dp</dimen>
+
     <dimen name="radius_small">8dp</dimen>
     <dimen name="radius_medium">12dp</dimen>
     <dimen name="radius_large">16dp</dimen>
