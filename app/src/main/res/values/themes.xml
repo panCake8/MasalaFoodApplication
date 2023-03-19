@@ -12,10 +12,10 @@
     <!-- nav bottom style-->
     <style name="Widget.Material3.BottomNavigationView.ActiveIndicator" parent="">
         <item name="android:width" tools:ignore="PrivateResource">
-            @dimen/m3_bottom_nav_item_active_indicator_width
+            56dp
         </item>
         <item name="android:height" tools:ignore="PrivateResource">
-            @dimen/m3_bottom_nav_item_active_indicator_height
+            32dp
         </item>
         <item name="marginHorizontal" tools:ignore="PrivateResource">
             @dimen/m3_bottom_nav_item_active_indicator_margin_horizontal
