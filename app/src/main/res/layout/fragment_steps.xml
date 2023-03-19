@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="1-Check this box:"
+            android:text="1-Check this box"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/text_medium"
             android:fontFamily="@font/work_sans"
@@ -72,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:buttonTint="@color/primary_button_color"
+            android:checked="true"
             />
     </LinearLayout>
     <com.google.android.material.button.MaterialButton
