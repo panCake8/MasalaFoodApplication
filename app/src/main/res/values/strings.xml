@@ -1,9 +1,21 @@
 <resources>
     <string name="app_name">MasalaFoodApplication</string>
     <string name="kitchens">Kitchens</string>
-    <string name="asian_kitchen">Asian kitchen</string>
     <string name="find_your_favourite_food">Find Your Favorite Food</string>
     <string name="home">Home</string>
     <string name="explore">Explore</string>
     <string name="favourite">Favourite</string>
+    <string name="popular_dishes">Popular dishes</string>
+    <string name="apply">Apply</string>
+    <string name="reset">Reset</string>
+    <string name="finish">Finish</string>
+    <string name="next">Next</string>
+    <string name="start_preparing">Start Preparing</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="just_for_you">Just for you</string>
+    <string name="quick_recipes">Quick recipes</string>
+    <string name="ingredient">Ingredient</string>
+    <string name="steps">Steps</string>
 </resources>
