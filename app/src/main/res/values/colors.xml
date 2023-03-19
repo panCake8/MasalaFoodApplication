@@ -10,6 +10,7 @@
     <color name="text_body_color">#5E121212</color>
     <color name="selected_item">#61E32227</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="text_on_image_color">#DEFFFFFF</color>
     <color name="black">#121212</color>
     <color name="nav_background">#DEFFFFFF</color>
     <color name="base_color">#E32227</color>
@@ -17,5 +18,10 @@
     <color name="selected_chip_color">#14FF1747</color>
     <color name="non_selected_chip_stroke_color">#DEFF1747</color>
     <color name="line_color">#5EFF1747</color>
+    <color name="text_chips">#DEFF1747</color>
+    <color name="chips_stroke_color">#DEFF1747</color>
+    <color name="text_reset_btn_color">#FF1747</color>
+    <color name="delete_icon_color">#FF1747</color>
+    <color name="view_more_color">#DEFF1747</color>
 
 </resources>
