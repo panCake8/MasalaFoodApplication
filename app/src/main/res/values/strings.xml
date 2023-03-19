@@ -18,4 +18,6 @@
     <string name="quick_recipes">Quick recipes</string>
     <string name="ingredient">Ingredient</string>
     <string name="steps">Steps</string>
+    <string name="history_of_indian_cuisine">History of indian cuisine</string>
+    <string name="menu_details">Indian cuisine dates back over 5000 years. Each region has its own traditions, religions and culture that influence its food. Hindus tend to be vegetarian and Muslims tend to have meat dishes, although pork is forbidden. Indian food has been influenced by Mongolian, Persian and Chinese cuisine, among others. The common thread throughout the centuries remains the distinct mixing of spices that invariably give Indian cuisine its flavor and aroma.</string>
 </resources>
