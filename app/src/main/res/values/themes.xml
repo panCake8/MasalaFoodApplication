@@ -120,6 +120,7 @@
     <style name="ImageKitchens">
         <item name="android:layout_width">@dimen/image_kitchen_width</item>
         <item name="android:layout_height">@dimen/image_kitchen_height</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
 
     <!--card text kitchen-->
