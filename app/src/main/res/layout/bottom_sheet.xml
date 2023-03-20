@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/design_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintHeight_percent="80"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,11 +28,12 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/chip"
             style="@style/Chips.SelectedChips"
-            android:layout_width="wrap_content"
+            android:layout_width="78sp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="38dp"
             android:text="@string/popular"
+            android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:contentDescription="@string/steps"
-            android:src="@drawable/ic_heart"
+            android:src="@drawable/ic_love_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/chip" />  <!-- this content description is useless -->
 
@@ -62,7 +65,7 @@
             style="@style/Chips.SelectedChips"
             android:layout_width="0dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:text="@string/description"
             android:textAlignment="center"
@@ -101,29 +104,32 @@
         <com.borjabravo.readmoretextview.ReadMoreTextView
             android:id="@+id/description_tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
+            android:minHeight="48dp"
             android:text="@string/dish_description"
             android:textSize="@dimen/text_large"
             app:colorClickableText="@color/primary_button_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chip2"
+            app:layout_constraintTop_toBottomOf="@+id/chip3"
             app:trimCollapsedText="@string/read_more"
             app:trimExpandedText="@string/read_less"
-            app:trimLength="75"
+            app:trimLength="115"
             app:trimMode="trimModeLength" />
 
         <Button
             android:id="@+id/button"
             style="@style/Button.PrimaryButton"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="62dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
             android:text="@string/start_preparing_btn_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
