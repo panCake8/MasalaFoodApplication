@@ -32,7 +32,7 @@
     <!-- button style-->
     <style name="Button" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">56dp</item>
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
         <item name="cornerRadius">100dp</item>
@@ -94,11 +94,14 @@
     <!--card view-->
     <style name="CardViewFood" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
         <item name="android:backgroundTint">@color/white</item>
         <item name="cardElevation">@dimen/elevation_small</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="rippleColor">@color/text_light</item>
     </style>
     <!--card Fav-->
     <style name="CardViewFood.Fav">
@@ -120,22 +123,60 @@
     </style>
     <!--card popular-->
     <style name="CardViewPopular" parent="Widget.MaterialComponents.CardView">
-        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
         <item name="android:layout_marginBottom">@dimen/margin_medium</item>
         <item name="android:backgroundTint">@color/white</item>
-        <item name="cardElevation">@dimen/elevation_small</item>
+        <item name="shapeAppearanceOverlay">@style/CardRadius</item>
+        <item name="android:layout_width">@dimen/no_width</item>
     </style>
-    <!--card popular Right-->
-    <style name="CardViewPopular.Right" parent="Widget.MaterialComponents.CardView">
-        <item name="android:layout_marginStart">@dimen/margin_large</item>
+    <!--card radius-->
+    <style name="CardRadius">
+        <item name="cornerSizeTopLeft">4%</item>
+        <item name="cornerSizeTopRight">4%</item>
     </style>
-    <!--card popular Left-->
-    <style name="CardViewPopular.Left">
-        <item name="android:layout_marginEnd">@dimen/margin_large</item>
+    <!--image kitchen -->
+    <style name="ImageKitchenDetails">
+        <item name="android:layout_height">@dimen/image_kitchen_details</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
 
+    <!--kitchen text -->
+    <style name="TextKitchen">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:layout_marginStart">@dimen/kitchen_title_margin</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <!--kitchen title text -->
+    <style name="TextKitchen.Title">
+        <item name="android:textColor">@color/text_medium</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+    </style>
+
+    <!--kitchen body text -->
+    <style name="TextKitchen.Body">
+        <item name="android:textColor">@color/text_light</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
+    </style>
+
+    <style name="AppBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/tool_bar_color</item>
+        <item name="titleTextColor">@color/app_bar_text_color</item>
+        <item name="elevation">@dimen/elevation_small</item>
+        <item name="navigationIcon">@drawable/ic_arrow_back</item>
+    </style>
+
+    <style name="AppBarStroke">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/small_stroke</item>
+        <item name="android:background">@color/app_bar_stroke</item>
     <!--Detail Menu Text Style-->
     <style name="detailMenuHeading">
         <item name="android:textStyle">bold</item>
