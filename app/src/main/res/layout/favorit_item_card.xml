@@ -24,8 +24,8 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imv_city1"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:contentDescription="@string/popular_dishes"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
@@ -39,9 +39,9 @@
                 android:id="@+id/txv_city_name1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:textColor="#353434"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:textColor="@color/text_dark"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toEndOf="@+id/imv_city1"
                 app:layout_constraintTop_toTopOf="parent"
@@ -50,13 +50,13 @@
             <TextView
                 android:id="@+id/description_tv1"
                 android:layout_width="0dp"
-                android:layout_height="29dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:layout_marginEnd="32dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="@color/text_light"
+                android:textColor="@color/text_medium"
                 android:textSize="@dimen/text_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageView1"
@@ -73,7 +73,8 @@
                 android:src="@drawable/ic_heart"
                 app:layout_constraintBottom_toBottomOf="@+id/imv_city1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imv_city1" />
+                app:layout_constraintTop_toTopOf="@+id/imv_city1"
+                android:contentDescription="@string/favourite" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
