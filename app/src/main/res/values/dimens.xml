@@ -33,5 +33,12 @@
 
     <dimen name="elevation_small">8dp</dimen>
     <dimen name="no_elevation">0dp</dimen>
-
+    <dimen name="text_x_large">24sp</dimen>
+    <dimen name="text_extra_large">32sp</dimen>
+    <dimen name="padding_extra_large">32dp</dimen>
+    <dimen name="margin_extra_large">32dp</dimen>
+    <dimen name="banner_height">150dp</dimen>
+    <dimen name="category_size">80dp</dimen>
+    <dimen name="card_width">130dp</dimen>
+    <dimen name="small_card_size">80dp</dimen>
 </resources>
