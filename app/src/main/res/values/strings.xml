@@ -18,4 +18,5 @@
     <string name="quick_recipes">Quick recipes</string>
     <string name="ingredient">Ingredient</string>
     <string name="steps">Steps</string>
+    <string name="icon_arrow_back">icon_arrow_back</string>
 </resources>
