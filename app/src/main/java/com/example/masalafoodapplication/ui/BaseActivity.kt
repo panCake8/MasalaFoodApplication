@@ -2,6 +2,7 @@ package com.example.masalafoodapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
@@ -16,9 +17,6 @@ import java.io.InputStreamReader
 
 
 class BaseActivity : AppCompatActivity() {
-    private val homeFragment = HomeFragment()
-    private val exploreFragment = ExploreFragment()
-    private val favouriteFragment = FavouriteFragment()
     private lateinit var binding: ActivityBaseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,15 +36,15 @@ class BaseActivity : AppCompatActivity() {
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    setFragment(homeFragment, SetFragmentType.REPLACE)
+                    setFragment(HomeFragment(), SetFragmentType.REPLACE)
                     true
                 }
                 R.id.nav_explore -> {
-                    setFragment(exploreFragment, SetFragmentType.REPLACE)
+                    setFragment(ExploreFragment(), SetFragmentType.REPLACE)
                     true
                 }
                 R.id.nav_favourite -> {
-                    setFragment(favouriteFragment, SetFragmentType.REPLACE)
+                    setFragment(FavouriteFragment(), SetFragmentType.REPLACE)
                     true
                 }
                 else -> false
@@ -66,7 +64,8 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
-        setFragment(homeFragment, SetFragmentType.ADD)
+        setFragment(DetailsKitchenFragment(), SetFragmentType.ADD)
+        binding.navBar.visibility = View.GONE
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType) {
