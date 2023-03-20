@@ -34,6 +34,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -58,4 +61,8 @@ dependencies {
 
     //circleImage
     implementation 'com.mikhaellopez:circularimageview:4.3.0'
+
+    // Expandable TextView
+    implementation 'com.borjabravo:readmoretextview:2.1.0'
+
 }
