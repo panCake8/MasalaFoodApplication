@@ -65,22 +65,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView">
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Onion Salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Easy Sprouts"
                     app:checkedIconEnabled="false" />
             </com.google.android.material.chip.ChipGroup>
@@ -111,22 +111,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView2">
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Onion Salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Easy Sprouts"
                     app:checkedIconEnabled="false" />
             </com.google.android.material.chip.ChipGroup>
@@ -157,22 +157,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Onion Salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/Chips"
+                    style="@style/Chips_filter"
                     android:text="Easy Sprouts"
                     app:checkedIconEnabled="false" />
 
