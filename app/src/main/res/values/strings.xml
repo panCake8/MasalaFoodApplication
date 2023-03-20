@@ -18,6 +18,7 @@
     <string name="quick_recipes">Quick recipes</string>
     <string name="ingredient">Ingredient</string>
     <string name="steps">Steps</string>
+    <string name="icon_arrow_back">icon_arrow_back</string>
     <string name="image_of_indian_food">Image of Indian Food</string>
     <string name="history_of_indian_food">History of Indian Food</string>
     <string name="filter_button">Filter Button</string>
@@ -29,4 +30,5 @@
     <string name="make_your_meal">Make your own indian meal</string>
     <string name="make_your_meal_image">Make your meal Image</string>
     <string name="make_your_meal_button">Make your meal button</string>
+
 </resources>
