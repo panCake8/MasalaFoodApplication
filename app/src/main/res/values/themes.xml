@@ -81,11 +81,11 @@
         <item name="chipCornerRadius">@dimen/radius_small</item>
     </style>
     <!-- selected chips style-->
-    <style name="Chips_filter.SelectedChips">
+    <style name="Chips.SelectedChips">
         <item name="android:backgroundTint">@color/selected_chip_color</item>
     </style>
     <!-- non selected chips style-->
-    <style name="Chips_filter.NonSelectedChips">
+    <style name="Chips.NonSelectedChips">
         <item name="chipStrokeWidth">@dimen/small_stroke</item>
         <item name="android:backgroundTint">@color/white</item>
         <item name="chipStrokeColor">@color/non_selected_chip_stroke_color</item>
