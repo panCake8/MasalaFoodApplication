@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MasalaFoodApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.MasalaFoodApplication" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/nav_selected_text_color</item>
         <item name="colorPrimaryVariant">@color/white</item>
@@ -54,6 +54,23 @@
         <item name="android:textColor">@color/text_dark</item>
     </style>
     <!-- chips style-->
+    <style name="Chips_filter" parent="Widget.Material3.ChipGroup">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:textColor">@color/text_chips</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="chipCornerRadius">@dimen/radius_small</item>
+        <item name="chipEndPadding">@dimen/margin_large</item>
+        <item name="chipStartPadding">@dimen/margin_large</item>
+        <item name="android:checkable">true</item>
+        <item name="chipMinTouchTargetSize">0dp</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">@dimen/small_stroke</item>
+    </style>
+    <!-- chips style-->
     <style name="Chips" parent="Widget.Material3.ChipGroup">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -101,7 +118,9 @@
         <item name="android:layout_marginBottom">@dimen/margin_large</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
     </style>
-
+    <style name="rounded_corner">
+        <item name="cornerSize">16dp</item>
+    </style>
     <!--card popular-->
     <style name="CardViewPopular" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_height">wrap_content</item>
@@ -145,15 +164,6 @@
         <item name="android:layout_marginBottom">@dimen/margin_small</item>
     </style>
 
-<!--    &lt;!&ndash;card popular Right&ndash;&gt;-->
-<!--    <style name="CardViewPopular.Right">-->
-<!--        <item name="android:layout_marginEnd">@dimen/margin_large</item>-->
-<!--    </style>-->
-<!--    &lt;!&ndash;card popular Left&ndash;&gt;-->
-<!--    <style name="CardViewPopular.Left">-->
-<!--        <item name="android:layout_marginStart">@dimen/margin_large</item>-->
-<!--    </style>-->
-
     <style name="AppBar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -167,6 +177,66 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/small_stroke</item>
         <item name="android:background">@color/app_bar_stroke</item>
+    <!--Detail Menu Text Style-->
+    <style name="detailMenuHeading">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+    </style>
+    <style name="detailMenu">
+        <item name="android:layout_marginTop">@dimen/margin_large</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+    </style>
+
+
+    <!--Banner Style -->
+    <style name="RoundedBanner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_large</item>
+    </style>
+
+    <!-- Text Style -->
+    <style name="SectionHeader">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/nav_selected_text_color</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_large</item>
+    </style>
+
+    <!--    Category Style-->
+    <style name="CategoryImage">
+        <item name="android:layout_width">@dimen/category_size</item>
+        <item name="android:layout_height">@dimen/category_size</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Material3.Corner.Full</item>
+    </style>
+
+    <style name="CategoryText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/work_sans_semibold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/text_on_image_color</item>
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+
+    <!--    Card Styles-->
+    <style name="CardTitle">
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+        <item name="android:paddingTop">@dimen/padding_medium</item>
+        <item name="android:textColor">@color/text_medium</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="CardTime">
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:paddingBottom">@dimen/padding_medium</item>
+        <item name="android:textColor">@color/text_light</item>
+        <item name="android:textSize">@dimen/text_small</item>
     </style>
 
 </resources>

@@ -1,17 +1,616 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.HomeFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="FragmentHome"
-        android:textColor="#000"
-        android:textSize="@dimen/text_large" />
+        android:layout_gravity="start"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_large">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_extra_large">
+
+            <TextView
+                android:id="@+id/tv_home_title"
+                android:layout_width="@dimen/no_width"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/work_sans_semibold"
+                android:text="@string/find_your_favourite_food"
+                android:textColor="@color/nav_selected_text_color"
+                android:textSize="@dimen/text_extra_large"
+                app:layout_constraintEnd_toStartOf="@id/iv_filter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/filter_button"
+                android:src="@drawable/ic_filter_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/food_banner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/banner_height"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_indian_food"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/banner_height"
+                android:contentDescription="@string/image_of_indian_food"
+                android:scaleType="centerCrop"
+                android:src="@drawable/indian_food"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/RoundedBanner" />
+
+            <View
+                android:id="@+id/transparency"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_transparent_rounded" />
+
+            <TextView
+                android:id="@+id/tv_indian_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/work_sans_semibold"
+                android:gravity="center"
+                android:text="@string/history_of_indian_food"
+                android:textColor="@color/text_on_image_color"
+                android:textSize="@dimen/text_x_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/kitchens_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/food_banner">
+
+            <TextView
+                android:id="@+id/tv_kitchens"
+                style="@style/SectionHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/kitchens"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/kitchens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@id/tv_kitchens">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start">
+
+                    <FrameLayout
+                        android:id="@+id/kitchen_1"
+                        android:layout_width="@dimen/category_size"
+                        android:layout_height="@dimen/category_size"
+                        android:layout_marginStart="@dimen/margin_large"
+                        app:layout_constraintTop_toBottomOf="@id/kitchens">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/iv_kitchen_1"
+                            style="@style/CategoryImage"
+                            tools:src="@tools:sample/backgrounds/scenic" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_transparent_circle" />
+
+                        <TextView
+                            android:id="@+id/tv_kitchen_1"
+                            style="@style/CategoryText"
+                            android:text="@string/asian" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/kitchen_2"
+                        android:layout_width="@dimen/category_size"
+                        android:layout_height="@dimen/category_size"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        app:layout_constraintTop_toBottomOf="@id/kitchens">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/iv_kitchen_2"
+                            style="@style/CategoryImage"
+                            tools:src="@tools:sample/backgrounds/scenic" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_transparent_circle" />
+
+                        <TextView
+                            android:id="@+id/tv_kitchen_2"
+                            style="@style/CategoryText"
+                            android:text="@string/arabian" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/kitchen_3"
+                        android:layout_width="@dimen/category_size"
+                        android:layout_height="@dimen/category_size"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        app:layout_constraintTop_toBottomOf="@id/kitchens">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/iv_kitchen_3"
+                            style="@style/CategoryImage"
+                            tools:src="@tools:sample/backgrounds/scenic" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_transparent_circle" />
+
+                        <TextView
+                            android:id="@+id/tv_kitchen_3"
+                            style="@style/CategoryText"
+                            android:text="@string/indian" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/kitchen_4"
+                        android:layout_width="@dimen/category_size"
+                        android:layout_height="@dimen/category_size"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        app:layout_constraintTop_toBottomOf="@id/kitchens">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/iv_kitchen_4"
+                            style="@style/CategoryImage"
+                            tools:src="@tools:sample/backgrounds/scenic" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_transparent_circle" />
+
+                        <TextView
+                            android:id="@+id/tv_kitchen_4"
+                            style="@style/CategoryText"
+                            android:text="@string/kashmir" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/quick_recipes_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintTop_toBottomOf="@id/kitchens_section">
+
+            <TextView
+                android:id="@+id/tv_quick_recipes"
+                style="@style/SectionHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/quick_recipes"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/quick_recipes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@id/tv_quick_recipes">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:clipToPadding="false"
+                    android:paddingBottom="@dimen/padding_large">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        app:cardCornerRadius="@dimen/radius_medium">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_quick_recipe_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/card_width"
+                                android:contentDescription="@string/recipe_image"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+
+                            <TextView
+                                android:id="@+id/tv_quick_recipe_1_title"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/iv_quick_recipe_1"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/tv_quick_recipe_1_time"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/tv_quick_recipe_1_title"
+                                tools:text="@tools:sample/lorem" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        app:cardCornerRadius="@dimen/radius_medium">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_quick_recipe_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/card_width"
+                                android:contentDescription="@string/recipe_image"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+
+                            <TextView
+                                android:id="@+id/tv_quick_recipe_2_title"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/iv_quick_recipe_2"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/tv_quick_recipe_2_time"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/tv_quick_recipe_2_title"
+                                tools:text="@tools:sample/lorem" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        app:cardCornerRadius="@dimen/radius_medium">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_quick_recipe_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/card_width"
+                                android:contentDescription="@string/recipe_image"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+
+                            <TextView
+                                android:id="@+id/tv_quick_recipe_3_title"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/iv_quick_recipe_3"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/tv_quick_recipe_3_time"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/tv_quick_recipe_3_title"
+                                tools:text="@tools:sample/lorem" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/just_for_you_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/quick_recipes_section">
+
+            <TextView
+                android:id="@+id/tv_just_for_you"
+                style="@style/SectionHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/just_for_you"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/just_for_you"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@id/tv_just_for_you">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:clipToPadding="false"
+                    android:paddingBottom="@dimen/padding_large">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        app:cardCornerRadius="@dimen/radius_medium">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_just_for_you_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/card_width"
+                                android:contentDescription="@string/recipe_image"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+
+                            <TextView
+                                android:id="@+id/tv_just_for_you_1_title"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/iv_just_for_you_1"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/tv_just_for_you_1_time"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/tv_just_for_you_1_title"
+                                tools:text="@tools:sample/lorem" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        app:cardCornerRadius="@dimen/radius_medium">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_just_for_you_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/card_width"
+                                android:contentDescription="@string/recipe_image"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+
+                            <TextView
+                                android:id="@+id/tv_just_for_you_2_title"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/iv_just_for_you_2"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/tv_just_for_you_2_time"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/tv_just_for_you_2_title"
+                                tools:text="@tools:sample/lorem" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        app:cardCornerRadius="@dimen/radius_medium">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_just_for_you_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/card_width"
+                                android:contentDescription="@string/recipe_image"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+
+                            <TextView
+                                android:id="@+id/tv_just_for_you_3_title"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/iv_just_for_you_3"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/tv_just_for_you_3_time"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/tv_just_for_you_3_title"
+                                tools:text="@tools:sample/lorem" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/make_your_meal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            app:cardCornerRadius="@dimen/radius_medium"
+            app:layout_constraintTop_toBottomOf="@id/just_for_you_section">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_make_your_meal"
+                    android:layout_width="@dimen/small_card_size"
+                    android:layout_height="@dimen/small_card_size"
+                    android:contentDescription="@string/make_your_meal_image"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+                <TextView
+                    android:id="@+id/tv_make_your_meal"
+                    android:layout_width="@dimen/no_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_large"
+                    android:fontFamily="@font/work_sans_medium"
+                    android:text="@string/make_your_meal"
+                    android:textColor="@color/text_dark"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_make_your_meal_arrow"
+                    app:layout_constraintStart_toEndOf="@id/iv_make_your_meal"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_make_your_meal_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:background="@drawable/bg_transparent_circle"
+                    android:backgroundTint="@color/primary_button_color"
+                    android:contentDescription="@string/make_your_meal_button"
+                    android:padding="@dimen/margin_small"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_make_your_meal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_make_your_meal" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>
