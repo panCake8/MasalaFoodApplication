@@ -18,4 +18,10 @@
     <string name="quick_recipes">Quick recipes</string>
     <string name="ingredient">Ingredient</string>
     <string name="steps">Steps</string>
+    <string name="popular">Popular</string>
+    <string name="description">Description</string>
+    <string name="dish_name">Rainbow Sandwich Sugarless</string>
+    <string name="dish_description">Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum</string>
+    <string name="start_preparing_btn_text">Start Preparing</string>
+
 </resources>
