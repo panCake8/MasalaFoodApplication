@@ -21,8 +21,7 @@
             <include layout="@layout/favorit_item_card" />
             <include layout="@layout/favorit_item_card" />
             <include layout="@layout/favorit_item_card" />
-            <include layout="@layout/favorit_item_card" />
-            <include layout="@layout/favorit_item_card" />
+
         </LinearLayout>
     </ScrollView>
 
