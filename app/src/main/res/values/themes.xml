@@ -115,7 +115,9 @@
         <item name="android:layout_marginBottom">@dimen/margin_large</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
     </style>
-
+    <style name="rounded_corner">
+        <item name="cornerSize">16dp</item>
+    </style>
     <!--card popular-->
     <style name="CardViewPopular" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_width">wrap_content</item>
