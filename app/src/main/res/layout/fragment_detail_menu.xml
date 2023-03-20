@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ExploreFragment">
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ImageView
+        android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="460dp"
         android:src="@drawable/photo_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:src="@drawable/gradient_image_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/backgroundImage"
         tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/arrowBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"
+        android:layout_margin="@dimen/margin_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="400dp"
