@@ -118,6 +118,7 @@
         <item name="android:layout_marginBottom">@dimen/margin_large</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
     </style>
+
     <style name="rounded_corner">
         <item name="cornerSize">16dp</item>
     </style>
@@ -177,6 +178,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/small_stroke</item>
         <item name="android:background">@color/app_bar_stroke</item>
+    </style>
     <!--Detail Menu Text Style-->
     <style name="detailMenuHeading">
         <item name="android:textStyle">bold</item>
@@ -185,6 +187,7 @@
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">@font/work_sans_medium</item>
     </style>
+
     <style name="detailMenu">
         <item name="android:layout_marginTop">@dimen/margin_large</item>
         <item name="android:textSize">@dimen/text_large</item>
