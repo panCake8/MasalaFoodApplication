@@ -116,4 +116,53 @@
     <style name="CardViewPopular.Left">
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
     </style>
+
+
+    <!--Banner Style -->
+    <style name="RoundedBanner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_large</item>
+    </style>
+
+    <!-- Text Style -->
+    <style name="SectionHeader">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/nav_selected_text_color</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_large</item>
+    </style>
+
+    <!--    Category Style-->
+    <style name="CategoryImage">
+        <item name="android:layout_width">@dimen/category_size</item>
+        <item name="android:layout_height">@dimen/category_size</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Material3.Corner.Full</item>
+    </style>
+
+    <style name="CategoryText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/work_sans_semibold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/text_on_image_color</item>
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+
+    <!--    Card Styles-->
+    <style name="CardTitle">
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+        <item name="android:paddingTop">@dimen/padding_medium</item>
+        <item name="android:textColor">@color/text_medium</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="CardTime">
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:paddingBottom">@dimen/padding_medium</item>
+        <item name="android:textColor">@color/text_light</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
 </resources>
