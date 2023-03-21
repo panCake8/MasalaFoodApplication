@@ -170,7 +170,7 @@
     <style name="AppBar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:backgroundTint">@color/tool_bar_color</item>
+        <item name="android:backgroundTint">@color/white</item>
         <item name="titleTextColor">@color/app_bar_text_color</item>
         <item name="elevation">@dimen/elevation_small</item>
         <item name="navigationIcon">@drawable/ic_arrow_back</item>
@@ -179,7 +179,7 @@
     <style name="AppBarStroke">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/small_stroke</item>
-        <item name="android:background">@color/app_bar_stroke</item>
+        <item name="android:background">@color/stroke_app_bar</item>
     </style>
     <!--Detail Menu Text Style-->
     <style name="detailMenuHeading">
