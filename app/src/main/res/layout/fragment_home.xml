@@ -417,6 +417,8 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="@dimen/card_width"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginEnd="@dimen/margin_small"
                         android:layout_marginHorizontal="@dimen/margin_small"
                         app:cardCornerRadius="@dimen/radius_medium">
 
