@@ -118,6 +118,7 @@
         <item name="android:layout_marginBottom">@dimen/margin_large</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
     </style>
+
     <style name="rounded_corner">
         <item name="cornerSize">16dp</item>
     </style>
@@ -128,7 +129,6 @@
         <item name="android:layout_marginBottom">@dimen/margin_medium</item>
         <item name="android:backgroundTint">@color/white</item>
         <item name="shapeAppearanceOverlay">@style/CardRadius</item>
-        <item name="android:layout_width">@dimen/no_width</item>
     </style>
     <!--card radius-->
     <style name="CardRadius">
@@ -139,7 +139,12 @@
     <style name="ImageKitchenDetails">
         <item name="android:layout_height">@dimen/image_kitchen_details</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:scaleType">fitXY</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="ImageCurve">
+        <item name="cornerSizeTopRight">4%</item>
+        <item name="cornerSizeTopLeft">4%</item>
     </style>
 
     <!--kitchen text -->
@@ -147,7 +152,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
-        <item name="android:layout_marginStart">@dimen/kitchen_title_margin</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_gravity">start</item>
         <item name="android:textSize">@dimen/text_small</item>
     </style>
 
@@ -162,6 +168,8 @@
         <item name="android:textColor">@color/text_light</item>
         <item name="android:fontFamily">@font/work_sans</item>
         <item name="android:layout_marginBottom">@dimen/margin_small</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="AppBar">
@@ -177,6 +185,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/small_stroke</item>
         <item name="android:background">@color/app_bar_stroke</item>
+    </style>
     <!--Detail Menu Text Style-->
     <style name="detailMenuHeading">
         <item name="android:textStyle">bold</item>
@@ -185,6 +194,7 @@
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">@font/work_sans_medium</item>
     </style>
+
     <style name="detailMenu">
         <item name="android:layout_marginTop">@dimen/margin_large</item>
         <item name="android:textSize">@dimen/text_large</item>
