@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui
 
 
 
-
 import android.content.res.ColorStateList
 import android.util.TypedValue
 import android.view.LayoutInflater

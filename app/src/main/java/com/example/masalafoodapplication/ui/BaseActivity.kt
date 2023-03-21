@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
@@ -64,8 +63,7 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
-        setFragment(DetailsKitchenFragment(), SetFragmentType.ADD)
-        binding.navBar.visibility = View.GONE
+        setFragment(HomeFragment(), SetFragmentType.ADD)
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType) {
@@ -77,8 +75,7 @@ class BaseActivity : AppCompatActivity() {
 
     private fun addFragment(fragment: Fragment) {
         supportFragmentManager.commit {
-            add(binding.fragmentContainer.id, fragment)
-            setReorderingAllowed(true)
+            replace(binding.fragmentContainer.id, fragment)
         }
     }
 
@@ -92,4 +89,5 @@ class BaseActivity : AppCompatActivity() {
     companion object {
         private const val CSV_NAME = "indian_food.csv"
     }
+
 }
