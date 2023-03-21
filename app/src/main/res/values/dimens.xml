@@ -20,6 +20,7 @@
 
     <dimen name="app_bar_text">22sp</dimen>
     <dimen name="text_large">16sp</dimen>
+    <dimen name="text_VLarge">20sp</dimen>
     <dimen name="text_small">12sp</dimen>
     <dimen name="text_medium">14sp</dimen>
 
