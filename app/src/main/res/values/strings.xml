@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MasalaFoodApplication</string>
     <string name="kitchens">Kitchens</string>
-    <string name="find_your_favourite_food">Find Your \nFavorite Food</string>
+    <string name="find_your_favourite_food">Find Your Favorite Food</string>
     <string name="home">Home</string>
     <string name="explore">Explore</string>
     <string name="favourite">Favourite</string>
@@ -18,23 +18,6 @@
     <string name="quick_recipes">Quick recipes</string>
     <string name="ingredient">Ingredient</string>
     <string name="steps">Steps</string>
-    <string name="img_description">logo</string>
-    <string name="required_ingredient">Required Ingredient:</string>
-    <string name="start_preparing_your_meal_with_us">Start preparing your meal with us:</string>
-    <string name="icon_arrow_back">icon_arrow_back</string>
-    <string name="image_of_indian_food">Image of Indian Food</string>
-    <string name="history_of_indian_food">History of Indian Food</string>
-    <string name="filter_button">Filter Button</string>
-    <string name="asian">Asian</string>
-    <string name="arabian">Arabian</string>
-    <string name="indian">Indian</string>
-    <string name="kashmir">Kashmir</string>
-    <string name="recipe_image">Image representing the recipe</string>
-    <string name="make_your_meal">Make your own indian meal</string>
-    <string name="make_your_meal_image">Make your meal Image</string>
-    <string name="make_your_meal_button">Make your meal button</string>
-    <string name="history_of_indian_cuisine">History of indian cuisine</string>
-    <string name="menu_details">Indian cuisine dates back over 5000 years. Each region has its own traditions, religions and culture that influence its food. Hindus tend to be vegetarian and Muslims tend to have meat dishes, although pork is forbidden. Indian food has been influenced by Mongolian, Persian and Chinese cuisine, among others. The common thread throughout the centuries remains the distinct mixing of spices that invariably give Indian cuisine its flavor and aroma.</string>
-    <string name="asian_kitchen">Asian Kitchen</string>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
