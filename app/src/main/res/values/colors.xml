@@ -26,4 +26,5 @@
 
     <color name="white">#FFFFFFFF</color>
     <color name="black">#121212</color>
+    <color name="text_tool_bar">#1C1B1F</color>
 </resources>

@@ -1,14 +1,488 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SuggestionsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/sug_apl_appBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/white"
+        android:layout_height="?android:actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/sug_tb_topAppBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Surface"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/work_sans_semibold"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_back_black"
+            app:title="@string/suggestions" />
 
-</FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sug_apl_appBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/sug_iv_bagImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_static_height"
+                android:scaleType="centerInside"
+                android:src="@drawable/chief_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sug_tv_breakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textView.breakfast"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sug_iv_bagImage" />
+            <HorizontalScrollView
+                android:id="@+id/sug_hsv_breakfast"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scrollbars="none"
+                app:layout_constraintStart_toStartOf="@id/sug_tv_breakfast"
+                app:layout_constraintTop_toBottomOf="@id/sug_tv_breakfast"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sug_cv_break_1"
+                        android:layout_width="@dimen/suggestions_card_width"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/radius_medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/sug_iv_break_imageFood_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/suggestions_card_image_height"
+                                android:scaleType="fitXY"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+                            <TextView
+                                android:id="@+id/sug_tv_break_nameFood_1"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_iv_break_imageFood_1"
+                                tools:text="@tools:sample/lorem" />
+                            <TextView
+                                android:id="@+id/sug_tv_break_details_1"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_tv_break_nameFood_1"
+                                tools:text="@tools:sample/lorem" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sug_cv_break_2"
+                        android:layout_width="@dimen/suggestions_card_width"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/radius_medium"
+                        android:layout_marginStart="@dimen/margin_small"
+                        app:layout_constraintStart_toEndOf="@id/sug_cv_break_1"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/sug_iv_break_imageFood_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/suggestions_card_image_height"
+                                android:scaleType="fitXY"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+                            <TextView
+                                android:id="@+id/sug_tv_break_nameFood_2"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_iv_break_imageFood_2"
+                                tools:text="@tools:sample/lorem" />
+                            <TextView
+                                android:id="@+id/sug_tv_break_details_2"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_tv_break_nameFood_2"
+                                tools:text="@tools:sample/lorem" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sug_cv_break_3"
+                        android:layout_width="@dimen/suggestions_card_width"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/radius_medium"
+                        android:layout_marginStart="@dimen/margin_small"
+                        app:layout_constraintStart_toEndOf="@id/sug_cv_break_2"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/sug_iv_break_imageFood_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/suggestions_card_image_height"
+                                android:scaleType="fitXY"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+                            <TextView
+                                android:id="@+id/sug_tv_break_nameFood_3"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_iv_break_imageFood_3"
+                                tools:text="@tools:sample/lorem" />
+                            <TextView
+                                android:id="@+id/sug_tv_break_details_3"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_tv_break_nameFood_3"
+                                tools:text="@tools:sample/lorem" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/sug_tv_dinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textView.dinner"
+                app:layout_constraintStart_toStartOf="@id/sug_tv_breakfast"
+                app:layout_constraintTop_toBottomOf="@id/sug_hsv_breakfast" />
+            <HorizontalScrollView
+                android:id="@+id/sug_hsv_dinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scrollbars="none"
+                app:layout_constraintStart_toStartOf="@id/sug_tv_dinner"
+                app:layout_constraintTop_toBottomOf="@id/sug_tv_dinner"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sug_cv_dinner_1"
+                        android:layout_width="@dimen/suggestions_card_width"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/radius_medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/sug_iv_dinner_imageFood_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/suggestions_card_image_height"
+                                android:scaleType="fitXY"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+                            <TextView
+                                android:id="@+id/sug_tv_dinner_nameFood_1"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_iv_dinner_imageFood_1"
+                                tools:text="@tools:sample/lorem" />
+                            <TextView
+                                android:id="@+id/sug_tv_dinner_details_1"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_tv_dinner_nameFood_1"
+                                tools:text="@tools:sample/lorem" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sug_cv_dinner_2"
+                        android:layout_width="@dimen/suggestions_card_width"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/radius_medium"
+                        android:layout_marginStart="@dimen/margin_small"
+                        app:layout_constraintStart_toEndOf="@id/sug_cv_dinner_1"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/sug_iv_dinner_imageFood_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/suggestions_card_image_height"
+                                android:scaleType="fitXY"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+                            <TextView
+                                android:id="@+id/sug_tv_dinner_nameFood_2"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_iv_dinner_imageFood_2"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/sug_tv_dinner_details_2"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_tv_dinner_nameFood_2"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:text="@tools:sample/lorem" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sug_cv_dinner_3"
+                        android:layout_width="@dimen/suggestions_card_width"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/radius_medium"
+                        android:layout_marginStart="@dimen/margin_small"
+                        app:layout_constraintStart_toEndOf="@id/sug_cv_dinner_2"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/sug_iv_dinner_imageFood_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/suggestions_card_image_height"
+                                android:scaleType="fitXY"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+                            <TextView
+                                android:id="@+id/sug_tv_dinner_nameFood_3"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_iv_dinner_imageFood_3"
+                                tools:text="@tools:sample/lorem" />
+                            <TextView
+                                android:id="@+id/sug_tv_dinner_details_3"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_tv_dinner_nameFood_3"
+                                tools:text="@tools:sample/lorem" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/sug_tv_lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textView.lunch"
+                app:layout_constraintStart_toStartOf="@id/sug_tv_breakfast"
+                app:layout_constraintTop_toBottomOf="@id/sug_hsv_dinner" />
+            <HorizontalScrollView
+                android:id="@+id/sug_hsv_lunch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scrollbars="none"
+                app:layout_constraintStart_toStartOf="@id/sug_tv_lunch"
+                app:layout_constraintTop_toBottomOf="@id/sug_tv_lunch"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sug_cv_lunch_1"
+                        android:layout_width="@dimen/suggestions_card_width"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/radius_medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/sug_iv_lunch_imageFood_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/suggestions_card_image_height"
+                                android:scaleType="fitXY"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+                            <TextView
+                                android:id="@+id/sug_tv_lunch_nameFood_1"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_iv_lunch_imageFood_1"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/sug_tv_lunch_details_1"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_tv_lunch_nameFood_1"
+                                tools:text="@tools:sample/lorem" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sug_cv_lunch_2"
+                        android:layout_width="@dimen/suggestions_card_width"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/radius_medium"
+                        android:layout_marginStart="@dimen/margin_small"
+                        app:layout_constraintStart_toEndOf="@id/sug_cv_lunch_1"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/sug_iv_lunch_imageFood_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/suggestions_card_image_height"
+                                android:scaleType="fitXY"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+                            <TextView
+                                android:id="@+id/sug_tv_lunch_nameFood_2"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_iv_lunch_imageFood_2"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/sug_tv_lunch_details_2"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_tv_lunch_nameFood_2"
+                                tools:layout_editor_absoluteX="0dp"
+                                tools:text="@tools:sample/lorem" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/sug_cv_lunch_3"
+                        android:layout_width="@dimen/suggestions_card_width"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/radius_medium"
+                        android:layout_marginStart="@dimen/margin_small"
+                        app:layout_constraintStart_toEndOf="@id/sug_cv_lunch_2"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/sug_iv_lunch_imageFood_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/suggestions_card_image_height"
+                                android:scaleType="fitXY"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@tools:sample/backgrounds/scenic" />
+                            <TextView
+                                android:id="@+id/sug_tv_lunch_nameFood_3"
+                                style="@style/CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_iv_lunch_imageFood_3"
+                                tools:text="@tools:sample/lorem" />
+
+                            <TextView
+                                android:id="@+id/sug_tv_lunch_details_3"
+                                style="@style/CardTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/padding_medium"
+                                app:layout_constraintTop_toBottomOf="@id/sug_tv_lunch_nameFood_3"
+                                tools:text="@tools:sample/lorem" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </HorizontalScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
