@@ -20,6 +20,7 @@
 
     <dimen name="app_bar_text">22sp</dimen>
     <dimen name="text_large">16sp</dimen>
+    <dimen name="text_VLarge">20sp</dimen>
     <dimen name="text_small">12sp</dimen>
     <dimen name="text_medium">14sp</dimen>
 
@@ -44,4 +45,5 @@
     <dimen name="category_size">80dp</dimen>
     <dimen name="card_width">130dp</dimen>
     <dimen name="small_card_size">80dp</dimen>
+    <dimen name="details_kitchen_poster_height">188dp</dimen>
 </resources>

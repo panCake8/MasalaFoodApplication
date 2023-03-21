@@ -23,9 +23,8 @@
     <color name="line_color">#5EFF1747</color>
     <color name="chips_stroke_color">#DEFF1747</color>
     <color name="delete_icon_color">#FF1747</color>
+    <color name="stroke_app_bar">#5EFFFFFF</color>
 
     <color name="white">#FFFFFFFF</color>
     <color name="black">#121212</color>
-    <color name="tool_bar_color">#FAFAFA</color>
-    <color name="app_bar_stroke">#14121212</color>
 </resources>
