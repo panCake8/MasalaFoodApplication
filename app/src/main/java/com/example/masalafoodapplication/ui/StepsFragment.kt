@@ -1,8 +1,6 @@
 package com.example.masalafoodapplication.ui
 
 
-
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.databinding.FragmentStepsBinding

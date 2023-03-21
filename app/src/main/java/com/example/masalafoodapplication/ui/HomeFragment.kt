@@ -22,6 +22,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
 
+
     override fun setup() {
         bindRandomKitchenImages()
         bindQuickRecipesData()
@@ -108,6 +109,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun TextView.setPreparationTime(time: Int) {
         this.text = "Prep Time: $time mins"
+
     }
 
 }
