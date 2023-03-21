@@ -14,6 +14,6 @@ object DataManager {
 
     fun search(value: String) =
         foodsList.filter {
-            it.recipeName == value
+            it.recipeName == value || it.cleaned == value
         }
 }
