@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_medium"
         android:navigationIcon="@drawable/ic_arrow_back"
-        android:title="@string/breakfast"
+        android:title="suggestion filter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/Scroll_view_body"/>
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:src="@drawable/chief_in_kitchen_image"
+                android:src="@drawable/chief_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -65,21 +65,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView">
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip1"
                     style="@style/Chips_filter"
                     android:text="Chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip2"
                     style="@style/Chips_filter"
                     android:text="Koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip3"
                     style="@style/Chips_filter"
                     android:text="Onion Salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip4"
                     style="@style/Chips_filter"
                     android:text="Easy Sprouts"
                     app:checkedIconEnabled="false" />
@@ -111,21 +115,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView2">
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip5"
                     style="@style/Chips_filter"
                     android:text="Chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip6"
                     style="@style/Chips_filter"
                     android:text="Koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip7"
                     style="@style/Chips_filter"
                     android:text="Onion Salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip8"
                     style="@style/Chips_filter"
                     android:text="Easy Sprouts"
                     app:checkedIconEnabled="false" />
@@ -157,21 +165,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip9"
                     style="@style/Chips_filter"
                     android:text="Chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip10"
                     style="@style/Chips_filter"
                     android:text="Koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip11"
                     style="@style/Chips_filter"
                     android:text="Onion Salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip12"
                     style="@style/Chips_filter"
                     android:text="Easy Sprouts"
                     app:checkedIconEnabled="false" />
