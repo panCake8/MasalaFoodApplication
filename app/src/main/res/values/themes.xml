@@ -178,7 +178,6 @@
         <item name="android:layout_height">@dimen/small_stroke</item>
         <item name="android:background">@color/app_bar_stroke</item>
     </style>
-
     <!--Detail Menu Text Style-->
     <style name="detailMenuHeading">
         <item name="android:textStyle">bold</item>
@@ -240,5 +239,36 @@
         <item name="android:textColor">@color/text_light</item>
         <item name="android:textSize">@dimen/text_small</item>
     </style>
+
+
+
+    <style name="CardViewRecipes">
+        <item name="android:layout_width"> 0dp</item>
+        <item name="android:layout_height"> wrap_content</item>
+        <item name="android:layout_weight"> 1</item>
+        <item name="cardCornerRadius"> 12dp</item>
+    </style>
+
+    <style name="CardViewImageRecipes">
+        <item name="android:layout_width"> match_parent</item>
+        <item name="android:layout_height"> 164dp</item>
+
+    </style>
+
+    <style name="CardViewNameRecipes">
+        <item name="android:layout_width"> wrap_content</item>
+        <item name="android:layout_height"> wrap_content</item>
+        <item name="android:textColor"> @color/text_medium</item>
+        <item name="android:textSize"> @dimen/text_small</item>
+        <item name="android:fontFamily"> @font/work_sans</item>
+        <item name="android:layout_margin"> 8dp</item>
+
+    </style>
+
+
+
+
+
+
 
 </resources>

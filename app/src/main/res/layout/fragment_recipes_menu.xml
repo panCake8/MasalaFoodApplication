@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
     <LinearLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -34,11 +34,9 @@
 
     </LinearLayout>
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:paddingRight="16dp"
         android:paddingLeft="16dp"
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
@@ -57,75 +55,94 @@
                 android:orientation="horizontal"
                 >
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="220dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="12dp"
+
+                    style="@style/CardViewRecipes"
                     >
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="164dp"
-                        android:background="@drawable/quick_recipes_image"
+                        android:id="@+id/image1"
+                        style="@style/CardViewImageRecipes"
+                        tools:src="@drawable/chief_in_kitchen_image"
+
                         />
+                    <TextView
+                        android:id="@+id/recipe_name1"
+                        tools:text="name"
+                        style="@style/CardViewNameRecipes"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/text_medium"
-                        android:textSize="@dimen/text_small"
-                        android:fontFamily="@font/work_sans"
-                        android:layout_margin="8dp"
-                        android:text="Anwana  " />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_small"
-                        android:fontFamily="@font/work_sans"
-                        android:textColor="@color/text_light"
-                        android:text="prepare in 15m"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginBottom="8dp"
                         />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="8dp"
+
+                            >
+                            <TextView
+                                android:id="@+id/prepareTime1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/work_sans"
+                                android:textColor="@color/text_light"
+                                tools:text="15m"
+                                android:layout_marginBottom="8dp"
+                                />
+                            <ImageView
+                                android:layout_width="16sp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/prepare_time"
+                                android:layout_marginStart="8dp"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="220dp"
-                    android:layout_weight="1"
+                    style="@style/CardViewRecipes"
                     android:layout_marginStart="16dp"
-                    app:cardCornerRadius="12dp">
+                    >
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="164dp"
-                            android:background="@drawable/quick_recipes_image"
+                            android:id="@+id/image2"
+                            style="@style/CardViewImageRecipes"
+                            tools:src="@drawable/chief_in_kitchen_image"
                             />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/text_medium"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:layout_margin="8dp"
-                            android:text="Anwana  " />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:textColor="@color/text_light"
-                            android:text="prepare in 15m"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
+                            android:id="@+id/recipe_name2"
+                            tools:text="name"
+                            style="@style/CardViewNameRecipes"
                             />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="8dp"
+
+                            >
+                            <TextView
+                                android:id="@+id/prepareTime2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/work_sans"
+                                android:textColor="@color/text_light"
+                                tools:text="15m"
+                                android:layout_marginBottom="8dp"
+                                />
+                            <ImageView
+                                android:layout_width="16sp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/prepare_time"
+                                android:layout_marginStart="8dp"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -135,75 +152,92 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="220dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="12dp"
+                    style="@style/CardViewRecipes"
+
                     >
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="164dp"
-                            android:background="@drawable/quick_recipes_image"
+                            android:id="@+id/image3"
+                            style="@style/CardViewImageRecipes"
+                            tools:src="@drawable/chief_in_kitchen_image"
                             />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/text_medium"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:layout_margin="8dp"
-                            android:text="Anwana  " />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:textColor="@color/text_light"
-                            android:text="prepare in 15m"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
+                            android:id="@+id/recipe_name3"
+                            tools:text="name"
+                            style="@style/CardViewNameRecipes"
                             />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="8dp"
+
+                            >
+                            <TextView
+                                android:id="@+id/prepareTime3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/work_sans"
+                                android:textColor="@color/text_light"
+                                tools:text="15m"
+                                android:layout_marginBottom="8dp"
+                                />
+                            <ImageView
+                                android:layout_width="16sp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/prepare_time"
+                                android:layout_marginStart="8dp"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="220dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    app:cardCornerRadius="12dp">
+                    style="@style/CardViewRecipes"
+                    android:layout_marginStart="16dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="164dp"
-                            android:background="@drawable/quick_recipes_image"
+                            android:id="@+id/image4"
+                            style="@style/CardViewImageRecipes"
+                            tools:src="@drawable/chief_in_kitchen_image"
                             />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/text_medium"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:layout_margin="8dp"
-                            android:text="Anwana  " />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:textColor="@color/text_light"
-                            android:text="prepare in 15m"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
+                            android:id="@+id/recipe_name4"
+                            tools:text="name"
+                            style="@style/CardViewNameRecipes"
                             />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="8dp"
+
+                            >
+                            <TextView
+                                android:id="@+id/prepareTime4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/work_sans"
+                                android:textColor="@color/text_light"
+                                tools:text="15m"
+                                android:layout_marginBottom="8dp"
+                                />
+                            <ImageView
+                                android:layout_width="16sp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/prepare_time"
+                                android:layout_marginStart="8dp"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -213,75 +247,92 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="220dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="12dp"
+                    style="@style/CardViewRecipes"
+
                     >
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="164dp"
-                            android:background="@drawable/quick_recipes_image"
+                            android:id="@+id/image5"
+                            style="@style/CardViewImageRecipes"
+                            tools:src="@drawable/chief_in_kitchen_image"
                             />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/text_medium"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:layout_margin="8dp"
-                            android:text="Anwana  " />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:textColor="@color/text_light"
-                            android:text="prepare in 15m"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
+                            android:id="@+id/recipe_name5"
+                            tools:text="name"
+                            style="@style/CardViewNameRecipes"
                             />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="8dp"
+
+                            >
+                            <TextView
+                                android:id="@+id/prepareTime5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/work_sans"
+                                android:textColor="@color/text_light"
+                                tools:text="15m"
+                                android:layout_marginBottom="8dp"
+                                />
+                            <ImageView
+                                android:layout_width="16sp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/prepare_time"
+                                android:layout_marginStart="8dp"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="220dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    app:cardCornerRadius="12dp">
+                    style="@style/CardViewRecipes"
+                    android:layout_marginStart="16dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="164dp"
-                            android:background="@drawable/quick_recipes_image"
+                            android:id="@+id/image6"
+                            style="@style/CardViewImageRecipes"
+                            tools:src="@drawable/chief_in_kitchen_image"
                             />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/text_medium"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:layout_margin="8dp"
-                            android:text="Anwana  " />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:textColor="@color/text_light"
-                            android:text="prepare in 15m"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
+                            android:id="@+id/recipe_name6"
+                            tools:text="name"
+                            style="@style/CardViewNameRecipes"
                             />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="8dp"
+
+                            >
+                            <TextView
+                                android:id="@+id/prepareTime6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/work_sans"
+                                android:textColor="@color/text_light"
+                                tools:text="15m"
+                                android:layout_marginBottom="8dp"
+                                />
+                            <ImageView
+                                android:layout_width="16sp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/prepare_time"
+                                android:layout_marginStart="8dp"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -291,75 +342,91 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="220dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="12dp"
+                    style="@style/CardViewRecipes"
                     >
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="164dp"
-                            android:background="@drawable/quick_recipes_image"
+                            android:id="@+id/image7"
+                            style="@style/CardViewImageRecipes"
+                            tools:src="@drawable/chief_in_kitchen_image"
                             />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/text_medium"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:layout_margin="8dp"
-                            android:text="Anwana  " />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:textColor="@color/text_light"
-                            android:text="prepare in 15m"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
+                            android:id="@+id/recipe_name7"
+                            tools:text="name"
+                            style="@style/CardViewNameRecipes"
                             />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="8dp"
+
+                            >
+                            <TextView
+                                android:id="@+id/prepareTime7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/work_sans"
+                                android:textColor="@color/text_light"
+                                tools:text="15m"
+                                android:layout_marginBottom="8dp"
+                                />
+                            <ImageView
+                                android:layout_width="16sp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/prepare_time"
+                                android:layout_marginStart="8dp"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="220dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    app:cardCornerRadius="12dp">
+                    style="@style/CardViewRecipes"
+                    android:layout_marginStart="16dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="164dp"
-                            android:background="@drawable/quick_recipes_image"
+                            android:id="@+id/image8"
+                            style="@style/CardViewImageRecipes"
+                            tools:src="@drawable/chief_in_kitchen_image"
                             />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/text_medium"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:layout_margin="8dp"
-                            android:text="Anwana  " />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/text_small"
-                            android:fontFamily="@font/work_sans"
-                            android:textColor="@color/text_light"
-                            android:text="prepare in 15m"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
+                            android:id="@+id/recipe_name8"
+                            tools:text="name"
+                            style="@style/CardViewNameRecipes"
                             />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="8dp"
+
+                            >
+                            <TextView
+                                android:id="@+id/prepareTime8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/work_sans"
+                                android:textColor="@color/text_light"
+                                tools:text="15m"
+                                android:layout_marginBottom="8dp"
+                                />
+                            <ImageView
+                                android:layout_width="16sp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/prepare_time"
+                                android:layout_marginStart="8dp"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
