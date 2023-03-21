@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    tools:context=".ui.HomeFragment"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -125,7 +126,7 @@
                         app:layout_constraintTop_toBottomOf="@id/kitchens">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/iv_kitchen_1"
+                            android:id="@+id/iv_kitchen_asian"
                             style="@style/CategoryImage"
                             tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -149,7 +150,7 @@
                         app:layout_constraintTop_toBottomOf="@id/kitchens">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/iv_kitchen_2"
+                            android:id="@+id/iv_kitchen_arabian"
                             style="@style/CategoryImage"
                             tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -173,7 +174,7 @@
                         app:layout_constraintTop_toBottomOf="@id/kitchens">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/iv_kitchen_3"
+                            android:id="@+id/iv_kitchen_indian"
                             style="@style/CategoryImage"
                             tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -197,7 +198,7 @@
                         app:layout_constraintTop_toBottomOf="@id/kitchens">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/iv_kitchen_4"
+                            android:id="@+id/iv_kitchen_kashmir"
                             style="@style/CategoryImage"
                             tools:src="@tools:sample/backgrounds/scenic" />
 

@@ -12,6 +12,16 @@ object DataManager {
     fun getAllFood() = foodsList
 
 
+
+    fun getRandomQuickRecipes(limit: Int) = foodsList.filter {
+        it.timeMinutes < 30
+    }.shuffled().take(limit)
+
+    fun getRandomFoods(limit: Int) = foodsList.shuffled().take(limit)
+
+    fun getRandomImageUrlByCuisine(cuisine: String) =
+        foodsList.filter { it.Cuisine == cuisine }.shuffled().take(1).map { it.imageUrl }.first()
+
     fun search(value: String) =
         foodsList.filter {
             it.recipeName == value || it.cleaned == value
