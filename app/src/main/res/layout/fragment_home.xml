@@ -38,7 +38,10 @@
                 android:id="@+id/iv_filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:contentDescription="@string/filter_button"
+                android:focusable="true"
+                android:padding="@dimen/padding_large"
                 android:src="@drawable/ic_filter_list"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -211,7 +214,9 @@
                     </FrameLayout>
 
                 </LinearLayout>
+
             </HorizontalScrollView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -291,8 +296,7 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="@dimen/card_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_large"
-                        android:layout_marginEnd="@dimen/margin_small"
+                        android:layout_marginHorizontal="@dimen/margin_small"
                         app:cardCornerRadius="@dimen/radius_medium">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -328,17 +332,14 @@
                                 app:layout_constraintTop_toBottomOf="@id/tv_quick_recipe_2_title"
                                 tools:text="@tools:sample/lorem" />
 
-
                         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="@dimen/card_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_large"
-                        android:layout_marginEnd="@dimen/margin_small"
+                        android:layout_marginHorizontal="@dimen/margin_small"
                         app:cardCornerRadius="@dimen/radius_medium">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -374,9 +375,7 @@
                                 app:layout_constraintTop_toBottomOf="@id/tv_quick_recipe_3_title"
                                 tools:text="@tools:sample/lorem" />
 
-
                         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -420,6 +419,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_large"
                         android:layout_marginEnd="@dimen/margin_small"
+                        android:layout_marginHorizontal="@dimen/margin_small"
                         app:cardCornerRadius="@dimen/radius_medium">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -462,8 +462,7 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="@dimen/card_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_large"
-                        android:layout_marginEnd="@dimen/margin_small"
+                        android:layout_marginHorizontal="@dimen/margin_small"
                         app:cardCornerRadius="@dimen/radius_medium">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -499,17 +498,14 @@
                                 app:layout_constraintTop_toBottomOf="@id/tv_just_for_you_2_title"
                                 tools:text="@tools:sample/lorem" />
 
-
                         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="@dimen/card_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_large"
-                        android:layout_marginEnd="@dimen/margin_small"
+                        android:layout_marginHorizontal="@dimen/margin_small"
                         app:cardCornerRadius="@dimen/radius_medium">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -545,15 +541,14 @@
                                 app:layout_constraintTop_toBottomOf="@id/tv_just_for_you_3_title"
                                 tools:text="@tools:sample/lorem" />
 
-
                         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
                     </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout>
 
             </HorizontalScrollView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.card.MaterialCardView
@@ -600,7 +595,9 @@
                     android:layout_marginEnd="@dimen/margin_large"
                     android:background="@drawable/bg_transparent_circle"
                     android:backgroundTint="@color/primary_button_color"
+                    android:clickable="true"
                     android:contentDescription="@string/make_your_meal_button"
+                    android:focusable="true"
                     android:padding="@dimen/margin_small"
                     android:src="@drawable/ic_arrow_forward"
                     app:layout_constraintBottom_toBottomOf="@id/tv_make_your_meal"
