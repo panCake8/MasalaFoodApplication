@@ -12,7 +12,7 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/details_toolbar"
         style="@style/AppBar"
-        app:title="@string/asian" />
+        app:title="@string/kitchens" />
 
     <View
         android:id="@+id/toolbar_stroke"
