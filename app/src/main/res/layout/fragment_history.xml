@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_history_scene"
     tools:context=".ui.HistoryFragment">
+
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
