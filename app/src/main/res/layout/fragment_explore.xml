@@ -39,12 +39,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/root_card_view1"
-                style="@style/CardSearch">
+                style="@style/CardSearch"
+                app:cardCornerRadius="@dimen/radius_large">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -69,6 +69,10 @@
                     <TextView
                         android:id="@+id/description_tv1"
                         style="@style/BodySearch"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food1"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name1"
@@ -83,7 +87,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/root_card_view2"
-                style="@style/CardSearch">
+                style="@style/CardSearch"
+                app:cardCornerRadius="@dimen/radius_large">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -108,6 +113,10 @@
                     <TextView
                         android:id="@+id/description_tv2"
                         style="@style/BodySearch"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food2"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name2"
@@ -121,7 +130,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/root_card_view3"
-                style="@style/CardSearch">
+                style="@style/CardSearch"
+                app:cardCornerRadius="@dimen/radius_large">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -146,6 +156,10 @@
                     <TextView
                         android:id="@+id/description_tv3"
                         style="@style/BodySearch"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food3"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name3"
@@ -159,7 +173,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/root_card_view4"
-                style="@style/CardSearch">
+                style="@style/CardSearch"
+                app:cardCornerRadius="@dimen/radius_large">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -184,6 +199,10 @@
                     <TextView
                         android:id="@+id/description_tv4"
                         style="@style/BodySearch"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food4"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name4"
@@ -197,7 +216,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/root_card_view5"
-                style="@style/CardSearch">
+                style="@style/CardSearch"
+                app:cardCornerRadius="@dimen/radius_large">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -222,6 +242,10 @@
                     <TextView
                         android:id="@+id/description_tv5"
                         style="@style/BodySearch"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food5"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name5"
@@ -235,7 +259,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/root_card_view6"
-                style="@style/CardSearch">
+                style="@style/CardSearch"
+                app:cardCornerRadius="@dimen/radius_large">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -259,6 +284,10 @@
 
                     <TextView
                         android:id="@+id/description_tv6"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
                         style="@style/BodySearch"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food6"
