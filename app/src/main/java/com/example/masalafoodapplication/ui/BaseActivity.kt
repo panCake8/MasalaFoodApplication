@@ -63,7 +63,7 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
-        setFragment(DetailsKitchenFragment(), SetFragmentType.ADD)
+        setFragment(FoodDetailFragment(), SetFragmentType.ADD)
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType) {

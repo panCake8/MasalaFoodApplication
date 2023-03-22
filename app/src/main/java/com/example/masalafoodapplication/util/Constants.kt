@@ -17,5 +17,7 @@ object Constants {
     const val ARAB = "Arab"
     const val ASIAN = "Asian"
     const val INDIAN = "Indian"
+    const val STEPS = "Steps"
     const val KASHMIRI = "Kashmiri"
+    const val INGREDIENT = "Ingredient"
 }
