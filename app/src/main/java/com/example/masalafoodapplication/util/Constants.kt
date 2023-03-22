@@ -13,6 +13,7 @@ object Constants {
         const val COUNT = 8
     }
 
+    const val HISTORY = "history"
     const val KEY = "KEY"
     const val ARAB = "Arab"
     const val ASIAN = "Asian"

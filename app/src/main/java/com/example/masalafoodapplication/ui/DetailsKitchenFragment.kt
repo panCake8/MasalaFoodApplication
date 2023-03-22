@@ -123,7 +123,7 @@ class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKit
 
     override fun onClicks() {
         binding.detailsToolbar.setNavigationOnClickListener {
-            requireActivity().onBackPressed()
+            onBack()
         }
     }
 

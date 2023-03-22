@@ -30,13 +30,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onClicks() {
         binding.apply {
-//            ivIndianFood.setOnClickListener {
-//                parentFragmentManager.commit {
-//                    replace(R.id.fragment_container)
-//                        .addToBackStack()
-//                    setReorderingAllowed(true)
-//                }
-//            }
+            ivIndianFood.setOnClickListener {
+                transitionToWithBackStack(HistoryFragment(), Constants.HISTORY)
+            }
             ivKitchenAsian.setOnClickListener {
                 val food = DataManager.getAllFood().filter {
                     it.cuisine ==

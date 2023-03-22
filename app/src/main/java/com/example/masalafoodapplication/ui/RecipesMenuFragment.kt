@@ -18,7 +18,7 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
 
 
     override fun setup() {
-        list= DataManager.showMostQuickRecipes()
+        list = DataManager.showMostQuickRecipes()
         addImage()
         addPrepareTime()
         addRecipesName()
@@ -26,7 +26,7 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
 
     override fun onClicks() {
         binding.icArrowBack.setOnClickListener {
-            requireActivity().onBackPressed()
+            onBack()
         }
     }
 
