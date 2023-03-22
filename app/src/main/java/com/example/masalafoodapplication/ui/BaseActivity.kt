@@ -16,9 +16,6 @@ import java.io.InputStreamReader
 
 
 class BaseActivity : AppCompatActivity() {
-    private val homeFragment = HomeFragment()
-    private val exploreFragment = ExploreFragment()
-    private val favouriteFragment = FavouriteFragment()
     private lateinit var binding: ActivityBaseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,15 +35,15 @@ class BaseActivity : AppCompatActivity() {
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    setFragment(homeFragment, SetFragmentType.REPLACE)
+                    setFragment(HomeFragment(), SetFragmentType.REPLACE)
                     true
                 }
                 R.id.nav_explore -> {
-                    setFragment(exploreFragment, SetFragmentType.REPLACE)
+                    setFragment(ExploreFragment(), SetFragmentType.REPLACE)
                     true
                 }
                 R.id.nav_favourite -> {
-                    setFragment(favouriteFragment, SetFragmentType.REPLACE)
+                    setFragment(FavouriteFragment(), SetFragmentType.REPLACE)
                     true
                 }
                 else -> false
@@ -66,7 +63,7 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
-        setFragment(homeFragment, SetFragmentType.ADD)
+        setFragment(HomeFragment(), SetFragmentType.ADD)
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType) {
@@ -78,8 +75,7 @@ class BaseActivity : AppCompatActivity() {
 
     private fun addFragment(fragment: Fragment) {
         supportFragmentManager.commit {
-            add(binding.fragmentContainer.id, fragment)
-            setReorderingAllowed(true)
+            replace(binding.fragmentContainer.id, fragment)
         }
     }
 
@@ -93,4 +89,5 @@ class BaseActivity : AppCompatActivity() {
     companion object {
         private const val CSV_NAME = "indian_food.csv"
     }
+
 }

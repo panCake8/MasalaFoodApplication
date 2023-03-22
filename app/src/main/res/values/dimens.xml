@@ -6,6 +6,9 @@
 
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_large">16dp</dimen>
+    <dimen name="margin_large_x">24dp</dimen>
+    <dimen name="margin_large_xx">49dp</dimen>
+
     <dimen name="margin_medium">8dp</dimen>
 
     <dimen name="padding_large">16dp</dimen>
@@ -15,7 +18,7 @@
     <dimen name="no_height">0dp</dimen>
     <dimen name="no_width">0dp</dimen>
 
-    <dimen name="app_bar_text">18sp</dimen>
+    <dimen name="app_bar_text">22sp</dimen>
     <dimen name="text_large">16sp</dimen>
     <dimen name="text_VLarge">20sp</dimen>
     <dimen name="text_small">12sp</dimen>
@@ -30,4 +33,17 @@
     <dimen name="card_scroll_radius">48dp</dimen>
 
     <dimen name="elevation_small">8dp</dimen>
+
+    <dimen name="image_kitchen_details">128dp</dimen>
+    <dimen name="kitchen_title_margin">10dp</dimen>
+    <dimen name="no_elevation">0dp</dimen>
+    <dimen name="text_x_large">24sp</dimen>
+    <dimen name="text_extra_large">32sp</dimen>
+    <dimen name="padding_extra_large">32dp</dimen>
+    <dimen name="margin_extra_large">32dp</dimen>
+    <dimen name="banner_height">150dp</dimen>
+    <dimen name="category_size">80dp</dimen>
+    <dimen name="card_width">130dp</dimen>
+    <dimen name="small_card_size">80dp</dimen>
+    <dimen name="details_kitchen_poster_height">188dp</dimen>
 </resources>

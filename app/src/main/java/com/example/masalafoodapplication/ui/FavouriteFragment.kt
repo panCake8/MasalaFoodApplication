@@ -20,5 +20,4 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {
 
     }
 
-
 }
