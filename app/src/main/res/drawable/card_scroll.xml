@@ -3,6 +3,6 @@
     android:shape="rectangle">
     <solid android:color="@color/white" />
     <corners
-        android:topLeftRadius="@dimen/card_scroll_radius"
-        android:topRightRadius="@dimen/card_scroll_radius" />
+        android:topLeftRadius="16dp"
+        android:topRightRadius="16dp" />
 </shape>
