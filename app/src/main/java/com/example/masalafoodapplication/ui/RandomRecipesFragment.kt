@@ -37,24 +37,24 @@ class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>() {
 
 
     private fun addImage() {
-        binding.apply {
-            listOf(
-                image1, image2, image3, image4
-            ).forEachIndexed { index, imageView ->
-                setImages(list[index].imageUrl, imageView)
-            }
-        }
+//        binding.apply {
+//            listOf(
+//                image1, image2, image3, image4
+//            ).forEachIndexed { index, imageView ->
+//                setImages(list[index].imageUrl, imageView)
+//            }
+//        }
 
     }
 
     private fun addRecipesName() {
-        binding.apply {
-            listOf(
-                recipeName1, recipeName2, recipeName3, recipeName4
-            ).forEachIndexed { index, textView ->
-                setRecipesNames(list[index].recipeName, textView)
-            }
-        }
+//        binding.apply {
+//            listOf(
+//                recipeName1, recipeName2, recipeName3, recipeName4
+//            ).forEachIndexed { index, textView ->
+//                setRecipesNames(list[index].recipeName, textView)
+//            }
+//        }
     }
 
     private fun setRecipesNames(name: String, textView: TextView) {
@@ -63,13 +63,13 @@ class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>() {
 
     @SuppressLint("SetTextI18n")
     private fun addPrepareTime() {
-        binding.apply {
-            listOf(
-                prepareTime1, prepareTime2, prepareTime3, prepareTime4
-            ).forEachIndexed { index, textView ->
-                setPrepareTimes(list[index].timeMinutes, textView)
-            }
-        }
+//        binding.apply {
+//            listOf(
+//                prepareTime1, prepareTime2, prepareTime3, prepareTime4
+//            ).forEachIndexed { index, textView ->
+//                setPrepareTimes(list[index].timeMinutes, textView)
+//            }
+//        }
     }
 
     private fun setPrepareTimes(time: Int, textView: TextView) {
