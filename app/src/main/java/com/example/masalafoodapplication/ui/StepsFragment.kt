@@ -8,10 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentStepsBinding
+import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.kiko.fillapp.data.domain.Food
 
@@ -22,24 +23,27 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
         get() = FragmentStepsBinding::inflate
 
     override fun setup() {
-        getSteps(DataManager.getAllFood()[0])
+        parentFragmentManager.setFragmentResultListener(
+            Constants.FOOD_DETAILS,
+            this
+        ) { _, result ->
+            getSteps(result.getParcelable(Constants.FOOD_DETAILS))
+        }
     }
 
     override fun onClicks() {
         binding.topAppBar.setNavigationOnClickListener {
-            requireActivity().onBackPressed()
+            onBack()
         }
         binding.finishBtn.setOnClickListener {
-            parentFragmentManager.commit {
-                remove(StepsFragment())
-            }
+            parentFragmentManager.popBackStack(Constants.FOOD_DETAILS, POP_BACK_STACK_INCLUSIVE)
         }
     }
 
-    private fun getSteps(foods: Food) {
-        val options = foods.makeRecipe.split(";").toTypedArray()
+    private fun getSteps(foods: Food?) {
+        val options = foods?.makeRecipe?.split(";")?.toTypedArray()
         val linearLayoutOptions = binding.checkboxLayout
-        for (option in options) {
+        for (option in options!!) {
             val checkBox = MaterialCheckBox(context)
             checkBox.id = View.generateViewId()
             checkBox.width = ViewGroup.LayoutParams.MATCH_PARENT
@@ -59,13 +63,6 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
             )
             checkBox.typeface = ResourcesCompat.getFont(binding.root.context, R.font.work_sans)
             linearLayoutOptions.addView(checkBox)
-            checkBox.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-
-                } else {
-
-                }
-            }
         }
     }
 }

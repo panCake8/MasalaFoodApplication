@@ -29,7 +29,7 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>() {
 
     override fun onClicks() {
         binding.sugTbTopAppBar.setOnClickListener {
-            requireActivity().onBackPressed()
+            onBack()
         }
     }
 

@@ -9,7 +9,7 @@ import com.kiko.fillapp.data.domain.Food
 
 
 class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
-
+    private lateinit var food: Food
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodDetailBinding
         get() = FragmentFoodDetailBinding::inflate
 
@@ -17,7 +17,8 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         parentFragmentManager.setFragmentResultListener(
             Constants.FOOD_DETAILS, this
         ) { _, result ->
-            chooseChips(result.getParcelable(Constants.FOOD_DETAILS))
+            food = result.getParcelable(Constants.FOOD_DETAILS)!!
+            chooseChips(food)
         }
 
     }
@@ -25,6 +26,10 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     override fun onClicks() {
         binding.back.setOnClickListener {
             onBack()
+        }
+        binding.startButton.setOnClickListener {
+            transitionToWithBackStack(IngredientFragment(), Constants.INGREDIENT)
+            newInstance(food, Constants.FOOD_DETAILS)
         }
     }
 

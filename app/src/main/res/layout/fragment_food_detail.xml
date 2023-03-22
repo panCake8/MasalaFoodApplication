@@ -156,7 +156,7 @@
                     app:trimMode="trimModeLength" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/start_button"
                     style="@style/Button.PrimaryButton"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
