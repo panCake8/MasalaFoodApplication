@@ -32,4 +32,6 @@ object Constants {
     const val SUGGESTION_FILTER = "suggestionFilter"
     const val SUGGESTIONS = "suggestions"
 
+    const val FILTER = "filter"
+
 }

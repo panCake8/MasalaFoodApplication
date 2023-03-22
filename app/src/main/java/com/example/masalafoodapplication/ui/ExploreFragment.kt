@@ -9,8 +9,11 @@ import androidx.core.widget.addTextChangedListener
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
+import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.loadImage
 import com.kiko.fillapp.data.domain.Food
+import com.mindorks.editdrawabletext.DrawablePosition
+import com.mindorks.editdrawabletext.onDrawableClickListener
 
 
 class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
@@ -27,6 +30,16 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
             val list = DataManager.search(text.toString().lowercase())
             getData(text.toString(), list)
         }
+        binding.searchBar.setDrawableClickListener(object : onDrawableClickListener {
+            override fun onClick(target: DrawablePosition) {
+                when (target) {
+                    DrawablePosition.RIGHT -> {
+                        transitionToWithBackStack(FilterFragment(), Constants.EXPLORE)
+                    }
+                    else -> {}
+                }
+            }
+        })
     }
 
 
