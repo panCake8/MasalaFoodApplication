@@ -125,9 +125,7 @@
 
 
     <!-- some card -->
-    <style name="selected" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="checkedIconVisible">false</item>
-
+    <style name="selected" parent="Chips.SelectedChips">
         <item name="android:textColor">@color/mtrl_choice_chip_text_color</item>
 
         <item name="chipBackgroundColor">@color/mtrl_choice_chip_background_color</item>

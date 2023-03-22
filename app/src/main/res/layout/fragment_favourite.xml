@@ -13,5 +13,4 @@
         android:textColor="#000"
         android:textSize="@dimen/text_large" />
 
-    <include layout="@layout/fragment_food_detail" />
 </FrameLayout>
