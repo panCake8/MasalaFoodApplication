@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentFilterBinding
+import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.slider.Slider
@@ -49,6 +50,12 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
             val selectedChips1 = getSelectedChips(filterChipGroup1)
             val selectedChips2 = getSelectedChips(filterChipGroup2)
             val sliderValue = slider.value
+            parentFragmentManager.popBackStack(Constants.EXPLORE, 0)
+            transitionToWithBackStack(ExploreFragment(), Constants.FILTER)
+            newInstance(
+                selectedChips1[0], selectedChips2[0], sliderValue.toString(),
+                Constants.FILTER
+            )
         }
 
         resetButton.setOnClickListener {

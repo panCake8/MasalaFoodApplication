@@ -22,8 +22,23 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
         get() = FragmentExploreBinding::inflate
 
     override fun setup() {
+        parentFragmentManager.setFragmentResultListener(
+            Constants.FILTER,
+            this
+        ) { _, result ->
+            val list = DataManager.getAllFood().filter {
+                it.cuisine != result.getString("foodName")
+                        || it.cleaned != result.getString("cleaned")
+                        || it.timeMinutes != result.getString("value").toString().toInt()
+            }
+            showDataHideLottie()
+            bindSearchResult(list)
+
+
+        }
 
     }
+
 
     override fun onClicks() {
         binding.searchBar.addTextChangedListener { text ->

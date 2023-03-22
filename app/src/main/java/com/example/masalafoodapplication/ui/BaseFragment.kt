@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.R
+import com.example.masalafoodapplication.util.Constants
 import com.kiko.fillapp.data.domain.Food
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
@@ -58,6 +59,14 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     fun newInstance(food: Food, name: String) {
         val bundle = Bundle()
         bundle.putParcelable(name, food)
+        parentFragmentManager.setFragmentResult(name, bundle)
+    }
+
+    fun newInstance(foodName: String, ingredient: String, value: String, name: String) {
+        val bundle = Bundle()
+        bundle.putString("foodName", foodName)
+        bundle.putString("cleaned", ingredient)
+        bundle.putString("value", value)
         parentFragmentManager.setFragmentResult(name, bundle)
     }
 
