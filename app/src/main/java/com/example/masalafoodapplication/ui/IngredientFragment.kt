@@ -9,7 +9,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.checkbox.MaterialCheckBox
@@ -17,16 +16,17 @@ import com.kiko.fillapp.data.domain.Food
 
 
 class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
-
+    private lateinit var food: Food
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentIngredientBinding
         get() = FragmentIngredientBinding::inflate
 
     override fun setup() {
         parentFragmentManager.setFragmentResultListener(
-            Constants.FOOD_DETAILS,
+            Constants.INGREDIENT,
             this
         ) { _, result ->
-            getIngredient(result.getParcelable(Constants.FOOD_DETAILS))
+            food = result.getParcelable(Constants.INGREDIENT)!!
+            getIngredient(food)
         }
     }
 
@@ -36,7 +36,9 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
         }
         binding.nexBtn.setOnClickListener {
             parentFragmentManager.commit {
+                parentFragmentManager.popBackStack()
                 transitionToWithBackStack(StepsFragment(), Constants.STEPS)
+                newInstance(food, Constants.STEPS)
             }
         }
     }

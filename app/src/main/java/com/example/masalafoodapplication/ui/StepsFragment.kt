@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
-import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentStepsBinding
 import com.example.masalafoodapplication.util.Constants
@@ -24,16 +23,16 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
 
     override fun setup() {
         parentFragmentManager.setFragmentResultListener(
-            Constants.FOOD_DETAILS,
+            Constants.STEPS,
             this
         ) { _, result ->
-            getSteps(result.getParcelable(Constants.FOOD_DETAILS))
+            getSteps(result.getParcelable(Constants.STEPS))
         }
     }
 
     override fun onClicks() {
         binding.topAppBar.setNavigationOnClickListener {
-            onBack()
+            parentFragmentManager.popBackStack(Constants.FOOD_DETAILS, 0)
         }
         binding.finishBtn.setOnClickListener {
             parentFragmentManager.popBackStack(Constants.FOOD_DETAILS, POP_BACK_STACK_INCLUSIVE)

@@ -29,7 +29,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         }
         binding.startButton.setOnClickListener {
             transitionToWithBackStack(IngredientFragment(), Constants.INGREDIENT)
-            newInstance(food, Constants.FOOD_DETAILS)
+            newInstance(food, Constants.INGREDIENT)
         }
     }
 
