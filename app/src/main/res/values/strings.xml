@@ -42,5 +42,10 @@
     <string name="start_preparing_btn_text">Start Preparing</string>
     <string name="show_more">show more</string>
     <string name="search_here">Search Here</string>
+    <string name="salad">salad</string>
+    <string name="chickpea">Chickpea</string>
+    <string name="koshmibir">Koshmibir</string>
+    <string name="onion_salad">Onion Salad</string>
+    <string name="easy_sprouts">Easy Sprouts</string>
 
 </resources>

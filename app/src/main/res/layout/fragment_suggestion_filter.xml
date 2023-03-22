@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <Toolbar
         android:id="@+id/navbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_medium"
         android:navigationIcon="@drawable/ic_arrow_back"
-        android:title="suggestion filter"
+        android:title="@string/suggestions"
+        app:layout_constraintBottom_toTopOf="@+id/Scroll_view_body"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/Scroll_view_body"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/Scroll_view_body"
@@ -34,6 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
+                android:contentDescription="@string/img_description"
                 android:src="@drawable/chief_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_large"
                 android:layout_marginTop="@dimen/margin_large"
-                android:text="salad"
+                android:text="@string/salad"
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -67,25 +68,25 @@
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip1"
                     style="@style/Chips_filter"
-                    android:text="Chickpea"
+                    android:text="@string/chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip2"
                     style="@style/Chips_filter"
-                    android:text="Koshmibir"
+                    android:text="@string/koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip3"
                     style="@style/Chips_filter"
-                    android:text="Onion Salad"
+                    android:text="@string/onion_salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip4"
                     style="@style/Chips_filter"
-                    android:text="Easy Sprouts"
+                    android:text="@string/easy_sprouts"
                     app:checkedIconEnabled="false" />
             </com.google.android.material.chip.ChipGroup>
 
@@ -95,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_large"
                 android:layout_marginTop="@dimen/margin_large"
-                android:text="salad"
+                android:text="@string/salad"
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -117,25 +118,25 @@
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip5"
                     style="@style/Chips_filter"
-                    android:text="Chickpea"
+                    android:text="@string/chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip6"
                     style="@style/Chips_filter"
-                    android:text="Koshmibir"
+                    android:text="@string/koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip7"
                     style="@style/Chips_filter"
-                    android:text="Onion Salad"
+                    android:text="@string/onion_salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip8"
                     style="@style/Chips_filter"
-                    android:text="Easy Sprouts"
+                    android:text="@string/easy_sprouts"
                     app:checkedIconEnabled="false" />
             </com.google.android.material.chip.ChipGroup>
 
@@ -145,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_large"
                 android:layout_marginTop="@dimen/margin_large"
-                android:text="salad"
+                android:text="@string/salad"
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -167,25 +168,25 @@
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip9"
                     style="@style/Chips_filter"
-                    android:text="Chickpea"
+                    android:text="@string/chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip10"
                     style="@style/Chips_filter"
-                    android:text="Koshmibir"
+                    android:text="@string/koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip11"
                     style="@style/Chips_filter"
-                    android:text="Onion Salad"
+                    android:text="@string/onion_salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip12"
                     style="@style/Chips_filter"
-                    android:text="Easy Sprouts"
+                    android:text="@string/easy_sprouts"
                     app:checkedIconEnabled="false" />
 
             </com.google.android.material.chip.ChipGroup>
