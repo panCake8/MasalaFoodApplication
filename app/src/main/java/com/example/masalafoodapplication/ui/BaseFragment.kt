@@ -6,10 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import androidx.fragment.app.setFragmentResult
 import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.util.Constants
 import com.kiko.fillapp.data.domain.Food
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
@@ -55,6 +53,16 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         val bundle = Bundle()
         bundle.putParcelableArrayList(name, food)
         parentFragmentManager.setFragmentResult(name, bundle)
+    }
+
+    fun newInstance(food: Food, name: String) {
+        val bundle = Bundle()
+        bundle.putParcelable(name, food)
+        parentFragmentManager.setFragmentResult(name, bundle)
+    }
+
+    fun onBack() {
+        requireActivity().onBackPressed()
     }
 
 

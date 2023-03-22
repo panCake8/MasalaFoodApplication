@@ -14,11 +14,18 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         get() = FragmentFoodDetailBinding::inflate
 
     override fun setup() {
-        val food = arguments?.getParcelable<Food>(Constants.KEY)
-        chooseChips(food)
+        parentFragmentManager.setFragmentResultListener(
+            Constants.FOOD_DETAILS, this
+        ) { _, result ->
+            chooseChips(result.getParcelable(Constants.FOOD_DETAILS))
+        }
+
     }
 
     override fun onClicks() {
+        binding.back.setOnClickListener {
+            onBack()
+        }
     }
 
 

@@ -7,6 +7,7 @@ import com.example.masalafoodapplication.databinding.FragmentHomeBinding
 import com.kiko.fillapp.data.domain.Food
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.*
 
@@ -41,10 +42,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     it.cuisine ==
                             tvKitchen1.text.toString()
                 }
-                transitionToWithBackStack(
-                    DetailsKitchenFragment(Constants.ASIAN),
-                    Constants.DETAILS_KITCHEN
-                )
+                transform(DetailsKitchenFragment(Constants.ASIAN), Constants.DETAILS_KITCHEN)
                 newInstance(food as ArrayList<Food>, Constants.ASIAN)
             }
 
@@ -53,10 +51,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     it.cuisine ==
                             tvKitchen2.text.toString()
                 }
-                transitionToWithBackStack(
-                    DetailsKitchenFragment(Constants.ARAB),
-                    Constants.DETAILS_KITCHEN
-                )
+                transform(DetailsKitchenFragment(Constants.ARAB), Constants.DETAILS_KITCHEN)
                 newInstance(food as ArrayList<Food>, Constants.ARAB)
             }
 
@@ -65,10 +60,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     it.cuisine ==
                             tvKitchen3.text.toString()
                 }
-                transitionToWithBackStack(
-                    DetailsKitchenFragment(Constants.INDIAN),
-                    Constants.DETAILS_KITCHEN
-                )
+                transform(DetailsKitchenFragment(Constants.INDIAN), Constants.DETAILS_KITCHEN)
                 newInstance(food as ArrayList<Food>, Constants.INDIAN)
             }
 
@@ -77,21 +69,87 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     it.cuisine ==
                             tvKitchen4.text.toString()
                 }
-                transitionToWithBackStack(
-                    DetailsKitchenFragment(Constants.KASHMIRI),
-                    Constants.DETAILS_KITCHEN
-                )
+                transform(DetailsKitchenFragment(Constants.KASHMIRI), Constants.DETAILS_KITCHEN)
                 newInstance(food as ArrayList<Food>, Constants.KASHMIRI)
             }
         }
-        binding.quickMore.setOnClickListener {
-            transitionToWithBackStack(RecipesMenuFragment(), Constants.RECIPE_MENU)
+        moreOnClicks()
+        cardQuickOnClicks()
+        cardJustForYouOnClicks()
+    }
+
+    private fun moreOnClicks() {
+        binding.apply {
+            quickMore.setOnClickListener {
+                transform(RecipesMenuFragment(), Constants.RECIPE_MENU)
+
+            }
+            justForYouMore.setOnClickListener {
+                transform(RandomRecipesFragment(), Constants.RANDOM_RECIPE)
+            }
+            ivMakeYourMealArrow.setOnClickListener {
+                transform(SuggestionFilterFragment(), Constants.SUGGESTION_FILTER)
+                transitionToWithBackStack(SuggestionFilterFragment(), Constants.SUGGESTION_FILTER)
+            }
         }
-        binding.justForYouMore.setOnClickListener {
-            transitionToWithBackStack(RandomRecipesFragment(), Constants.RANDOM_RECIPE)
+    }
+
+    private fun transform(fragment: Fragment, name: String) {
+        transitionToWithBackStack(
+            fragment,
+            name
+        )
+    }
+
+    private fun cardQuickOnClicks() {
+        binding.apply {
+            ivQuickRecipe1.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.FOOD_DETAILS)
+                newInstance(DataManager.getAllFood().first {
+                    it.recipeName == tvQuickRecipe1Title.text
+                        .toString()
+                }, Constants.FOOD_DETAILS)
+            }
+            ivQuickRecipe2.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.FOOD_DETAILS)
+                newInstance(DataManager.getAllFood().first {
+                    it.recipeName == tvQuickRecipe2Title.text
+                        .toString()
+                }, Constants.FOOD_DETAILS)
+            }
+            ivQuickRecipe3.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.FOOD_DETAILS)
+                newInstance(DataManager.getAllFood().first {
+                    it.recipeName == tvQuickRecipe3Title.text
+                        .toString()
+                }, Constants.FOOD_DETAILS)
+            }
         }
-        binding.ivMakeYourMealArrow.setOnClickListener {
-            transitionToWithBackStack(SuggestionFilterFragment(), Constants.SUGGESTION_FILTER)
+    }
+
+    private fun cardJustForYouOnClicks() {
+        binding.apply {
+            ivJustForYou1.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.FOOD_DETAILS)
+                newInstance(DataManager.getAllFood().first {
+                    it.recipeName == tvJustForYou1Title.text
+                        .toString()
+                }, Constants.FOOD_DETAILS)
+            }
+            ivJustForYou2.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.FOOD_DETAILS)
+                newInstance(DataManager.getAllFood().first {
+                    it.recipeName == tvJustForYou2Title.text
+                        .toString()
+                }, Constants.FOOD_DETAILS)
+            }
+            ivJustForYou3.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.FOOD_DETAILS)
+                newInstance(DataManager.getAllFood().first {
+                    it.recipeName == tvJustForYou3Title.text
+                        .toString()
+                }, Constants.FOOD_DETAILS)
+            }
         }
     }
 
