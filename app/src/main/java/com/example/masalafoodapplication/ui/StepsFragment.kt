@@ -1,7 +1,6 @@
 package com.example.masalafoodapplication.ui
 
 
-
 import android.content.res.ColorStateList
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -23,23 +22,23 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
         get() = FragmentStepsBinding::inflate
 
     override fun setup() {
-        getSteps( DataManager.getAllFood()[0])
+        getSteps(DataManager.getAllFood()[0])
     }
 
     override fun onClicks() {
-        binding.appBar.setOnClickListener {
+        binding.topAppBar.setNavigationOnClickListener {
             requireActivity().onBackPressed()
         }
-        binding.finishBtn.setOnClickListener{
+        binding.finishBtn.setOnClickListener {
             parentFragmentManager.commit {
                 remove(StepsFragment())
             }
         }
     }
 
-    private fun getSteps(foods: Food){
-        val options=  foods.makeRecipe.split(";").toTypedArray()
-        val linearLayoutOptions=binding.checkboxLayout
+    private fun getSteps(foods: Food) {
+        val options = foods.makeRecipe.split(";").toTypedArray()
+        val linearLayoutOptions = binding.checkboxLayout
         for (option in options) {
             val checkBox = MaterialCheckBox(context)
             checkBox.id = View.generateViewId()
@@ -47,16 +46,24 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
             checkBox.height = ViewGroup.LayoutParams.WRAP_CONTENT
             checkBox.text = option
             checkBox.layoutDirection = View.LAYOUT_DIRECTION_RTL
-            checkBox.buttonTintList = ColorStateList.valueOf(ContextCompat.getColor(binding.root.context, R.color.base_color))
+            checkBox.buttonTintList = ColorStateList.valueOf(
+                ContextCompat.getColor(
+                    binding.root.context,
+                    R.color.base_color
+                )
+            )
             checkBox.isChecked = false
-            checkBox.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.text_medium))
+            checkBox.setTextSize(
+                TypedValue.COMPLEX_UNIT_PX,
+                resources.getDimension(R.dimen.text_medium)
+            )
             checkBox.typeface = ResourcesCompat.getFont(binding.root.context, R.font.work_sans)
             linearLayoutOptions.addView(checkBox)
             checkBox.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    print("Checked")
+
                 } else {
-                    print("not Checked")
+
                 }
             }
         }

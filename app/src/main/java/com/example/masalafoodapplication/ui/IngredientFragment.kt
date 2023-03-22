@@ -1,7 +1,6 @@
 package com.example.masalafoodapplication.ui
 
 import android.content.res.ColorStateList
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -62,9 +61,9 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             linearLayoutOptions.addView(checkBox)
             checkBox.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    Log.d("TAG", "checked")
+
                 } else {
-                    Log.d("TAG", "non checked")
+
                 }
             }
         }
