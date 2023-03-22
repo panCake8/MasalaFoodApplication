@@ -40,15 +40,15 @@ class BaseActivity : AppCompatActivity() {
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    setFragment(HomeFragment(), SetFragmentType.REPLACE)
+                    setFragment(HomeFragment(), SetFragmentType.REPLACE, "Home")
                     true
                 }
                 R.id.nav_explore -> {
-                    setFragment(ExploreFragment(), SetFragmentType.REPLACE)
+                    setFragment(ExploreFragment(), SetFragmentType.REPLACE, "Explore")
                     true
                 }
                 R.id.nav_favourite -> {
-                    setFragment(FavouriteFragment(), SetFragmentType.REPLACE)
+                    setFragment(FavouriteFragment(), SetFragmentType.REPLACE, "Fav")
                     true
                 }
                 else -> false
@@ -68,25 +68,26 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
-        setFragment(HomeFragment(), SetFragmentType.ADD)
+        setFragment(HomeFragment(), SetFragmentType.ADD, "Home")
     }
 
-    private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType) {
+    private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType, tag: String) {
         when (setFragmentType) {
             SetFragmentType.ADD -> addFragment(fragment)
-            SetFragmentType.REPLACE -> replaceFragment(fragment)
+            SetFragmentType.REPLACE -> replaceFragment(fragment, tag)
         }
     }
 
     private fun addFragment(fragment: Fragment) {
         supportFragmentManager.commit {
-            replace(binding.fragmentContainer.id, fragment)
+            add(binding.fragmentContainer.id, fragment)
         }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun replaceFragment(fragment: Fragment, tag: String) {
         supportFragmentManager.commit {
-            replace(binding.fragmentContainer.id, fragment)
+            supportFragmentManager.popBackStackImmediate()
+            replace(binding.fragmentContainer.id, fragment, tag)
             setReorderingAllowed(true)
         }
     }
