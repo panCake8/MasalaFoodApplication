@@ -31,7 +31,7 @@
     <dimen name="radius_medium">12dp</dimen>
     <dimen name="radius_large">16dp</dimen>
     <dimen name="radius_full">100dp</dimen>
-    <dimen name="card_scroll_radius">48dp</dimen>
+    <dimen name="card_scroll_radius">16dp</dimen>
 
     <dimen name="elevation_small">8dp</dimen>
     <dimen name="image_static_height">200dp</dimen>
