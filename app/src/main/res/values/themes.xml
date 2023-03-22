@@ -237,6 +237,12 @@
         <item name="android:textSize">@dimen/text_medium</item>
     </style>
 
+    <!-- some card -->
+    <style name="selected" parent="Chips.SelectedChips">
+        <item name="android:textColor">@color/mtrl_choice_chip_text_color</item>
+
+        <item name="chipBackgroundColor">@color/mtrl_choice_chip_background_color</item>
+    </style>
     <style name="CardTime">
         <item name="android:fontFamily">@font/work_sans</item>
         <item name="android:paddingBottom">@dimen/padding_medium</item>
@@ -248,19 +254,6 @@
         <item name="cornerSizeTopRight">4%</item>
         <item name="cornerSizeTopLeft">4%</item>
     </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- recipes menu and random recipes -->
