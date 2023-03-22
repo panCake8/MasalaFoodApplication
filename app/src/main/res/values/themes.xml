@@ -270,21 +270,6 @@
 
     </style>
 
-    <!--    Card Styles-->
-    <style name="CardTitle">
-        <item name="android:fontFamily">@font/work_sans_medium</item>
-        <item name="android:paddingTop">@dimen/padding_medium</item>
-        <item name="android:textColor">@color/text_medium</item>
-        <item name="android:textSize">@dimen/text_medium</item>
-    </style>
-
-    <style name="CardTime">
-        <item name="android:fontFamily">@font/work_sans</item>
-        <item name="android:paddingBottom">@dimen/padding_medium</item>
-        <item name="android:textColor">@color/text_light</item>
-        <item name="android:textSize">@dimen/text_small</item>
-    </style>
-
 
     <style name="textView">
         <item name="android:fontFamily">@font/work_sans_semibold</item>
@@ -300,6 +285,7 @@
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
         <item name="android:scrollbars">none</item>
+    </style>
     <style name="CardViewNameRecipes">
         <item name="android:layout_width"> wrap_content</item>
         <item name="android:layout_height"> 0dp</item>
