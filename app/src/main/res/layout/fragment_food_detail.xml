@@ -24,12 +24,12 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/ic_arrow_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/app_name" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/bottom_card"
@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="@dimen/margin_large"
                     app:layout_constraintBottom_toTopOf="@+id/description_tv"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"
@@ -114,24 +114,24 @@
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip4"
-                        style="@style/selected"
+                        style="@style/Chips.NonSelectedChips"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Description" />
+                        android:text="@string/description" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip5"
-                        style="@style/selected"
+                        style="@style/Chips.NonSelectedChips"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ingradient" />
+                        android:text="@string/ingredient" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip6"
-                        style="@style/selected"
+                        style="@style/Chips.NonSelectedChips"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Steps" />
+                        android:text="@string/steps" />
                 </com.google.android.material.chip.ChipGroup>
 
                 <com.borjabravo.readmoretextview.ReadMoreTextView
