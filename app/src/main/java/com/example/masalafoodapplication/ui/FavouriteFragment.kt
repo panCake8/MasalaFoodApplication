@@ -11,12 +11,13 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {
         get() = FragmentFavouriteBinding::inflate
 
 
+
     override fun setup() {
+
     }
 
     override fun onClicks() {
 
     }
-
 
 }

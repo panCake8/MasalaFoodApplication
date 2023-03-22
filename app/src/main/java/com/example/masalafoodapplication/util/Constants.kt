@@ -14,4 +14,8 @@ object Constants {
     }
 
     const val KEY = "KEY"
+    const val ARAB = "Arab"
+    const val ASIAN = "Asian"
+    const val INDIAN = "Indian"
+    const val KASHMIRI = "Kashmiri"
 }
