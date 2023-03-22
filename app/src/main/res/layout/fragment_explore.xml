@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fafafa"
-    android:orientation="horizontal">
+    android:background="#fafafa">
 
 
     <EditText
@@ -29,257 +28,261 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/root_card_view1"
-        style="@style/CardSearch"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:id="@+id/card_containers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbarSize="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imv_food1"
-                style="@style/ImageSearch"
-                android:contentDescription="@string/popular_dishes"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/root_card_view1"
+                style="@style/CardSearch">
 
-            <TextView
-                android:id="@+id/txv_food_name1"
-                style="@style/TitleSearch"
-                app:layout_constraintStart_toEndOf="@+id/imv_food1"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Meal Name" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/description_tv1"
-                style="@style/BodySearch"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imv_food1"
-                app:layout_constraintTop_toBottomOf="@+id/txv_food_name1"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imv_food1"
+                        style="@style/ImageSearch"
+                        android:contentDescription="@string/popular_dishes"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txv_food_name1"
+                        style="@style/TitleSearch"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Meal Name" />
+
+                    <TextView
+                        android:id="@+id/description_tv1"
+                        style="@style/BodySearch"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food1"
+                        app:layout_constraintTop_toBottomOf="@+id/txv_food_name1"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/root_card_view2"
-        style="@style/CardSearch"
-        android:visibility="invisible"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/root_card_view2"
+                style="@style/CardSearch">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imv_food2"
+                        style="@style/ImageSearch"
+                        android:contentDescription="@string/popular_dishes"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txv_food_name2"
+                        style="@style/TitleSearch"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Meal Name" />
+
+                    <TextView
+                        android:id="@+id/description_tv2"
+                        style="@style/BodySearch"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food2"
+                        app:layout_constraintTop_toBottomOf="@+id/txv_food_name2"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/root_card_view3"
+                style="@style/CardSearch">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imv_food3"
+                        style="@style/ImageSearch"
+                        android:contentDescription="@string/popular_dishes"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txv_food_name3"
+                        style="@style/TitleSearch"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Meal Name" />
+
+                    <TextView
+                        android:id="@+id/description_tv3"
+                        style="@style/BodySearch"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food3"
+                        app:layout_constraintTop_toBottomOf="@+id/txv_food_name3"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/root_card_view4"
+                style="@style/CardSearch">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imv_food4"
+                        style="@style/ImageSearch"
+                        android:contentDescription="@string/popular_dishes"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txv_food_name4"
+                        style="@style/TitleSearch"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food4"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Meal Name" />
+
+                    <TextView
+                        android:id="@+id/description_tv4"
+                        style="@style/BodySearch"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food4"
+                        app:layout_constraintTop_toBottomOf="@+id/txv_food_name4"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/root_card_view5"
+                style="@style/CardSearch">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imv_food5"
+                        style="@style/ImageSearch"
+                        android:contentDescription="@string/popular_dishes"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txv_food_name5"
+                        style="@style/TitleSearch"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Meal Name" />
+
+                    <TextView
+                        android:id="@+id/description_tv5"
+                        style="@style/BodySearch"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food5"
+                        app:layout_constraintTop_toBottomOf="@+id/txv_food_name5"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/root_card_view6"
+                style="@style/CardSearch">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imv_food6"
+                        style="@style/ImageSearch"
+                        android:contentDescription="@string/popular_dishes"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txv_food_name6"
+                        style="@style/TitleSearch"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food6"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Meal Name" />
+
+                    <TextView
+                        android:id="@+id/description_tv6"
+                        style="@style/BodySearch"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imv_food6"
+                        app:layout_constraintTop_toBottomOf="@+id/txv_food_name6"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_layer"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/root_card_view1">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imv_food2"
-                style="@style/ImageSearch"
-                android:contentDescription="@string/popular_dishes"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/txv_food_name2"
-                style="@style/TitleSearch"
-                app:layout_constraintStart_toEndOf="@+id/imv_food2"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Meal Name" />
-
-            <TextView
-                android:id="@+id/description_tv2"
-                style="@style/BodySearch"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imv_food2"
-                app:layout_constraintTop_toBottomOf="@+id/txv_food_name2"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/root_card_view3"
-        style="@style/CardSearch"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/root_card_view2">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imv_food3"
-                style="@style/ImageSearch"
-                android:contentDescription="@string/popular_dishes"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/txv_food_name3"
-                style="@style/TitleSearch"
-                app:layout_constraintStart_toEndOf="@+id/imv_food3"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Meal Name" />
-
-            <TextView
-                android:id="@+id/description_tv3"
-                style="@style/BodySearch"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imv_food3"
-                app:layout_constraintTop_toBottomOf="@+id/txv_food_name3"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/root_card_view4"
-        style="@style/CardSearch"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/root_card_view3">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imv_food4"
-                style="@style/ImageSearch"
-                android:contentDescription="@string/popular_dishes"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/txv_food_name4"
-                style="@style/TitleSearch"
-                app:layout_constraintStart_toEndOf="@+id/imv_food4"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Meal Name" />
-
-            <TextView
-                android:id="@+id/description_tv4"
-                style="@style/BodySearch"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imv_food4"
-                app:layout_constraintTop_toBottomOf="@+id/txv_food_name4"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/root_card_view5"
-        style="@style/CardSearch"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/root_card_view4">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imv_food5"
-                style="@style/ImageSearch"
-                android:contentDescription="@string/popular_dishes"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/txv_food_name5"
-                style="@style/TitleSearch"
-                app:layout_constraintStart_toEndOf="@+id/imv_food5"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Meal Name" />
-
-            <TextView
-                android:id="@+id/description_tv5"
-                style="@style/BodySearch"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imv_food5"
-                app:layout_constraintTop_toBottomOf="@+id/txv_food_name5"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/root_card_view6"
-        style="@style/CardSearch"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/root_card_view5">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imv_food6"
-                style="@style/ImageSearch"
-                android:contentDescription="@string/popular_dishes"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/txv_food_name6"
-                style="@style/TitleSearch"
-                app:layout_constraintStart_toEndOf="@+id/imv_food6"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Meal Name" />
-
-            <TextView
-                android:id="@+id/description_tv6"
-                style="@style/BodySearch"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imv_food6"
-                app:layout_constraintTop_toBottomOf="@+id/txv_food_name6"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/search" />
 </androidx.constraintlayout.widget.ConstraintLayout>
