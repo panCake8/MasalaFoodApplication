@@ -250,6 +250,20 @@
     </style>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- recipes menu and random recipes -->
     <style name="CardViewRecipes">
         <item name="android:layout_width"> 0dp</item>
         <item name="android:layout_height"> 220dp</item>
@@ -289,23 +303,5 @@
         <item name="android:layout_marginStart"> 8dp</item>
 
     </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </resources>
