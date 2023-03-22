@@ -23,6 +23,7 @@
     <dimen name="text_VLarge">20sp</dimen>
     <dimen name="text_small">12sp</dimen>
     <dimen name="text_medium">14sp</dimen>
+    <dimen name="text_tool_bar">22sp</dimen>
 
     <dimen name="small_stroke">1dp</dimen>
 
@@ -33,7 +34,9 @@
     <dimen name="card_scroll_radius">48dp</dimen>
 
     <dimen name="elevation_small">8dp</dimen>
-
+    <dimen name="image_static_height">200dp</dimen>
+    <dimen name="suggestions_card_width">160dp</dimen>
+    <dimen name="suggestions_card_image_height">128dp</dimen>
     <dimen name="image_kitchen_details">128dp</dimen>
     <dimen name="kitchen_title_margin">10dp</dimen>
     <dimen name="no_elevation">0dp</dimen>
