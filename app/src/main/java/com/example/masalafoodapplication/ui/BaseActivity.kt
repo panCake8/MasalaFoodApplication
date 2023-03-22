@@ -16,6 +16,11 @@ import java.io.InputStreamReader
 
 
 class BaseActivity : AppCompatActivity() {
+    private val homeFragment = HomeFragment()
+    private val exploreFragment = ExploreFragment()
+    private val favouriteFragment = FavouriteFragment()
+    private val suggestionsFragment = SuggestionsFragment()
+
     private lateinit var binding: ActivityBaseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +68,7 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
+
         setFragment(HomeFragment(), SetFragmentType.ADD)
     }
 
