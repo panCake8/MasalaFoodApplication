@@ -249,6 +249,16 @@
         <item name="cornerSizeTopLeft">4%</item>
     </style>
 
+    <!-- chip color selected choice case -->
+    <style name="Chips.toggle" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:backgroundTint">@color/selected_chip_color</item>
+    </style>
+<!--    <style name="selected" parent="Widget.MaterialComponents.Chip.Choice">-->
+<!--        <item name="android:textColor">@color/mtrl_choice_chip_text_color</item>-->
+
+<!--        <item name="chipBackgroundColor">@color/mtrl_choice_chip_background_color</item>-->
+<!--    </style>-->
+
     <style name="CardSearch" parent="CardView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

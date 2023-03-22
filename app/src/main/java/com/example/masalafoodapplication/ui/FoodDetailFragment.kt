@@ -2,9 +2,12 @@ package com.example.masalafoodapplication.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.IdRes
+import com.bumptech.glide.Glide
+import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
-import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.kiko.fillapp.data.domain.Food
 
 
@@ -18,7 +21,12 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
             Constants.FOOD_DETAILS, this
         ) { _, result ->
             food = result.getParcelable(Constants.FOOD_DETAILS)!!
+            binding.dishName.text = food?.recipeName ?: "not found"
+            binding.chiceGroupChips.check(R.id.description)
+            binding.descriptionTv.text = food?.makeRecipe ?: "3"
+            Glide.with(requireActivity()).load(food.imageUrl).into(binding.backgroundImage)
             chooseChips(food)
+
         }
 
     }
@@ -35,21 +43,29 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
 
     private fun chooseChips(food: Food?) {
-        binding.chiceGroupChips.setOnCheckedChangeListener { group, checkedId ->
-            val chip: Chip? = group.findViewById(checkedId)
-            chip?.let {
-                binding.descriptionTv.text = food?.makeRecipe ?: "empty"
-                if (it.text.toString() == Constants.INGREDIENT) {
-                    binding.descriptionTv.text =
-                        food?.ingredients?.split(";")?.joinToString(separator = "\n")
-                            ?: "empty"
-                } else if (it.text.toString() == Constants.STEPS) {
-                    binding.descriptionTv.text =
-                        food?.ingredients?.split(";")?.joinToString(separator = "\n")
-                            ?: "empty"
+        binding.chiceGroupChips.setOnCheckedChangeListener(object : ChipGroup.OnCheckedChangeListener {
+            override fun onCheckedChanged(group: ChipGroup, @IdRes checkedId: Int) {
+                val chip: Chip? = group?.findViewById(checkedId)
+                chip?.let {
+                    if (it.text.toString() == Constants.INGREDIENT) {
+                        binding.descriptionTv.text =
+                            food?.ingredients?.split(";")?.joinToString(separator = "\n")
+                                ?: "Not Found"
+                    } else if (it.text.toString() == Constants.STEPS) {
+                        binding.descriptionTv.text =
+                            food?.ingredients?.split(";")?.joinToString(separator = "\n")
+                                ?: "Not Found"
+                    } else {
+                        binding.descriptionTv.text = food?.makeRecipe ?: "Not Found"
+                    }
                 }
             }
-        }
+        })
+    }
+
+    object Constants {
+        const val INGREDIENT = "Ingradient"
+        const val STEPS = "Steps"
+
     }
 }
-
