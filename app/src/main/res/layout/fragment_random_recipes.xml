@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/work_sans_semibold"
-            android:text="Quick recipes"
+            android:text="Just for you"
             android:textColor="#1C1B1F"
             android:textSize="22sp"
             android:layout_marginStart="@dimen/margin_large"
@@ -68,18 +68,18 @@
                         android:paddingBottom="8dp"
                         android:orientation="vertical"
                         >
-                    <ImageView
-                        android:scaleType="centerCrop"
-                        android:id="@+id/image1"
-                        style="@style/CardViewImageRecipes"
-                        tools:src="@drawable/chief_in_kitchen_image"
+                        <ImageView
+                            android:scaleType="centerCrop"
+                            android:id="@+id/image1"
+                            style="@style/CardViewImageRecipes"
+                            tools:src="@drawable/chief_in_kitchen_image"
 
-                        />
-                    <TextView
-                        android:id="@+id/recipe_name1"
-                        tools:text="name"
-                        style="@style/CardViewNameRecipes"
-                        />
+                            />
+                        <TextView
+                            android:id="@+id/recipe_name1"
+                            tools:text="name"
+                            style="@style/CardViewNameRecipes"
+                            />
                         <LinearLayout
                             style="@style/CardViewPrepareIconContainer"
                             >
