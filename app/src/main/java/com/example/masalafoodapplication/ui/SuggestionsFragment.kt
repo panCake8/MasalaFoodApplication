@@ -2,6 +2,7 @@ package com.example.masalafoodapplication.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedDispatcher
 import com.bumptech.glide.Glide
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
@@ -24,6 +25,7 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>() {
         displayLunchDataSecondCard(lunchAfterFilter[1])
 
     }
+
 
     override fun onClicks() {
         binding.sugTbTopAppBar.setOnClickListener {

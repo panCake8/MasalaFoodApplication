@@ -1,4 +1,5 @@
 package com.example.masalafoodapplication.ui
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.DataManager
@@ -26,7 +27,73 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         bindMakeYourMealImage()
     }
 
-    override fun onClicks() {}
+    override fun onClicks() {
+        binding.apply {
+//            ivIndianFood.setOnClickListener {
+//                parentFragmentManager.commit {
+//                    replace(R.id.fragment_container)
+//                        .addToBackStack()
+//                    setReorderingAllowed(true)
+//                }
+//            }
+            ivKitchenAsian.setOnClickListener {
+                val food = DataManager.getAllFood().filter {
+                    it.cuisine ==
+                            tvKitchen1.text.toString()
+                }
+                transitionToWithBackStack(
+                    DetailsKitchenFragment(Constants.ASIAN),
+                    Constants.DETAILS_KITCHEN
+                )
+                newInstance(food as ArrayList<Food>, Constants.ASIAN)
+            }
+
+            ivKitchenArabian.setOnClickListener {
+                val food = DataManager.getAllFood().filter {
+                    it.cuisine ==
+                            tvKitchen2.text.toString()
+                }
+                transitionToWithBackStack(
+                    DetailsKitchenFragment(Constants.ARAB),
+                    Constants.DETAILS_KITCHEN
+                )
+                newInstance(food as ArrayList<Food>, Constants.ARAB)
+            }
+
+            ivKitchenIndian.setOnClickListener {
+                val food = DataManager.getAllFood().filter {
+                    it.cuisine ==
+                            tvKitchen3.text.toString()
+                }
+                transitionToWithBackStack(
+                    DetailsKitchenFragment(Constants.INDIAN),
+                    Constants.DETAILS_KITCHEN
+                )
+                newInstance(food as ArrayList<Food>, Constants.INDIAN)
+            }
+
+            ivKitchenKashmir.setOnClickListener {
+                val food = DataManager.getAllFood().filter {
+                    it.cuisine ==
+                            tvKitchen4.text.toString()
+                }
+                transitionToWithBackStack(
+                    DetailsKitchenFragment(Constants.KASHMIRI),
+                    Constants.DETAILS_KITCHEN
+                )
+                newInstance(food as ArrayList<Food>, Constants.KASHMIRI)
+            }
+        }
+        binding.quickMore.setOnClickListener {
+            transitionToWithBackStack(RecipesMenuFragment(), Constants.RECIPE_MENU)
+        }
+        binding.justForYouMore.setOnClickListener {
+            transitionToWithBackStack(RandomRecipesFragment(), Constants.RANDOM_RECIPE)
+        }
+        binding.ivMakeYourMealArrow.setOnClickListener {
+            transitionToWithBackStack(SuggestionFilterFragment(), Constants.SUGGESTION_FILTER)
+        }
+    }
 
     private fun bindQuickRecipesData() {
         val recipes = DataManager.getRandomQuickRecipes(NUM_FOODS)
@@ -98,5 +165,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             .forEachIndexed { index, tv ->
                 tv.setPreparationTime(foodList[index].timeMinutes)
             }
-    }}
+    }
+
+}
 
