@@ -54,7 +54,6 @@
         <item name="android:textColor">@color/text_dark</item>
     </style>
     <!-- chips style-->
-    <style name="Chips" parent="Widget.MaterialComponents.Chip.Filter">
     <style name="Chips_filter" parent="Widget.Material3.ChipGroup">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">32dp</item>
