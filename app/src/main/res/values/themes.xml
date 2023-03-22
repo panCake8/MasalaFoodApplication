@@ -90,6 +90,16 @@
         <item name="android:backgroundTint">@color/white</item>
         <item name="chipStrokeColor">@color/non_selected_chip_stroke_color</item>
     </style>
+    <style name="Text.TitleChips">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/app_bar_text_color</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_large</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:fontFamily">"@font/work_sans"</item>
+    </style>
 
     <!--card view-->
     <style name="CardViewFood" parent="Widget.MaterialComponents.CardView">
@@ -247,6 +257,10 @@
     <style name="ImageCurve">
         <item name="cornerSizeTopRight">4%</item>
         <item name="cornerSizeTopLeft">4%</item>
+    </style>
+
+    <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <item name="backgroundTint">@color/primary_button_color</item>
     </style>
 
 </resources>
