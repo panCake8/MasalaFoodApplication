@@ -54,7 +54,7 @@
         <item name="android:textColor">@color/text_dark</item>
     </style>
     <!-- chips style-->
-    <style name="Chips" parent="Widget.Material3.ChipGroup">
+    <style name="Chips" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/text_chips</item>
@@ -115,5 +115,21 @@
     <!--card popular Left-->
     <style name="CardViewPopular.Left">
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
+    </style>
+
+
+
+
+
+
+
+
+    <!-- some card -->
+    <style name="selected" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="checkedIconVisible">false</item>
+
+        <item name="android:textColor">@color/mtrl_choice_chip_text_color</item>
+
+        <item name="chipBackgroundColor">@color/mtrl_choice_chip_background_color</item>
     </style>
 </resources>
