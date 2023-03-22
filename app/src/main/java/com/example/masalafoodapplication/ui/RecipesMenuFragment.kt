@@ -9,14 +9,16 @@ import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentRecipesMenuBinding
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.util.setPreparationTime
+import com.kiko.fillapp.data.domain.Food
 
 class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
-    private val list = DataManager.showMostQuickRecipes()
+    private lateinit var list: List<Food>
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRecipesMenuBinding
         get() = FragmentRecipesMenuBinding::inflate
 
 
     override fun setup() {
+        list= DataManager.showMostQuickRecipes()
         addImage()
         addPrepareTime()
         addRecipesName()
