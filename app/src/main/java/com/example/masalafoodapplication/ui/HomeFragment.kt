@@ -2,13 +2,16 @@ package com.example.masalafoodapplication.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.databinding.FragmentHomeBinding
+import com.kiko.fillapp.data.domain.Food
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentHomeBinding
 import com.example.masalafoodapplication.util.Constants
-import com.kiko.fillapp.data.domain.Food
 import com.example.masalafoodapplication.util.*
+
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
@@ -100,4 +103,3 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
     }
 
-}
