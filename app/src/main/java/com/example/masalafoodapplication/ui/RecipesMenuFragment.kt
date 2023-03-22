@@ -1,24 +1,25 @@
 package com.example.masalafoodapplication.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
+import android.widget.ImageView
+import android.widget.TextView
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentRecipesMenuBinding
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.util.loadImage
+import com.example.masalafoodapplication.util.setPreparationTime
 
 class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
-
+    private val list = DataManager.showMostQuickRecipes()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRecipesMenuBinding
         get() = FragmentRecipesMenuBinding::inflate
 
 
     override fun setup() {
-
         addImage()
         addPrepareTime()
-       addRecipesName()
-
+        addRecipesName()
     }
 
     override fun onClicks() {
@@ -27,49 +28,47 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
         }
     }
 
-    private fun showMostQuickRecipes(foodList: List<Food>) = foodList.sortedBy {
-        it.timeMinutes
+    private fun setImages(url: String, imageView: ImageView) {
+        imageView.loadImage(url)
     }
-    private  fun addImage(){
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[0].imageUrl)
-            .into(binding.image1)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[1].imageUrl)
-            .into(binding.image2)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[2].imageUrl)
-            .into(binding.image3)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[3].imageUrl)
-            .into(binding.image4)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[4].imageUrl)
 
-    }
-    private fun addRecipesName(){
+    private fun addImage() {
         binding.apply {
-            recipeName1.text =showMostQuickRecipes(DataManager.getAllFood())[0].recipeName
-            recipeName2.text =showMostQuickRecipes(DataManager.getAllFood())[1].recipeName
-            recipeName3.text =showMostQuickRecipes(DataManager.getAllFood())[2].recipeName
-            recipeName4.text =showMostQuickRecipes(DataManager.getAllFood())[3].recipeName
-
-
+            listOf(
+                image1, image2, image3, image4
+            ).forEachIndexed { index, imageView ->
+                setImages(list[index].imageUrl, imageView)
+            }
         }
     }
-    private fun addPrepareTime(){
+
+    private fun addRecipesName() {
         binding.apply {
-            prepareTime1.text =showMostQuickRecipes(DataManager.getAllFood())[0]
-                .timeMinutes.toString()+"m"
-            prepareTime2.text =showMostQuickRecipes(DataManager.getAllFood())[1]
-                .timeMinutes.toString()+"m"
-            prepareTime3.text =showMostQuickRecipes(DataManager.getAllFood())[2]
-                .timeMinutes.toString()+"m"
-            prepareTime4.text =showMostQuickRecipes(DataManager.getAllFood())[3]
-                .timeMinutes.toString()+"m"
-
-
+            listOf(
+                recipeName1, recipeName2, recipeName3, recipeName4
+            ).forEachIndexed { index, textView ->
+                setRecipesNames(list[index].recipeName, textView)
+            }
         }
+    }
+
+    private fun setRecipesNames(name: String, textView: TextView) {
+        textView.text = name
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun addPrepareTime() {
+        binding.apply {
+            listOf(
+                prepareTime1, prepareTime2, prepareTime3, prepareTime4
+            ).forEachIndexed { index, textView ->
+                setPrepareTimes(list[index].timeMinutes, textView)
+            }
+        }
+    }
+
+    private fun setPrepareTimes(time: Int, textView: TextView) {
+        textView.setPreparationTime(time)
     }
 
 }

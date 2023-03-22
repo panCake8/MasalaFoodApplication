@@ -28,4 +28,11 @@ object DataManager {
                 .contains(value)
         }.shuffled().take(6)
 
+
+    fun showMostQuickRecipes() = foodsList.sortedBy {
+        it.timeMinutes
+    }
+
+    fun showJustForYou() = foodsList.shuffled()
+
 }
