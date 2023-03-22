@@ -15,7 +15,7 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>() {
     override fun setup() {
         val list = showData(DataManager.getAllFood(), "Fusion")
         Glide.with(requireContext()).load(list[0].imageUrl).into(binding.imgOne)
-        binding.titleOne.text = list[0].Cuisine
+        binding.titleOne.text = list[0].cuisine
         binding.infoOne.text = list[0].timeMinutes.toString()
     }
 
@@ -24,7 +24,7 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>() {
     }
 
     private fun showData(foodList: List<Food>, kitchenName: String) = foodList.filter {
-        it.Cuisine == kitchenName
+        it.cuisine == kitchenName
     }
 
 }

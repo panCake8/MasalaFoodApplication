@@ -27,4 +27,5 @@
 
     <color name="white">#FFFFFFFF</color>
     <color name="black">#121212</color>
+    <color name="hint_color">#5E121212</color>
 </resources>

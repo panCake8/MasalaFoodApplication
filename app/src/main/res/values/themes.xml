@@ -249,4 +249,44 @@
         <item name="cornerSizeTopLeft">4%</item>
     </style>
 
+    <style name="CardSearch" parent="CardView">
+        <item name="android:layout_width">@dimen/no_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_large</item>
+        <item name="android:layout_marginTop">@dimen/margin_large</item>
+        <item name="android:layout_marginEnd">@dimen/margin_large</item>
+        <item name="android:elevation">@dimen/elevation_small</item>
+        <item name="backgroundColor">@color/white</item>
+        <item name="cornerRadius">@dimen/radius_large</item>
+    </style>
+
+    <style name="ImageSearch" parent="CardView">
+        <item name="android:layout_width">@dimen/shape_image_size</item>
+        <item name="android:layout_height">@dimen/shape_image_size</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="shapeAppearance">@style/rounded_corner</item>
+        <item name="shapeAppearanceOverlay">@style/CardView.Dark</item>
+    </style>
+
+    <style name="TitleSearch" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="BodySearch" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">@dimen/no_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:textColor">@color/text_medium</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
 </resources>
