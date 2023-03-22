@@ -2,13 +2,15 @@ package com.example.masalafoodapplication.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedDispatcher
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
+import com.example.masalafoodapplication.util.Constants
 import com.kiko.fillapp.data.domain.Food
 
 class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>() {
+    private lateinit var foodList: ArrayList<Food>
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionsBinding
         get() = FragmentSuggestionsBinding::inflate
 
@@ -24,6 +26,12 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>() {
         displayLunchDataFirstCard(lunchAfterFilter[0])
         displayLunchDataSecondCard(lunchAfterFilter[1])
 
+        parentFragmentManager.setFragmentResultListener(
+            Constants.SUGGESTIONS, this
+        ) { _, result ->
+            foodList = result.getParcelableArrayList(Constants.SUGGESTIONS)!!
+        }
+
     }
 
 
@@ -31,6 +39,7 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>() {
         binding.sugTbTopAppBar.setOnClickListener {
             onBack()
         }
+        cardOnClick()
     }
 
     private fun breakfastAndDinner(recipes: List<String>) =
@@ -96,5 +105,45 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>() {
         binding.sugTvDinnerDetails2.text = dinner.timeMinutes.toString()
     }
 
+    private fun cardOnClick() {
+        binding.apply {
+            sugIvBreakImageFood1.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.SUGGESTIONS)
+                newInstance(foodList[0], Constants.SUGGESTIONS)
+            }
+
+            sugIvBreakImageFood2.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.SUGGESTIONS)
+                newInstance(foodList[1], Constants.SUGGESTIONS)
+            }
+
+            sugIvDinnerImageFood1.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.SUGGESTIONS)
+                newInstance(foodList[2], Constants.SUGGESTIONS)
+            }
+
+            sugIvDinnerImageFood2.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.SUGGESTIONS)
+                newInstance(foodList[3], Constants.SUGGESTIONS)
+            }
+
+            sugIvLunchImageFood1.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.SUGGESTIONS)
+                newInstance(foodList[4], Constants.SUGGESTIONS)
+            }
+
+            sugIvLunchImageFood2.setOnClickListener {
+                transform(FoodDetailFragment(), Constants.SUGGESTIONS)
+                newInstance(foodList[5], Constants.SUGGESTIONS)
+            }
+        }
+    }
+
+    private fun transform(fragment: Fragment, name: String) {
+        transitionToWithBackStack(
+            fragment,
+            name
+        )
+    }
 
 }
