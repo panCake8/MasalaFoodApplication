@@ -69,7 +69,7 @@ class BaseActivity : AppCompatActivity() {
 
     private fun initSubViews() {
 
-        setFragment(HomeFragment(), SetFragmentType.ADD)
+        setFragment(SuggestionsFragment(), SetFragmentType.ADD)
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType) {

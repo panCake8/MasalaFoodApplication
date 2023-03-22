@@ -1,24 +1,27 @@
 package com.example.masalafoodapplication.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
+import android.widget.ImageView
+import android.widget.TextView
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentRandomRecipesBinding
+import com.example.masalafoodapplication.util.loadImage
+import com.example.masalafoodapplication.util.setPreparationTime
 import com.kiko.fillapp.data.domain.Food
 
-class RandomRecipesFragment: BaseFragment<FragmentRandomRecipesBinding>() {
-
+class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>() {
+    private lateinit var list: List<Food>
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRandomRecipesBinding
         get() = FragmentRandomRecipesBinding::inflate
 
 
     override fun setup() {
-        var listFood =showMostQuickRecipes(DataManager.getAllFood())
-
-        addImage(listFood)
-        addPrepareTime(listFood)
-        addRecipesName(listFood)
+        list = DataManager.showJustForYou()
+        addImage()
+        addPrepareTime()
+        addRecipesName()
 
     }
 
@@ -28,35 +31,49 @@ class RandomRecipesFragment: BaseFragment<FragmentRandomRecipesBinding>() {
         }
     }
 
-    private fun showMostQuickRecipes(foodList: List<Food>) = foodList.shuffled()
-    private  fun addImage(listFood:List<Food>){
+    private fun setImages(url: String, imageView: ImageView) {
+        imageView.loadImage(url)
+    }
 
-        Glide.with(requireContext()).load( listFood[0].imageUrl).into(binding.image1)
-        Glide.with(requireContext()).load( listFood[1].imageUrl).into(binding.image2)
-        Glide.with(requireContext()).load( listFood[2].imageUrl).into(binding.image3)
-        Glide.with(requireContext()).load( listFood[3].imageUrl).into(binding.image4)
+
+    private fun addImage() {
+        binding.apply {
+            listOf(
+                image1, image2, image3, image4
+            ).forEachIndexed { index, imageView ->
+                setImages(list[index].imageUrl, imageView)
+            }
+        }
 
     }
-    private fun addRecipesName(listFood:List<Food>){
+
+    private fun addRecipesName() {
         binding.apply {
-            recipeName1.text = listFood[0].recipeName
-            recipeName2.text = listFood[1].recipeName
-            recipeName3.text = listFood[2].recipeName
-            recipeName4.text = listFood[3].recipeName
-
-
-
+            listOf(
+                recipeName1, recipeName2, recipeName3, recipeName4
+            ).forEachIndexed { index, textView ->
+                setRecipesNames(list[index].recipeName, textView)
+            }
         }
     }
-    private fun addPrepareTime(listFood:List<Food>){
+
+    private fun setRecipesNames(name: String, textView: TextView) {
+        textView.text = name
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun addPrepareTime() {
         binding.apply {
-
-            prepareTime1.text = listFood[0].timeMinutes.toString() +"m"
-            prepareTime2.text = listFood[1].timeMinutes.toString() +"m"
-            prepareTime3.text = listFood[2].timeMinutes.toString() +"m"
-            prepareTime4.text = listFood[3].timeMinutes.toString() +"m"
-
+            listOf(
+                prepareTime1, prepareTime2, prepareTime3, prepareTime4
+            ).forEachIndexed { index, textView ->
+                setPrepareTimes(list[index].timeMinutes, textView)
+            }
         }
+    }
+
+    private fun setPrepareTimes(time: Int, textView: TextView) {
+        textView.setPreparationTime(time)
     }
 
 }

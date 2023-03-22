@@ -8,7 +8,7 @@ data class Food(
     val recipeName: String,
     val ingredients: String,
     val timeMinutes: Int,
-    val Cuisine: String,
+    val cuisine: String,
     val makeRecipe: String,
     val url: String,
     val cleaned: String,

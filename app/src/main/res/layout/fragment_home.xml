@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarSize="0dp"
     tools:context=".ui.HomeFragment">
 
     <LinearLayout
@@ -20,28 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_large"
             android:layout_marginTop="@dimen/margin_extra_large">
-
-            <TextView
-                android:id="@+id/tv_home_title"
-                android:layout_width="@dimen/no_width"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/work_sans_semibold"
-                android:text="@string/find_your_favourite_food"
-                android:textColor="@color/nav_selected_text_color"
-                android:textSize="@dimen/text_extra_large"
-                app:layout_constraintEnd_toStartOf="@id/iv_filter"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/iv_filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/filter_button"
-                android:padding="@dimen/padding_medium"
-                android:src="@drawable/ic_filter_list"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -226,9 +205,20 @@
             <TextView
                 android:id="@+id/tv_quick_recipes"
                 style="@style/SectionHeader"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/quick_recipes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/quick_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:contentDescription="@string/img_description"
+                android:src="@drawable/ic_more"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <HorizontalScrollView
@@ -391,9 +381,20 @@
             <TextView
                 android:id="@+id/tv_just_for_you"
                 style="@style/SectionHeader"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/just_for_you"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/just_for_you_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:contentDescription="@string/img_description"
+                android:src="@drawable/ic_more"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <HorizontalScrollView
