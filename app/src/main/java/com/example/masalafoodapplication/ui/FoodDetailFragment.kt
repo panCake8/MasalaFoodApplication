@@ -6,6 +6,7 @@ import androidx.annotation.IdRes
 import com.bumptech.glide.Glide
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
+import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.kiko.fillapp.data.domain.Food
@@ -47,11 +48,11 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
             override fun onCheckedChanged(group: ChipGroup, @IdRes checkedId: Int) {
                 val chip: Chip? = group?.findViewById(checkedId)
                 chip?.let {
-                    if (it.text.toString() == Constants.INGREDIENT) {
+                    if (it.text.toString() == Cons.INGREDIENT) {
                         binding.descriptionTv.text =
                             food?.ingredients?.split(";")?.joinToString(separator = "\n")
                                 ?: "Not Found"
-                    } else if (it.text.toString() == Constants.STEPS) {
+                    } else if (it.text.toString() == Cons.STEPS) {
                         binding.descriptionTv.text =
                             food?.ingredients?.split(";")?.joinToString(separator = "\n")
                                 ?: "Not Found"
@@ -63,7 +64,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         })
     }
 
-    object Constants {
+    object Cons {
         const val INGREDIENT = "Ingradient"
         const val STEPS = "Steps"
 
