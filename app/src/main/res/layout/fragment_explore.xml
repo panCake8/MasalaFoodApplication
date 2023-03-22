@@ -7,18 +7,17 @@
     android:background="#fafafa">
 
 
-    <EditText
+    <com.mindorks.editdrawabletext.EditDrawableText
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/search_height"
         android:layout_marginHorizontal="@dimen/margin_large"
         android:layout_marginTop="@dimen/margin_medium"
         android:background="@drawable/search_view"
-        android:drawableStart="@drawable/baseline_search_24"
-        android:drawableEnd="@drawable/baseline_filter_alt_24"
-        android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawableRight="@drawable/baseline_filter_alt_24"
+        android:drawablePadding="@dimen/padding_medium"
         android:hint="@string/search_here"
-        android:importantForAutofill="no"
         android:inputType="text"
         android:maxLength="50"
         android:paddingHorizontal="@dimen/padding_large"
@@ -26,7 +25,8 @@
         android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded" />
 
     <ScrollView
         android:id="@+id/card_containers"
@@ -41,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/root_card_view1"
                 style="@style/CardSearch"
@@ -72,8 +73,8 @@
                         android:layout_marginStart="@dimen/margin_medium"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food1"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name1"
                         app:layout_constraintVertical_bias="0.0"
@@ -116,8 +117,8 @@
                         android:layout_marginStart="@dimen/margin_medium"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food2"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name2"
                         app:layout_constraintVertical_bias="0.0"
@@ -159,8 +160,8 @@
                         android:layout_marginStart="@dimen/margin_medium"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food3"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name3"
                         app:layout_constraintVertical_bias="0.0"
@@ -202,8 +203,8 @@
                         android:layout_marginStart="@dimen/margin_medium"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food4"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name4"
                         app:layout_constraintVertical_bias="0.0"
@@ -245,8 +246,8 @@
                         android:layout_marginStart="@dimen/margin_medium"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food5"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name5"
                         app:layout_constraintVertical_bias="0.0"
@@ -284,12 +285,12 @@
 
                     <TextView
                         android:id="@+id/description_tv6"
+                        style="@style/BodySearch"
                         android:layout_marginStart="@dimen/margin_medium"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        style="@style/BodySearch"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imv_food6"
                         app:layout_constraintTop_toBottomOf="@+id/txv_food_name6"
                         app:layout_constraintVertical_bias="0.0"

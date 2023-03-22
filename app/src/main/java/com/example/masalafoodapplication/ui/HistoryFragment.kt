@@ -1,4 +1,3 @@
-
 package com.example.masalafoodapplication.ui
 
 import android.view.LayoutInflater
@@ -17,7 +16,7 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
     override fun onClicks() {
         binding.arrowBack.setOnClickListener {
-            requireActivity().onBackPressed()
+            onBack()
         }
 
     }

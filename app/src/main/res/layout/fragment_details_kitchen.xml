@@ -42,8 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:scrollbarSize="0dp"
-        >
+        android:scrollbarSize="0dp">
 
 
         <LinearLayout
@@ -57,8 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="2"
-                >
+                android:weightSum="2">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_one"
@@ -103,16 +101,19 @@
                         android:orientation="vertical">
 
                         <ImageView
+                            android:id="@+id/imgTwo"
                             style="@style/ImageKitchenDetails"
                             android:contentDescription="@string/img_description"
                             android:src="@drawable/chief_image" />
 
                         <TextView
+                            android:id="@+id/titleTwo"
                             style="@style/TextKitchen.Title"
                             android:text="Pizza"
                             android:textSize="@dimen/text_large" />
 
                         <TextView
+                            android:id="@+id/infoTwo"
                             style="@style/TextKitchen.Body"
                             android:text="Pizaa Master is very good" />
                     </LinearLayout>
@@ -138,16 +139,19 @@
                         android:orientation="vertical">
 
                         <ImageView
+                            android:id="@+id/imgThree"
                             style="@style/ImageKitchenDetails"
                             android:contentDescription="@string/img_description"
                             android:src="@drawable/chief_image" />
 
                         <TextView
+                            android:id="@+id/titleThree"
                             style="@style/TextKitchen.Title"
                             android:text="Pizza"
                             android:textSize="@dimen/text_large" />
 
                         <TextView
+                            android:id="@+id/infoThree"
                             style="@style/TextKitchen.Body"
                             android:text="Pizaa Master is very good" />
                     </LinearLayout>
@@ -165,16 +169,19 @@
                         android:orientation="vertical">
 
                         <ImageView
+                            android:id="@+id/imgFour"
                             style="@style/ImageKitchenDetails"
                             android:contentDescription="@string/img_description"
                             android:src="@drawable/chief_image" />
 
                         <TextView
+                            android:id="@+id/titleFour"
                             style="@style/TextKitchen.Title"
                             android:text="Pizza"
                             android:textSize="@dimen/text_large" />
 
                         <TextView
+                            android:id="@+id/infoFour"
                             style="@style/TextKitchen.Body"
                             android:text="Pizaa Master is very good" />
                     </LinearLayout>

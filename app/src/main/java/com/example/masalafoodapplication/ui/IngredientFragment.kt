@@ -9,37 +9,44 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
+import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.kiko.fillapp.data.domain.Food
 
 
 class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
-
+    private lateinit var food: Food
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentIngredientBinding
         get() = FragmentIngredientBinding::inflate
 
     override fun setup() {
-        getIngredient(DataManager.getAllFood()[0])
+        parentFragmentManager.setFragmentResultListener(
+            Constants.INGREDIENT,
+            this
+        ) { _, result ->
+            food = result.getParcelable(Constants.INGREDIENT)!!
+            getIngredient(food)
+        }
     }
 
     override fun onClicks() {
         binding.topAppBar.setNavigationOnClickListener {
-            requireActivity().onBackPressed()
+            onBack()
         }
         binding.nexBtn.setOnClickListener {
             parentFragmentManager.commit {
-                replace(R.id.fragment_container, IngredientFragment())
-                    .addToBackStack("ingredient")
+                parentFragmentManager.popBackStack()
+                transitionToWithBackStack(StepsFragment(), Constants.STEPS)
+                newInstance(food, Constants.STEPS)
             }
         }
     }
 
-    private fun getIngredient(foods: Food) {
-        val options = foods.ingredients.split(";").toTypedArray()
+    private fun getIngredient(foods: Food?) {
+        val options = foods?.ingredients?.split(";")?.toTypedArray()
         val linearLayoutOptions = binding.checkboxLayout
-        for (option in options) {
+        for (option in options!!) {
             val checkBox = MaterialCheckBox(context)
             checkBox.id = View.generateViewId()
             checkBox.width = ViewGroup.LayoutParams.MATCH_PARENT
@@ -59,13 +66,6 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             )
             checkBox.typeface = ResourcesCompat.getFont(binding.root.context, R.font.work_sans)
             linearLayoutOptions.addView(checkBox)
-            checkBox.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-
-                } else {
-
-                }
-            }
         }
     }
 

@@ -9,8 +9,11 @@ import androidx.core.widget.addTextChangedListener
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
+import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.loadImage
 import com.kiko.fillapp.data.domain.Food
+import com.mindorks.editdrawabletext.DrawablePosition
+import com.mindorks.editdrawabletext.onDrawableClickListener
 
 
 class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
@@ -19,14 +22,39 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
         get() = FragmentExploreBinding::inflate
 
     override fun setup() {
+        parentFragmentManager.setFragmentResultListener(
+            Constants.FILTER,
+            this
+        ) { _, result ->
+            val list = DataManager.getAllFood().filter {
+                it.cuisine != result.getString("foodName")
+                        || it.cleaned != result.getString("cleaned")
+                        || it.timeMinutes != result.getString("value").toString().toInt()
+            }
+            showDataHideLottie()
+            bindSearchResult(list)
+
+
+        }
 
     }
+
 
     override fun onClicks() {
         binding.searchBar.addTextChangedListener { text ->
             val list = DataManager.search(text.toString().lowercase())
             getData(text.toString(), list)
         }
+        binding.searchBar.setDrawableClickListener(object : onDrawableClickListener {
+            override fun onClick(target: DrawablePosition) {
+                when (target) {
+                    DrawablePosition.RIGHT -> {
+                        transitionToWithBackStack(FilterFragment(), Constants.EXPLORE)
+                    }
+                    else -> {}
+                }
+            }
+        })
     }
 
 

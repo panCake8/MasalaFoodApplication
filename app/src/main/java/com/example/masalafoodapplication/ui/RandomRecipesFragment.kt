@@ -27,7 +27,7 @@ class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>() {
 
     override fun onClicks() {
         binding.icArrowBack.setOnClickListener {
-            requireActivity().onBackPressed()
+       onBack()
         }
     }
 

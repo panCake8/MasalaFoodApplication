@@ -291,15 +291,15 @@
 
     <!-- recipes menu and random recipes -->
     <style name="CardViewRecipes">
-        <item name="android:layout_width"> 0dp</item>
-        <item name="android:layout_height"> 220dp</item>
-        <item name="android:layout_weight"> 1</item>
-        <item name="cardCornerRadius"> 12dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">220dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="cardCornerRadius">12dp</item>
     </style>
 
     <style name="CardViewImageRecipes">
-        <item name="android:layout_width"> match_parent</item>
-        <item name="android:layout_height"> 164dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">164dp</item>
 
     </style>
 
@@ -319,30 +319,49 @@
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
         <item name="android:scrollbars">none</item>
     </style>
-    <style name="CardViewNameRecipes">
-        <item name="android:layout_width"> wrap_content</item>
-        <item name="android:layout_height"> 0dp</item>
-        <item name="android:layout_weight"> 1</item>
-        <item name="android:gravity"> start</item>
 
-        <item name="android:textColor"> @color/text_medium</item>
-        <item name="android:textSize"> @dimen/text_small</item>
-        <item name="android:fontFamily"> @font/work_sans</item>
-        <item name="android:layout_margin"> 8dp</item>
+    <style name="CardViewNameRecipes">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">start</item>
+
+        <item name="android:textColor">@color/text_medium</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:layout_margin">8dp</item>
 
     </style>
+
     <style name="CardViewPrepareIconContainer">
-        <item name="android:layout_width"> wrap_content</item>
-        <item name="android:layout_height"> wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:layout_marginStart"> 8dp</item>
-        <item name="android:layout_gravity"> start</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_gravity">start</item>
     </style>
 
     <style name="CardViewPrepareIcon">
-        <item name="android:layout_width"> 16dp</item>
-        <item name="android:layout_height"> 16dp</item>
-        <item name="android:layout_marginStart"> 8dp</item>
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <item name="backgroundTint">@color/primary_button_color</item>
+    </style>
+
+    <style name="Text">Text.TitleChips</style>
+
+    <style name="Text.TitleChips">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/app_bar_text_color</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_large</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:fontFamily">"@font/work_sans"</item>
     </style>
 
 </resources>
