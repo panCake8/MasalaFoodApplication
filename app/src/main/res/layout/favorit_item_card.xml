@@ -28,7 +28,7 @@
                 android:layout_height="100dp"
                 android:contentDescription="@string/popular_dishes"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/poster"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
