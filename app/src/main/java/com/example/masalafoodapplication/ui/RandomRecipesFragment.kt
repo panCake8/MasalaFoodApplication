@@ -14,10 +14,11 @@ class RandomRecipesFragment: BaseFragment<FragmentRandomRecipesBinding>() {
 
 
     override fun setup() {
+        var listFood =showMostQuickRecipes(DataManager.getAllFood())
 
-        addImage()
-        addPrepareTime()
-        addRecipesName()
+        addImage(listFood)
+        addPrepareTime(listFood)
+        addRecipesName(listFood)
 
     }
 
@@ -27,55 +28,33 @@ class RandomRecipesFragment: BaseFragment<FragmentRandomRecipesBinding>() {
         }
     }
 
-    private fun showMostQuickRecipes(foodList: List<Food>) = foodList.sortedBy {
-        it.timeMinutes
-    }.take(8)
-    private  fun addImage(){
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[0].imageUrl)
-            .into(binding.image1)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[1].imageUrl)
-            .into(binding.image2)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[2].imageUrl)
-            .into(binding.image3)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[3].imageUrl)
-            .into(binding.image4)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[4].imageUrl)
-            .into(binding.image5)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[5].imageUrl)
-            .into(binding.image6)
+    private fun showMostQuickRecipes(foodList: List<Food>) = foodList.shuffled()
+    private  fun addImage(listFood:List<Food>){
+
+        Glide.with(requireContext()).load( listFood[0].imageUrl).into(binding.image1)
+        Glide.with(requireContext()).load( listFood[1].imageUrl).into(binding.image2)
+        Glide.with(requireContext()).load( listFood[2].imageUrl).into(binding.image3)
+        Glide.with(requireContext()).load( listFood[3].imageUrl).into(binding.image4)
+
     }
-    private fun addRecipesName(){
+    private fun addRecipesName(listFood:List<Food>){
         binding.apply {
-            recipeName1.text =showMostQuickRecipes(DataManager.getAllFood())[0].recipeName
-            recipeName2.text =showMostQuickRecipes(DataManager.getAllFood())[1].recipeName
-            recipeName3.text =showMostQuickRecipes(DataManager.getAllFood())[2].recipeName
-            recipeName4.text =showMostQuickRecipes(DataManager.getAllFood())[3].recipeName
-            recipeName5.text =showMostQuickRecipes(DataManager.getAllFood())[4].recipeName
-            recipeName6.text =showMostQuickRecipes(DataManager.getAllFood())[5].recipeName
+            recipeName1.text = listFood[0].recipeName
+            recipeName2.text = listFood[1].recipeName
+            recipeName3.text = listFood[2].recipeName
+            recipeName4.text = listFood[3].recipeName
+
+
 
         }
     }
-    private fun addPrepareTime(){
+    private fun addPrepareTime(listFood:List<Food>){
         binding.apply {
-            prepareTime1.text =showMostQuickRecipes(DataManager.getAllFood())[0]
-                .timeMinutes.toString()+"m"
-            prepareTime2.text =showMostQuickRecipes(DataManager.getAllFood())[1]
-                .timeMinutes.toString()+"m"
-            prepareTime3.text =showMostQuickRecipes(DataManager.getAllFood())[2]
-                .timeMinutes.toString()+"m"
-            prepareTime4.text =showMostQuickRecipes(DataManager.getAllFood())[3]
-                .timeMinutes.toString()+"m"
-            prepareTime5.text =showMostQuickRecipes(DataManager.getAllFood())[4]
-                .timeMinutes.toString()+"m"
-            prepareTime6.text =showMostQuickRecipes(DataManager.getAllFood())[5]
-                .timeMinutes.toString()+"m"
 
+            prepareTime1.text = listFood[0].timeMinutes.toString() +"m"
+            prepareTime2.text = listFood[1].timeMinutes.toString() +"m"
+            prepareTime3.text = listFood[2].timeMinutes.toString() +"m"
+            prepareTime4.text = listFood[3].timeMinutes.toString() +"m"
 
         }
     }

@@ -29,7 +29,7 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
 
     private fun showMostQuickRecipes(foodList: List<Food>) = foodList.sortedBy {
         it.timeMinutes
-    }.take(8)
+    }
     private  fun addImage(){
         Glide.with(requireContext())
             .load( showMostQuickRecipes(DataManager.getAllFood())[0].imageUrl)
@@ -45,10 +45,7 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
             .into(binding.image4)
         Glide.with(requireContext())
             .load( showMostQuickRecipes(DataManager.getAllFood())[4].imageUrl)
-            .into(binding.image5)
-        Glide.with(requireContext())
-            .load( showMostQuickRecipes(DataManager.getAllFood())[5].imageUrl)
-            .into(binding.image6)
+
     }
     private fun addRecipesName(){
         binding.apply {
@@ -56,8 +53,7 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
             recipeName2.text =showMostQuickRecipes(DataManager.getAllFood())[1].recipeName
             recipeName3.text =showMostQuickRecipes(DataManager.getAllFood())[2].recipeName
             recipeName4.text =showMostQuickRecipes(DataManager.getAllFood())[3].recipeName
-            recipeName5.text =showMostQuickRecipes(DataManager.getAllFood())[4].recipeName
-            recipeName6.text =showMostQuickRecipes(DataManager.getAllFood())[5].recipeName
+
 
         }
     }
@@ -70,10 +66,6 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
             prepareTime3.text =showMostQuickRecipes(DataManager.getAllFood())[2]
                 .timeMinutes.toString()+"m"
             prepareTime4.text =showMostQuickRecipes(DataManager.getAllFood())[3]
-                .timeMinutes.toString()+"m"
-            prepareTime5.text =showMostQuickRecipes(DataManager.getAllFood())[4]
-                .timeMinutes.toString()+"m"
-            prepareTime6.text =showMostQuickRecipes(DataManager.getAllFood())[5]
                 .timeMinutes.toString()+"m"
 
 

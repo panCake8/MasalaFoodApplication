@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         android:id="@+id/scrollable_menu"
         android:scrollbars="none"
         >
@@ -254,114 +254,7 @@
 
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/margin_large"
-                >
-                <androidx.cardview.widget.CardView
 
-                    style="@style/CardViewRecipes"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingBottom="8dp"
-                        android:orientation="vertical"
-
-
-                        >
-                        <ImageView
-                            android:scaleType="centerCrop"
-                            android:id="@+id/image5"
-                            style="@style/CardViewImageRecipes"
-                            tools:src="@drawable/chief_in_kitchen_image"
-
-                            />
-                        <TextView
-                            android:id="@+id/recipe_name5"
-                            tools:text="name"
-                            style="@style/CardViewNameRecipes"
-
-                            />
-                        <LinearLayout
-                            style="@style/CardViewPrepareIconContainer"
-
-
-                            >
-                            <TextView
-                                android:id="@+id/prepareTime5"
-                                tools:text="15m"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/text_small"
-                                android:fontFamily="@font/work_sans"
-                                android:textColor="@color/text_light"
-
-
-                                />
-                            <ImageView
-                                style="@style/CardViewPrepareIcon"
-                                android:src="@drawable/prepare_time"
-
-                                />
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_marginLeft="@dimen/margin_large"
-                    style="@style/CardViewRecipes"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingBottom="8dp"
-                        android:orientation="vertical"
-
-
-                        >
-                        <ImageView
-                            android:scaleType="centerCrop"
-                            android:id="@+id/image6"
-                            style="@style/CardViewImageRecipes"
-                            tools:src="@drawable/chief_in_kitchen_image"
-
-                            />
-                        <TextView
-                            android:id="@+id/recipe_name6"
-                            tools:text="name"
-                            style="@style/CardViewNameRecipes"
-
-                            />
-                        <LinearLayout
-                            style="@style/CardViewPrepareIconContainer"
-
-
-                            >
-                            <TextView
-                                android:id="@+id/prepareTime6"
-                                tools:text="15m"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/text_small"
-                                android:fontFamily="@font/work_sans"
-                                android:textColor="@color/text_light"
-
-
-                                />
-                            <ImageView
-                                style="@style/CardViewPrepareIcon"
-                                android:src="@drawable/prepare_time"
-
-                                />
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-            </LinearLayout>
 
 
 
