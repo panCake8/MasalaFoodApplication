@@ -1,61 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="240dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginStart="@dimen/margin_large"
     android:layout_marginBottom="@dimen/margin_large"
-    app:cardElevation="8dp"
     app:cardCornerRadius="12dp">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/recipe_card"
+        >
+
         <ImageView
             android:scaleType="centerCrop"
-            android:id="@+id/image_recipe1"
+            android:id="@+id/image_recipe"
             android:layout_width="match_parent"
-            android:layout_height="164dp"
-
+            android:layout_height="match_parent"
+            android:foreground="#99121212"
             tools:src="@drawable/quick_recipes_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
         <TextView
-            android:id="@+id/recipe_name1"
+            android:id="@+id/recipe_name"
             android:layout_width="match_parent"
             android:layout_height ="wrap_content"
+
             android:lines="1"
             android:ellipsize="end"
-            android:textColor="@color/text_medium"
-            android:textSize="@dimen/text_small"
+            android:textColor="#DEFFFFFF"
+            android:textSize="@dimen/text_medium"
             android:fontFamily="@font/work_sans"
             android:layout_marginHorizontal="8dp"
             android:layout_marginTop="8dp"
             tools:text="name"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_recipe1"/>
-        <TextView
-            android:id="@+id/prepareTime1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/work_sans"
-            android:textColor="@color/text_light"
-            android:textSize="@dimen/text_small"
-            tools:text="15m"
-           android:layout_margin="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintBottom_toTopOf="@+id/time_icon"/>
         <ImageView
+            android:id="@+id/time_icon"
             android:src="@drawable/prepare_time"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginVertical="8dp"
-            app:layout_constraintStart_toEndOf="@id/prepareTime1"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
+        <TextView
+            android:id="@+id/prepareTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/work_sans"
+            android:textColor="#99FFFFFF"
+            android:textSize="@dimen/text_small"
+            tools:text="15m"
+            android:layout_marginVertical="8dp"
+
+            app:layout_constraintStart_toEndOf="@+id/time_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
