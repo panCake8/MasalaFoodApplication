@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="157dp"
+    android:layout_width="match_parent"
     android:layout_height="220dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="@dimen/margin_large"
+    android:layout_marginStart="@dimen/margin_large"
+    android:layout_marginBottom="@dimen/margin_large"
     app:cardElevation="8dp"
     app:cardCornerRadius="12dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
+            android:scaleType="centerCrop"
             android:id="@+id/image_recipe1"
             android:layout_width="match_parent"
             android:layout_height="164dp"
-            android:scaleType="centerInside"
+
             tools:src="@drawable/quick_recipes_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
