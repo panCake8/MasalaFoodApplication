@@ -55,4 +55,8 @@
     <dimen name="search_height">56dp</dimen>
     <dimen name="shape_image_size">100dp</dimen>
     <dimen name="small_icon_size">16dp</dimen>
+    <dimen name="margin_text_time">7dp</dimen>
+    <dimen name="img_height_kitchen">142dp</dimen>
+    <dimen name="card_item_food_height">240dp</dimen>
+    <dimen name="card_item_kitchen_height">196dp</dimen>
 </resources>

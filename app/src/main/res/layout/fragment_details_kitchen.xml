@@ -8,7 +8,7 @@
     tools:context=".ui.DetailsKitchenFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/details_toolbar"
+        android:id="@+id/kitchen_toolbar"
         style="@style/AppBar"
         app:title="@string/kitchens" />
 
@@ -21,13 +21,23 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/details_kitchen_poster_height"
         android:layout_marginHorizontal="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_medium"
         android:contentDescription="@string/img_description"
         android:scaleType="centerCrop"
         android:src="@drawable/poster"
         app:shapeAppearanceOverlay="@style/ImageCurve" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/popular_dishes"
+        android:textColor="@color/dark_black"
+        android:textSize="@dimen/text_medium" />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_kitchen"
         style="@style/RecyclerStyle"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/item_kitchen" />

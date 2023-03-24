@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- button parent style-->
     <style name="Button" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">56dp</item>
@@ -22,7 +22,7 @@
         <item name="android:backgroundTint">@color/white</item>
         <item name="strokeColor">@color/primary_button_color</item>
         <item name="strokeWidth">@dimen/small_stroke</item>
-        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textColor">@color/dark_black</item>
     </style>
 
     <!-- app bar-->
@@ -51,8 +51,110 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginEnd">@dimen/margin_medium</item>
-        <item name="android:layout_marginTop">@dimen/margin_large</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
         <item name="spanCount">2</item>
         <item name="android:orientation">vertical</item>
     </style>
+
+    <!--    Image Parent-->
+    <style name="ImageRecItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!--    Image Food-->
+    <style name="ImageRecItem.Food">
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!--    Image Kitchen-->
+    <style name="ImageRecItem.Kitchen">
+        <item name="android:layout_height">@dimen/img_height_kitchen</item>
+    </style>
+
+    <!--    Card Parent-->
+    <style name="CardRecItem" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+    </style>
+
+
+    <!--    Card Food-->
+    <style name="CardRecItem.Food">
+        <item name="android:layout_height">@dimen/card_item_food_height</item>
+        <item name="cardCornerRadius">@dimen/radius_medium</item>
+    </style>
+
+
+    <!--    Card Kitchen-->
+    <style name="CardRecItem.Kitchen">
+        <item name="android:layout_height">@dimen/card_item_kitchen_height</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="cardCornerRadius">@dimen/radius_small</item>
+    </style>
+
+    <!--    Item Text Parent-->
+    <style name="ItemText" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!--    Item Text Name Parent-->
+    <style name="ItemText.Name">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/dark_white</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+    </style>
+
+    <!--    Item Text Time Parent-->
+    <style name="ItemText.Time">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/dark_white</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:layout_marginStart">@dimen/margin_tiny</item>
+    </style>
+
+    <!--    Item Text Name Food-->
+    <style name="ItemText.Name.Food">
+        <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
+        <item name="android:textColor">@color/dark_white</item>
+    </style>
+
+    <!--    Item Text Name Kitchen-->
+    <style name="ItemText.Name.Kitchen">
+        <item name="android:textColor">@color/medium_black</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
+
+    <!--    Item Text Time Food-->
+    <style name="ItemText.Time.Food">
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
+        <item name="android:textColor">@color/medium_white</item>
+    </style>
+
+    <!--    Item Text Time Kitchen-->
+    <style name="ItemText.Time.Kitchen">
+        <item name="android:textColor">@color/medium_black</item>
+        <item name="android:layout_marginBottom">@dimen/margin_text_time</item>
+    </style>
+
+    <!--    Item Icon Parent-->
+    <style name="ItemIcon">
+        <item name="android:layout_width">@dimen/small_icon_size</item>
+        <item name="android:layout_height">@dimen/small_icon_size</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+    </style>
+
+    <!--    Item Icon Kitchen-->
+    <style name="ItemIcon.Kitchen">
+        <item name="tint">@color/medium_black</item>
+    </style>
+
+    <!--    Item Icon Kitchen-->
+
 </resources>

@@ -38,7 +38,7 @@
         android:layout_marginBottom="@dimen/margin_large_x"
         android:fontFamily="@font/work_sans"
         android:text="@string/required_ingredient"
-        android:textColor="@color/text_dark"
+        android:textColor="@color/dark_black"
         android:textSize="@dimen/text_large"
         android:textStyle="normal|bold"
         app:layout_constraintHorizontal_bias="0.5"

@@ -94,7 +94,7 @@
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/work_sans_semibold"
                     android:text="@string/dish_name"
-                    android:textColor="@color/text_dark"
+                    android:textColor="@color/dark_black"
                     android:textSize="@dimen/text_VLarge"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/chip" />
