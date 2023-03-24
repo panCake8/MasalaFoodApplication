@@ -5,10 +5,10 @@
     <dimen name="nav_bar_indicator_height">32dp</dimen>
 
     <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_tiny">2dp</dimen>
     <dimen name="margin_large">16dp</dimen>
     <dimen name="margin_large_x">24dp</dimen>
     <dimen name="margin_large_xx">49dp</dimen>
-
     <dimen name="margin_medium">8dp</dimen>
 
     <dimen name="padding_large">16dp</dimen>
@@ -19,6 +19,8 @@
     <dimen name="no_width">0dp</dimen>
 
     <dimen name="app_bar_text">22sp</dimen>
+    <dimen name="app_bar_height">56dp</dimen>
+
     <dimen name="text_large">16sp</dimen>
     <dimen name="text_VLarge">20sp</dimen>
     <dimen name="text_small">12sp</dimen>
@@ -52,4 +54,5 @@
 
     <dimen name="search_height">56dp</dimen>
     <dimen name="shape_image_size">100dp</dimen>
+    <dimen name="small_icon_size">16dp</dimen>
 </resources>

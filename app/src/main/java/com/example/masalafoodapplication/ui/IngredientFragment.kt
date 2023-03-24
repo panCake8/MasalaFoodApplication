@@ -31,9 +31,9 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
     }
 
     override fun onClicks() {
-        binding.topAppBar.setNavigationOnClickListener {
-            onBack()
-        }
+//        binding.topAppBar.setNavigationOnClickListener {
+//            onBack()
+//        }
         binding.nexBtn.setOnClickListener {
             parentFragmentManager.commit {
                 parentFragmentManager.popBackStack()

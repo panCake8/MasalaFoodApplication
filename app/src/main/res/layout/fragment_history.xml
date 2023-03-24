@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_history_scene"
     tools:context=".ui.HistoryFragment">
+
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="460dp"
         android:foreground="@drawable/gradient_top_of_image"
-        android:src="@drawable/photo_menu"
+        android:src="@drawable/indian_food"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,8 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_large"
-        android:src="@drawable/ic_arrow_back"
-        android:clickable="true"
+        android:src="@drawable/ic_back_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/white"
@@ -47,8 +47,8 @@
                 style="@style/detailMenuHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="800dp"
                 android:layout_marginHorizontal="@dimen/margin_large"
+                android:layout_marginTop="800dp"
                 android:text="@string/history_of_indian_cuisine"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

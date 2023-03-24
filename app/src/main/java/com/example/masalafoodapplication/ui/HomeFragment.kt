@@ -25,7 +25,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         bindRandomKitchenImages()
         bindQuickRecipesData()
         bindJustForYouData()
-        bindMakeYourMealImage()
     }
 
     override fun onClicks() {
@@ -82,10 +81,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
             justForYouMore.setOnClickListener {
                 transform(RandomRecipesFragment(), Constants.RANDOM_RECIPE)
-            }
-            ivMakeYourMealArrow.setOnClickListener {
-                transform(SuggestionFilterFragment(), Constants.SUGGESTION_FILTER)
-                transitionToWithBackStack(SuggestionFilterFragment(), Constants.SUGGESTION_FILTER)
             }
         }
     }
@@ -175,11 +170,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             loadRandomImage(binding.ivKitchenKashmir, Constants.KASHMIRI)
         }
     }
-
-    private fun bindMakeYourMealImage() {
-        loadRandomImage(binding.ivMakeYourMeal, Constants.INDIAN)
-    }
-
 
     private fun loadRandomImage(imageView: ImageView, cuisine: String) {
         imageView.loadImage(DataManager.getRandomImageUrlByCuisine(cuisine))

@@ -37,9 +37,9 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
             }
         }
 
-        binding.navbar.setNavigationOnClickListener {
-            onBack()
-        }
+//        binding.navbar.setNavigationOnClickListener {
+//            onBack()
+//        }
         binding.buttonNext.setOnClickListener {
             parentFragmentManager.popBackStack()
             transitionToWithBackStack(SuggestionsFragment(), Constants.SUGGESTIONS)

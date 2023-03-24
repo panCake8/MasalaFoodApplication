@@ -4,16 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Toolbar
-        android:id="@+id/navbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_medium"
-        android:navigationIcon="@drawable/ic_arrow_back"
-        android:title="@string/suggestions"
-        app:layout_constraintBottom_toTopOf="@+id/Scroll_view_body"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/suggestion_filter_toolbar"
+        style="@style/AppBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/kitchens" />
+
+    <View
+        android:id="@+id/toolbar_stroke"
+        style="@style/AppBarStroke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/suggestion_filter_toolbar" />
 
     <ScrollView
         android:id="@+id/Scroll_view_body"
@@ -22,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_stroke">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
