@@ -30,5 +30,5 @@
     <androidx.recyclerview.widget.RecyclerView
         style="@style/RecyclerStyle"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/item_food" />
+        tools:listitem="@layout/item_kitchen" />
 </LinearLayout>
