@@ -549,63 +549,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/make_your_meal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_large"
-            app:cardCornerRadius="@dimen/radius_medium"
-            app:layout_constraintTop_toBottomOf="@id/just_for_you_section">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/iv_make_your_meal"
-                    android:layout_width="@dimen/small_card_size"
-                    android:layout_height="@dimen/small_card_size"
-                    android:contentDescription="@string/make_your_meal_image"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@tools:sample/backgrounds/scenic" />
-
-                <TextView
-                    android:id="@+id/tv_make_your_meal"
-                    android:layout_width="@dimen/no_width"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_large"
-                    android:fontFamily="@font/work_sans_medium"
-                    android:text="@string/make_your_meal"
-                    android:textColor="@color/text_dark"
-                    android:textSize="@dimen/text_medium"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/iv_make_your_meal_arrow"
-                    app:layout_constraintStart_toEndOf="@id/iv_make_your_meal"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/iv_make_your_meal_arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_large"
-                    android:background="@drawable/bg_transparent_circle"
-                    android:backgroundTint="@color/primary_button_color"
-                    android:clickable="true"
-                    android:contentDescription="@string/make_your_meal_button"
-                    android:focusable="true"
-                    android:padding="@dimen/margin_small"
-                    android:src="@drawable/ic_arrow_forward"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_make_your_meal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tv_make_your_meal" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
     </LinearLayout>
 
 </ScrollView>

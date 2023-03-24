@@ -31,9 +31,9 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
     }
 
     override fun onClicks() {
-        binding.topAppBar.setNavigationOnClickListener {
-            parentFragmentManager.popBackStack(Constants.FOOD_DETAILS, 0)
-        }
+//        binding.topAppBar.setNavigationOnClickListener {
+//            parentFragmentManager.popBackStack(Constants.FOOD_DETAILS, 0)
+//        }
         binding.finishBtn.setOnClickListener {
             parentFragmentManager.popBackStack(Constants.FOOD_DETAILS, POP_BACK_STACK_INCLUSIVE)
         }

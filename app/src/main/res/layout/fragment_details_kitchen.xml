@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="@dimen/padding_large"
-    tools:context=".ui.DetailsKitchenFragment"
-    tools:ignore="RtlSymmetry">
+    tools:context=".ui.DetailsKitchenFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/details_toolbar"
+        android:id="@+id/kitchen_toolbar"
         style="@style/AppBar"
         app:title="@string/kitchens" />
 
@@ -18,177 +16,25 @@
         android:id="@+id/toolbar_stroke"
         style="@style/AppBarStroke" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/details_img_poster"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/details_kitchen_poster_height"
-        android:layout_marginTop="@dimen/margin_medium"
+        style="@style/Poster.Kitchen"
         android:contentDescription="@string/img_description"
-        android:scaleType="fitXY"
         android:src="@drawable/poster" />
 
     <TextView
-        android:id="@+id/scroll_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginTop="@dimen/margin_large"
-        android:fontFamily="@font/work_sans_semibold"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:fontFamily="@font/poppins_medium"
         android:text="@string/popular_dishes"
-        android:textColor="@color/text_dark"
-        android:textSize="@dimen/text_large" />
+        android:textColor="@color/dark_black"
+        android:textSize="@dimen/text_medium" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbarSize="0dp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:background="@color/white"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_one"
-                    style="@style/CardViewPopular"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/img_one"
-                            style="@style/ImageKitchenDetails"
-                            android:contentDescription="@string/img_description"
-                            android:src="@drawable/chief_image"
-                            app:shapeAppearanceOverlay="@style/ImageCurve" />
-
-                        <TextView
-                            android:id="@+id/title_one"
-                            style="@style/TextKitchen.Title"
-                            android:text="Pizza"
-                            android:textSize="@dimen/text_large" />
-
-                        <TextView
-                            android:id="@+id/info_one"
-                            style="@style/TextKitchen.Body"
-                            android:text="Pizaa Master is very goodd" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_two"
-                    style="@style/CardViewPopular"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/imgTwo"
-                            style="@style/ImageKitchenDetails"
-                            android:contentDescription="@string/img_description"
-                            android:src="@drawable/chief_image" />
-
-                        <TextView
-                            android:id="@+id/titleTwo"
-                            style="@style/TextKitchen.Title"
-                            android:text="Pizza"
-                            android:textSize="@dimen/text_large" />
-
-                        <TextView
-                            android:id="@+id/infoTwo"
-                            style="@style/TextKitchen.Body"
-                            android:text="Pizaa Master is very good" />
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_three"
-                    style="@style/CardViewPopular"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/imgThree"
-                            style="@style/ImageKitchenDetails"
-                            android:contentDescription="@string/img_description"
-                            android:src="@drawable/chief_image" />
-
-                        <TextView
-                            android:id="@+id/titleThree"
-                            style="@style/TextKitchen.Title"
-                            android:text="Pizza"
-                            android:textSize="@dimen/text_large" />
-
-                        <TextView
-                            android:id="@+id/infoThree"
-                            style="@style/TextKitchen.Body"
-                            android:text="Pizaa Master is very good" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_four"
-                    style="@style/CardViewPopular"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/imgFour"
-                            style="@style/ImageKitchenDetails"
-                            android:contentDescription="@string/img_description"
-                            android:src="@drawable/chief_image" />
-
-                        <TextView
-                            android:id="@+id/titleFour"
-                            style="@style/TextKitchen.Title"
-                            android:text="Pizza"
-                            android:textSize="@dimen/text_large" />
-
-                        <TextView
-                            android:id="@+id/infoFour"
-                            style="@style/TextKitchen.Body"
-                            android:text="Pizaa Master is very good" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_kitchen"
+        style="@style/RecyclerStyle"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/item_kitchen" />
 </LinearLayout>

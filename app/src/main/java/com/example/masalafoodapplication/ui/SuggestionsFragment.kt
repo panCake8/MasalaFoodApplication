@@ -36,9 +36,9 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>() {
 
 
     override fun onClicks() {
-        binding.sugTbTopAppBar.setOnClickListener {
-            onBack()
-        }
+//        binding.sugTbTopAppBar.setOnClickListener {
+//            onBack()
+//        }
         cardOnClick()
     }
 

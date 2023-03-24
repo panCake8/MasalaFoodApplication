@@ -4,25 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:elevation="@dimen/no_elevation"
-        app:layout_constraintEnd_toStartOf="parent"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/ingredient_toolbar"
+        style="@style/AppBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/kitchens" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            style="@style/Widget.MaterialComponents.Toolbar.Surface"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:fontFamily="@font/work_sans"
-            app:navigationIcon="@drawable/baseline_arrow_back_24"
-            app:title="@string/ingredient" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <View
+        android:id="@+id/toolbar_stroke"
+        style="@style/AppBarStroke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ingredient_toolbar" />
 
     <ImageView
         android:id="@+id/bgIngredent"
@@ -31,8 +26,8 @@
         android:layout_margin="@dimen/margin_large_x"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBar"
-        app:srcCompat="@drawable/ingredient" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_stroke"
+        app:srcCompat="@drawable/steps" />
 
     <TextView
         android:id="@+id/title"
@@ -43,7 +38,7 @@
         android:layout_marginBottom="@dimen/margin_large_x"
         android:fontFamily="@font/work_sans"
         android:text="@string/required_ingredient"
-        android:textColor="@color/text_dark"
+        android:textColor="@color/dark_black"
         android:textSize="@dimen/text_large"
         android:textStyle="normal|bold"
         app:layout_constraintHorizontal_bias="0.5"
@@ -81,6 +76,7 @@
                 app:buttonTint="@color/primary_button_color" />
         </LinearLayout>
     </ScrollView>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nexBtn"
         style="@style/Button.PrimaryButton"

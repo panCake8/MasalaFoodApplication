@@ -66,6 +66,7 @@
     <string name="onion">Onion</string>
     <string name="tomato">tomato</string>
     <string name="kray">Kray</string>
+    <string name="random_recipe">Random recipes</string>
 
 
 </resources>
