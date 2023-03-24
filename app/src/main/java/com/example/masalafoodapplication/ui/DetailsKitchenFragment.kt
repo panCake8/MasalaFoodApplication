@@ -122,7 +122,7 @@ class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKit
     }
 
     override fun onClicks() {
-        binding.detailsToolbar.setNavigationOnClickListener {
+        binding.kitchenToolbar.setNavigationOnClickListener {
             onBack()
         }
     }

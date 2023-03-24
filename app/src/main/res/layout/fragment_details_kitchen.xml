@@ -18,13 +18,9 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/details_img_poster"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/details_kitchen_poster_height"
-        android:layout_marginHorizontal="@dimen/margin_large"
+        style="@style/Poster.Kitchen"
         android:contentDescription="@string/img_description"
-        android:scaleType="centerCrop"
-        android:src="@drawable/poster"
-        app:shapeAppearanceOverlay="@style/ImageCurve" />
+        android:src="@drawable/poster" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -45,6 +45,11 @@
     <style name="ImageCurve">
         <item name="cornerSize">4%</item>
     </style>
+
+    <!--    Image Curve Large-->
+    <style name="ImageCurve.Large">
+        <item name="cornerSize">12%</item>
+    </style>
     <!--    Image Curve-->
     <style name="RecyclerStyle">
         <item name="android:layout_width">match_parent</item>
@@ -155,6 +160,21 @@
         <item name="tint">@color/medium_black</item>
     </style>
 
-    <!--    Item Icon Kitchen-->
-
+    <!--Base Image For Home And Kitchen-->
+    <style name="Poster">
+        <item name="android:layout_width">match_parent</item>
+        <item name="shapeAppearanceOverlay">@style/ImageCurve.Large</item>
+        <item name="android:layout_marginStart">@dimen/margin_large</item>
+        <item name="android:layout_marginEnd">@dimen/margin_large</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+    <!--Kitchen-->
+    <style name="Poster.Kitchen">
+        <item name="android:layout_height">@dimen/details_kitchen_poster_height</item>
+    </style>
+    <!--Home-->
+    <style name="Poster.Home">
+        <item name="android:layout_height">@dimen/food_poster_height</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
 </resources>
