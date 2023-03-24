@@ -22,7 +22,7 @@ class QuickRecipesAdapter(val list:List<Food>):RecyclerView.Adapter<QuickRecipes
         val currentRecipe = list[position]
         holder.binding.apply {
             recipeName.text =currentRecipe.recipeName
-            prepareTime.text = currentRecipe.timeMinutes.toString()
+            prepareTime.text = currentRecipe.timeMinutes.toString() + "m"
             imageRecipe.loadImage(currentRecipe.imageUrl)
         }
 
