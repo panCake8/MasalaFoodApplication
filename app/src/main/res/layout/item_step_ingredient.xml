@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/margin_large"
     android:layout_marginTop="@dimen/margin_medium"
-    android:checked="true"
     android:fontFamily="@font/work_sans"
     android:layoutDirection="rtl"
     android:textSize="@dimen/text_medium"
