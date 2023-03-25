@@ -32,7 +32,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     }
 
     abstract fun setup()
-    abstract fun onClicks()
+    open fun onClicks(){}
 
     fun transitionTo(fragment: Fragment) {
         parentFragmentManager.commit {
