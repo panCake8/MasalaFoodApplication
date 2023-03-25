@@ -13,11 +13,18 @@ object DataManager {
     fun getAllFood() = foodsList
 
 
-    fun getRandomQuickRecipes(limit: Int) = foodsList.filter {
-        it.timeMinutes < 30
-    }.shuffled().take(limit)
+    fun getRandomQuickRecipes(limit: Int): List<Food> {
+        return foodsList
+            .filter { it.timeMinutes < 30 }
+            .shuffled()
+            .take(limit)
+    }
 
-    fun getRandomFoods(limit: Int) = foodsList.shuffled().take(limit)
+    fun getRandomFoods(limit: Int): List<Food> {
+        return foodsList
+            .shuffled()
+            .take(limit)
+    }
 
     fun search(value: String) =
         foodsList.filter {
@@ -25,11 +32,6 @@ object DataManager {
                 .contains(value) || it.cleaned.lowercase().contains(value) || it.cuisine.lowercase()
                 .contains(value)
         }.shuffled().take(6)
-
-
-    fun showMostQuickRecipes() = foodsList.sortedBy { it.timeMinutes }
-
-    fun showJustForYou() = foodsList.shuffled()
 
     fun getCuisines(limit: Int): List<Cuisine> {
         return foodsList
