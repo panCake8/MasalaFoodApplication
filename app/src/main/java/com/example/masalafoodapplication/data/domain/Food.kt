@@ -1,4 +1,4 @@
-package com.kiko.fillapp.data.domain
+package com.example.masalafoodapplication.data.domain
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

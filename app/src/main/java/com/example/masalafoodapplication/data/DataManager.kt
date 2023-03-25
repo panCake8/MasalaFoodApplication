@@ -1,6 +1,7 @@
 package com.example.masalafoodapplication.data
 
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Cuisine
+import com.example.masalafoodapplication.data.domain.Food
 
 object DataManager {
     private val foodsList = mutableListOf<Food>()
@@ -18,9 +19,6 @@ object DataManager {
 
     fun getRandomFoods(limit: Int) = foodsList.shuffled().take(limit)
 
-    fun getRandomImageUrlByCuisine(cuisine: String) =
-        foodsList.filter { it.cuisine == cuisine }.shuffled().take(1).map { it.imageUrl }.first()
-
     fun search(value: String) =
         foodsList.filter {
             it.recipeName.lowercase()
@@ -29,10 +27,34 @@ object DataManager {
         }.shuffled().take(6)
 
 
-    fun showMostQuickRecipes() = foodsList.sortedBy {
-        it.timeMinutes
-    }
+    fun showMostQuickRecipes() = foodsList.sortedBy { it.timeMinutes }
 
     fun showJustForYou() = foodsList.shuffled()
+
+    fun getCuisines(limit: Int): List<Cuisine> {
+        return foodsList
+            .map { it.cuisine }
+            .distinct()
+            .map { Cuisine(it, getImageByCuisine(it)) }
+            .shuffled()
+            .take(limit)
+    }
+
+    fun getRandomFoodImage(): String {
+        return foodsList
+            .shuffled()
+            .take(1)
+            .map { it.imageUrl }
+            .first()
+    }
+
+    fun getImageByCuisine(cuisine: String): String {
+        return foodsList
+            .filter { it.cuisine == cuisine }
+            .shuffled()
+            .take(1)
+            .map { it.imageUrl }
+            .first()
+    }
 
 }
