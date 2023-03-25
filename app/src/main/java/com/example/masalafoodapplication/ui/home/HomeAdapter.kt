@@ -16,7 +16,10 @@ import com.example.masalafoodapplication.databinding.ListRecipesBinding
 import com.example.masalafoodapplication.util.Constants.UNKNOWN_HOME_ITEM_TYPE
 import com.example.masalafoodapplication.util.loadImage
 
-class HomeAdapter(private val homeItems: List<HomeItem<Any>>) :
+class HomeAdapter(
+    private val homeItems: List<HomeItem<Any>>,
+    private val listener: HomeInteractionListener
+) :
     RecyclerView.Adapter<HomeAdapter.BaseHomeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHomeViewHolder {
         return when (viewType) {
@@ -88,6 +91,7 @@ class HomeAdapter(private val homeItems: List<HomeItem<Any>>) :
 
         override fun bind(item: HomeItem<Any>) {
             binding.imageBanner.loadImage(item.data as String)
+            binding.root.setOnClickListener { listener.onBannerClicked() }
         }
     }
 
@@ -97,7 +101,8 @@ class HomeAdapter(private val homeItems: List<HomeItem<Any>>) :
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
                 labelSection.text = item.type.value
-                recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>)
+                recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>, listener)
+                buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
         }
     }
@@ -108,7 +113,8 @@ class HomeAdapter(private val homeItems: List<HomeItem<Any>>) :
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
                 labelSection.text = item.type.value
-                recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>)
+                recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>, listener)
+                buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
         }
     }
@@ -119,7 +125,8 @@ class HomeAdapter(private val homeItems: List<HomeItem<Any>>) :
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
                 labelSection.text = item.type.value
-                recyclerCuisines.adapter = CuisinesAdapter(item.data as List<Cuisine>)
+                recyclerCuisines.adapter = CuisinesAdapter(item.data as List<Cuisine>, listener)
+                buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
         }
     }
@@ -131,6 +138,7 @@ class HomeAdapter(private val homeItems: List<HomeItem<Any>>) :
             binding.apply {
                 labelFoodHistory.text = item.type.value
                 imageFoodHistory.loadImage(item.data as String)
+                root.setOnClickListener { listener.onIndianFoodHistoryClicked() }
             }
         }
     }

@@ -9,8 +9,10 @@ import com.example.masalafoodapplication.data.domain.Cuisine
 import com.example.masalafoodapplication.databinding.ItemCuisineBinding
 import com.example.masalafoodapplication.util.loadImage
 
-class CuisinesAdapter(private val cuisines: List<Cuisine>) :
-    RecyclerView.Adapter<CuisinesAdapter.CuisineViewHolder>() {
+class CuisinesAdapter(
+    private val cuisines: List<Cuisine>,
+    private val listener: HomeInteractionListener,
+) : RecyclerView.Adapter<CuisinesAdapter.CuisineViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuisineViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_cuisine, parent, false)
@@ -24,6 +26,9 @@ class CuisinesAdapter(private val cuisines: List<Cuisine>) :
         holder.binding.apply {
             imageCuisine.loadImage(currentCuisine.imageUrl)
             labelCuisineName.text = currentCuisine.name
+            root.setOnClickListener {
+                listener.onCuisineClicked(currentCuisine)
+            }
         }
     }
 

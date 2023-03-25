@@ -10,7 +10,10 @@ import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.data.domain.Food
 import com.example.masalafoodapplication.util.setTime
 
-class RecipesAdapter(private val recipes: List<Food>) :
+class RecipesAdapter(
+    private val recipes: List<Food>,
+    private val listener: HomeInteractionListener
+) :
     RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() {
 
 
@@ -27,6 +30,9 @@ class RecipesAdapter(private val recipes: List<Food>) :
             recipeName.text = currentRecipe.recipeName
             prepareTime.setTime(currentRecipe.timeMinutes)
             imageRecipe.loadImage(currentRecipe.imageUrl)
+            root.setOnClickListener {
+                listener.onRecipeClicked(currentRecipe)
+            }
         }
     }
 
