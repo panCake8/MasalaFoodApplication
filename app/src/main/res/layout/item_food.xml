@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/CardRecItem.Food"
@@ -14,12 +14,9 @@
             android:id="@+id/image_recipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:foreground="@drawable/bg_bottom_linear_transparent"
             android:contentDescription="@string/img_description"
-            android:foreground="@color/foreground_img_color"
             android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/quick_recipes_image" />
 
         <TextView
@@ -46,8 +43,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/time_icon"
             app:layout_constraintTop_toTopOf="@id/time_icon"
-            tools:text="15m" />
+            tools:text="15 m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
