@@ -2,6 +2,7 @@ package com.example.masalafoodapplication.data
 
 import com.example.masalafoodapplication.data.domain.Cuisine
 import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.util.Constants
 
 object DataManager : BaseDataManager {
     private val foodsList = mutableListOf<Food>()
@@ -69,5 +70,22 @@ object DataManager : BaseDataManager {
         }
         return (ingredientToFilter.subList(1, 60))
     }
+
+
+
+
+
+    private fun searchFoodsAccordingSuggestions(recipes: List<String>) =
+        getAllFood()
+        .filter{ it.cleaned.split(";").containsAll(recipes) }
+
+    fun splitFoodsIntoThreeMeals(meal:String,recipes: List<String>):List<Food>{
+        return if (meal == Constants.BREAKFAST || meal == Constants.DINNER){
+            searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes < 30 }
+        }else{
+            searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes > 30 }
+        }
+    }
+
 
 }
