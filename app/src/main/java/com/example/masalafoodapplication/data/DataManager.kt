@@ -3,7 +3,6 @@ package com.example.masalafoodapplication.data
 import com.example.masalafoodapplication.data.domain.Cuisine
 import com.example.masalafoodapplication.data.domain.Food
 import com.example.masalafoodapplication.util.Constants
-import com.example.masalafoodapplication.data.domain.Food
 
 object DataManager {
     private val foodsList = mutableListOf<Food>()

@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
-import com.example.masalafoodapplication.ui.BaseFragment
+import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.suggestion.adapters.SuggestionsAdapter
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.SuggestionOnClick
 import com.example.masalafoodapplication.util.SuggestionsItems
 
-class SuggestionsFragment :BaseFragment<FragmentSuggestionsBinding>(),SuggestionOnClick {
+class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(),SuggestionOnClick {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionsBinding
         get() = FragmentSuggestionsBinding::inflate
 
