@@ -136,7 +136,6 @@ class HomeAdapter(
 
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
-                labelFoodHistory.text = item.type.value
                 imageFoodHistory.loadImage(item.data as String)
                 root.setOnClickListener { listener.onIndianFoodHistoryClicked() }
             }

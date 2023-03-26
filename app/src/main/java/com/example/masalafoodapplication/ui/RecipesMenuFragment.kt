@@ -32,9 +32,7 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
         imageView.loadImage(url)
     }
 
-    override fun onClicks() {
-        TODO("Not yet implemented")
-    }
+
 
 //    private fun addImage() {
 //        binding.apply {
