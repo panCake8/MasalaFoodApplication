@@ -3,10 +3,11 @@ package com.example.masalafoodapplication.ui.quick_recipes
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.DataManager
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentQuickRecipesBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
-
+import com.example.masalafoodapplication.ui.quick_recipes.adapters.QuickRecipesAdapter
+import com.example.masalafoodapplication.ui.quick_recipes.adapters.QuickRecipesInteractionListener
 
 
 class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>(),

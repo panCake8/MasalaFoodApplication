@@ -8,9 +8,9 @@ import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.ItemFoodSuggestionsBinding
 import com.example.masalafoodapplication.util.SuggestionOnClick
 import com.example.masalafoodapplication.util.loadImage
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
 
-class FoodsAdapter(private val foods:List<Food>,private val listener:SuggestionOnClick):RecyclerView.Adapter<FoodsAdapter.FoodsViewHolder>() {
+class FoodsAdapter(private val foods:List<Food>, private val listener:SuggestionOnClick):RecyclerView.Adapter<FoodsAdapter.FoodsViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodsViewHolder {

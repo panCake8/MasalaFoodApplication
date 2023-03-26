@@ -1,11 +1,11 @@
-package com.example.masalafoodapplication.ui.quick_recipes
+package com.example.masalafoodapplication.ui.quick_recipes.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ItemFoodBinding
 import com.example.masalafoodapplication.util.loadImage
 

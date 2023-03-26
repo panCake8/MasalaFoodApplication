@@ -9,7 +9,9 @@ import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
 import com.example.masalafoodapplication.ui.*
+import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
+import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
 import com.example.masalafoodapplication.util.CsvParser
 import com.example.masalafoodapplication.util.SetFragmentType
 import java.io.BufferedReader
@@ -61,15 +63,17 @@ class BaseActivity : AppCompatActivity() {
         val inputStream: InputStream = assets.open(CSV_NAME)
         val buffer = BufferedReader(InputStreamReader(inputStream))
         val csvParser = CsvParser()
+        var id = 0
         buffer.forEachLine { line ->
-            val food = csvParser.parse(line)
+            val food = csvParser.parse(line, id)
             DataManager.addFood(food)
+            id++
         }
 
     }
 
     private fun initSubViews() {
-        setFragment(HomeFragment(), SetFragmentType.ADD, "Home")
+        setFragment(SuggestionFilterFragment(), SetFragmentType.ADD, "Home")
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType, tag: String) {

@@ -1,8 +1,10 @@
+package com.example.masalafoodapplication.ui.recipes
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.masalafoodapplication.data.DataManager
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentRandomRecipesBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage

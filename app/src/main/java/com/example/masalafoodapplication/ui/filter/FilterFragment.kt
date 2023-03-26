@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.filter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.Button
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentFilterBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup

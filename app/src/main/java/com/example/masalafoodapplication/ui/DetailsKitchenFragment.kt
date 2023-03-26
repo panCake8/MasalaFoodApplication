@@ -7,7 +7,7 @@ import android.widget.TextView
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
 
 
 class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKitchenBinding>() {

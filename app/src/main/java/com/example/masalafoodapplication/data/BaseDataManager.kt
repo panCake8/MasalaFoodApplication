@@ -1,7 +1,7 @@
 package com.example.masalafoodapplication.data
 
-import com.example.masalafoodapplication.data.domain.Cuisine
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Cuisine
+import com.example.masalafoodapplication.data.domain.models.Food
 
 interface BaseDataManager {
 
@@ -22,5 +22,7 @@ interface BaseDataManager {
     fun getImageByCuisine(cuisine: String): String
 
     fun splitFoodsIntoThreeMeals(meal: String, recipes: List<String>): List<Food>
+
+    fun getAllQuickRecipes(): List<Food>
 
 }
