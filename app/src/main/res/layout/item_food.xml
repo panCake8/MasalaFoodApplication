@@ -14,8 +14,8 @@
             android:id="@+id/image_recipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:foreground="@drawable/bg_bottom_linear_transparent"
             android:contentDescription="@string/img_description"
+            android:foreground="@drawable/bg_bottom_linear_transparent"
             android:scaleType="centerCrop"
             tools:src="@drawable/quick_recipes_image" />
 
