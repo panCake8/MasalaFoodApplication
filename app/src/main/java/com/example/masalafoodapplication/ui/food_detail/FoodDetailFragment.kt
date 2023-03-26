@@ -7,15 +7,15 @@ import com.bumptech.glide.Glide
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
-import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.food_detail.adapters.FoodDetailAdapter
+import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
 import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
 
-class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
+class FoodDetailFragment(val foodId: Int) : BaseFragment<FragmentFoodDetailBinding>() {
     private lateinit var food: Food
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodDetailBinding
         get() = FragmentFoodDetailBinding::inflate
@@ -42,7 +42,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
             onBack()
         }
         binding.startButton.setOnClickListener {
-            transitionToWithBackStack(IngredientFragment(), Constants.INGREDIENT)
+            transitionToWithBackStack(IngredientFragment())
             newInstance(food, Constants.INGREDIENT)
         }
     }
