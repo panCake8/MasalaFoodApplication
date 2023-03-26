@@ -84,7 +84,8 @@
                 android:layout_height="51dp"
                 android:layout_marginStart="@dimen/text_VLarge"
                 android:layout_weight="1"
-                android:fontFamily="@font/work_sans_semibold"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
                 android:text="@string/dish_name"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_VLarge" />
@@ -148,11 +149,9 @@
     <Button
         android:id="@+id/start_button"
         style="@style/Button.PrimaryButton"
-
         android:layout_height="wrap_content"
-
         android:layout_gravity="bottom"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/margin_large"
         android:text="@string/start_preparing_btn_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

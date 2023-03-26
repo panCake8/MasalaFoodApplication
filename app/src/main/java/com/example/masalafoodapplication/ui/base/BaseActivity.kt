@@ -40,7 +40,7 @@ class BaseActivity : AppCompatActivity() {
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    setFragment(HomeFragment(), SetFragmentType.REPLACE, "Home")
+                    setFragment(ExploreFragment(), SetFragmentType.REPLACE, "Home")
                     true
                 }
 

@@ -19,7 +19,7 @@
     </style>
     <!-- secondary button style-->
     <style name="Button.SecondaryButton">
-        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">@color/background_color</item>
         <item name="strokeColor">@color/primary_button_color</item>
         <item name="strokeWidth">@dimen/small_stroke</item>
         <item name="android:textColor">@color/dark_black</item>
@@ -29,7 +29,7 @@
     <style name="AppBar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/app_bar_height</item>
-        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">@color/background_color</item>
         <item name="titleTextColor">@color/app_bar_text_color</item>
         <item name="elevation">@dimen/elevation_small</item>
         <item name="navigationIcon">@drawable/ic_back_black</item>
@@ -254,7 +254,7 @@
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginBottom">@dimen/margin_medium</item>
         <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:fontFamily">"@font/work_sans"</item>
+        <item name="android:fontFamily">"@font/poppins_medium</item>
     </style>
 
 

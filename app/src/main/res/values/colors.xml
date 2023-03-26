@@ -7,7 +7,7 @@
     <color name="nav_selected_item">#61E32227</color>
     <color name="nav_background">#DEFFFFFF</color>
 
-    <color name="app_bar_text_color">#1C1B1F</color>
+    <color name="app_bar_text_color">#121212</color>
 
     <color name="dark_black">#DE121212</color>
     <color name="medium_black">#99121212</color>
@@ -23,9 +23,10 @@
     <color name="line_color">#5EFF1747</color>
     <color name="chips_stroke_color">#DEFF1747</color>
     <color name="delete_icon_color">#FF1747</color>
-    <color name="stroke_app_bar">#5EFFFFFF</color>
+    <color name="stroke_app_bar">#14121212</color>
 
     <color name="white">#FFFFFFFF</color>
+    <color name="background_color">#fafafafa</color>
     <color name="black">#121212</color>
     <color name="hint_color">#5E121212</color>
     <color name="foreground_img_color">#99121212</color>

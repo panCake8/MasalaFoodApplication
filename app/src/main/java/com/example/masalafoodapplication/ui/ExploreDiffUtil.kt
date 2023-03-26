@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.data.domain.Food
 
-class ExploreDiffUtil(val oldList: List<Food> , val newList: List<Food>):DiffUtil.Callback() {
+class ExploreDiffUtil(val oldList: List<Food>, val newList: List<Food>):DiffUtil.Callback() {
 
     override fun getOldListSize() = oldList.size
 
