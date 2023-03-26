@@ -1,8 +1,16 @@
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.ImageView
+import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.databinding.FragmentRandomRecipesBinding
+import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.util.loadImage
 
-class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
+class RecipesMenuFragment : BaseFragment<FragmentRandomRecipesBinding>() {
     private lateinit var list: List<Food>
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRecipesMenuBinding
-        get() = FragmentRecipesMenuBinding::inflate
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRandomRecipesBinding
+        get() = FragmentRandomRecipesBinding::inflate
 
 
     override fun setup() {
@@ -21,7 +29,6 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
     private fun setImages(url: String, imageView: ImageView) {
         imageView.loadImage(url)
     }
-
 
 
 //    private fun addImage() {

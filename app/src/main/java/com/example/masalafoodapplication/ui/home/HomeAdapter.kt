@@ -112,7 +112,6 @@ class HomeAdapter(
 
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
-                labelSection.text = item.type.value
                 recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>, listener)
                 buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
