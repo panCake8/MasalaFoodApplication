@@ -40,7 +40,7 @@ class BaseActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_explore -> {
-                    setFragment(ExploreFragment(), SetFragmentType.REPLACE, "Explore")
+                    setFragment(HomeFragment(), SetFragmentType.REPLACE, "Explore")
                     true
                 }
                 R.id.nav_favourite -> {
