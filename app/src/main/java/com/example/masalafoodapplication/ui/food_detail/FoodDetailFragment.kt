@@ -1,15 +1,17 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.food_detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.IdRes
 import com.bumptech.glide.Glide
 import com.example.masalafoodapplication.R
+import com.example.masalafoodapplication.data.domain.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
+import com.example.masalafoodapplication.ui.IngredientFragment
+import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.kiko.fillapp.data.domain.Food
 
 
 class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
@@ -22,9 +24,10 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
             Constants.FOOD_DETAILS, this
         ) { _, result ->
             food = result.getParcelable(Constants.FOOD_DETAILS)!!
-            binding.dishName.text = food?.recipeName ?: "not found"
-            binding.chiceGroupChips.check(R.id.description)
-            binding.descriptionTv.text = food?.makeRecipe ?: "3"
+            binding.dishName.text = food.recipeName ?: "not found"
+            binding.GroupChips.check(R.id.description)
+            val adapter = FoodDetailAdapter(food.ingredients.split(";").toList() ?: listOf("there is nothing here"))
+            binding.ItemRecyclerView.adapter = adapter
             Glide.with(requireActivity()).load(food.imageUrl).into(binding.backgroundImage)
             chooseChips(food)
 
@@ -33,7 +36,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     override fun onClicks() {
-        binding.back.setOnClickListener {
+        binding.foodDetailMenuToolbar.setOnClickListener {
             onBack()
         }
         binding.startButton.setOnClickListener {
@@ -43,21 +46,23 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
 
+
+
     private fun chooseChips(food: Food?) {
-        binding.chiceGroupChips.setOnCheckedChangeListener(object : ChipGroup.OnCheckedChangeListener {
+        binding.GroupChips.setOnCheckedChangeListener(object : ChipGroup.OnCheckedChangeListener {
             override fun onCheckedChanged(group: ChipGroup, @IdRes checkedId: Int) {
-                val chip: Chip? = group?.findViewById(checkedId)
+                val chip: Chip? = group.findViewById(checkedId)
                 chip?.let {
                     if (it.text.toString() == Cons.INGREDIENT) {
-                        binding.descriptionTv.text =
-                            food?.ingredients?.split(";")?.joinToString(separator = "\n")
-                                ?: "Not Found"
+                        val adapter = FoodDetailAdapter(food?.ingredients?.split(";")?.toList() ?: listOf())
+                        binding.ItemRecyclerView.adapter = adapter
                     } else if (it.text.toString() == Cons.STEPS) {
-                        binding.descriptionTv.text =
-                            food?.ingredients?.split(";")?.joinToString(separator = "\n")
-                                ?: "Not Found"
-                    } else {
-                        binding.descriptionTv.text = food?.makeRecipe ?: "Not Found"
+                        val adapter = FoodDetailAdapter(food?.makeRecipe?.split(";")?.toList() ?: listOf())
+                        binding.ItemRecyclerView.adapter = adapter
+
+                    } else if (it.text.toString() == Cons.DESCRIPTION){
+                        val adapter = FoodDetailAdapter(food?.cleaned?.split(";")?.toList() ?: listOf())
+                        binding.ItemRecyclerView.adapter = adapter
                     }
                 }
             }
@@ -65,8 +70,8 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     object Cons {
-        const val INGREDIENT = "Ingradient"
+        const val INGREDIENT = "Ingredient"
         const val STEPS = "Steps"
-
+        const val DESCRIPTION = "Description"
     }
 }

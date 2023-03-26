@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentFilterBinding
+import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup

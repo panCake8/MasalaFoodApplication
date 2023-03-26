@@ -71,25 +71,25 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip1"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip2"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip3"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/onion_salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/Descritption"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/easy_sprouts"
                     app:checkedIconEnabled="false" />
             </com.google.android.material.chip.ChipGroup>
@@ -121,25 +121,25 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/Ingradient"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/Steps"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip7"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/onion_salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip8"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/easy_sprouts"
                     app:checkedIconEnabled="false" />
             </com.google.android.material.chip.ChipGroup>
@@ -171,25 +171,25 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip9"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/chickpea"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip10"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/koshmibir"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip11"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/onion_salad"
                     app:checkedIconEnabled="false" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip12"
-                    style="@style/Chips_filter"
+                    style="@style/Chips_choice"
                     android:text="@string/easy_sprouts"
                     app:checkedIconEnabled="false" />
 
