@@ -53,6 +53,7 @@ class BaseActivity : AppCompatActivity() {
                 }
 
                 else -> false
+
             }
         }
     }

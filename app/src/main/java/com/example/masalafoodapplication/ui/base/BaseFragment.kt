@@ -10,6 +10,7 @@ import androidx.fragment.app.commit
 import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
@@ -38,7 +39,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     fun transitionTo(fragment: Fragment) {
         parentFragmentManager.commit {
             replace(R.id.fragment_container, fragment)
-            setReorderingAllowed(true)
         }
     }
 
@@ -46,8 +46,9 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         parentFragmentManager.commit {
             replace(R.id.fragment_container, fragment)
                 .addToBackStack(name)
-            setReorderingAllowed(true)
         }
+        requireActivity().findViewById<BottomNavigationView>(R.id.nav_bar).visibility =
+            View.GONE
     }
 
     fun newInstance(food: ArrayList<Food>, name: String) {
@@ -71,6 +72,10 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     }
 
     fun onBack() {
+        if (parentFragmentManager.backStackEntryCount == -1) {
+            requireActivity().findViewById<BottomNavigationView>(R.id.nav_bar).visibility =
+                View.VISIBLE
+        }
         requireActivity().onBackPressed()
     }
 

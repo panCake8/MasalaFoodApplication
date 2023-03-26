@@ -12,6 +12,8 @@ import com.example.masalafoodapplication.databinding.FragmentHomeBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.home.adapters.HomeAdapter
 import com.example.masalafoodapplication.ui.home.adapters.HomeInteractionListener
+import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
+import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.Constants.INDIAN
 
 
@@ -47,7 +49,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
     }
 
     override fun onCuisineClicked(cuisine: Cuisine) {
-        Toast.makeText(requireContext(), "Cuisine Clicked", Toast.LENGTH_SHORT).show()
+        transitionToWithBackStack(IngredientFragment(),Constants.INGREDIENT)
     }
 
     override fun onIndianFoodHistoryClicked() {

@@ -1,12 +1,15 @@
 package com.example.masalafoodapplication.ui.explore
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.explore.adapters.ExploreAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
@@ -20,7 +23,6 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
         binding.searchBar.addTextChangedListener {
             val filter = DataManager.search(it.toString())
             adapter.setData(filter)
-
 
         }
 
