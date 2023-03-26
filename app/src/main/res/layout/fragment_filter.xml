@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/details_toolbar"
+        android:id="@+id/filter_toolbar"
         style="@style/AppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,7 +17,7 @@
         style="@style/AppBarStroke"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/details_toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/filter_toolbar" />
 
     <TextView
         android:id="@+id/dishName"

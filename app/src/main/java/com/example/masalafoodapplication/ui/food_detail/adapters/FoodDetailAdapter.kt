@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui.food_detail
+package com.example.masalafoodapplication.ui.food_detail.adapters
 
 
 

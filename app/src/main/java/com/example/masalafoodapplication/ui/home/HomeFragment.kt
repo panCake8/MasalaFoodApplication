@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.masalafoodapplication.data.DataManager
-import com.example.masalafoodapplication.data.domain.Cuisine
-import com.example.masalafoodapplication.data.domain.Food
-import com.example.masalafoodapplication.data.domain.HomeItem
+import com.example.masalafoodapplication.data.domain.models.Cuisine
+import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.data.domain.models.HomeItem
 import com.example.masalafoodapplication.data.domain.enums.HomeItemType
 import com.example.masalafoodapplication.databinding.FragmentHomeBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.home.adapters.HomeAdapter
+import com.example.masalafoodapplication.ui.home.adapters.HomeInteractionListener
 import com.example.masalafoodapplication.util.Constants.INDIAN
 
 
