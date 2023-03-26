@@ -16,7 +16,7 @@ class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
 
 
     override fun setup() {
-        list = DataManager.showMostQuickRecipes()
+        list = DataManager.getRandomQuickRecipes(20)
 //        addImage()
 //        addPrepareTime()
 //        addRecipesName()

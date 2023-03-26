@@ -15,7 +15,7 @@ class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>() {
 
 
     override fun setup() {
-        list = DataManager.showJustForYou()
+//        list = DataManager.showJustForYou()
 //        addImage()
 //        addPrepareTime()
 //        addRecipesName()
