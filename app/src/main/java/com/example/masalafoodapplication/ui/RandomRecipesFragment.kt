@@ -1,15 +1,12 @@
 package com.example.masalafoodapplication.ui
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentRandomRecipesBinding
-import com.example.masalafoodapplication.util.loadImage
-import com.example.masalafoodapplication.util.setPreparationTime
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.data.domain.Food
 
 class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>() {
     private lateinit var list: List<Food>
@@ -18,7 +15,7 @@ class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>() {
 
 
     override fun setup() {
-        list = DataManager.showJustForYou()
+//        list = DataManager.showJustForYou()
 //        addImage()
 //        addPrepareTime()
 //        addRecipesName()

@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.base
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +8,9 @@ import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
+import com.example.masalafoodapplication.ui.ExploreFragment
+import com.example.masalafoodapplication.ui.FavouriteFragment
+import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.util.CsvParser
 import com.example.masalafoodapplication.util.SetFragmentType
 import java.io.BufferedReader
@@ -39,14 +42,17 @@ class BaseActivity : AppCompatActivity() {
                     setFragment(HomeFragment(), SetFragmentType.REPLACE, "Home")
                     true
                 }
+
                 R.id.nav_explore -> {
                     setFragment(ExploreFragment(), SetFragmentType.REPLACE, "Explore")
                     true
                 }
+
                 R.id.nav_favourite -> {
                     setFragment(FavouriteFragment(), SetFragmentType.REPLACE, "Fav")
                     true
                 }
+
                 else -> false
             }
         }

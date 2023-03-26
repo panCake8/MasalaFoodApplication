@@ -60,4 +60,9 @@
     <dimen name="img_height_kitchen">142dp</dimen>
     <dimen name="card_item_food_height">240dp</dimen>
     <dimen name="card_item_kitchen_height">196dp</dimen>
+    <dimen name="card_item_kitchen_width">160dp</dimen>
+    <dimen name="cuisine_card_width">328dp</dimen>
+    <dimen name="food_history_card_height">80dp</dimen>
+    <dimen name="rounded_button_size">24dp</dimen>
+    <dimen name="recycler_margin_normal">12dp</dimen>
 </resources>
