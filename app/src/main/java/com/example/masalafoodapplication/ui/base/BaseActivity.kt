@@ -10,6 +10,7 @@ import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
 import com.example.masalafoodapplication.ui.ExploreFragment
 import com.example.masalafoodapplication.ui.FavouriteFragment
+import com.example.masalafoodapplication.ui.FilterFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.util.CsvParser
 import com.example.masalafoodapplication.util.SetFragmentType
@@ -70,7 +71,7 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
-        setFragment(HomeFragment(), SetFragmentType.ADD, "Home")
+        setFragment(FilterFragment(), SetFragmentType.ADD, "Home")
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType, tag: String) {

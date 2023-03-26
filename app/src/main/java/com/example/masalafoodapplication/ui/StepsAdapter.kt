@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
+import com.example.masalafoodapplication.data.domain.Food
 import com.example.masalafoodapplication.databinding.ItemStepIngredientBinding
-import com.kiko.fillapp.data.domain.Food
 
 class StepsAdapter(foods: Food):RecyclerView.Adapter<StepsAdapter.StepsViewHolder>() {
     val  steps =foods?.makeRecipe?.split(";")?.toTypedArray()
