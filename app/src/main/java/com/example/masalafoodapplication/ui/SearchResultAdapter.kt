@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.Glide.*
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.util.loadImage
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 
 class SearchResultAdapter(var list: List<Food>) :
     RecyclerView.Adapter<SearchResultAdapter.ExploreViewHolder>() {
