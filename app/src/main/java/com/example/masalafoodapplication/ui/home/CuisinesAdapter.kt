@@ -23,17 +23,21 @@ class CuisinesAdapter(
 
     override fun onBindViewHolder(holder: CuisineViewHolder, position: Int) {
         val currentCuisine = cuisines[position]
-        holder.binding.apply {
-            imageCuisine.loadImage(currentCuisine.imageUrl)
-            labelCuisineName.text = currentCuisine.name
-            root.setOnClickListener {
-                listener.onCuisineClicked(currentCuisine)
-            }
-        }
+        holder.bind(currentCuisine)
     }
 
-    class CuisineViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+    inner class CuisineViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemCuisineBinding.bind(viewItem)
+
+        fun bind(cuisine: Cuisine) {
+            binding.apply {
+                imageCuisine.loadImage(cuisine.imageUrl)
+                labelCuisineName.text = cuisine.name
+                root.setOnClickListener {
+                    listener.onCuisineClicked(cuisine)
+                }
+            }
+        }
     }
 
 }

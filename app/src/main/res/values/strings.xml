@@ -68,6 +68,7 @@
     <string name="kray">Kray</string>
     <string name="random_recipe">Random recipes</string>
     <string name="number">1</string>
-
+    <string name="indian_food_history">Indian food history</string>
+    <string name="cuisines">Cuisines</string>
 
 </resources>
