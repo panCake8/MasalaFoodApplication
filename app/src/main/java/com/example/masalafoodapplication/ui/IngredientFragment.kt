@@ -27,15 +27,16 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             this
         ) { _, result ->
             food = result.getParcelable(Constants.INGREDIENT)!!
-            getIngredient(food)
+            val adapter=IngredientAdapter(food)
+            binding.checkboxRecycler.adapter=adapter
         }
     }
 
     override fun onClicks() {
-//        binding.topAppBar.setNavigationOnClickListener {
-//            onBack()
-//        }
-        binding.nexBtn.setOnClickListener {
+        binding.ingredientToolbar.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+        binding.nextBtn.setOnClickListener {
             parentFragmentManager.commit {
                 parentFragmentManager.popBackStack()
                 transitionToWithBackStack(StepsFragment(), Constants.STEPS)
@@ -44,31 +45,6 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
         }
     }
 
-    private fun getIngredient(foods: Food?) {
-        val options = foods?.ingredients?.split(";")?.toTypedArray()
-        val linearLayoutOptions = binding.checkboxLayout
-        for (option in options!!) {
-            val checkBox = MaterialCheckBox(context)
-            checkBox.id = View.generateViewId()
-            checkBox.width = ViewGroup.LayoutParams.MATCH_PARENT
-            checkBox.height = ViewGroup.LayoutParams.WRAP_CONTENT
-            checkBox.text = option
-            checkBox.layoutDirection = View.LAYOUT_DIRECTION_RTL
-            checkBox.buttonTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(
-                    binding.root.context,
-                    R.color.base_color
-                )
-            )
-            checkBox.isChecked = false
-            checkBox.setTextSize(
-                TypedValue.COMPLEX_UNIT_PX,
-                resources.getDimension(R.dimen.text_medium)
-            )
-            checkBox.typeface = ResourcesCompat.getFont(binding.root.context, R.font.work_sans)
-            linearLayoutOptions.addView(checkBox)
-        }
-    }
 
 
 }
