@@ -12,7 +12,6 @@ object DataManager {
 
     fun getAllFood() = foodsList
 
-
     fun getRandomQuickRecipes(limit: Int): List<Food> {
         return foodsList
             .filter { it.timeMinutes < 30 }
@@ -31,7 +30,7 @@ object DataManager {
             it.recipeName.lowercase()
                 .contains(value) || it.cleaned.lowercase().contains(value) || it.cuisine.lowercase()
                 .contains(value)
-        }.shuffled().take(6)
+        }.toList()
 
     fun getCuisines(limit: Int): List<Cuisine> {
         return foodsList
