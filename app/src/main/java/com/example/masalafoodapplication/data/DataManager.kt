@@ -72,14 +72,11 @@ object DataManager : BaseDataManager {
     }
 
 
-
-
-
     private fun searchFoodsAccordingSuggestions(recipes: List<String>) =
         getAllFood()
         .filter{ it.cleaned.split(";").containsAll(recipes) }
 
-    fun splitFoodsIntoThreeMeals(meal:String,recipes: List<String>):List<Food>{
+    override fun splitFoodsIntoThreeMeals(meal:String, recipes: List<String>):List<Food>{
         return if (meal == Constants.BREAKFAST || meal == Constants.DINNER){
             searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes < 30 }
         }else{
