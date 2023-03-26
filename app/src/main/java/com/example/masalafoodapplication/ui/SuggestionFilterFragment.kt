@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentSuggestionFilterBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.suggestion.SuggestionsFragment
 import com.example.masalafoodapplication.util.Constants
 
 
