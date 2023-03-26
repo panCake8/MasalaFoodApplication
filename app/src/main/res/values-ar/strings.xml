@@ -61,4 +61,8 @@
     <string name="kray">كري</string>
     <string name="random_recipe">وصفات عشوائية</string>
     <string name="cuisine">المطابخ</string>
+    <string name="number">1</string>
+    <string name="indian_food_history">تاريخ الاكل الهندي</string>
+    <string name="cuisines">المطابخ</string>
+
 </resources>

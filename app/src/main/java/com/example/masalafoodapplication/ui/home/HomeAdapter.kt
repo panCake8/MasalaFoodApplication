@@ -76,9 +76,9 @@ class HomeAdapter(
             HomeItemType.BANNER -> R.layout.item_banner
             HomeItemType.CUISINES -> R.layout.list_cuisines
             HomeItemType.INDIAN_FOOD_HISTORY -> R.layout.item_history
-            HomeItemType.QUICK_RECIPES,
-            HomeItemType.JUST_FOR_YOU,
-            -> R.layout.list_recipes
+            HomeItemType.QUICK_RECIPES -> R.layout.list_recipes
+            HomeItemType.JUST_FOR_YOU -> R.layout.list_recipes
+
         }
     }
 
@@ -112,6 +112,7 @@ class HomeAdapter(
 
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
+                labelSection.text = itemView.context.getString(R.string.just_for_you)
                 recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>, listener)
                 buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
