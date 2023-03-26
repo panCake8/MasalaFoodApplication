@@ -1,0 +1,33 @@
+package com.example.masalafoodapplication.ui
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.masalafoodapplication.R
+import com.example.masalafoodapplication.databinding.ItemStepIngredientBinding
+import com.example.masalafoodapplication.data.domain.Food
+
+class IngredientAdapter(foods: Food) :
+    RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>() {
+
+    val ingeredient = foods?.ingredients?.split(";")?.toTypedArray()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_step_ingredient, parent, false)
+        return IngredientViewHolder(view)
+    }
+
+    override fun getItemCount(): Int = ingeredient!!.size
+
+
+    override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
+        holder.apply {
+            binding.checkBox.text = "${position + 1}- ${ingeredient!![position]}"
+        }
+    }
+
+    class IngredientViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+        val binding = ItemStepIngredientBinding.bind(viewItem)
+    }
+}

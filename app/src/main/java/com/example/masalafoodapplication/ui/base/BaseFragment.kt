@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -32,7 +32,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     }
 
     abstract fun setup()
-    abstract fun onClicks()
+    open fun onClicks(){}
 
     fun transitionTo(fragment: Fragment) {
         parentFragmentManager.commit {
