@@ -80,14 +80,15 @@
     <!--    Card Parent-->
     <style name="CardRecItem" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
-        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+<!--        <item name="android:layout_marginEnd">@dimen/margin_medium</item>-->
+<!--        <item name="android:layout_marginBottom">@dimen/margin_medium</item>-->
     </style>
 
 
     <!--    Card Food-->
     <style name="CardRecItem.Food">
         <item name="android:layout_height">@dimen/card_item_food_height</item>
+        <item name="android:layout_width">@dimen/card_item_kitchen_width</item>
         <item name="cardCornerRadius">@dimen/radius_medium</item>
     </style>
 
@@ -101,7 +102,7 @@
 
     <!--    Item Text Parent-->
     <style name="ItemText" parent="Widget.AppCompat.TextView">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
@@ -113,6 +114,7 @@
         <item name="android:textColor">@color/dark_white</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
     </style>
 
     <!--    Item Text Time Parent-->
@@ -137,7 +139,7 @@
 
     <!--    Item Text Time Food-->
     <style name="ItemText.Time.Food">
-        <item name="android:layout_marginBottom">@dimen/margin_small</item>
+<!--        <item name="android:layout_marginBottom">@dimen/margin_small</item>-->
         <item name="android:textColor">@color/medium_white</item>
     </style>
 
@@ -179,7 +181,7 @@
     </style>
 
     <!-- chips style-->
-    <style name="Chips_filter" parent="Widget.Material3.ChipGroup">
+    <style name="Chips_choice" parent="Widget.Material3.ChipGroup">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">32dp</item>
         <item name="android:textColor">@color/text_chips</item>
@@ -208,6 +210,14 @@
     <!-- selected chips style-->
     <style name="Chips.SelectedChips">
         <item name="android:backgroundTint">@color/selected_chip_color</item>
+    </style>
+
+    <style name="Chips_filter" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="checkedIconTint">@color/white</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
     </style>
 
     <!--    Card Styles-->

@@ -3,6 +3,7 @@ package com.example.masalafoodapplication.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.databinding.FragmentFavouriteBinding
+import com.example.masalafoodapplication.ui.base.BaseFragment
 
 
 class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {

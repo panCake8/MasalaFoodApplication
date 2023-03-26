@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
-import com.example.masalafoodapplication.util.Constants
+import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 
 
 class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKitchenBinding>() {

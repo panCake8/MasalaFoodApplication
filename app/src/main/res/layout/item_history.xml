@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/food_history_card_height"
+    android:layout_marginHorizontal="@dimen/margin_large"
+    app:cardCornerRadius="@dimen/radius_medium">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_food_history"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/img_description"
+            android:foreground="@color/foreground_img_color"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/quick_recipes_image" />
+
+        <TextView
+            android:id="@+id/label_food_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/dark_white"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Pizza" />
+
+        <ImageView
+            android:id="@+id/button_food_history"
+            android:layout_width="@dimen/rounded_button_size"
+            android:layout_height="@dimen/rounded_button_size"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:background="@drawable/bg_transparent_circle"
+            android:padding="@dimen/padding_small"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/label_food_history"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/label_food_history" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

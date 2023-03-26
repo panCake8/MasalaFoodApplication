@@ -1,6 +1,6 @@
 package com.example.masalafoodapplication.util
 
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 
 class CsvParser {
     fun parse(line: String): Food {
