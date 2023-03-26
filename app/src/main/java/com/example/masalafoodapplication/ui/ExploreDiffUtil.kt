@@ -2,7 +2,7 @@ package com.example.masalafoodapplication.ui
 
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 
 class ExploreDiffUtil(val oldList: List<Food> , val newList: List<Food>):DiffUtil.Callback() {
 

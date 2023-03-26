@@ -9,6 +9,7 @@ import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 
 class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>() {
     private lateinit var foodList: ArrayList<Food>
