@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/suggestion_filter_toolbar"
@@ -18,196 +19,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/suggestion_filter_toolbar" />
-
-    <ScrollView
-        android:id="@+id/Scroll_view_body"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/no_height"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/image_Chief"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:contentDescription="@string/img_description"
+        android:src="@drawable/chief_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_stroke">
+        app:layout_constraintTop_toTopOf="@+id/toolbar_stroke" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/ingredient"
+        android:textColor="@color/dark_black"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_Chief" />
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/navbar">
-
-            <ImageView
-                android:id="@+id/image_Chief"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:contentDescription="@string/img_description"
-                android:src="@drawable/chief_image"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/name"
+            android:layout_height="@dimen/no_height"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:chipSpacingHorizontal="8dp"
+            app:chipSpacingVertical="8dp"
+            android:layout_gravity="top"
+            app:layout_constraintBottom_toTopOf="@+id/button_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_ingredient"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_large"
-                android:text="@string/salad"
-                android:textColor="@color/dark_black"
-                android:textSize="@dimen/text_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_Chief" />
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_medium"
-                app:chipSpacingHorizontal="8dp"
-                app:chipSpacingVertical="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip1"
-                    style="@style/Chips_filter"
-                    android:text="@string/chickpea"
-                    app:checkedIconEnabled="false" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip2"
-                    style="@style/Chips_filter"
-                    android:text="@string/koshmibir"
-                    app:checkedIconEnabled="false" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip3"
-                    style="@style/Chips_filter"
-                    android:text="@string/onion_salad"
-                    app:checkedIconEnabled="false" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/Descritption"
-                    style="@style/Chips_filter"
-                    android:text="@string/easy_sprouts"
-                    app:checkedIconEnabled="false" />
-            </com.google.android.material.chip.ChipGroup>
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_large"
-                android:text="@string/salad"
-                android:textColor="@color/dark_black"
-                android:textSize="@dimen/text_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroup2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_medium"
-                app:chipSpacingHorizontal="8dp"
-                app:chipSpacingVertical="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/Ingradient"
-                    style="@style/Chips_filter"
-                    android:text="@string/chickpea"
-                    app:checkedIconEnabled="false" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/Steps"
-                    style="@style/Chips_filter"
-                    android:text="@string/koshmibir"
-                    app:checkedIconEnabled="false" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip7"
-                    style="@style/Chips_filter"
-                    android:text="@string/onion_salad"
-                    app:checkedIconEnabled="false" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip8"
-                    style="@style/Chips_filter"
-                    android:text="@string/easy_sprouts"
-                    app:checkedIconEnabled="false" />
-            </com.google.android.material.chip.ChipGroup>
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_large"
-                android:text="@string/salad"
-                android:textColor="@color/dark_black"
-                android:textSize="@dimen/text_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroup3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_medium"
-                app:chipSpacingHorizontal="8dp"
-                app:chipSpacingVertical="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip9"
-                    style="@style/Chips_filter"
-                    android:text="@string/chickpea"
-                    app:checkedIconEnabled="false" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip10"
-                    style="@style/Chips_filter"
-                    android:text="@string/koshmibir"
-                    app:checkedIconEnabled="false" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip11"
-                    style="@style/Chips_filter"
-                    android:text="@string/onion_salad"
-                    app:checkedIconEnabled="false" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip12"
-                    style="@style/Chips_filter"
-                    android:text="@string/easy_sprouts"
-                    app:checkedIconEnabled="false" />
-
-            </com.google.android.material.chip.ChipGroup>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_next"
-                style="@style/Button.PrimaryButton"
-                android:layout_marginTop="@dimen/margin_large"
-                android:stateListAnimator="@null"
-                android:text="@string/next"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chipGroup3" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:spanCount="8"
+                tools:listitem="@layout/item_ingredient_chips"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"/>
+        </com.google.android.material.chip.ChipGroup>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_next"
+        style="@style/Button.PrimaryButton"
+        android:layout_marginTop="@dimen/margin_large"
+        android:stateListAnimator="@null"
+        android:text="@string/next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

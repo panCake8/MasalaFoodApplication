@@ -100,7 +100,7 @@ class HomeAdapter(
 
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
-                labelSection.text = item.type.value
+                labelSection.text = itemView.context.getString(R.string.quick_recipes)
                 recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>, listener)
                 buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
@@ -124,7 +124,7 @@ class HomeAdapter(
 
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
-                labelSection.text = item.type.value
+                labelSection.text = itemView.context.getString(R.string.cuisines)
                 recyclerCuisines.adapter = CuisinesAdapter(item.data as List<Cuisine>, listener)
                 buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
@@ -136,6 +136,7 @@ class HomeAdapter(
 
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
+                labelFoodHistory.text = itemView.context.getString(R.string.indian_food_history)
                 imageFoodHistory.loadImage(item.data as String)
                 root.setOnClickListener { listener.onIndianFoodHistoryClicked() }
             }

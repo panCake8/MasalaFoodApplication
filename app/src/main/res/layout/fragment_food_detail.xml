@@ -1,141 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.FoodDetailFragment">
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.food_detail.FoodDetailFragment"
+    app:layoutDescription="@xml/fragment_food_detail_scene">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ImageView
+        android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:contentDescription="@string/dish_name"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toTopOf="@id/imageGuidLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/food_detail_menu_toolbar"
+        style="@style/AppBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/imageGuidLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
 
 
-        <ImageView
-            android:id="@+id/backgroundImage"
+    <LinearLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:background="@drawable/card_scroll"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/start_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineLeft"
+        app:layout_constraintVertical_bias="0.0"
+        tools:context=".ui.FoodDetail.FoodDetailFragment">
+
+        <!--        <View-->
+        <!--            android:id="@+id/view"-->
+        <!--            android:layout_width="72dp"-->
+        <!--            android:layout_height="@dimen/padding_small"-->
+        <!--            android:layout_gravity="center_horizontal"-->
+        <!--            android:layout_marginTop="@dimen/margin_large"-->
+        <!--            android:background="@color/line_color"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/dish_name"
-            android:scaleType="fitStart"
-            android:src="@drawable/chief_image"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_extra_large"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/back"
+            <TextView
+                android:id="@+id/dishName"
+                style="@style/textView"
+                android:layout_width="191dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="@dimen/text_VLarge"
+                android:layout_weight="1"
+                android:fontFamily="@font/work_sans_semibold"
+                android:text="@string/dish_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_VLarge" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:contentDescription="@string/steps"
+                android:src="@drawable/ic_love_icon" />
+
+        </LinearLayout>
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/GroupChips"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_large"
-            android:layout_marginTop="@dimen/margin_large"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_back_black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white" />
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_medium"
+            android:orientation="horizontal"
+            app:singleSelection="true">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/bottom_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card_scroll"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            <com.google.android.material.chip.Chip
+                android:id="@+id/description"
+                style="@style/Chips.toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description" />
 
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/design_bottom_sheet"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ingredient"
+                style="@style/Chips.toggle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="80"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
 
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="72dp"
-                    android:layout_height="@dimen/padding_small"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_large"
-                    android:background="@color/line_color"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                android:text="@string/ingredient" />
 
+            <com.google.android.material.chip.Chip
+                android:id="@+id/steps"
+                style="@style/Chips.toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/steps" />
+        </com.google.android.material.chip.ChipGroup>
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip"
-                    style="@style/Chips.SelectedChips"
-                    android:layout_width="78sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/text_large"
-                    android:layout_marginTop="@dimen/text_VLarge"
-                    android:text="@string/popular"
-                    android:textAlignment="center"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/text_large"
-                    android:contentDescription="@string/steps"
-                    android:src="@drawable/ic_love_icon"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/chip" />  <!-- this content description is useless -->
-
-                <TextView
-                    android:id="@+id/dishName"
-                    android:layout_width="191dp"
-                    android:layout_height="51dp"
-                    android:layout_marginStart="@dimen/text_VLarge"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:text="@string/dish_name"
-                    android:textColor="@color/dark_black"
-                    android:textSize="@dimen/text_VLarge"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/chip" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Item_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_large"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_food_detail" />
 
 
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chiceGroupChips"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginTop="@dimen/margin_large"
-                    app:layout_constraintBottom_toTopOf="@+id/description_tv"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dishName"
-                    app:layout_constraintVertical_bias="0.229"
-                    app:singleSelection="true">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/description"
-                        style="@style/Chips.toggle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/description" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ingredient"
-                        style="@style/Chips.toggle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/ingredient" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/steps"
-                        style="@style/Chips.toggle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/steps" />
-                </com.google.android.material.chip.ChipGroup>
-
+    </LinearLayout>
                 <com.borjabravo.readmoretextview.ReadMoreTextView
                     android:id="@+id/description_tv"
                     android:layout_width="match_parent"
@@ -154,25 +162,20 @@
                     app:trimLength="115"
                     app:trimMode="trimModeLength" />
 
-                <Button
-                    android:id="@+id/start_button"
-                    style="@style/Button.PrimaryButton"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/start_preparing_btn_text"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/description_tv" />
+    <Button
+        android:id="@+id/start_button"
+        style="@style/Button.PrimaryButton"
 
+        android:layout_height="wrap_content"
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="16dp"
+        android:text="@string/start_preparing_btn_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.motion.widget.MotionLayout>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

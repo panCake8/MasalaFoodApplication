@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
+import com.example.masalafoodapplication.data.domain.Food
 import com.example.masalafoodapplication.databinding.ItemFoodBinding
 import com.example.masalafoodapplication.util.loadImage
-import com.example.masalafoodapplication.data.domain.Food
 import com.example.masalafoodapplication.util.setTime
 
 class RecipesAdapter(
@@ -26,18 +26,21 @@ class RecipesAdapter(
 
     override fun onBindViewHolder(holder: RecipesViewHolder, position: Int) {
         val currentRecipe = recipes[position]
-        holder.binding.apply {
-            recipeName.text = currentRecipe.recipeName
-            prepareTime.setTime(currentRecipe.timeMinutes)
-            imageRecipe.loadImage(currentRecipe.imageUrl)
-            root.setOnClickListener {
-                listener.onRecipeClicked(currentRecipe)
-            }
-        }
+        holder.bind(currentRecipe)
     }
 
-    class RecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+    inner class RecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemFoodBinding.bind(viewItem)
+        fun bind(food: Food) {
+            binding.apply {
+                recipeName.text = food.recipeName
+                prepareTime.setTime(food.timeMinutes)
+                imageRecipe.loadImage(food.imageUrl)
+                root.setOnClickListener {
+                    listener.onRecipeClicked(food)
+                }
+            }
+        }
     }
 
 }
