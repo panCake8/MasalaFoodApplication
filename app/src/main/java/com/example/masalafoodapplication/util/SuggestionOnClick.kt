@@ -1,5 +1,5 @@
 package com.example.masalafoodapplication.util
 
-interface SuggestionOnClick {
+interface SuggestionOnClick{
     fun onClickListener(nameFood:String)
 }

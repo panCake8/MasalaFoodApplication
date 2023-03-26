@@ -11,7 +11,7 @@ import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.SuggestionOnClick
 import com.example.masalafoodapplication.util.SuggestionsItems
 
-class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(),SuggestionOnClick {
+class SuggestionsFragment :BaseFragment<FragmentSuggestionsBinding>(),SuggestionOnClick {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionsBinding
         get() = FragmentSuggestionsBinding::inflate
 

@@ -14,6 +14,7 @@
         app:title="@string/suggestions"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
     <View
         android:id="@+id/sug_toolbar_stroke"
         style="@style/AppBarStroke"

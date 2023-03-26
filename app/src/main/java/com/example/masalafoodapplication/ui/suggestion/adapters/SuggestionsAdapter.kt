@@ -10,7 +10,7 @@ import com.example.masalafoodapplication.databinding.ItemSuggestionsBinding
 import com.example.masalafoodapplication.util.SuggestionOnClick
 import com.example.masalafoodapplication.util.SuggestionsItems
 
-class SuggestionsAdapter(private val list: List<SuggestionsItems>,private val listener:SuggestionOnClick)
+class SuggestionsAdapter(private val list: List<SuggestionsItems>, private val listener:SuggestionOnClick)
     :RecyclerView.Adapter<SuggestionsAdapter.SuggestionsHolder>(),SuggestionOnClick {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuggestionsHolder {

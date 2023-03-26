@@ -10,7 +10,7 @@ import com.example.masalafoodapplication.util.SuggestionOnClick
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.data.domain.Food
 
-class FoodsAdapter(private val foods:List<Food>, private val listener:SuggestionOnClick):RecyclerView.Adapter<FoodsAdapter.FoodsViewHolder>() {
+class FoodsAdapter(private val foods:List<Food>,private val listener:SuggestionOnClick):RecyclerView.Adapter<FoodsAdapter.FoodsViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodsViewHolder {

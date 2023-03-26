@@ -33,7 +33,6 @@ object Constants {
     const val SUGGESTIONS = "suggestions"
 
     const val FILTER = "filter"
-
     const val BREAKFAST="Breakfast"
     const val LUNCH="Lunch"
     const val DINNER="Dinner"

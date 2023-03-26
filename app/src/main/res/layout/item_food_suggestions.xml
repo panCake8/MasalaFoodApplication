@@ -7,7 +7,6 @@
     app:cardCornerRadius="@dimen/radius_medium"
     android:layout_marginEnd="@dimen/margin_medium"
     android:layout_marginBottom="@dimen/margin_medium">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recipe_card"
         android:layout_width="@dimen/food_poster_height"

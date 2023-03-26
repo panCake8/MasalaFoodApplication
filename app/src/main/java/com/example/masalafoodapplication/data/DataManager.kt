@@ -36,6 +36,7 @@ object DataManager {
 
     fun showJustForYou() = foodsList.shuffled()
 
+
     private fun searchFoodsAccordingSuggestions(recipes: List<String>) =
         getAllFood()
         .filter{ it.cleaned.split(";").containsAll(recipes) }
