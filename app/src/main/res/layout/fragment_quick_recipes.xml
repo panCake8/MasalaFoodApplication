@@ -12,7 +12,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/kitchens" />
+        app:title="@string/quick_recipes" />
 
     <View
         android:id="@+id/toolbar_stroke"
@@ -22,6 +22,7 @@
         app:layout_constraintTop_toBottomOf="@id/recipes_menu_toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_quick_recipe"
         style="@style/RecyclerStyle"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"

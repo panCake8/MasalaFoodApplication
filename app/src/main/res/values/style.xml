@@ -53,10 +53,10 @@
     <!--    Image Curve-->
     <style name="RecyclerStyle">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginEnd">@dimen/margin_medium</item>
-        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">64dp</item>
         <item name="spanCount">2</item>
         <item name="android:orientation">vertical</item>
     </style>
@@ -181,7 +181,7 @@
     </style>
 
     <!-- chips style-->
-    <style name="Chips_filter" parent="Widget.Material3.ChipGroup">
+    <style name="Chips_choice" parent="Widget.Material3.ChipGroup">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">32dp</item>
         <item name="android:textColor">@color/text_chips</item>
@@ -210,6 +210,14 @@
     <!-- selected chips style-->
     <style name="Chips.SelectedChips">
         <item name="android:backgroundTint">@color/selected_chip_color</item>
+    </style>
+
+    <style name="Chips_filter" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="checkedIconTint">@color/white</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
     </style>
 
     <!--    Card Styles-->

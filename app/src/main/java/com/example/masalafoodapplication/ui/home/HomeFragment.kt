@@ -21,7 +21,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
     override fun setup() {
         bindHomeItems()
     }
-    
+
 
     private fun bindHomeItems() {
         val homeItems = mutableListOf<HomeItem<Any>>()
