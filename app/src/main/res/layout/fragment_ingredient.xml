@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,32 +11,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/kitchens" />
-
-    <View
-        android:id="@+id/toolbar_stroke"
-        style="@style/AppBarStroke"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ingredient_toolbar" />
+        app:title="@string/ingredient" />
 
     <ImageView
-        android:id="@+id/bgIngredent"
+        android:id="@+id/bg_ingredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_large_x"
+        android:layout_marginTop="@dimen/margin_large_x"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_stroke"
-        app:srcCompat="@drawable/steps" />
+        app:layout_constraintTop_toBottomOf="@+id/ingredient_toolbar"
+        app:srcCompat="@drawable/chief_image" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginHorizontal="@dimen/margin_large"
         android:layout_marginTop="@dimen/margin_large_x"
-        android:layout_marginBottom="@dimen/margin_large_x"
+        android:layout_marginBottom="@dimen/margin_large"
         android:fontFamily="@font/work_sans"
         android:text="@string/required_ingredient"
         android:textColor="@color/dark_black"
@@ -43,45 +37,29 @@
         android:textStyle="normal|bold"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bgIngredent" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scrollbarSize="0dp"
-        app:layout_constraintBottom_toTopOf="@id/nexBtn"
-        app:layout_constraintTop_toBottomOf="@id/title">
-
-        <LinearLayout
-            android:id="@+id/checkboxLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_large"
-            android:layout_marginTop="@dimen/margin_large"
-            android:layout_marginEnd="@dimen/margin_large"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title">
-
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:fontFamily="@font/work_sans"
-                android:layoutDirection="rtl"
-                android:text="@string/start_preparing_your_meal_with_us"
-                android:textSize="@dimen/text_medium"
-                app:buttonTint="@color/primary_button_color" />
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@id/bg_ingredient" />
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/checkbox_recycler"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    android:scrollbars="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:nestedScrollingEnabled="true"
+    tools:listitem="@layout/item_step_ingredient"
+    android:layout_marginTop="@dimen/margin_large"
+    app:layout_constraintTop_toBottomOf="@id/title"
+app:layout_constraintBottom_toTopOf="@id/next_btn"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+    />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/nexBtn"
+        android:id="@+id/next_btn"
         style="@style/Button.PrimaryButton"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

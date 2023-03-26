@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/CardRecItem.Food">
+    style="@style/CardRecItem.Food"
+    android:layout_marginHorizontal="@dimen/margin_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recipe_card"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/image_recipe"
-            style="@style/ImageRecItem.Food"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/bg_bottom_linear_transparent"
             android:contentDescription="@string/img_description"
-            android:foreground="@color/foreground_img_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"
             tools:src="@drawable/quick_recipes_image" />
 
         <TextView
             android:id="@+id/recipe_name"
             style="@style/ItemText.Name.Food"
             app:layout_constraintBottom_toTopOf="@+id/prepareTime"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="name" />
 
@@ -38,10 +39,12 @@
         <TextView
             android:id="@+id/prepareTime"
             style="@style/ItemText.Time.Food"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/time_icon"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/time_icon"
-            tools:text="15m" />
+            app:layout_constraintTop_toTopOf="@id/time_icon"
+            tools:text="15 m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

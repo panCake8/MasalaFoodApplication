@@ -6,10 +6,11 @@ import androidx.annotation.IdRes
 import com.bumptech.glide.Glide
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
+import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 
 
 class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {

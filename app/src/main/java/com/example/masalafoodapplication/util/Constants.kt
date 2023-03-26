@@ -33,5 +33,6 @@ object Constants {
     const val SUGGESTIONS = "suggestions"
 
     const val FILTER = "filter"
+    const val UNKNOWN_HOME_ITEM_TYPE = "Unknown home item type"
 
 }
