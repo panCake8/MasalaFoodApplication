@@ -4,5 +4,5 @@ import com.example.masalafoodapplication.data.domain.models.Food
 
 
 interface QuickRecipesInteractionListener {
-   fun onClickRecipesCard(food : Food){}
+   fun onClickRecipesCard(food : Food)
 }

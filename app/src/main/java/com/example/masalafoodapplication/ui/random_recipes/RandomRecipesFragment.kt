@@ -11,21 +11,18 @@ import com.example.masalafoodapplication.ui.random_recipes.adapters.RandomRecipe
 
 class RandomRecipesFragment: BaseFragment<FragmentRandomRecipesBinding>() {
 
-    private lateinit var list: List<Food>
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRandomRecipesBinding
         get() = FragmentRandomRecipesBinding::inflate
 
 
     override fun setup() {
-        list = DataManager.getAllFood()
         val adapter = RandomRecipesAdapter(DataManager.getAllFood())
         binding.recyclerRandomRecipes.adapter =adapter
+    }
+    override fun onClicks() {
         binding.recipesMenuToolbar.setNavigationOnClickListener{
             onBack()
         }
-
-    }
-    override fun onClicks() {
     }
 
 

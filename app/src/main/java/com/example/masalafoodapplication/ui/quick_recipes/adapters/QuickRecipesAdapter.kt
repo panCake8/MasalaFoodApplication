@@ -1,5 +1,6 @@
 package com.example.masalafoodapplication.ui.quick_recipes.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ class QuickRecipesAdapter(val list:List<Food>, val listener : QuickRecipesIntera
 
     override fun getItemCount() =list.size
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecipesViewHolder, position: Int) {
         val currentRecipe = list[position]
         holder.binding.apply {

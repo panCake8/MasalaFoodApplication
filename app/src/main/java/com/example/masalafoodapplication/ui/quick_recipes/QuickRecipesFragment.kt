@@ -12,21 +12,22 @@ import com.example.masalafoodapplication.ui.quick_recipes.adapters.QuickRecipesI
 
 class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>(),
     QuickRecipesInteractionListener {
-    private lateinit var list: List<Food>
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentQuickRecipesBinding
         get() = FragmentQuickRecipesBinding::inflate
 
 
     override fun setup() {
-        list = DataManager.getAllFood()
-        val adapter = QuickRecipesAdapter(DataManager.getAllFood(),this)
-        binding.recyclerQuickRecipe.adapter =adapter
-        binding.recipesMenuToolbar.setNavigationOnClickListener{
+        val adapter = QuickRecipesAdapter(DataManager.getAllFood(), this)
+        binding.recyclerQuickRecipe.adapter = adapter
+    }
+
+    override fun onClicks() {
+        binding.recipesMenuToolbar.setNavigationOnClickListener {
             onBack()
         }
-
     }
-    override fun onClicks() {
+
+    override fun onClickRecipesCard(food: Food) {
 
     }
 

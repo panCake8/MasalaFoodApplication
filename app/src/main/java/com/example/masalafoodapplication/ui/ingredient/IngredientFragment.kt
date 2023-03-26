@@ -22,14 +22,14 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             this
         ) { _, result ->
             food = result.getParcelable(Constants.INGREDIENT)!!
-            val adapter= IngredientAdapter(food)
-            binding.checkboxRecycler.adapter=adapter
+            val adapter = IngredientAdapter(food)
+            binding.checkboxRecycler.adapter = adapter
         }
     }
 
     override fun onClicks() {
-        binding.ingredientToolbar.setOnClickListener {
-            requireActivity().onBackPressed()
+        binding.ingredientToolbar.setNavigationOnClickListener {
+            onBack()
         }
         binding.nextBtn.setOnClickListener {
             parentFragmentManager.commit {
@@ -39,7 +39,6 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             }
         }
     }
-
 
 
 }

@@ -30,9 +30,9 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
     }
 
     override fun onClicks() {
-//        binding.topAppBar.setNavigationOnClickListener {
-//            onBack()
-//        }
+        binding.filterToolbar.setNavigationOnClickListener {
+            onBack()
+        }
     }
 
     override fun onCreateView(
