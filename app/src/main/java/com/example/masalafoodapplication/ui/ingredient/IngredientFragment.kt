@@ -34,7 +34,7 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
         binding.nextBtn.setOnClickListener {
             parentFragmentManager.commit {
                 parentFragmentManager.popBackStack()
-                transitionToWithBackStack(StepsFragment(), Constants.STEPS)
+//                transitionToWithBackStack(StepsFragment(), Constants.STEPS)
                 newInstance(food, Constants.STEPS)
             }
         }

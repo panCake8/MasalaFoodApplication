@@ -53,7 +53,7 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
             val selectedChips2 = getSelectedChips(filterChipGroup2)
             val sliderValue = slider.value
             parentFragmentManager.popBackStack()
-            transitionToWithBackStack(ExploreFragment(), Constants.FILTER)
+            transitionToWithBackStack(ExploreFragment())
             newInstance(
                 selectedChips1[0], selectedChips2[0], sliderValue.toString(),
                 Constants.FILTER
