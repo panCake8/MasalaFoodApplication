@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.food_detail.FoodDetailFragment"
-    app:layoutDescription="@xml/fragment_food_detail_scene">
+    app:layoutDescription="@xml/fragment_food_detail_scene"
+    tools:context=".ui.food_detail.FoodDetailFragment">
 
 
     <ImageView
@@ -59,17 +58,6 @@
         app:layout_constraintTop_toBottomOf="@+id/guidelineLeft"
         app:layout_constraintVertical_bias="0.0"
         tools:context=".ui.FoodDetail.FoodDetailFragment">
-
-        <!--        <View-->
-        <!--            android:id="@+id/view"-->
-        <!--            android:layout_width="72dp"-->
-        <!--            android:layout_height="@dimen/padding_small"-->
-        <!--            android:layout_gravity="center_horizontal"-->
-        <!--            android:layout_marginTop="@dimen/margin_large"-->
-        <!--            android:background="@color/line_color"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -145,6 +133,24 @@
 
     </LinearLayout>
 
+    <com.borjabravo.readmoretextview.ReadMoreTextView
+        android:id="@+id/description_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_VLarge"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="@dimen/text_VLarge"
+        android:textSize="@dimen/text_large"
+        app:colorClickableText="@color/primary_button_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dishName"
+        app:trimCollapsedText="@string/read_more"
+        app:trimExpandedText="@string/read_less"
+        app:trimLength="115"
+        app:trimMode="trimModeLength" />
+
     <Button
         android:id="@+id/start_button"
         style="@style/Button.PrimaryButton"
@@ -159,4 +165,3 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.motion.widget.MotionLayout>
-

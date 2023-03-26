@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">MasalaFoodApplication</string>
+    <string name="app_name" translatable="false">MasalaFoodApplication</string>
     <string name="kitchens">Kitchens</string>
-    <string name="find_your_favourite_food">Find Your Favorite Food</string>
     <string name="home">Home</string>
     <string name="explore">Explore</string>
     <string name="favourite">Favourite</string>
     <string name="popular_dishes">popular dishes</string>
     <string name="apply">Apply</string>
+    <string name="cuisine">Cuisines</string>
     <string name="reset">Reset</string>
     <string name="finish">Finish</string>
     <string name="next">Next</string>
@@ -19,18 +19,18 @@
     <string name="ingredient">Ingredient</string>
     <string name="steps">Steps</string>
     <string name="dinner">Dinner</string>
-    <string name="img_description">logo</string>
+    <string name="img_description" translatable="false">logo</string>
     <string name="required_ingredient">Required Ingredient:</string>
     <string name="start_preparing_your_meal_with_us">Start preparing your meal with us:</string>
-    <string name="icon_arrow_back">icon_arrow_back</string>
-    <string name="image_of_indian_food">Image of Indian Food</string>
+    <string name="icon_arrow_back" translatable="false">icon_arrow_back</string>
+    <string name="image_of_indian_food" translatable="false">Image of Indian Food</string>
     <string name="history_of_indian_food">History of Indian Food</string>
     <string name="filter_button">Filter Button</string>
     <string name="asian">Asian</string>
     <string name="arabian">Arab</string>
     <string name="indian">Indian</string>
     <string name="kashmir">Kashmiri</string>
-    <string name="recipe_image">Image representing the recipe</string>
+    <string name="recipe_image" translatable="false">Image representing the recipe</string>
     <string name="make_your_meal">Make your own indian meal</string>
     <string name="make_your_meal_image">Make your meal Image</string>
     <string name="make_your_meal_button">Make your meal button</string>
@@ -39,7 +39,6 @@
     <string name="popular">Popular</string>
     <string name="description">Description</string>
     <string name="dish_name">Rainbow Sandwich Sugarless</string>
-    <string name="dish_description">Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum</string>
     <string name="start_preparing_btn_text">Start Preparing</string>
     <string name="show_more">show more</string>
     <string name="search_here">Search Here</string>
@@ -48,8 +47,6 @@
     <string name="koshmibir">Koshmibir</string>
     <string name="onion_salad">Onion Salad</string>
     <string name="easy_sprouts">Easy Sprouts</string>
-
-
     <string name="ingredients_text">Indian ingredients are as varied as the Indian people and the available foods of each region. Masala means spice blend. Certain foods use certain spice blends. For instance, birlyani masala—cardamom, cinnamon, cloves and fennel—is used for birlyani, an oven-cooked dish of rice and a vegetable, seafood or meat. Chilies, mustard seeds, gram flour, coconut and yogurt are popular ingredients in all types of Indian cuisine. Ghee, a type of clarified butter, is used for cooking, and has a toasty taste. Saffron is used to flavor and color rice dishes. Over 5,000 years you learn to use what you have and be creative with it.</string>
     <string name="ingredients_title">Ingredients</string>
     <string name="regional_cuisine_title">Regional Cuisine</string>
