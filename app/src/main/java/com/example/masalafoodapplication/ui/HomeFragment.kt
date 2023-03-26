@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentHomeBinding
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment

@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.util.Constants
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 

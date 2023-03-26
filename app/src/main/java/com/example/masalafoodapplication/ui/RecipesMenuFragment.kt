@@ -6,7 +6,7 @@ import android.widget.ImageView
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentRecipesMenuBinding
 import com.example.masalafoodapplication.util.loadImage
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 
 class RecipesMenuFragment : BaseFragment<FragmentRecipesMenuBinding>() {
     private lateinit var list: List<Food>

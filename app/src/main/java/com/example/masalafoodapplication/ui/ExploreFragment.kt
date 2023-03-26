@@ -11,7 +11,7 @@ import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.loadImage
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 import com.mindorks.editdrawabletext.DrawablePosition
 import com.mindorks.editdrawabletext.onDrawableClickListener
 

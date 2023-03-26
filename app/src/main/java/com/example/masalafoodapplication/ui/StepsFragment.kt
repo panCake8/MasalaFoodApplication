@@ -13,7 +13,7 @@ import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentStepsBinding
 import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.checkbox.MaterialCheckBox
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 
 
 class StepsFragment : BaseFragment<FragmentStepsBinding>() {
