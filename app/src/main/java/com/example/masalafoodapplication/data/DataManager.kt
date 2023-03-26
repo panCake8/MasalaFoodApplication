@@ -58,4 +58,19 @@ object DataManager {
             .first()
     }
 
+
+    fun ingredientFilter(): MutableList<String> {
+        val ingredientToFilter = mutableListOf<String>()
+        foodsList.forEach{ food ->
+            food.cleaned.split(";").forEach{
+                if(!ingredientToFilter.contains(it))
+                    ingredientToFilter.add(it)
+            }
+        }
+        return (ingredientToFilter.subList(1,60))
+    }
+
+
+
+
 }
