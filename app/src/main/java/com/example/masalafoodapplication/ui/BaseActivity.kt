@@ -64,7 +64,7 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
-        setFragment(HomeFragment(), SetFragmentType.ADD, "Home")
+        setFragment(ExploreFragment(), SetFragmentType.ADD, "Home")
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType, tag: String) {
