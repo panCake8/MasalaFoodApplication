@@ -10,15 +10,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recipe_card"
         android:layout_width="@dimen/food_poster_height"
-        android:layout_height="@dimen/card_item_food_height">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/image_recipe"
-            style="@style/ImageRecItem.Food"
+            style="@style/ImageRecItem"
+            android:layout_height="@dimen/card_item_food_height"
             android:contentDescription="@string/img_description"
             android:foreground="@color/foreground_img_color"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/quick_recipes_image" />

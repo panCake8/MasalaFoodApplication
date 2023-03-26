@@ -170,10 +170,6 @@
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
-    <!--Kitchen-->
-    <style name="Poster.Kitchen">
-        <item name="android:layout_height">@dimen/details_kitchen_poster_height</item>
-    </style>
     <!--Home-->
     <style name="Poster.Home">
         <item name="android:layout_height">@dimen/food_poster_height</item>
