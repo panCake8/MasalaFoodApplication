@@ -1,21 +1,24 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.quick_recipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.data.domain.Food
 import com.example.masalafoodapplication.databinding.FragmentQuickRecipesBinding
-import com.example.masalafoodapplication.ui.adapter.QuickRecipesAdapter
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.ui.base.BaseFragment
 
-class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>() {
+
+
+class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>(),
+    QuickRecipesInteractionListener {
     private lateinit var list: List<Food>
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentQuickRecipesBinding
         get() = FragmentQuickRecipesBinding::inflate
 
 
     override fun setup() {
-        list = DataManager.showMostQuickRecipes()
-        val adapter = QuickRecipesAdapter(DataManager.getAllFood())
+        list = DataManager.getAllFood()
+        val adapter = QuickRecipesAdapter(DataManager.getAllFood(),this)
         binding.recyclerQuickRecipe.adapter =adapter
         binding.recipesMenuToolbar.setNavigationOnClickListener{
             onBack()

@@ -1,19 +1,19 @@
-package com.example.masalafoodapplication.ui.adapter
+package com.example.masalafoodapplication.ui.random_recipes
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
+import com.example.masalafoodapplication.data.domain.Food
 import com.example.masalafoodapplication.databinding.ItemFoodBinding
 import com.example.masalafoodapplication.util.loadImage
-import com.kiko.fillapp.data.domain.Food
 
-class RandomRecipesAdapter (val list:List<Food>): RecyclerView.Adapter<RandomRecipesAdapter.RecipesViewHolder> (){
+class RandomRecipesAdapter (val list:List<Food> ): RecyclerView.Adapter<RandomRecipesAdapter.RecipesViewHolder> (){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food,parent,false)
-        return RandomRecipesAdapter.RecipesViewHolder(view)
+        return RecipesViewHolder(view)
 
     }
 

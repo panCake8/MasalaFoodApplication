@@ -1,17 +1,19 @@
-package com.example.masalafoodapplication.ui.adapter
+package com.example.masalafoodapplication.ui.quick_recipes
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
+import com.example.masalafoodapplication.data.domain.Food
 import com.example.masalafoodapplication.databinding.ItemFoodBinding
 import com.example.masalafoodapplication.util.loadImage
-import com.kiko.fillapp.data.domain.Food
 
-class QuickRecipesAdapter(val list:List<Food>):RecyclerView.Adapter<QuickRecipesAdapter.RecipesViewHolder> (){
+class QuickRecipesAdapter(val list:List<Food>, val listener : QuickRecipesInteractionListener):
+    RecyclerView.Adapter<QuickRecipesAdapter.RecipesViewHolder> (){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food,parent,false)
+        val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_food,parent,false)
         return RecipesViewHolder(view)
 
     }
@@ -24,11 +26,16 @@ class QuickRecipesAdapter(val list:List<Food>):RecyclerView.Adapter<QuickRecipes
             recipeName.text =currentRecipe.recipeName
             prepareTime.text = currentRecipe.timeMinutes.toString() + "m"
             imageRecipe.loadImage(currentRecipe.imageUrl)
+            root.setOnClickListener{
+
+            }
         }
 
     }
     class RecipesViewHolder(viewItem : View):RecyclerView.ViewHolder(viewItem){
         val binding  = ItemFoodBinding.bind(viewItem)
     }
+
+
 
 }
