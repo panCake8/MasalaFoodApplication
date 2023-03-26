@@ -60,4 +60,5 @@
     <string name="tomato">طماطم</string>
     <string name="kray">كري</string>
     <string name="random_recipe">وصفات عشوائية</string>
+    <string name="cuisine">المطابخ</string>
 </resources>
