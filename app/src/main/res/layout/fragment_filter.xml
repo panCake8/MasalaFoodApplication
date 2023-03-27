@@ -38,7 +38,7 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/chip1"
             style="@style/Chips_filter"
-            android:checked="true"
+            android:checked="false"
             android:text="@string/kashmir"
              />
 

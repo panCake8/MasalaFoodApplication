@@ -67,19 +67,18 @@
 
             <TextView
                 android:id="@+id/dishName"
-                style="@style/textView"
+                style="@style/TextRecipeNameDetails"
                 android:layout_width="191dp"
                 android:layout_height="51dp"
                 android:layout_marginStart="@dimen/text_VLarge"
                 android:layout_weight="1"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
+                android:fontFamily="@font/work_sans_semibold"
                 android:text="@string/dish_name"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_VLarge" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/fav"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -98,14 +97,6 @@
             android:layout_margin="@dimen/margin_medium"
             android:orientation="horizontal"
             app:singleSelection="true">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/cleaned"
-                style="@style/Chips.toggle"
-                android:checked="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cleaned" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/ingredient"
@@ -156,9 +147,11 @@
     <Button
         android:id="@+id/start_button"
         style="@style/Button.PrimaryButton"
+
         android:layout_height="wrap_content"
+
         android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_marginBottom="16dp"
         android:text="@string/start_preparing_btn_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

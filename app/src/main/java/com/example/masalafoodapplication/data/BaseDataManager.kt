@@ -2,6 +2,7 @@ package com.example.masalafoodapplication.data
 
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
 
 interface BaseDataManager {
 
@@ -25,4 +26,15 @@ interface BaseDataManager {
 
     fun getAllQuickRecipes(): List<Food>
 
+    fun getFoodById(id: Int): Food
+
+    fun getRecipesByCuisine(cuisine: String): List<Food>
+
+    fun filterData(kitchens: List<String>?, ingredient: List<String>?, time: Float): List<Food>
+
+    fun getAllFavouriteFood(): List<Food>
+
+    fun addFavourite(food: Food)
+
+    fun deleteFavourite(index: Int)
 }

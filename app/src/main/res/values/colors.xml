@@ -7,11 +7,11 @@
     <color name="nav_selected_item">#61E32227</color>
     <color name="nav_background">#DEFFFFFF</color>
 
-    <color name="app_bar_text_color">#121212</color>
+    <color name="app_bar_text_color">#1C1B1F</color>
 
     <color name="dark_black">#DE121212</color>
     <color name="medium_black">#99121212</color>
-    <color name="light_black">#61121212</color>
+    <color name="light_black">#5E121212</color>
     <color name="text_on_image_color">#DEFFFFFF</color>
     <color name="text_reset_btn_color">#FF1747</color>
     <color name="text_chips">#DEFF1747</color>
@@ -23,21 +23,12 @@
     <color name="line_color">#5EFF1747</color>
     <color name="chips_stroke_color">#DEFF1747</color>
     <color name="delete_icon_color">#FF1747</color>
-    <color name="stroke_app_bar">#14121212</color>
+    <color name="stroke_app_bar">#5EFFFFFF</color>
 
     <color name="white">#FFFFFFFF</color>
-    <color name="background_color">#fafafafa</color>
     <color name="black">#121212</color>
     <color name="hint_color">#5E121212</color>
     <color name="foreground_img_color">#99121212</color>
     <color name="dark_white">#DEFFFFFF</color>
     <color name="medium_white">#99FFFFFF</color>
-    <color name="light_white">#61FAFAFA</color>
-    <color name="stroke_search_color">#14121212</color>
-    <color name="search_icon_color">#00000000</color>
-    <color name="search_icon_fill_color">#00000000</color>
-    <color name="search_icon_stroke_color">#61121212</color>
-    <color name="filter_icon_color">#00000000</color>
-    <color name="liner_color">#121212</color>
-    <color name="text_chips_color">#fafafa</color>
 </resources>

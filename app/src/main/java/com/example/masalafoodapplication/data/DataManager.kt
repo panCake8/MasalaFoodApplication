@@ -6,6 +6,7 @@ import com.example.masalafoodapplication.util.Constants
 
 object DataManager : BaseDataManager {
     private val foodsList = mutableListOf<Food>()
+    private val favouriteFoodList = mutableListOf<Food>()
 
     override fun addFood(food: Food) {
         foodsList.add(food)
@@ -27,11 +28,9 @@ object DataManager : BaseDataManager {
     }
 
     override fun search(value: String) =
-        foodsList.filter {
+        foodsList.take(500).filter {
             it.recipeName.lowercase().contains(value)
-                    || it.ingredient.contains(value) ||
-                    it.cuisine.lowercase().contains(value)
-        }.toList()
+        }
 
     override fun getCuisines(limit: Int): List<Cuisine> {
         return foodsList
@@ -89,5 +88,32 @@ object DataManager : BaseDataManager {
     }
 
     override fun getAllQuickRecipes() = foodsList.filter { it.timeMinutes < 30 }
+
+    override fun getFoodById(id: Int) = foodsList.first { it.id == id }
+
+    override fun getRecipesByCuisine(cuisine: String): List<Food> {
+        return foodsList.filter { it.cuisine == cuisine }
+    }
+
+    override fun filterData(
+        kitchens: List<String>?,
+        ingredient: List<String>?,
+        time: Float
+    ) =
+        foodsList.take(500).filter {
+            kitchens?.contains(it.cuisine) == true
+                    || ingredient?.containsAll(it.ingredient) == true
+                    || it.timeMinutes == time.toInt()
+        }
+
+    override fun getAllFavouriteFood() = favouriteFoodList.toList()
+
+    override fun addFavourite(food: Food) {
+        favouriteFoodList.add(food)
+    }
+
+    override fun deleteFavourite(index: Int) {
+        favouriteFoodList.removeAt(index)
+    }
 
 }

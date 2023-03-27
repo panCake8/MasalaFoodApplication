@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_history_scene"
-    tools:context=".ui.HistoryFragment">
+    tools:context=".ui.history.HistoryFragment">
 
     <ImageView
-        android:id="@+id/backgroundImage"
+        android:id="@+id/background_image"
         android:layout_width="match_parent"
         android:layout_height="480dp"
         android:foreground="@drawable/gradient_top_of_image"
@@ -18,90 +18,73 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:id="@+id/arrowBack"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/history_toolbar"
+        style="@style/AppBar"
+        app:navigationIconTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_large"
-        android:src="@drawable/ic_back_black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white"
-        tools:ignore="ContentDescription" />
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView2"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/card_scroll"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_left"
+        app:layout_constraintVertical_bias="0.0"
+        tools:context=".ui.FoodDetail.FoodDetailFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/menu_heading"
+            style="@style/detailMenuHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/history_of_indian_cuisine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/menu_details"
+            style="@style/detailMenu"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:text="@string/menu_details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_heading" />
 
-            <TextView
-                android:id="@+id/menuHeading"
-                style="@style/detailMenuHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="700dp"
-                android:text="@string/history_of_indian_cuisine"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/ingredients"
+            style="@style/detailMenuHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:text="@string/ingredients_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_details" />
 
-            <TextView
-                android:id="@+id/menuDetails"
-                style="@style/detailMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:text="@string/menu_details"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/menuHeading" />
+        <TextView
+            android:id="@+id/ingredients_body_text"
+            style="@style/detailMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:text="@string/ingredients_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ingredients" />
 
-            <TextView
-                android:id="@+id/ingredients"
-                style="@style/detailMenuHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:text="@string/ingredients_title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/menuDetails" />
-
-            <TextView
-                android:id="@+id/ingredients_body_text"
-                style="@style/detailMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:text="@string/ingredients_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ingredients" />
-
-            <TextView
-                android:id="@+id/regional_cuisine_id"
-                style="@style/detailMenuHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:text="@string/regional_cuisine_title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ingredients_body_text" />
-
-            <TextView
-                android:id="@+id/regional_cuisine_body_text"
-                style="@style/detailMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:text="@string/regional_cuisine_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/regional_cuisine_id" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 </androidx.constraintlayout.motion.widget.MotionLayout>

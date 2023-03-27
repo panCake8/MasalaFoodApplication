@@ -12,6 +12,7 @@ import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientChipAda
 import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientChipInteractionListener
 import com.example.masalafoodapplication.ui.suggestion.SuggestionsFragment
 import com.example.masalafoodapplication.util.Constants
+import com.example.masalafoodapplication.util.Constants.TAG_SUGGESTIONS
 
 
 class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>(),
@@ -48,7 +49,7 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
                 toSendData = ""
                 collectedData.clear()
                 parentFragmentManager.popBackStack()
-                transitionToWithBackStack(SuggestionsFragment())
+                transitionToWithBackStackReplace(SuggestionsFragment(), TAG_SUGGESTIONS)
             }
         }
 

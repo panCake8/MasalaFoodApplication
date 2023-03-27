@@ -2,7 +2,7 @@ package com.example.masalafoodapplication.ui.ingredient
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.commit
+import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
@@ -17,11 +17,15 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
         get() = FragmentIngredientBinding::inflate
 
     override fun setup() {
+        listenToFragmentResult()
+    }
+
+    private fun listenToFragmentResult() {
         parentFragmentManager.setFragmentResultListener(
             Constants.INGREDIENT,
             this
         ) { _, result ->
-            food = result.getParcelable(Constants.INGREDIENT)!!
+            food = DataManager.getFoodById(result.getInt(Constants.INGREDIENT))
             val adapter = IngredientAdapter(food)
             binding.checkboxRecycler.adapter = adapter
         }
@@ -29,16 +33,17 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
 
     override fun onClicks() {
         binding.ingredientToolbar.setNavigationOnClickListener {
-            onBack()
+            onBack(food.id, Constants.KEY_FOOD_ID)
         }
         binding.nextBtn.setOnClickListener {
-            parentFragmentManager.commit {
-                parentFragmentManager.popBackStack()
-//                transitionToWithBackStack(StepsFragment(), Constants.STEPS)
-                newInstance(food, Constants.STEPS)
-            }
+            newInstance(food.id, Constants.KEY_FOOD_ID)
+            transitionToWithBackStackAdd(
+                StepsFragment(),
+                this@IngredientFragment,
+                Constants.INGREDIENT
+            )
+
         }
     }
-
 
 }
