@@ -27,11 +27,9 @@ object DataManager : BaseDataManager {
     }
 
     override fun search(value: String) =
-        foodsList.filter {
+        foodsList.take(500).filter {
             it.recipeName.lowercase().contains(value)
-                    || it.ingredient.contains(value) ||
-                    it.cuisine.lowercase().contains(value)
-        }.toList()
+        }
 
     override fun getCuisines(limit: Int): List<Cuisine> {
         return foodsList
