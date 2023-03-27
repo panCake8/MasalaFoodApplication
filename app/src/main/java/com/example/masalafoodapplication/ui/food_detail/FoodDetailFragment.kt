@@ -37,8 +37,8 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
 
     private fun chooseChips(food: Food?) {
-        binding.GroupChips.setOnCheckedChangeListener { group, checkedId ->
-            val chip: Chip? = group.findViewById(checkedId)
+        binding.GroupChips.setOnCheckedStateChangeListener { group, checkedIds ->
+            val chip: Chip? = group.findViewById(checkedIds[0])
             chip?.let {
                 if (it.text.toString() == Constants.STEPS) {
                     val adapter =
