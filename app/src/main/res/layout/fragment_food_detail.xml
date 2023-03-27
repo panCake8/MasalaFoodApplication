@@ -67,7 +67,7 @@
 
             <TextView
                 android:id="@+id/dishName"
-                style="@style/textView"
+                style="@style/TextRecipeNameDetails"
                 android:layout_width="191dp"
                 android:layout_height="51dp"
                 android:layout_marginStart="@dimen/text_VLarge"
@@ -78,7 +78,7 @@
                 android:textSize="@dimen/text_VLarge" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/fav"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"

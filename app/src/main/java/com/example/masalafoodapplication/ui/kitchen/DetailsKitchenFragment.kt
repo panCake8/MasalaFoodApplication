@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui.detailsKitchen
+package com.example.masalafoodapplication.ui.kitchen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,9 +7,9 @@ import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBindi
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.data.domain.models.Food
-import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitchenAdapter
-import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitchenOnClick
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
+import com.example.masalafoodapplication.ui.kitchen.adapter.DetailsKitchenAdapter
+import com.example.masalafoodapplication.ui.kitchen.adapter.DetailsKitchenOnClick
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
 

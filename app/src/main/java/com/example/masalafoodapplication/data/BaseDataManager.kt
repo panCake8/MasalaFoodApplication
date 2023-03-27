@@ -31,4 +31,10 @@ interface BaseDataManager {
     fun getRecipesByCuisine(cuisine: String): List<Food>
 
     fun filterData(kitchens: List<String>?, ingredient: List<String>?, time: Float): List<Food>
+
+    fun getAllFavouriteFood(): List<Food>
+
+    fun addFavourite(food: Food)
+
+    fun deleteFavourite(index: Int)
 }

@@ -29,6 +29,9 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         binding.foodDetailMenuToolbar.setOnClickListener {
             onBack()
         }
+        binding.fav.setOnClickListener {
+            food?.let { it1 -> DataManager.addFavourite(it1) }
+        }
         binding.startButton.setOnClickListener {
             newInstance(food!!.id, Constants.INGREDIENT)
             transitionToWithBackStackReplace(IngredientFragment(), Constants.FOOD_DETAILS)
