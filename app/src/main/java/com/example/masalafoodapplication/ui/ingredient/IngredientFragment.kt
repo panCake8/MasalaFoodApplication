@@ -1,7 +1,5 @@
 package com.example.masalafoodapplication.ui.ingredient
 
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.commit
@@ -20,6 +18,10 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
         get() = FragmentIngredientBinding::inflate
 
     override fun setup() {
+        listenToFragmentResult()
+    }
+
+    private fun listenToFragmentResult() {
         parentFragmentManager.setFragmentResultListener(
             Constants.INGREDIENT,
             this
@@ -35,14 +37,13 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             onBack(food.id, Constants.KEY_FOOD_ID)
         }
         binding.nextBtn.setOnClickListener {
-            parentFragmentManager.commit {
-                newInstance(food, Constants.KEY_FOOD_ID)
-                transitionToWithBackStack2(
-                    StepsFragment(),
-                    this@IngredientFragment,
-                    Constants.INGREDIENT
-                )
-            }
+            newInstance(food.id, Constants.KEY_FOOD_ID)
+            transitionToWithBackStackAdd(
+                StepsFragment(),
+                this@IngredientFragment,
+                Constants.INGREDIENT
+            )
+
         }
     }
 

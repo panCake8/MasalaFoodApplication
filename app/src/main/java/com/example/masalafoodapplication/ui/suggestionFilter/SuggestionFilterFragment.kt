@@ -49,7 +49,7 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
                 toSendData = ""
                 collectedData.clear()
                 parentFragmentManager.popBackStack()
-                transitionToWithBackStack(SuggestionsFragment(), TAG_SUGGESTIONS)
+                transitionToWithBackStackReplace(SuggestionsFragment(), TAG_SUGGESTIONS)
             }
         }
 

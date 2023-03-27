@@ -9,6 +9,8 @@ import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.explore.adapters.ExploreAdapter
+import com.example.masalafoodapplication.ui.filter.FilterFragment
+import com.example.masalafoodapplication.util.Constants
 import com.mindorks.editdrawabletext.DrawablePosition
 import com.mindorks.editdrawabletext.onDrawableClickListener
 
@@ -20,6 +22,22 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
     override fun setup() {
         adapter = ExploreAdapter(emptyList())
         binding.recyclerSearchResult.adapter = adapter
+        listenToFragmentResult()
+    }
+
+    private fun listenToFragmentResult() {
+        parentFragmentManager.setFragmentResultListener(
+            Constants.FILTER,
+            this
+        ) { _, result ->
+            val time = result.getFloat(Constants.FILTER)
+            val kitchens = result.getStringArrayList(Constants.KEY_CUISINE_NAME)
+            val ingredient = result.getStringArrayList(Constants.INGREDIENT)
+            val filterList = DataManager.filterData(kitchens, ingredient, time)
+            adapter = ExploreAdapter(filterList)
+            binding.recyclerSearchResult.adapter = adapter
+            hideAnimation()
+        }
     }
 
     override fun onClicks() {
@@ -34,10 +52,11 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
         binding.searchBar.setDrawableClickListener(object : onDrawableClickListener {
             override fun onClick(target: DrawablePosition) {
                 when (target) {
-                    DrawablePosition.LEFT -> {
-
+                    DrawablePosition.LEFT -> {}
+                    DrawablePosition.RIGHT -> {
+                        parentFragmentManager.popBackStack(Constants.EXPLORE, 1)
+                        transitionToWithBackStackReplace(FilterFragment(), Constants.EXPLORE)
                     }
-                    DrawablePosition.RIGHT -> {}
                 }
             }
 

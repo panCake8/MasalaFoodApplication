@@ -59,28 +59,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
 
     override fun onRecipeClicked(food: Food) {
         newInstance(food.id, KEY_FOOD_ID)
-        transitionToWithBackStack(FoodDetailFragment(), TAG_FOOD_DETAILS)
+        transitionToWithBackStackReplace(FoodDetailFragment(), TAG_FOOD_DETAILS)
     }
 
     override fun onCuisineClicked(cuisine: Cuisine) {
         newInstance(cuisine.name, KEY_CUISINE_NAME)
-        transitionToWithBackStack(DetailsKitchenFragment(), TAG_KITCHEN_DETAILS)
+        transitionToWithBackStackReplace(DetailsKitchenFragment(), TAG_KITCHEN_DETAILS)
     }
 
     override fun onIndianFoodHistoryClicked() =
-        transitionToWithBackStack(HistoryFragment(), TAG_HISTORY)
+        transitionToWithBackStackReplace(HistoryFragment(), TAG_HISTORY)
 
     override fun onSeeMoreClicked(type: HomeItemType) {
         when (type) {
-            HomeItemType.QUICK_RECIPES -> transitionToWithBackStack(
+            HomeItemType.QUICK_RECIPES -> transitionToWithBackStackReplace(
                 QuickRecipesFragment(), TAG_QUICK_RECIPES
             )
 
-            HomeItemType.JUST_FOR_YOU -> transitionToWithBackStack(
+            HomeItemType.JUST_FOR_YOU -> transitionToWithBackStackReplace(
                 RandomRecipesFragment(), TAG_JUST_FOR_YOU
             )
 
-            HomeItemType.INDIAN_FOOD_HISTORY -> transitionToWithBackStack(
+            HomeItemType.INDIAN_FOOD_HISTORY -> transitionToWithBackStackReplace(
                 HistoryFragment(), TAG_HISTORY
             )
 

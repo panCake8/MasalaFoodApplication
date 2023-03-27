@@ -12,6 +12,7 @@ import androidx.fragment.app.commit
 import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.util.Constants
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
@@ -50,7 +51,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
     }
 
-    fun transitionToWithBackStack(fragment: Fragment, tag: String) {
+    fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
         parentFragmentManager.commit {
             replace(R.id.fragment_container, fragment)
             addToBackStack(tag)
@@ -58,7 +59,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
     }
 
-    fun transitionToWithBackStack2(fragment: Fragment, fragment2: Fragment, tag: String) {
+    fun transitionToWithBackStackAdd(fragment: Fragment, fragment2: Fragment, tag: String) {
         parentFragmentManager.commit {
             add(R.id.fragment_container, fragment)
             addToBackStack(tag)
@@ -80,6 +81,19 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun newInstance(
+        listKitchens: ArrayList<String>,
+        listIngredient: ArrayList<String>,
+        time: Float,
+        key: String
+    ) {
+        val bundle = Bundle()
+        bundle.putStringArrayList(Constants.KEY_CUISINE_NAME, listKitchens)
+        bundle.putStringArrayList(Constants.INGREDIENT, listIngredient)
+        bundle.putFloat(key, time)
+        parentFragmentManager.setFragmentResult(key, bundle)
     }
 
     fun newInstance(int: Int, key: String) {

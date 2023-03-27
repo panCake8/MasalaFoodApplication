@@ -19,6 +19,10 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
         get() = FragmentStepsBinding::inflate
 
     override fun setup() {
+        listenToFragmentResult()
+    }
+
+    private fun listenToFragmentResult() {
         parentFragmentManager.setFragmentResultListener(
             Constants.KEY_FOOD_ID,
             this

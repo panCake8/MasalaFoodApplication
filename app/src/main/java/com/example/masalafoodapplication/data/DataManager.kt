@@ -94,4 +94,15 @@ object DataManager : BaseDataManager {
         return foodsList.filter { it.cuisine == cuisine }
     }
 
+    override fun filterData(
+        kitchens: List<String>?,
+        ingredient: List<String>?,
+        time: Float
+    ) =
+        foodsList.take(500).filter {
+            kitchens?.contains(it.cuisine) == true
+                    || ingredient?.containsAll(it.ingredient) == true
+                    || it.timeMinutes == time.toInt()
+        }
+
 }
