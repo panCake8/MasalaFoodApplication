@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.data.domain
+package com.example.masalafoodapplication.data.domain.models
 
 import com.example.masalafoodapplication.data.domain.enums.HomeItemType
 

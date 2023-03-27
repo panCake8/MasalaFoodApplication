@@ -8,19 +8,19 @@
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
         <item name="cornerRadius">100dp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:fontFamily">@font/work_sans_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_medium</item>
     </style>
     <!-- primary button style-->
     <style name="Button.PrimaryButton">
         <item name="android:backgroundTint">@color/primary_button_color</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <!-- secondary button style-->
     <style name="Button.SecondaryButton">
         <item name="android:backgroundTint">@color/white</item>
-        <item name="strokeColor">@color/primary_button_color</item>
+        <item name="strokeColor">@color/black</item>
         <item name="strokeWidth">@dimen/small_stroke</item>
         <item name="android:textColor">@color/dark_black</item>
     </style>
@@ -32,7 +32,7 @@
         <item name="android:backgroundTint">@color/white</item>
         <item name="titleTextColor">@color/app_bar_text_color</item>
         <item name="elevation">@dimen/elevation_small</item>
-        <item name="navigationIcon">@drawable/ic_back_black</item>
+        <item name="navigationIcon">@drawable/ic_arrow_back_white</item>
     </style>
     <!-- app bar stroke-->
     <style name="AppBarStroke">
@@ -185,7 +185,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">32dp</item>
         <item name="android:textColor">@color/text_chips</item>
-        <item name="android:fontFamily">@font/work_sans_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">@dimen/text_small</item>
         <item name="chipCornerRadius">@dimen/radius_small</item>

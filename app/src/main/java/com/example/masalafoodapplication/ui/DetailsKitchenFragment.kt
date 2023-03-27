@@ -4,22 +4,27 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.ui.suggestion.adapters.FoodsAdapter
+import com.example.masalafoodapplication.util.SuggestionOnClick
 
-
-class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKitchenBinding>() {
+class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKitchenBinding>(),SuggestionOnClick {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetailsKitchenBinding
         get() = FragmentDetailsKitchenBinding::inflate
     private lateinit var food: ArrayList<Food>
     override fun setup() {
-        parentFragmentManager.setFragmentResultListener(
-            name,
-            this
-        ) { _, result ->
-            when (name) {
+
+        val adapter=FoodsAdapter(DataManager.getAllFood(),this)
+        binding.detailsRecyclerView.adapter=adapter
+//        parentFragmentManager.setFragmentResultListener(
+//            name,
+//            this
+//        ) { _, result ->
+//            when (name) {
 //                Constants.ASIAN -> {
 //                    food = result.getParcelableArrayList(Constants.ASIAN)!!
 //                    binding.apply {
@@ -107,9 +112,9 @@ class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKit
 //                    }
 //                }
 //            }
-
-            }
-        }
+//
+//            }
+//        }
     }
 
     private fun bindViews(
@@ -125,6 +130,10 @@ class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKit
         binding.kitchenToolbar.setNavigationOnClickListener {
             onBack()
         }
+    }
+
+    override fun onClickListener(nameFood: String) {
+        TODO("Not yet implemented")
     }
 
 }

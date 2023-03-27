@@ -19,7 +19,7 @@
     </style>
     <!-- secondary button style-->
     <style name="Button.SecondaryButton">
-        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">@color/background_color</item>
         <item name="strokeColor">@color/primary_button_color</item>
         <item name="strokeWidth">@dimen/small_stroke</item>
         <item name="android:textColor">@color/dark_black</item>
@@ -29,7 +29,7 @@
     <style name="AppBar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/app_bar_height</item>
-        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">@color/background_color</item>
         <item name="titleTextColor">@color/app_bar_text_color</item>
         <item name="elevation">@dimen/elevation_small</item>
         <item name="navigationIcon">@drawable/ic_back_black</item>
@@ -80,8 +80,8 @@
     <!--    Card Parent-->
     <style name="CardRecItem" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_width">match_parent</item>
-<!--        <item name="android:layout_marginEnd">@dimen/margin_medium</item>-->
-<!--        <item name="android:layout_marginBottom">@dimen/margin_medium</item>-->
+        <!--        <item name="android:layout_marginEnd">@dimen/margin_medium</item>-->
+        <!--        <item name="android:layout_marginBottom">@dimen/margin_medium</item>-->
     </style>
 
 
@@ -114,7 +114,6 @@
         <item name="android:textColor">@color/dark_white</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:layout_marginStart">@dimen/margin_medium</item>
-        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
     </style>
 
     <!--    Item Text Time Parent-->
@@ -123,6 +122,7 @@
         <item name="android:textColor">@color/dark_white</item>
         <item name="android:textSize">@dimen/text_small</item>
         <item name="android:layout_marginStart">@dimen/margin_tiny</item>
+        <item name="android:layout_marginRight">@dimen/margin_tiny</item>
     </style>
 
     <!--    Item Text Name Food-->
@@ -139,7 +139,7 @@
 
     <!--    Item Text Time Food-->
     <style name="ItemText.Time.Food">
-<!--        <item name="android:layout_marginBottom">@dimen/margin_small</item>-->
+        <!--        <item name="android:layout_marginBottom">@dimen/margin_small</item>-->
         <item name="android:textColor">@color/medium_white</item>
     </style>
 
@@ -169,10 +169,6 @@
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
         <item name="android:scaleType">centerCrop</item>
-    </style>
-    <!--Kitchen-->
-    <style name="Poster.Kitchen">
-        <item name="android:layout_height">@dimen/details_kitchen_poster_height</item>
     </style>
     <!--Home-->
     <style name="Poster.Home">
@@ -257,7 +253,7 @@
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginBottom">@dimen/margin_medium</item>
         <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:fontFamily">"@font/work_sans"</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
 

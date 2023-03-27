@@ -1,40 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     android:orientation="vertical"
     tools:context=".ui.DetailsKitchenFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/kitchen_toolbar"
         style="@style/AppBar"
-        app:title="@string/kitchens" />
+        app:title="@string/kitchens"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <View
         android:id="@+id/toolbar_stroke"
-        style="@style/AppBarStroke" />
+        style="@style/AppBarStroke"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/kitchen_toolbar"/>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/details_img_poster"
-        style="@style/Poster.Kitchen"
+        android:layout_height="@dimen/details_kitchen_poster_height"
+        style="@style/Poster"
+        android:layout_marginTop="@dimen/margin_medium"
         android:contentDescription="@string/img_description"
-        android:src="@drawable/poster" />
+        android:src="@drawable/poster"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_stroke"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/details_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/popular_dishes"
         android:textColor="@color/dark_black"
-        android:textSize="@dimen/text_medium" />
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/details_img_poster"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_kitchen"
-        style="@style/RecyclerStyle"
+        android:id="@+id/details_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/details_title"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/item_kitchen" />
-</LinearLayout>
+        app:spanCount="2"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/margin_large"
+        android:clipToPadding="false"
+        android:layout_marginTop="@dimen/margin_medium"
+        tools:listitem="@layout/item_food_suggestions"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
