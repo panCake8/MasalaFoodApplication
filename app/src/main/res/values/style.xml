@@ -80,8 +80,6 @@
     <!--    Card Parent-->
     <style name="CardRecItem" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_width">match_parent</item>
-        <!--        <item name="android:layout_marginEnd">@dimen/margin_medium</item>-->
-        <!--        <item name="android:layout_marginBottom">@dimen/margin_medium</item>-->
     </style>
 
 
@@ -353,5 +351,14 @@
         <item name="android:textSize">@dimen/text_small</item>
         <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
+    </style>
+    <!--    Card Search-->
+    <style name="CardRecItem.Search" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/card_item_food_height</item>
+        <item name="cardCornerRadius">@dimen/radius_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
     </style>
 </resources>
