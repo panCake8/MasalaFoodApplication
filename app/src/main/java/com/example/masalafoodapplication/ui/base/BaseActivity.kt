@@ -8,11 +8,10 @@ import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
-import com.example.masalafoodapplication.ui.ExploreFragment
-import com.example.masalafoodapplication.ui.FavouriteFragment
+import com.example.masalafoodapplication.ui.*
+import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.util.CsvParser
-import com.example.masalafoodapplication.util.SetFragmentType
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -39,17 +38,17 @@ class BaseActivity : AppCompatActivity() {
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    setFragment(HomeFragment(), SetFragmentType.REPLACE, "Home")
+                    replaceFragment(HomeFragment(), "Home")
                     true
                 }
 
                 R.id.nav_explore -> {
-                    setFragment(ExploreFragment(), SetFragmentType.REPLACE, "Explore")
+                    replaceFragment(ExploreFragment(), "Explore")
                     true
                 }
 
                 R.id.nav_favourite -> {
-                    setFragment(FavouriteFragment(), SetFragmentType.REPLACE, "Fav")
+                    replaceFragment(FavouriteFragment(), "Fav")
                     true
                 }
 
@@ -62,28 +61,17 @@ class BaseActivity : AppCompatActivity() {
         val inputStream: InputStream = assets.open(CSV_NAME)
         val buffer = BufferedReader(InputStreamReader(inputStream))
         val csvParser = CsvParser()
+        var id = 0
         buffer.forEachLine { line ->
-            val food = csvParser.parse(line)
+            val food = csvParser.parse(line, id)
             DataManager.addFood(food)
+            id++
         }
 
     }
 
     private fun initSubViews() {
-        setFragment(HomeFragment(), SetFragmentType.ADD, "Home")
-    }
-
-    private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType, tag: String) {
-        when (setFragmentType) {
-            SetFragmentType.ADD -> addFragment(fragment)
-            SetFragmentType.REPLACE -> replaceFragment(fragment, tag)
-        }
-    }
-
-    private fun addFragment(fragment: Fragment) {
-        supportFragmentManager.commit {
-            add(binding.fragmentContainer.id, fragment)
-        }
+        replaceFragment(HomeFragment(), "Home")
     }
 
     private fun replaceFragment(fragment: Fragment, tag: String) {

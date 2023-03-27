@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.ingredient.adapter
 
 import android.view.LayoutInflater
 import android.view.View

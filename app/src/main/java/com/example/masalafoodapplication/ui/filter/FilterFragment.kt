@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.filter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.Button
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentFilterBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.util.Constants
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -29,9 +30,9 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
     }
 
     override fun onClicks() {
-//        binding.topAppBar.setNavigationOnClickListener {
-//            onBack()
-//        }
+        binding.filterToolbar.setNavigationOnClickListener {
+            onBack()
+        }
     }
 
     override fun onCreateView(
@@ -52,7 +53,7 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
             val selectedChips2 = getSelectedChips(filterChipGroup2)
             val sliderValue = slider.value
             parentFragmentManager.popBackStack()
-            transitionToWithBackStack(ExploreFragment(), Constants.FILTER)
+            transitionToWithBackStack(ExploreFragment())
             newInstance(
                 selectedChips1[0], selectedChips2[0], sliderValue.toString(),
                 Constants.FILTER
