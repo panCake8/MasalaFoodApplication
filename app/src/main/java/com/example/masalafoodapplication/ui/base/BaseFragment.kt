@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.R
@@ -42,10 +41,10 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
     }
 
-    fun transitionToWithBackStack(fragment: Fragment, name: String) {
+    fun transitionToWithBackStack(fragment: Fragment) {
         parentFragmentManager.commit {
             replace(R.id.fragment_container, fragment)
-                .addToBackStack(name)
+            addToBackStack(fragment::class.java.simpleName)
             setReorderingAllowed(true)
         }
     }
