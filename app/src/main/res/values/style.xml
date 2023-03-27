@@ -254,7 +254,7 @@
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginBottom">@dimen/margin_medium</item>
         <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:fontFamily">"@font/poppins_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
 
