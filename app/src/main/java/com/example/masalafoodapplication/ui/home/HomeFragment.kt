@@ -17,6 +17,12 @@ import com.example.masalafoodapplication.ui.home.adapters.HomeInteractionListene
 import com.example.masalafoodapplication.ui.quick_recipes.QuickRecipesFragment
 import com.example.masalafoodapplication.ui.random_recipes.RandomRecipesFragment
 import com.example.masalafoodapplication.util.Constants.INDIAN
+import com.example.masalafoodapplication.util.Constants.KEY_FOOD_ID
+import com.example.masalafoodapplication.util.Constants.TAG_FOOD_DETAILS
+import com.example.masalafoodapplication.util.Constants.TAG_HISTORY
+import com.example.masalafoodapplication.util.Constants.TAG_JUST_FOR_YOU
+import com.example.masalafoodapplication.util.Constants.TAG_KITCHEN_DETAILS
+import com.example.masalafoodapplication.util.Constants.TAG_QUICK_RECIPES
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListener {
@@ -44,23 +50,32 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
 
     override fun onBannerClicked() {}
 
-    override fun onRecipeClicked(food: Food) =
-        transitionToWithBackStack(FoodDetailFragment(food.id))
+    override fun onRecipeClicked(food: Food) {
+        newInstance(food.id, KEY_FOOD_ID)
+        transitionToWithBackStack(FoodDetailFragment(), TAG_FOOD_DETAILS)
+    }
 
-    override fun onCuisineClicked(cuisine: Cuisine) =
-        transitionToWithBackStack(DetailsKitchenFragment(cuisine.name))
+    override fun onCuisineClicked(cuisine: Cuisine) {
+        newInstance(cuisine.name, TAG_KITCHEN_DETAILS)
+        transitionToWithBackStack(DetailsKitchenFragment(), TAG_KITCHEN_DETAILS)
+    }
 
-    override fun onIndianFoodHistoryClicked() = transitionToWithBackStack(HistoryFragment())
+    override fun onIndianFoodHistoryClicked() =
+        transitionToWithBackStack(HistoryFragment(), TAG_HISTORY)
 
     override fun onSeeMoreClicked(type: HomeItemType) {
         when (type) {
-            HomeItemType.QUICK_RECIPES -> transitionToWithBackStack(QuickRecipesFragment())
+            HomeItemType.QUICK_RECIPES -> transitionToWithBackStack(
+                QuickRecipesFragment(), TAG_QUICK_RECIPES
+            )
 
-            HomeItemType.CUISINES -> transitionToWithBackStack(QuickRecipesFragment())
+            HomeItemType.JUST_FOR_YOU -> transitionToWithBackStack(
+                RandomRecipesFragment(), TAG_JUST_FOR_YOU
+            )
 
-            HomeItemType.JUST_FOR_YOU -> transitionToWithBackStack(RandomRecipesFragment())
-
-            HomeItemType.INDIAN_FOOD_HISTORY -> transitionToWithBackStack(HistoryFragment())
+            HomeItemType.INDIAN_FOOD_HISTORY -> transitionToWithBackStack(
+                HistoryFragment(), TAG_HISTORY
+            )
 
             else -> {}
         }
