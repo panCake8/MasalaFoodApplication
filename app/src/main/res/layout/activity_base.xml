@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.BaseActivity">
+    android:background="@color/background_color"
+    tools:context=".ui.base.BaseActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
@@ -24,7 +24,7 @@
         android:paddingTop="@dimen/padding_small"
         android:paddingBottom="@dimen/padding_medium"
         app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
-        android:background="@color/white"
+        android:background="@color/background_color"
         app:itemIconTint="@drawable/bottom_navigation_selector"
         app:itemRippleColor="@color/nav_selected_item"
         app:itemTextColor="@drawable/bottom_navigation_selector"

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/details_toolbar"
+        style="@style/AppBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/filter" />
+
+    <View
+        android:id="@+id/toolbar_stroke"
+        style="@style/AppBarStroke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/details_toolbar" />
+
+    <TextView
+        android:id="@+id/dishName"
+        style="@style/Text.TitleChips"
+        android:text="@string/kitchens"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_stroke" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/filter_chip_group_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@+id/dishName"
+        app:singleSelection="false">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip1"
+            style="@style/Chips_filter"
+            android:checked="true"
+            android:text="@string/kashmir"
+             />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2"
+            style="@style/Chips_filter"
+            android:text="@string/moroc"
+             />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip3"
+            style="@style/Chips_filter"
+            android:text="@string/south_indian"
+            />
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/Text.TitleChips"
+        android:text="@string/component"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filter_chip_group_1" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/filter_chip_group_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:singleSelection="false">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip4"
+            style="@style/Chips_filter"
+            android:text="@string/kray"
+             />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip5"
+            style="@style/Chips_filter"
+            android:text="@string/tomato"
+             />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip6"
+            style="@style/Chips_filter"
+            android:text="@string/onion"
+             />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip7"
+            style="@style/Chips_filter"
+            android:text="@string/mustard"
+             />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip8"
+            style="@style/Chips_filter"
+            android:text="@string/meat"
+             />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip9"
+            style="@style/Chips_filter"
+            android:text="@string/chicken"
+             />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip10"
+            style="@style/Chips_filter"
+            android:text="@string/soup"
+             />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/Text.TitleChips"
+        android:text="@string/recipe_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filter_chip_group_2" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_large"
+        android:layout_marginTop="32dp"
+        android:stepSize="10.0"
+        android:valueFrom="0.0"
+        android:valueTo="100.0"
+        app:haloColor="@color/selected_chip_color"
+        app:labelStyle="@style/Widget.App.Tooltip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:thumbColor="@color/text_reset_btn_color"
+        app:tickVisible="false" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/apply_button"
+        style="@style/Button.PrimaryButton"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/apply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slider" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reset_button"
+        style="@style/Button.SecondaryButton"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:text="@string/reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apply_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>

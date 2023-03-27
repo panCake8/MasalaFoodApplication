@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ExploreFragment">
+    android:background="@color/background_color">
+    <com.mindorks.editdrawabletext.EditDrawableText
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_height"
+        android:layout_marginHorizontal="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/search_view"
+        android:drawableLeft="@drawable/search_icon2"
+        android:drawableRight="@drawable/ic_filter"
+        android:drawablePadding="@dimen/padding_medium"
+        android:hint="@string/search_here"
+        android:inputType="text"
+        android:maxLength="50"
+        android:paddingHorizontal="@dimen/padding_large"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hint_color"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded"
+        />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_searchResult"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_layer"
+        android:layout_width="256dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="FragmentExplore"
-        android:textColor="#000"
-        android:textSize="@dimen/text_large" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/search" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+

@@ -1,6 +1,6 @@
 package com.example.masalafoodapplication.util
 
-import com.kiko.fillapp.data.domain.Food
+import com.example.masalafoodapplication.data.domain.Food
 
 class CsvParser {
     fun parse(line: String): Food {
@@ -9,7 +9,7 @@ class CsvParser {
             recipeName = tokens[Constants.ColumnIndex.RECIPE_NAME],
             ingredients = tokens[Constants.ColumnIndex.INGREDIENTS],
             timeMinutes = tokens[Constants.ColumnIndex.TIME_MINUTES].toInt(),
-            Cuisine = tokens[Constants.ColumnIndex.CUISINE],
+            cuisine = tokens[Constants.ColumnIndex.CUISINE],
             makeRecipe = tokens[Constants.ColumnIndex.MAKE_RECIPE],
             url = tokens[Constants.ColumnIndex.URL],
             cleaned = tokens[Constants.ColumnIndex.CLEANED],

@@ -8,7 +8,7 @@
         android:title="@string/home" />
     <item
         android:id="@+id/nav_explore"
-        android:icon="@drawable/ic_explore"
+        android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/explore" />
     <item
         android:id="@+id/nav_favourite"

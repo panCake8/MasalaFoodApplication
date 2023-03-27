@@ -1,4 +1,4 @@
-package com.kiko.fillapp.data.domain
+package com.example.masalafoodapplication.data.domain
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -8,7 +8,7 @@ data class Food(
     val recipeName: String,
     val ingredients: String,
     val timeMinutes: Int,
-    val Cuisine: String,
+    val cuisine: String,
     val makeRecipe: String,
     val url: String,
     val cleaned: String,
