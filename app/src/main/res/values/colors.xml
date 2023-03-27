@@ -39,4 +39,5 @@
     <color name="search_icon_stroke_color">#61121212</color>
     <color name="filter_icon_color">#00000000</color>
     <color name="liner_color">#121212</color>
+    <color name="text_chips_color">#fafafa</color>
 </resources>

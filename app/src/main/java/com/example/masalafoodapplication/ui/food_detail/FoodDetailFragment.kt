@@ -26,7 +26,7 @@ class FoodDetailFragment(val foodId: Int) : BaseFragment<FragmentFoodDetailBindi
         ) { _, result ->
             food = result.getParcelable(Constants.FOOD_DETAILS)!!
             binding.dishName.text = food.recipeName ?: "not found"
-            binding.GroupChips.check(R.id.description)
+            binding.GroupChips.check(R.id.cleaned)
             val adapter =
                 FoodDetailAdapter(food.ingredientQuantities ?: listOf("there is nothing here"))
             binding.ItemRecyclerView.adapter = adapter
