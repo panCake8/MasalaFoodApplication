@@ -1,6 +1,5 @@
 package com.example.masalafoodapplication.ui.home.adapters
 
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -75,7 +74,6 @@ class HomeAdapter(
             is JustForYouRecipesViewHolder -> holder.bind(homeItems[position])
             is CuisinesViewHolder -> holder.bind(homeItems[position])
             is IndianFoodHistoryViewHolder -> holder.bind(homeItems[position])
-            is JustForYouRecipesViewHolder->holder.bind(homeItems[position])
         }
     }
 
@@ -110,7 +108,7 @@ class HomeAdapter(
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
                 labelSection.text = itemView.context.getString(R.string.quick_recipes)
-                recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>, listener)
+                recyclerRecipes.adapter = QuickRecipesAdapter(item.data as List<Food>, listener)
                 buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
         }
@@ -122,6 +120,7 @@ class HomeAdapter(
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
                 labelSection.text = itemView.context.getString(R.string.just_for_you)
+                buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
                 recyclerRecipes.adapter = JustForYouAdapter(item.data as List<Food>,listener)
             }
         }
