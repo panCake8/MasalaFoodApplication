@@ -31,20 +31,15 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="name" />
 
-        <ImageView
-            android:id="@+id/time_icon"
-            style="@style/ItemIcon"
-            android:contentDescription="@string/img_description"
-            android:src="@drawable/ic_clock"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/prepareTime"
-            app:layout_constraintStart_toStartOf="parent" />
+
 
         <TextView
             android:id="@+id/prepareTime"
             style="@style/ItemText.Time.Food"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/time_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            android:drawableLeft="@drawable/ic_clock"
+            android:drawablePadding="4dp"
             tools:text="15m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
