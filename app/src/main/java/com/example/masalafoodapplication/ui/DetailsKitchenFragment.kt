@@ -7,13 +7,9 @@ import android.widget.TextView
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
-
-
-
 class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKitchenBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetailsKitchenBinding
         get() = FragmentDetailsKitchenBinding::inflate
-
     override fun setup() {
         parentFragmentManager.setFragmentResultListener(
             name,
