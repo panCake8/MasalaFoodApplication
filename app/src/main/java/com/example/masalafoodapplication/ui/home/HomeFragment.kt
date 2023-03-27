@@ -1,5 +1,6 @@
 package com.example.masalafoodapplication.ui.home
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.DataManager
@@ -17,20 +18,32 @@ import com.example.masalafoodapplication.ui.home.adapters.HomeInteractionListene
 import com.example.masalafoodapplication.ui.quick_recipes.QuickRecipesFragment
 import com.example.masalafoodapplication.ui.random_recipes.RandomRecipesFragment
 import com.example.masalafoodapplication.util.Constants.INDIAN
+import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
+import com.example.masalafoodapplication.util.Constants.KEY_FOOD_ID
+import com.example.masalafoodapplication.util.Constants.TAG_FOOD_DETAILS
+import com.example.masalafoodapplication.util.Constants.TAG_HISTORY
+import com.example.masalafoodapplication.util.Constants.TAG_JUST_FOR_YOU
+import com.example.masalafoodapplication.util.Constants.TAG_KITCHEN_DETAILS
+import com.example.masalafoodapplication.util.Constants.TAG_QUICK_RECIPES
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListener {
-
+    private lateinit var homeItems: MutableList<HomeItem<Any>>
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
 
-    override fun setup() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         bindHomeItems()
+    }
+
+    override fun setup() {
+        binding.recyclerHome.adapter = HomeAdapter(homeItems, this)
     }
 
 
     private fun bindHomeItems() {
-        val homeItems = mutableListOf<HomeItem<Any>>()
+        homeItems = mutableListOf()
         homeItems.add(HomeItem(DataManager.getRandomFoodImage(), HomeItemType.BANNER))
         homeItems.add(HomeItem(DataManager.getRandomQuickRecipes(20), HomeItemType.QUICK_RECIPES))
         homeItems.add(HomeItem(DataManager.getCuisines(20), HomeItemType.CUISINES))
@@ -39,28 +52,37 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
             HomeItem(DataManager.getImageByCuisine(INDIAN), HomeItemType.INDIAN_FOOD_HISTORY)
         )
 
-        binding.recyclerHome.adapter = HomeAdapter(homeItems, this)
+
     }
 
     override fun onBannerClicked() {}
 
-    override fun onRecipeClicked(food: Food) =
-        transitionToWithBackStack(FoodDetailFragment(food.id))
+    override fun onRecipeClicked(food: Food) {
+        newInstance(food.id, KEY_FOOD_ID)
+        transitionToWithBackStackReplace(FoodDetailFragment(), TAG_FOOD_DETAILS)
+    }
 
-    override fun onCuisineClicked(cuisine: Cuisine) =
-        transitionToWithBackStack(DetailsKitchenFragment(cuisine.name))
+    override fun onCuisineClicked(cuisine: Cuisine) {
+        newInstance(cuisine.name, KEY_CUISINE_NAME)
+        transitionToWithBackStackReplace(DetailsKitchenFragment(), TAG_KITCHEN_DETAILS)
+    }
 
-    override fun onIndianFoodHistoryClicked() = transitionToWithBackStack(HistoryFragment())
+    override fun onIndianFoodHistoryClicked() =
+        transitionToWithBackStackReplace(HistoryFragment(), TAG_HISTORY)
 
     override fun onSeeMoreClicked(type: HomeItemType) {
         when (type) {
-            HomeItemType.QUICK_RECIPES -> transitionToWithBackStack(QuickRecipesFragment())
+            HomeItemType.QUICK_RECIPES -> transitionToWithBackStackReplace(
+                QuickRecipesFragment(), TAG_QUICK_RECIPES
+            )
 
-            HomeItemType.CUISINES -> transitionToWithBackStack(QuickRecipesFragment())
+            HomeItemType.JUST_FOR_YOU -> transitionToWithBackStackReplace(
+                RandomRecipesFragment(), TAG_JUST_FOR_YOU
+            )
 
-            HomeItemType.JUST_FOR_YOU -> transitionToWithBackStack(RandomRecipesFragment())
-
-            HomeItemType.INDIAN_FOOD_HISTORY -> transitionToWithBackStack(HistoryFragment())
+            HomeItemType.INDIAN_FOOD_HISTORY -> transitionToWithBackStackReplace(
+                HistoryFragment(), TAG_HISTORY
+            )
 
             else -> {}
         }

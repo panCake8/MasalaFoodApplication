@@ -91,7 +91,6 @@ class HomeAdapter(
 
         override fun bind(item: HomeItem<Any>) {
             binding.imageBanner.loadImage(item.data as String)
-            binding.root.setOnClickListener { listener.onBannerClicked() }
         }
     }
 

@@ -21,7 +21,6 @@ class ExploreAdapter(var list: List<Food>) :
         holder.binding.apply {
             imageRecipe.loadImage(currentFood.imageUrl)
             recipeName.text = currentFood.recipeName
-            prepareTime.text = currentFood.timeMinutes.toString()
         }
 
     }

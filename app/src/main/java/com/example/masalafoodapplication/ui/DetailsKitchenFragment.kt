@@ -1,33 +1,25 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.detailsKitchen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
-import com.example.masalafoodapplication.ui.suggestion.adapters.FoodsAdapter
-import com.example.masalafoodapplication.util.SuggestionOnClick
+import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitchenAdapter
+import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitchenOnClick
+import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
+import com.example.masalafoodapplication.util.Constants
+import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
 
-class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKitchenBinding>(),DetailsKitchenOnClick {
+class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
+    DetailsKitchenOnClick {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetailsKitchenBinding
         get() = FragmentDetailsKitchenBinding::inflate
+
     override fun setup() {
-
-        val adapter=DetailsKitchenAdapter(DataManager.getAllFood(),this)
-        binding.detailsRecyclerView.adapter=adapter
-    }
-
-    private fun bindViews(
-        imageView: ImageView, textView: TextView, textView2: TextView,
-        url: String?, title: String?, info: Int?
-    ) {
-        imageView.loadImage(url!!)
-        textView.text = title
-        textView2.text = info.toString()
+        listenToFragmentResult()
     }
 
     override fun onClicks() {
@@ -36,8 +28,30 @@ class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKit
         }
     }
 
-    override fun onClickListener(nameFood: String) {
-        Toast.makeText(requireContext().applicationContext,nameFood,Toast.LENGTH_LONG).show()
+    private fun listenToFragmentResult() {
+        parentFragmentManager.setFragmentResultListener(
+            KEY_CUISINE_NAME,
+            this
+        ) { _, result ->
+            val cuisineName = result.getString(KEY_CUISINE_NAME)
+            cuisineName?.let {
+                bindData(DataManager.getRecipesByCuisine(it))
+            }
+        }
     }
 
+    private fun bindData(recipes: List<Food>) {
+        binding.apply {
+            kitchenToolbar.title = recipes.first().cuisine
+            detailsImgPoster.loadImage(DataManager.getImageByCuisine(recipes.first().cuisine))
+            detailsRecyclerView.adapter =
+                DetailsKitchenAdapter(recipes, this@DetailsKitchenFragment)
+        }
+    }
+
+    override fun onClickListener(food: Food) {
+        newInstance(food.id, Constants.KEY_FOOD_ID)
+        parentFragmentManager.popBackStack()
+        transitionToWithBackStackReplace(FoodDetailFragment(), Constants.DETAILS_KITCHEN)
+    }
 }
