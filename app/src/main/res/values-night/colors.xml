@@ -14,17 +14,17 @@
     <color name="light_black">#61FAFAFA</color>
     <color name="text_on_image_color">#DEFFFFFF</color>
     <color name="text_reset_btn_color">#FF1747</color>
-    <color name="text_chips">#DEFF1747</color>
+    <color name="text_chips">#ffffff</color>
 
     <color name="base_color">#FF355F</color>
     <color name="primary_button_color">#FF355F</color>
-    <color name="selected_chip_color">#14FF1747</color>
+    <color name="selected_chip_color">#F2121212</color>
     <color name="non_selected_chip_stroke_color">#DEFF1747</color>
     <color name="line_color">#5EFF1747</color>
-    <color name="chips_stroke_color">#DEFF1747</color>
+    <color name="chips_stroke_color">#ffffff</color>
     <color name="delete_icon_color">#FF1747</color>
     <color name="stroke_app_bar">#14FAFAFA</color>
-
+    <color name="background_color">#F2121212</color>
     <color name="white">#121212</color>
     <color name="black">#FFFFFF</color>
     <color name="hint_color">#61FAFAFA</color>
