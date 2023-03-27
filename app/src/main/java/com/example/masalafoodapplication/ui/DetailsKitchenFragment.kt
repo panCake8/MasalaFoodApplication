@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -14,10 +15,13 @@ import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
 import com.example.masalafoodapplication.util.SuggestionOnClick
 
 class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(), SuggestionOnClick {
+class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKitchenBinding>(),DetailsKitchenOnClick {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetailsKitchenBinding
         get() = FragmentDetailsKitchenBinding::inflate
-    private lateinit var food: ArrayList<Food>
     override fun setup() {
+
+        val adapter=DetailsKitchenAdapter(DataManager.getAllFood(),this)
+        binding.detailsRecyclerView.adapter=adapter
         listenToFragmentResult()
 //        val adapter = FoodsAdapter(DataManager.getAllFood(), this)
 //        binding.detailsRecyclerView.adapter = adapter
@@ -134,6 +138,8 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(), Su
     }
 
     override fun onClickListener(food: Food) {
+    override fun onClickListener(nameFood: String) {
+        Toast.makeText(requireContext().applicationContext,nameFood,Toast.LENGTH_LONG).show()
     }
 
 

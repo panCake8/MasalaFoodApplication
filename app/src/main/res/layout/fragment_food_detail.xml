@@ -67,7 +67,7 @@
 
             <TextView
                 android:id="@+id/dishName"
-                style="@style/textView"
+                style="@style/TextRecipeNameDetails"
                 android:layout_width="191dp"
                 android:layout_height="51dp"
                 android:layout_marginStart="@dimen/text_VLarge"
