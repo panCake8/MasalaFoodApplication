@@ -11,7 +11,7 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/sug_tb_topAppBar"
         style="@style/AppBar"
-        app:title="@string/suggestions"
+        app:title="@string/suggestion_meals"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
