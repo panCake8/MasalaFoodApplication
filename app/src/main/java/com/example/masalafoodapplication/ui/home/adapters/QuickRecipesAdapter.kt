@@ -10,26 +10,26 @@ import com.example.masalafoodapplication.databinding.ItemFoodBinding
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.util.setTime
 
-class RecipesAdapter(
+class QuickRecipesAdapter(
     private val recipes: List<Food>,
     private val listener: HomeInteractionListener
 ) :
-    RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() {
+    RecyclerView.Adapter<QuickRecipesAdapter.QuickRecipesViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuickRecipesViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
-        return RecipesViewHolder(view)
+        return QuickRecipesViewHolder(view)
     }
 
     override fun getItemCount() = recipes.size
 
-    override fun onBindViewHolder(holder: RecipesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: QuickRecipesViewHolder, position: Int) {
         val currentRecipe = recipes[position]
         holder.bind(currentRecipe)
     }
 
-    inner class RecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+    inner class QuickRecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemFoodBinding.bind(viewItem)
         fun bind(food: Food) {
             binding.apply {
