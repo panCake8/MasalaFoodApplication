@@ -64,7 +64,7 @@ class BaseActivity : AppCompatActivity() {
         val buffer = BufferedReader(InputStreamReader(inputStream))
         val csvParser = CsvParser()
         buffer.forEachLine { line ->
-            val food = csvParser.parse(line,id=10)
+            val food = csvParser.parse(line)
             DataManager.addFood(food)
         }
 
