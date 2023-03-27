@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa">
+
     <com.mindorks.editdrawabletext.EditDrawableText
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
@@ -24,8 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlHardcoded"
-        />
+        tools:ignore="RtlHardcoded" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_searchResult"
@@ -33,17 +33,18 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_bar" />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_layer"
         android:layout_width="256dp"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
