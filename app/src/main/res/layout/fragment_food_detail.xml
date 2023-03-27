@@ -111,11 +111,12 @@
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/description"
+                android:id="@+id/cleaned"
                 style="@style/Chips.toggle"
+                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/description" />
+                android:text="@string/cleaned" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/ingredient"

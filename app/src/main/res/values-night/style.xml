@@ -229,7 +229,10 @@
 
     <!-- chip color selected choice case -->
     <style name="Chips.toggle" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="android:backgroundTint">@color/selected_chip_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
     </style>
     <!-- Slider -->
     <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">
