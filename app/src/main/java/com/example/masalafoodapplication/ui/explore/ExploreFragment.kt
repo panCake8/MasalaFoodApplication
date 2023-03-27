@@ -6,21 +6,24 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.explore.adapters.ExploreAdapter
+import com.example.masalafoodapplication.ui.explore.adapters.ExploreListener
 import com.example.masalafoodapplication.ui.filter.FilterFragment
+import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.util.Constants
 import com.mindorks.editdrawabletext.DrawablePosition
 import com.mindorks.editdrawabletext.onDrawableClickListener
 
 
-class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
+class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentExploreBinding
         get() = FragmentExploreBinding::inflate
     private lateinit var adapter: ExploreAdapter
     override fun setup() {
-        adapter = ExploreAdapter(emptyList())
+        adapter = ExploreAdapter(emptyList(), this)
         binding.recyclerSearchResult.adapter = adapter
         listenToFragmentResult()
     }
@@ -34,7 +37,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
             val kitchens = result.getStringArrayList(Constants.KITCHENS)
             val ingredient = result.getStringArrayList(Constants.INGREDIENT)
             val filterList = DataManager.filterData(kitchens, ingredient, time)
-            adapter = ExploreAdapter(filterList)
+            adapter = ExploreAdapter(filterList, this)
             binding.recyclerSearchResult.adapter = adapter
             hideAnimation()
         }
@@ -95,6 +98,12 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
     private fun hideAnimation() {
         binding.lottieLayer.visibility = View.GONE
         binding.recyclerSearchResult.visibility = View.VISIBLE
+    }
+
+    override fun onClickItem(food: Food) {
+        newInstance(food.id, Constants.KEY_FOOD_ID)
+        parentFragmentManager.popBackStack()
+        transitionToWithBackStackReplace(FoodDetailFragment(), Constants.EXPLORE)
     }
 }
 

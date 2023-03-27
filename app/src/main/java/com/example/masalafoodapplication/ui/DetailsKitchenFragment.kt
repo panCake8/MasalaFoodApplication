@@ -133,7 +133,7 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(), Su
         }
     }
 
-    override fun onClickListener(nameFood: String) {
+    override fun onClickListener(food: Food) {
     }
 
 

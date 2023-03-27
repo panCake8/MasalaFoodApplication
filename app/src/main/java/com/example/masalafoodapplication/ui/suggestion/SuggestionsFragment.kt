@@ -1,12 +1,12 @@
 package com.example.masalafoodapplication.ui.suggestion
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.ui.suggestion.adapters.SuggestionsAdapter
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.SuggestionOnClick
@@ -51,10 +51,10 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         return list
     }
 
-    override fun onClickListener(nameFood: String) {
-        Toast.makeText(
-            requireContext().applicationContext, nameFood, Toast.LENGTH_LONG
-        ).show()
+    override fun onClickListener(food: Food) {
+        newInstance(food.id, Constants.KEY_FOOD_ID)
+        parentFragmentManager.popBackStack()
+        transitionToWithBackStackReplace(FoodDetailFragment(), Constants.SUGGESTIONS)
     }
 
     private fun listenToFragmentResult() {
@@ -66,12 +66,6 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
             adapter = data?.let { bind(it) }?.let { SuggestionsAdapter(it, this) }!!
             binding.sugRv.adapter = adapter
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("TAG","Ondestroy")
-
     }
 
 }
