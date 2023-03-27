@@ -30,8 +30,8 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
             Constants.FILTER,
             this
         ) { _, result ->
-            val time = result.getFloat(Constants.FILTER)
-            val kitchens = result.getStringArrayList(Constants.KEY_CUISINE_NAME)
+            val time = result.getFloat(Constants.TIME_MINUTES)
+            val kitchens = result.getStringArrayList(Constants.KITCHENS)
             val ingredient = result.getStringArrayList(Constants.INGREDIENT)
             val filterList = DataManager.filterData(kitchens, ingredient, time)
             adapter = ExploreAdapter(filterList)

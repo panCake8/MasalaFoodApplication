@@ -26,7 +26,7 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
             val selectedChips1: List<String> = getSelectedChips(binding.filterChipGroup1)
             val selectedChips2: List<String> = getSelectedChips(binding.filterChipGroup2)
             val sliderValue = binding.slider.value
-            newInstance(
+            newInstanceToExplore(
                 selectedChips1 as ArrayList<String>,
                 selectedChips2 as ArrayList<String>,
                 sliderValue,

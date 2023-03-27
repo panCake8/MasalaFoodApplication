@@ -1,17 +1,13 @@
 package com.example.masalafoodapplication.ui.base
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.util.Constants
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
@@ -33,12 +29,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setup()
         onClicks()
-//            requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(false) {
-//                override fun handleOnBackPressed() {
-//                    Log.d("TAG","adjasdjsa")
-//                }
-//
-//            })
     }
 
     abstract fun setup()
@@ -83,16 +73,17 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         _binding = null
     }
 
-    fun newInstance(
+    fun newInstanceToExplore(
         listKitchens: ArrayList<String>,
         listIngredient: ArrayList<String>,
         time: Float,
         key: String
     ) {
-        val bundle = Bundle()
-        bundle.putStringArrayList(Constants.KEY_CUISINE_NAME, listKitchens)
-        bundle.putStringArrayList(Constants.INGREDIENT, listIngredient)
-        bundle.putFloat(key, time)
+        val bundle = Bundle().apply {
+            putStringArrayList(Constants.KITCHENS, listKitchens)
+            putStringArrayList(Constants.INGREDIENT, listIngredient)
+            putFloat(Constants.TIME_MINUTES, time)
+        }
         parentFragmentManager.setFragmentResult(key, bundle)
     }
 
