@@ -11,7 +11,7 @@ import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.SuggestionOnClick
 import com.example.masalafoodapplication.util.SuggestionsItems
 
-class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(),SuggestionOnClick {
+class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), SuggestionOnClick {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionsBinding
         get() = FragmentSuggestionsBinding::inflate
 
@@ -19,8 +19,8 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(),Suggestio
         //fakeData
         val data = listOf("salt", "amchur (dry mango powder)", "karela (bitter gourd pavakkai)")
 
-        val adapter= SuggestionsAdapter(bind(data),this)
-        binding.sugRv.adapter=adapter
+        val adapter = SuggestionsAdapter(bind(data), this)
+        binding.sugRv.adapter = adapter
 
     }
 
@@ -29,28 +29,34 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(),Suggestio
             onBack()
         }
     }
-    private fun bind(data:List<String>):List<SuggestionsItems>{
-        val list= mutableListOf<SuggestionsItems>()
-        list.add(SuggestionsItems(
-            Constants.BREAKFAST
-            ,DataManager.splitFoodsIntoThreeMeals(Constants.BREAKFAST,data)))
 
-        list.add(SuggestionsItems(
-            Constants.LUNCH
-            ,DataManager.splitFoodsIntoThreeMeals(Constants.LUNCH,data)))
+    private fun bind(data: List<String>): List<SuggestionsItems> {
+        val list = mutableListOf<SuggestionsItems>()
+        list.add(
+            SuggestionsItems(
+                Constants.BREAKFAST, DataManager.splitFoodsIntoThreeMeals(Constants.BREAKFAST, data)
+            )
+        )
 
-        list.add(SuggestionsItems(
-            Constants.DINNER
-            ,DataManager.splitFoodsIntoThreeMeals(Constants.DINNER,data)))
+        list.add(
+            SuggestionsItems(
+                Constants.LUNCH, DataManager.splitFoodsIntoThreeMeals(Constants.LUNCH, data)
+            )
+        )
+
+        list.add(
+            SuggestionsItems(
+                Constants.DINNER, DataManager.splitFoodsIntoThreeMeals(Constants.DINNER, data)
+            )
+        )
 
         return list
     }
 
     override fun onClickListener(nameFood: String) {
         Toast.makeText(
-            requireContext().applicationContext
-            ,nameFood
-            ,Toast.LENGTH_LONG).show()
+            requireContext().applicationContext, nameFood, Toast.LENGTH_LONG
+        ).show()
     }
 
 }

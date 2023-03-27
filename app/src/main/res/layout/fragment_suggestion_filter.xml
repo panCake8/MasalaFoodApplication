@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/suggestion_filter_toolbar"
-        style="@style/AppBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/kitchens" />
+    android:layout_height="match_parent">
 
     <View
         android:id="@+id/toolbar_stroke"
         style="@style/AppBarStroke"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/suggestion_filter_toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/image_Chief"
         android:layout_width="wrap_content"
@@ -42,36 +35,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_Chief" />
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup"
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/no_height"
+        android:layout_gravity="top"
+        android:layout_marginHorizontal="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:chipSpacingHorizontal="8dp"
+        app:chipSpacingVertical="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_ingredient"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/no_height"
-            android:layout_marginHorizontal="@dimen/margin_large"
-            android:layout_marginTop="@dimen/margin_medium"
-            app:chipSpacingHorizontal="8dp"
-            app:chipSpacingVertical="8dp"
-            android:layout_gravity="top"
-            app:layout_constraintBottom_toTopOf="@+id/button_next"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_ingredient"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:spanCount="8"
-                tools:listitem="@layout/item_ingredient_chips"
-                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"/>
-        </com.google.android.material.chip.ChipGroup>
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="8"
+            tools:listitem="@layout/item_ingredient_chips" />
+    </com.google.android.material.chip.ChipGroup>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_next"
         style="@style/Button.PrimaryButton"
         android:layout_marginTop="@dimen/margin_large"
         android:stateListAnimator="@null"
         android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

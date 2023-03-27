@@ -11,6 +11,10 @@
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/explore" />
     <item
+        android:id="@+id/nav_make_meal"
+        android:icon="@drawable/ic_make_meal"
+        android:title="@string/make_meal" />
+    <item
         android:id="@+id/nav_favourite"
         android:icon="@drawable/ic_fav"
         android:title="@string/favourite" />

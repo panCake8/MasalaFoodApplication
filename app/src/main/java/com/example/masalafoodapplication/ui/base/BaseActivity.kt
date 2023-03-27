@@ -11,6 +11,7 @@ import com.example.masalafoodapplication.databinding.ActivityBaseBinding
 import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
+import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
 import com.example.masalafoodapplication.util.CsvParser
 import java.io.BufferedReader
 import java.io.InputStream
@@ -44,6 +45,11 @@ class BaseActivity : AppCompatActivity() {
 
                 R.id.nav_explore -> {
                     replaceFragment(ExploreFragment(), "Explore")
+                    true
+                }
+
+                R.id.nav_make_meal -> {
+                    replaceFragment(SuggestionFilterFragment(), "MakeMeal")
                     true
                 }
 
