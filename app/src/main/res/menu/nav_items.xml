@@ -12,6 +12,6 @@
         android:title="@string/explore" />
     <item
         android:id="@+id/nav_favourite"
-        android:icon="@drawable/ic_favourite"
+        android:icon="@drawable/ic_fav"
         android:title="@string/favourite" />
 </menu>
