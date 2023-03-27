@@ -8,7 +8,11 @@ import com.example.masalafoodapplication.databinding.FragmentStepsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.ui.home.HomeFragment
+import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
+import com.example.masalafoodapplication.ui.quick_recipes.QuickRecipesFragment
 import com.example.masalafoodapplication.ui.steps.adapters.StepsAdapter
+import com.example.masalafoodapplication.ui.suggestion.SuggestionsFragment
 
 
 class StepsFragment : BaseFragment<FragmentStepsBinding>() {
@@ -33,7 +37,8 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
             onBack()
         }
         binding.finishBtn.setOnClickListener {
-            parentFragmentManager.popBackStack(Constants.FOOD_DETAILS, POP_BACK_STACK_INCLUSIVE)
+            parentFragmentManager.popBackStack(Constants.INGREDIENT,POP_BACK_STACK_INCLUSIVE)
+            transitionToWithBackStack(SuggestionsFragment(),Constants.STEPS)
         }
     }
 }

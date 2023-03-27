@@ -8,6 +8,7 @@ import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientAdapter
+import com.example.masalafoodapplication.ui.quick_recipes.QuickRecipesFragment
 import com.example.masalafoodapplication.ui.steps.StepsFragment
 
 
@@ -15,6 +16,7 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
     private lateinit var food: Food
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentIngredientBinding
         get() = FragmentIngredientBinding::inflate
+
 
     override fun setup() {
         parentFragmentManager.setFragmentResultListener(
@@ -32,11 +34,7 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             onBack()
         }
         binding.nextBtn.setOnClickListener {
-            parentFragmentManager.commit {
-                parentFragmentManager.popBackStack()
-//                transitionToWithBackStack(StepsFragment(), Constants.STEPS)
-                newInstance(food, Constants.STEPS)
-            }
+            transitionToWithBackStack(StepsFragment(),Constants.INGREDIENT)
         }
     }
 
