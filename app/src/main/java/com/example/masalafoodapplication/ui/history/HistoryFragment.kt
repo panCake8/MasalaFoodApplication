@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.history
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
