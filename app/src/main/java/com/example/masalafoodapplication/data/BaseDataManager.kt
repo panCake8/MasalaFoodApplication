@@ -25,4 +25,5 @@ interface BaseDataManager {
 
     fun getAllQuickRecipes(): List<Food>
 
+
 }
