@@ -21,6 +21,7 @@ object Constants {
     const val STEPS = "Steps"
     const val KASHMIRI = "Kashmiri"
     const val INGREDIENT = "Ingredient"
+    const val INGREDIENTQUANTITIES = "IngredientQuantities"
 
     const val DETAILS_KITCHEN = "detailsKitchen"
     const val EXPLORE = "explore"

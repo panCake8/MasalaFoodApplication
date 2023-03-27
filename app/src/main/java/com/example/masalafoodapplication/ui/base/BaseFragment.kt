@@ -1,9 +1,12 @@
 package com.example.masalafoodapplication.ui.base
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.viewbinding.ViewBinding
@@ -29,6 +32,12 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setup()
         onClicks()
+//            requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(false) {
+//                override fun handleOnBackPressed() {
+//                    Log.d("TAG","adjasdjsa")
+//                }
+//
+//            })
     }
 
     abstract fun setup()
@@ -46,6 +55,15 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             replace(R.id.fragment_container, fragment)
             addToBackStack(tag)
             setReorderingAllowed(true)
+        }
+    }
+
+    fun transitionToWithBackStack2(fragment: Fragment, fragment2: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            add(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+                .hide(fragment2)
         }
     }
 
@@ -70,6 +88,11 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     }
 
     fun onBack() {
+        requireActivity().onBackPressed()
+    }
+
+    fun onBack(id: Int, tag: String) {
+        newInstance(id, tag)
         requireActivity().onBackPressed()
     }
 
