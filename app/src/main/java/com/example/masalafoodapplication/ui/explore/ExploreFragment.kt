@@ -9,6 +9,8 @@ import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.explore.adapters.ExploreAdapter
+import com.mindorks.editdrawabletext.DrawablePosition
+import com.mindorks.editdrawabletext.onDrawableClickListener
 
 
 class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
@@ -29,6 +31,17 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
                 search(it.toString())
             }
         }
+        binding.searchBar.setDrawableClickListener(object : onDrawableClickListener {
+            override fun onClick(target: DrawablePosition) {
+                when (target) {
+                    DrawablePosition.LEFT -> {
+
+                    }
+                    DrawablePosition.RIGHT -> {}
+                }
+            }
+
+        })
     }
 
     private fun search(query: String) {

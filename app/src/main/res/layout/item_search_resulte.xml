@@ -13,7 +13,7 @@
             android:id="@+id/image_recipe"
             style="@style/ImageRecItem.Food"
             android:contentDescription="@string/img_description"
-            android:foreground="@color/foreground_img_color"
+            android:foreground="@color/light_shadow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -25,27 +25,10 @@
         <TextView
             android:id="@+id/recipe_name"
             style="@style/ItemText.Name.Food"
-            app:layout_constraintBottom_toTopOf="@+id/prepareTime"
+            android:layout_marginBottom="@dimen/margin_large"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="name" />
-
-        <ImageView
-            android:id="@+id/time_icon"
-            style="@style/ItemIcon"
-            android:contentDescription="@string/img_description"
-            android:src="@drawable/ic_clock"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/prepareTime"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/prepareTime"
-            style="@style/ItemText.Time.Food"
-            android:layout_marginBottom="@dimen/margin_medium"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/time_icon"
-            tools:text="15m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

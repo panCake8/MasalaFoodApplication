@@ -134,7 +134,6 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(), Su
     }
 
     override fun onClickListener(nameFood: String) {
-        TODO("Not yet implemented")
     }
 
 

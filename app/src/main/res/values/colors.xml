@@ -31,4 +31,5 @@
     <color name="foreground_img_color">#99121212</color>
     <color name="dark_white">#DEFFFFFF</color>
     <color name="medium_white">#99FFFFFF</color>
+    <color name="light_shadow">#5E121212</color>
 </resources>

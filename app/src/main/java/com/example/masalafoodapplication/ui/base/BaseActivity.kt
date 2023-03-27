@@ -76,7 +76,6 @@ class BaseActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment, tag: String) {
         supportFragmentManager.commit {
-            supportFragmentManager.popBackStackImmediate()
             replace(binding.fragmentContainer.id, fragment, tag)
             setReorderingAllowed(true)
         }
