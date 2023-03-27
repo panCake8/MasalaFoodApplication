@@ -1,14 +1,14 @@
 package com.example.masalafoodapplication.ui.base
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
-import com.example.masalafoodapplication.ui.*
+import com.example.masalafoodapplication.ui.FavouriteFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.util.CsvParser
@@ -76,9 +76,17 @@ class BaseActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment, tag: String) {
         supportFragmentManager.commit {
-            supportFragmentManager.popBackStackImmediate()
             replace(binding.fragmentContainer.id, fragment, tag)
             setReorderingAllowed(true)
+        }
+    }
+
+    override fun onBackPressed() {
+        val count = supportFragmentManager.backStackEntryCount
+        if (count == 0) {
+            super.onBackPressed()
+        } else {
+            supportFragmentManager.popBackStackImmediate()
         }
     }
 

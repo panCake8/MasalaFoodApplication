@@ -127,6 +127,7 @@
     <style name="ItemText.Name.Food">
         <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
         <item name="android:textColor">@color/dark_white</item>
+        <item name="android:textSize">@dimen/text_large</item>
     </style>
 
     <!--    Item Text Name Kitchen-->

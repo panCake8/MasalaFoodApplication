@@ -88,4 +88,21 @@ object DataManager : BaseDataManager {
 
     override fun getAllQuickRecipes() = foodsList.filter { it.timeMinutes < 30 }
 
+    override fun getFoodById(id: Int) = foodsList.first { it.id == id }
+
+    override fun getRecipesByCuisine(cuisine: String): List<Food> {
+        return foodsList.filter { it.cuisine == cuisine }
+    }
+
+    override fun filterData(
+        kitchens: List<String>?,
+        ingredient: List<String>?,
+        time: Float
+    ) =
+        foodsList.take(500).filter {
+            kitchens?.contains(it.cuisine) == true
+                    || ingredient?.containsAll(it.ingredient) == true
+                    || it.timeMinutes == time.toInt()
+        }
+
 }
