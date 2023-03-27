@@ -99,13 +99,6 @@
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/description"
-                style="@style/Chips.toggle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/description" />
-
-            <com.google.android.material.chip.Chip
                 android:id="@+id/ingredient"
                 style="@style/Chips.toggle"
                 android:layout_width="match_parent"
