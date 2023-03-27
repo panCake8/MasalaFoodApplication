@@ -51,10 +51,9 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     fun transitionToWithBackStackAdd(fragment: Fragment, fragment2: Fragment, tag: String) {
         parentFragmentManager.commit {
-            add(R.id.fragment_container, fragment)
+            replace(R.id.fragment_container, fragment)
             addToBackStack(tag)
             setReorderingAllowed(true)
-                .hide(fragment2)
         }
     }
 
@@ -96,6 +95,12 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     fun newInstance(string: String, key: String) {
         val bundle = Bundle()
         bundle.putString(key, string)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
+    fun newInstanceToSuggestion(list: ArrayList<String>, key: String) {
+        val bundle = Bundle()
+        bundle.putStringArrayList(Constants.SUGGESTION_FILTER, list)
         parentFragmentManager.setFragmentResult(key, bundle)
     }
 

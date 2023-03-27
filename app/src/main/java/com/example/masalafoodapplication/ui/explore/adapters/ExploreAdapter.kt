@@ -8,7 +8,7 @@ import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ItemSearchResulteBinding
 
-class ExploreAdapter(var list: List<Food>) :
+class ExploreAdapter(var list: List<Food>, val listener: ExploreListener) :
     RecyclerView.Adapter<ExploreAdapter.ExploreViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExploreViewHolder {
         val binding =
@@ -21,6 +21,9 @@ class ExploreAdapter(var list: List<Food>) :
         holder.binding.apply {
             imageRecipe.loadImage(currentFood.imageUrl)
             recipeName.text = currentFood.recipeName
+            root.setOnClickListener {
+                listener.onClickItem(currentFood)
+            }
         }
 
     }

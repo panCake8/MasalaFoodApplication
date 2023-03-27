@@ -2,26 +2,24 @@ package com.example.masalafoodapplication.ui.suggestion
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.ui.suggestion.adapters.SuggestionsAdapter
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.SuggestionOnClick
 import com.example.masalafoodapplication.util.SuggestionsItems
 
 class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), SuggestionOnClick {
+    private var data: List<String>? = null
+    private lateinit var adapter: SuggestionsAdapter
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionsBinding
         get() = FragmentSuggestionsBinding::inflate
 
     override fun setup() {
-        //fakeData
-        val data = listOf("salt", "amchur (dry mango powder)", "karela (bitter gourd pavakkai)")
-
-        val adapter = SuggestionsAdapter(bind(data), this)
-        binding.sugRv.adapter = adapter
-
+        listenToFragmentResult()
     }
 
     override fun onClicks() {
@@ -53,10 +51,21 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         return list
     }
 
-    override fun onClickListener(nameFood: String) {
-        Toast.makeText(
-            requireContext().applicationContext, nameFood, Toast.LENGTH_LONG
-        ).show()
+    override fun onClickListener(food: Food) {
+        newInstance(food.id, Constants.KEY_FOOD_ID)
+        parentFragmentManager.popBackStack()
+        transitionToWithBackStackReplace(FoodDetailFragment(), Constants.SUGGESTIONS)
+    }
+
+    private fun listenToFragmentResult() {
+        parentFragmentManager.setFragmentResultListener(
+            Constants.SUGGESTION_FILTER,
+            this
+        ) { _, result ->
+            data = result.getStringArrayList(Constants.SUGGESTION_FILTER)
+            adapter = data?.let { bind(it) }?.let { SuggestionsAdapter(it, this) }!!
+            binding.sugRv.adapter = adapter
+        }
     }
 
 }

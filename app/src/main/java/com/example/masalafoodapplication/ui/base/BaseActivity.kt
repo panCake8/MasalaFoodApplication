@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
@@ -12,6 +13,7 @@ import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
+import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.CsvParser
 import com.example.masalafoodapplication.util.SetFragmentType
 import java.io.BufferedReader
@@ -73,10 +75,11 @@ class BaseActivity : AppCompatActivity() {
             val food = csvParser.parse(line, id)
             DataManager.addFood(food)
             id++
-        }}
+        }
+    }
 
 
-        private fun initSubViews() {
+    private fun initSubViews() {
         setFragment(HomeFragment(), SetFragmentType.ADD, "Home")
     }
 
@@ -104,6 +107,11 @@ class BaseActivity : AppCompatActivity() {
         val count = supportFragmentManager.backStackEntryCount
         if (count == 0) {
             super.onBackPressed()
+        } else if (count > 0) {
+            supportFragmentManager.popBackStack(
+                Constants.TAG_FOOD_DETAILS,
+                POP_BACK_STACK_INCLUSIVE
+            )
         } else {
             supportFragmentManager.popBackStackImmediate()
         }

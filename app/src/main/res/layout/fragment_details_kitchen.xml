@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:orientation="vertical"
-    tools:context=".ui.DetailsKitchenFragment">
+    tools:context=".ui.detailsKitchen.DetailsKitchenFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/kitchen_toolbar"
