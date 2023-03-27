@@ -29,6 +29,9 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         binding.foodDetailMenuToolbar.setOnClickListener {
             onBack()
         }
+        binding.fav.setOnClickListener {
+            food?.let { it1 -> DataManager.addFavourite(it1) }
+        }
         binding.startButton.setOnClickListener {
             newInstance(food!!.id, Constants.INGREDIENT)
             transitionToWithBackStackReplace(IngredientFragment(), Constants.FOOD_DETAILS)
@@ -37,15 +40,10 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
 
     private fun chooseChips(food: Food?) {
-        binding.GroupChips.setOnCheckedChangeListener { group, checkedId ->
-            val chip: Chip? = group.findViewById(checkedId)
+        binding.GroupChips.setOnCheckedStateChangeListener { group, checkedIds ->
+            val chip: Chip? = group.findViewById(checkedIds[0])
             chip?.let {
-                if (it.text.toString() == Constants.INGREDIENTQUANTITIES) {
-                    val adapter = FoodDetailAdapter(
-                        food?.ingredientQuantities ?: listOf()
-                    )
-                    binding.ItemRecyclerView.adapter = adapter
-                } else if (it.text.toString() == Constants.STEPS) {
+                if (it.text.toString() == Constants.STEPS) {
                     val adapter =
                         FoodDetailAdapter(food?.steps ?: listOf())
                     binding.ItemRecyclerView.adapter = adapter
@@ -72,7 +70,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
     private fun bindData(recipe: Food) {
         binding.dishName.text = recipe.recipeName
-        binding.GroupChips.check(R.id.description)
+        binding.GroupChips.check(R.id.ingredients)
         val adapter = FoodDetailAdapter(recipe.ingredientQuantities)
         binding.ItemRecyclerView.adapter = adapter
         binding.backgroundImage.loadImage(recipe.imageUrl)

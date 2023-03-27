@@ -6,6 +6,7 @@ import com.example.masalafoodapplication.util.Constants
 
 object DataManager : BaseDataManager {
     private val foodsList = mutableListOf<Food>()
+    private val favouriteFoodList = mutableListOf<Food>()
 
     override fun addFood(food: Food) {
         foodsList.add(food)
@@ -104,5 +105,15 @@ object DataManager : BaseDataManager {
                     || ingredient?.containsAll(it.ingredient) == true
                     || it.timeMinutes == time.toInt()
         }
+
+    override fun getAllFavouriteFood() = favouriteFoodList.toList()
+
+    override fun addFavourite(food: Food) {
+        favouriteFoodList.add(food)
+    }
+
+    override fun deleteFavourite(index: Int) {
+        favouriteFoodList.removeAt(index)
+    }
 
 }

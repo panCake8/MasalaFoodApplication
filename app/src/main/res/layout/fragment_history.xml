@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_history_scene"
-    tools:context=".ui.HistoryFragment">
+    tools:context=".ui.history.HistoryFragment">
 
     <ImageView
-        android:id="@+id/backgroundImage"
+        android:id="@+id/background_image"
         android:layout_width="match_parent"
         android:layout_height="480dp"
         android:foreground="@drawable/gradient_top_of_image"
@@ -21,35 +21,32 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/history_toolbar"
         style="@style/AppBar"
+        app:navigationIconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineLeft"
+        android:id="@+id/guideline_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.40" />
-
     <LinearLayout
-
-        android:id="@+id/bottomSheet"
+        android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/card_scroll"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/start_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_left"
         app:layout_constraintVertical_bias="0.0"
         tools:context=".ui.FoodDetail.FoodDetailFragment">
 
-
         <TextView
-            android:id="@+id/menuHeading"
+            android:id="@+id/menu_heading"
             style="@style/detailMenuHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,14 +57,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/menuDetails"
+            android:id="@+id/menu_details"
             style="@style/detailMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_large"
             android:text="@string/menu_details"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menuHeading" />
+            app:layout_constraintTop_toBottomOf="@+id/menu_heading" />
 
         <TextView
             android:id="@+id/ingredients"
@@ -77,7 +74,7 @@
             android:layout_marginHorizontal="@dimen/margin_large"
             android:text="@string/ingredients_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menuDetails" />
+            app:layout_constraintTop_toBottomOf="@+id/menu_details" />
 
         <TextView
             android:id="@+id/ingredients_body_text"
@@ -90,5 +87,4 @@
             app:layout_constraintTop_toBottomOf="@+id/ingredients" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.motion.widget.MotionLayout>

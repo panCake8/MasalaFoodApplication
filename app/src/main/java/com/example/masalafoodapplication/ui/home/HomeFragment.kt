@@ -88,5 +88,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
         }
     }
 
+
 }
 

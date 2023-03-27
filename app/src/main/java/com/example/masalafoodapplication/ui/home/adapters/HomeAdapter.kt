@@ -12,6 +12,7 @@ import com.example.masalafoodapplication.data.domain.enums.HomeItemType
 import com.example.masalafoodapplication.databinding.ItemBannerBinding
 import com.example.masalafoodapplication.databinding.ItemHistoryBinding
 import com.example.masalafoodapplication.databinding.ListCuisinesBinding
+import com.example.masalafoodapplication.databinding.ListJustForYouBinding
 import com.example.masalafoodapplication.databinding.ListRecipesBinding
 import com.example.masalafoodapplication.util.Constants.UNKNOWN_HOME_ITEM_TYPE
 import com.example.masalafoodapplication.util.loadImage
@@ -55,6 +56,13 @@ class HomeAdapter(
                 )
             )
 
+            R.layout.list_just_for_you ->JustForYouRecipesViewHolder(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.list_just_for_you,
+                    parent,
+                    false
+                ))
+
             else -> throw Exception(UNKNOWN_HOME_ITEM_TYPE)
         }
     }
@@ -77,7 +85,7 @@ class HomeAdapter(
             HomeItemType.CUISINES -> R.layout.list_cuisines
             HomeItemType.INDIAN_FOOD_HISTORY -> R.layout.item_history
             HomeItemType.QUICK_RECIPES -> R.layout.list_recipes
-            HomeItemType.JUST_FOR_YOU -> R.layout.list_recipes
+            HomeItemType.JUST_FOR_YOU -> R.layout.list_just_for_you
 
         }
     }
@@ -100,20 +108,20 @@ class HomeAdapter(
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
                 labelSection.text = itemView.context.getString(R.string.quick_recipes)
-                recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>, listener)
+                recyclerRecipes.adapter = QuickRecipesAdapter(item.data as List<Food>, listener)
                 buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
         }
     }
 
     inner class JustForYouRecipesViewHolder(viewItem: View) : BaseHomeViewHolder(viewItem) {
-        private val binding = ListRecipesBinding.bind(viewItem)
+        private val binding = ListJustForYouBinding.bind(viewItem)
 
         override fun bind(item: HomeItem<Any>) {
             binding.apply {
                 labelSection.text = itemView.context.getString(R.string.just_for_you)
-                recyclerRecipes.adapter = RecipesAdapter(item.data as List<Food>, listener)
                 buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
+                recyclerRecipes.adapter = JustForYouAdapter(item.data as List<Food>,listener)
             }
         }
     }
@@ -125,7 +133,7 @@ class HomeAdapter(
             binding.apply {
                 labelSection.text = itemView.context.getString(R.string.cuisines)
                 recyclerCuisines.adapter = CuisinesAdapter(item.data as List<Cuisine>, listener)
-                buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
+                root.setOnClickListener { listener.onSeeMoreClicked(item.type) }
             }
         }
     }

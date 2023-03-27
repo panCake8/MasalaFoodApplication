@@ -10,26 +10,25 @@ import com.example.masalafoodapplication.databinding.ItemFoodBinding
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.util.setTime
 
-class RecipesAdapter(
-    private val recipes: List<Food>,
+class JustForYouAdapter(
+    private val list:List<Food>,
     private val listener: HomeInteractionListener
-) :
-    RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() {
+):RecyclerView.Adapter<JustForYouAdapter.JustForYouHolder>(){
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JustForYouHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
-        return RecipesViewHolder(view)
+        return JustForYouHolder(view)
     }
 
-    override fun getItemCount() = recipes.size
-
-    override fun onBindViewHolder(holder: RecipesViewHolder, position: Int) {
-        val currentRecipe = recipes[position]
-        holder.bind(currentRecipe)
+    override fun onBindViewHolder(holder: JustForYouHolder, position: Int) {
+        val food = list[position]
+        holder.bind(food)
     }
 
-    inner class RecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+    override fun getItemCount()=list.size
+
+
+    inner class JustForYouHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemFoodBinding.bind(viewItem)
         fun bind(food: Food) {
             binding.apply {
@@ -42,5 +41,4 @@ class RecipesAdapter(
             }
         }
     }
-
 }

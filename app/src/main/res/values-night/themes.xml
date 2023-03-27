@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.MasalaFoodApplication" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -5,8 +6,7 @@
         <item name="colorPrimary">@color/nav_selected_text_color</item>
         <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="android:statusBarColor">@color/background_color</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
     <!-- custom style-->
 
@@ -30,6 +30,5 @@
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/nav_selected_item</item>
     </style>
-
 
 </resources>

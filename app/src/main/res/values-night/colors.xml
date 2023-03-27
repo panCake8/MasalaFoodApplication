@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="nav_selected_logo_color">#FAFAFA</color>
+    <color name="nav_non_selected_logo_color">#99FAFAFA</color>
+    <color name="nav_selected_text_color">#DEFAFAFA</color>
+    <color name="nav_non_selected_text_color">#99FAFAFA</color>
+    <color name="nav_selected_item">#DEFF355F</color>
+    <color name="nav_background">#99121212</color>
+    <color name="liner_color">#121212</color>
+    <color name="app_bar_text_color">#DEFAFAFA</color>
+
+    <color name="dark_black">#DEFAFAFA</color>
+    <color name="medium_black">#fafafa</color>
+    <color name="light_black">#61FAFAFA</color>
+    <color name="text_on_image_color">#DEFFFFFF</color>
+    <color name="text_reset_btn_color">#DEFF355F</color>
+    <color name="text_chips">#DEFAFAFA</color>
+    <color name="search_icon_color">#FAFAFA</color>
+    <color name="search_icon_stroke_color">#61FAFAFA</color>
+
+
+
+    <color name="base_color">#FF355F</color>
+    <color name="primary_button_color">#FF355F</color>
+    <color name="selected_chip_color">#F2121212</color>
+    <color name="non_selected_chip_stroke_color">#fafafa</color>
+    <color name="line_color">#61FAFAFA</color>
+    <color name="chips_stroke_color">#fafafa</color>
+    <color name="delete_icon_color">#FF355F</color>
+    <color name="stroke_app_bar">#14FAFAFA</color>
+    <color name="background_color">#F2121212</color>
+
+
+
+    <color name="white">#121212</color>
+    <color name="black">#FFFFFF</color>
+    <color name="hint_color">#61FAFAFA</color>
+    <color name="foreground_img_color">#99121212</color>
+    <color name="dark_white">#DEfafafa</color>
+    <color name="medium_white">#99121212</color>
+    <color name="light_white">#61121212</color>
+    <color name="stroke_search_color">#29FAFAFA</color>
+    <color name="text_chips_color">#fafafa</color>
+</resources>
