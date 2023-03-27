@@ -40,12 +40,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         binding.GroupChips.setOnCheckedChangeListener { group, checkedId ->
             val chip: Chip? = group.findViewById(checkedId)
             chip?.let {
-                if (it.text.toString() == Constants.INGREDIENTQUANTITIES) {
-                    val adapter = FoodDetailAdapter(
-                        food?.ingredientQuantities ?: listOf()
-                    )
-                    binding.ItemRecyclerView.adapter = adapter
-                } else if (it.text.toString() == Constants.STEPS) {
+                if (it.text.toString() == Constants.STEPS) {
                     val adapter =
                         FoodDetailAdapter(food?.steps ?: listOf())
                     binding.ItemRecyclerView.adapter = adapter
@@ -72,7 +67,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
     private fun bindData(recipe: Food) {
         binding.dishName.text = recipe.recipeName
-        binding.GroupChips.check(R.id.description)
+        binding.GroupChips.check(R.id.ingredients)
         val adapter = FoodDetailAdapter(recipe.ingredientQuantities)
         binding.ItemRecyclerView.adapter = adapter
         binding.backgroundImage.loadImage(recipe.imageUrl)
