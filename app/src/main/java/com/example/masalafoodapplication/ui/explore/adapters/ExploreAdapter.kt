@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.explore.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,14 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.Glide.*
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.util.loadImage
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
 
-class SearchResultAdapter(var list: List<Food>) :
-    RecyclerView.Adapter<SearchResultAdapter.ExploreViewHolder>() {
+class ExploreAdapter(var list: List<Food>) :
+    RecyclerView.Adapter<ExploreAdapter.ExploreViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExploreViewHolder {
         val view =

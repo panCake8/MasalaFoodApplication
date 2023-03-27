@@ -1,8 +1,7 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.explore.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
 
 class ExploreDiffUtil(val oldList: List<Food>, val newList: List<Food>):DiffUtil.Callback() {
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
+    android:background="#fafafa">
     <com.mindorks.editdrawabletext.EditDrawableText
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
@@ -12,14 +12,12 @@
         android:layout_marginHorizontal="@dimen/margin_large"
         android:layout_marginTop="@dimen/margin_medium"
         android:background="@drawable/search_view"
-        android:drawableLeft="@drawable/search_icon2"
         android:drawableRight="@drawable/ic_filter"
         android:drawablePadding="@dimen/padding_medium"
         android:hint="@string/search_here"
         android:inputType="text"
         android:maxLength="50"
         android:paddingHorizontal="@dimen/padding_large"
-        android:textColor="@color/black"
         android:textColorHint="@color/hint_color"
         android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="parent"

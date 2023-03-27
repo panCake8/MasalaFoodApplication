@@ -1,7 +1,7 @@
-package com.example.masalafoodapplication.ui.home
+package com.example.masalafoodapplication.ui.home.adapters
 
-import com.example.masalafoodapplication.data.domain.Cuisine
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Cuisine
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.enums.HomeItemType
 
 interface HomeInteractionListener {

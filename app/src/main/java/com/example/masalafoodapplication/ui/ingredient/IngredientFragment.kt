@@ -1,19 +1,14 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.ingredient
 
-import android.content.res.ColorStateList
-import android.util.TypedValue
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.commit
-import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
-import com.google.android.material.checkbox.MaterialCheckBox
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientAdapter
+import com.example.masalafoodapplication.ui.steps.StepsFragment
 
 
 class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
@@ -27,24 +22,23 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             this
         ) { _, result ->
             food = result.getParcelable(Constants.INGREDIENT)!!
-            val adapter=IngredientAdapter(food)
-            binding.checkboxRecycler.adapter=adapter
+            val adapter = IngredientAdapter(food)
+            binding.checkboxRecycler.adapter = adapter
         }
     }
 
     override fun onClicks() {
-        binding.ingredientToolbar.setOnClickListener {
-            requireActivity().onBackPressed()
+        binding.ingredientToolbar.setNavigationOnClickListener {
+            onBack()
         }
         binding.nextBtn.setOnClickListener {
             parentFragmentManager.commit {
                 parentFragmentManager.popBackStack()
-                transitionToWithBackStack(StepsFragment(), Constants.STEPS)
+//                transitionToWithBackStack(StepsFragment(), Constants.STEPS)
                 newInstance(food, Constants.STEPS)
             }
         }
     }
-
 
 
 }

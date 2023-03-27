@@ -1,20 +1,14 @@
-package com.example.masalafoodapplication.ui
+package com.example.masalafoodapplication.ui.steps
 
 
-import android.content.res.ColorStateList
-import android.util.TypedValue
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
-import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentStepsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
-import com.google.android.material.checkbox.MaterialCheckBox
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.ui.steps.adapters.StepsAdapter
 
 
 class StepsFragment : BaseFragment<FragmentStepsBinding>() {
@@ -29,7 +23,7 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
             this
         ) { _, result ->
             food = result.getParcelable(Constants.STEPS)!!
-            val adapter=StepsAdapter(food)
+            val adapter= StepsAdapter(food)
             binding.checkboxRecycler.adapter=adapter
         }
     }

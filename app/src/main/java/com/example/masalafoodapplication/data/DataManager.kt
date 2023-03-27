@@ -1,7 +1,7 @@
 package com.example.masalafoodapplication.data
 
-import com.example.masalafoodapplication.data.domain.Cuisine
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Cuisine
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.util.Constants
 
 object DataManager : BaseDataManager {
@@ -28,9 +28,9 @@ object DataManager : BaseDataManager {
 
     override fun search(value: String) =
         foodsList.filter {
-            it.recipeName.lowercase()
-                .contains(value) || it.cleaned.lowercase().contains(value) || it.cuisine.lowercase()
-                .contains(value)
+            it.recipeName.lowercase().contains(value)
+                    || it.ingredient.contains(value) ||
+                    it.cuisine.lowercase().contains(value)
         }.toList()
 
     override fun getCuisines(limit: Int): List<Cuisine> {
@@ -60,29 +60,34 @@ object DataManager : BaseDataManager {
     }
 
 
-    fun ingredientFilter(): MutableList<String> {
+    fun getIngredients(limit: Int): List<String> {
         val ingredientToFilter = mutableListOf<String>()
         foodsList.forEach { food ->
-            food.cleaned.split(";").forEach {
-                if (!ingredientToFilter.contains(it))
-                    ingredientToFilter.add(it)
-            }
+            food.ingredient
+                .forEach {
+                    if (!ingredientToFilter.contains(it))
+                        ingredientToFilter.add(it)
+                }
         }
-        return (ingredientToFilter.subList(1, 60))
+        return ingredientToFilter.take(limit)
     }
 
 
     private fun searchFoodsAccordingSuggestions(recipes: List<String>) =
         getAllFood()
-        .filter{ it.cleaned.split(";").containsAll(recipes) }
+            .filter {
+                it.ingredient
+                    .containsAll(recipes)
+            }
 
-    override fun splitFoodsIntoThreeMeals(meal:String, recipes: List<String>):List<Food>{
-        return if (meal == Constants.BREAKFAST || meal == Constants.DINNER){
+    override fun splitFoodsIntoThreeMeals(meal: String, recipes: List<String>): List<Food> {
+        return if (meal == Constants.BREAKFAST || meal == Constants.DINNER) {
             searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes < 30 }
-        }else{
+        } else {
             searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes > 30 }
         }
     }
 
+    override fun getAllQuickRecipes() = foodsList.filter { it.timeMinutes < 30 }
 
 }

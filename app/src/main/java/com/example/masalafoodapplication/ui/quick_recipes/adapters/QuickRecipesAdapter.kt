@@ -1,11 +1,12 @@
-package com.example.masalafoodapplication.ui.quick_recipes
+package com.example.masalafoodapplication.ui.quick_recipes.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ItemFoodBinding
 import com.example.masalafoodapplication.util.loadImage
 
@@ -20,6 +21,7 @@ class QuickRecipesAdapter(val list:List<Food>, val listener : QuickRecipesIntera
 
     override fun getItemCount() =list.size
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecipesViewHolder, position: Int) {
         val currentRecipe = list[position]
         holder.binding.apply {

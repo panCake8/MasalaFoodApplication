@@ -1,13 +1,13 @@
-package com.example.masalafoodapplication.ui.home
+package com.example.masalafoodapplication.ui.home.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.domain.Cuisine
-import com.example.masalafoodapplication.data.domain.Food
-import com.example.masalafoodapplication.data.domain.HomeItem
+import com.example.masalafoodapplication.data.domain.models.Cuisine
+import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.data.domain.models.HomeItem
 import com.example.masalafoodapplication.data.domain.enums.HomeItemType
 import com.example.masalafoodapplication.databinding.ItemBannerBinding
 import com.example.masalafoodapplication.databinding.ItemHistoryBinding
@@ -76,9 +76,9 @@ class HomeAdapter(
             HomeItemType.BANNER -> R.layout.item_banner
             HomeItemType.CUISINES -> R.layout.list_cuisines
             HomeItemType.INDIAN_FOOD_HISTORY -> R.layout.item_history
-            HomeItemType.QUICK_RECIPES,
-            HomeItemType.JUST_FOR_YOU,
-            -> R.layout.list_recipes
+            HomeItemType.QUICK_RECIPES -> R.layout.list_recipes
+            HomeItemType.JUST_FOR_YOU -> R.layout.list_recipes
+
         }
     }
 

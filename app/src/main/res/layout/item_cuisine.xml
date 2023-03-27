@@ -30,7 +30,7 @@
             android:textColor="@color/dark_white"
             android:textSize="@dimen/text_large"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             tools:text="Pizza" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

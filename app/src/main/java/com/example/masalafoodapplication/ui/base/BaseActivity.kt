@@ -8,12 +8,13 @@ import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
+import com.example.masalafoodapplication.ui.*
+import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.ExploreFragment
 import com.example.masalafoodapplication.ui.FavouriteFragment
 import com.example.masalafoodapplication.ui.FilterFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.util.CsvParser
-import com.example.masalafoodapplication.util.SetFragmentType
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -71,7 +72,7 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
-        setFragment(FilterFragment(), SetFragmentType.ADD, "Home")
+        setFragment(HomeFragment(), SetFragmentType.ADD, "Home")
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType, tag: String) {

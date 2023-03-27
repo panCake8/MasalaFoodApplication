@@ -14,8 +14,8 @@
             android:id="@+id/image_recipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:foreground="@drawable/bg_bottom_linear_transparent"
             android:contentDescription="@string/img_description"
+            android:foreground="@drawable/bg_bottom_linear_transparent"
             android:scaleType="centerCrop"
             tools:src="@drawable/quick_recipes_image" />
 
@@ -23,8 +23,8 @@
             android:id="@+id/recipe_name"
             style="@style/ItemText.Name.Food"
             app:layout_constraintBottom_toTopOf="@+id/prepareTime"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             tools:text="name" />
 
         <ImageView
@@ -33,15 +33,14 @@
             android:contentDescription="@string/img_description"
             android:src="@drawable/ic_clock"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/prepareTime"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/prepareTime" />
 
         <TextView
             android:id="@+id/prepareTime"
             style="@style/ItemText.Time.Food"
             app:layout_constraintBottom_toBottomOf="@id/time_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/time_icon"
+            app:layout_constraintLeft_toRightOf="@id/time_icon"
             app:layout_constraintTop_toTopOf="@id/time_icon"
             tools:text="15 m" />
 
