@@ -90,4 +90,8 @@ object DataManager : BaseDataManager {
 
     override fun getFoodById(id: Int) = foodsList.first { it.id == id }
 
+    override fun getRecipesByCuisine(cuisine: String): List<Food> {
+        return foodsList.filter { it.cuisine == cuisine }
+    }
+
 }

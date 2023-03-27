@@ -10,6 +10,7 @@ import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.ui.suggestion.adapters.FoodsAdapter
+import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
 import com.example.masalafoodapplication.util.SuggestionOnClick
 
 class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(), SuggestionOnClick {
@@ -17,9 +18,9 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(), Su
         get() = FragmentDetailsKitchenBinding::inflate
     private lateinit var food: ArrayList<Food>
     override fun setup() {
-
-        val adapter = FoodsAdapter(DataManager.getAllFood(), this)
-        binding.detailsRecyclerView.adapter = adapter
+        listenToFragmentResult()
+//        val adapter = FoodsAdapter(DataManager.getAllFood(), this)
+//        binding.detailsRecyclerView.adapter = adapter
 //        parentFragmentManager.setFragmentResultListener(
 //            name,
 //            this
@@ -136,4 +137,35 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(), Su
         TODO("Not yet implemented")
     }
 
+
+
+
+
+
+
+
+
+
+    /*
+    * This Code was Created by Sadeq and it's working fine , use it if you want
+    * */
+    private fun listenToFragmentResult() {
+        parentFragmentManager.setFragmentResultListener(
+            KEY_CUISINE_NAME,
+            this
+        ) { _, result ->
+            val cuisineName = result.getString(KEY_CUISINE_NAME)
+            cuisineName?.let {
+                bindData(DataManager.getRecipesByCuisine(it))
+            }
+        }
+    }
+
+    private fun bindData(recipes: List<Food>) {
+        binding.apply {
+            kitchenToolbar.title = recipes.first().cuisine
+            detailsImgPoster.loadImage(DataManager.getImageByCuisine(recipes.first().cuisine))
+            detailsRecyclerView.adapter = FoodsAdapter(recipes, this@DetailsKitchenFragment)
+        }
+    }
 }

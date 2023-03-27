@@ -55,5 +55,6 @@ object Constants {
     const val TAG_INGREDIENT = "INGREDIENT"
 
     const val KEY_FOOD_ID = "KEY_FOOD_ID"
+    const val KEY_CUISINE_NAME = "KEY_CUISINE_NAME"
 
 }

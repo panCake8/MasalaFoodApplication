@@ -40,28 +40,6 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 //        }
     }
 
-    private fun getFoodById(id: Int): Food {
-        return DataManager.getFoodById(id)
-    }
-
-    private fun listenToFragmentResult() {
-        parentFragmentManager.setFragmentResultListener(
-            KEY_FOOD_ID, this
-        ) { _, result ->
-            food = getFoodById(result.getInt(KEY_FOOD_ID))
-            bindData()
-        }
-    }
-
-    private fun bindData() {
-        binding.dishName.text = food.recipeName
-        binding.GroupChips.check(R.id.description)
-        val adapter = FoodDetailAdapter(food.ingredientQuantities)
-        binding.ItemRecyclerView.adapter = adapter
-        Glide.with(requireActivity()).load(food.imageUrl).into(binding.backgroundImage)
-        chooseChips(food)
-    }
-
     override fun onClicks() {
         binding.foodDetailMenuToolbar.setOnClickListener {
             onBack()
@@ -102,5 +80,30 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         const val INGREDIENT = "Ingredient"
         const val STEPS = "Steps"
         const val DESCRIPTION = "Description"
+    }
+
+
+    /*
+    * This code create by sadeq and it's not working, use it if you want.
+    * */
+
+    private fun listenToFragmentResult() {
+        parentFragmentManager.setFragmentResultListener(
+            KEY_FOOD_ID,
+            this
+        ) { _, result ->
+            val recipeId = result.getInt(KEY_FOOD_ID)
+            food = DataManager.getFoodById(recipeId)
+            bindData(food)
+        }
+    }
+
+    private fun bindData(recipe: Food) {
+        binding.dishName.text = recipe.recipeName
+        binding.GroupChips.check(R.id.description)
+        val adapter = FoodDetailAdapter(recipe.ingredientQuantities)
+        binding.ItemRecyclerView.adapter = adapter
+        Glide.with(requireActivity()).load(recipe.imageUrl).into(binding.backgroundImage)
+        chooseChips(recipe)
     }
 }

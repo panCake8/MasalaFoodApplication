@@ -27,5 +27,7 @@ interface BaseDataManager {
 
     fun getFoodById(id: Int): Food
 
+    fun getRecipesByCuisine(cuisine: String): List<Food>
+
 
 }

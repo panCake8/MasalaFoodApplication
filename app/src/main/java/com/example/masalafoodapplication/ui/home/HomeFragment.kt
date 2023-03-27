@@ -17,6 +17,7 @@ import com.example.masalafoodapplication.ui.home.adapters.HomeInteractionListene
 import com.example.masalafoodapplication.ui.quick_recipes.QuickRecipesFragment
 import com.example.masalafoodapplication.ui.random_recipes.RandomRecipesFragment
 import com.example.masalafoodapplication.util.Constants.INDIAN
+import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
 import com.example.masalafoodapplication.util.Constants.KEY_FOOD_ID
 import com.example.masalafoodapplication.util.Constants.TAG_FOOD_DETAILS
 import com.example.masalafoodapplication.util.Constants.TAG_HISTORY
@@ -56,7 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
     }
 
     override fun onCuisineClicked(cuisine: Cuisine) {
-        newInstance(cuisine.name, TAG_KITCHEN_DETAILS)
+        newInstance(cuisine.name, KEY_CUISINE_NAME)
         transitionToWithBackStack(DetailsKitchenFragment(), TAG_KITCHEN_DETAILS)
     }
 
