@@ -8,7 +8,7 @@ import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.ui.suggestion.adapters.FoodsAdapter
 import com.example.masalafoodapplication.util.SuggestionOnClick
 
