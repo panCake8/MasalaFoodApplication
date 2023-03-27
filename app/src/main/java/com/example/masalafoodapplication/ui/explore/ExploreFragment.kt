@@ -26,6 +26,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
         adapter = ExploreAdapter(emptyList(), this)
         binding.recyclerSearchResult.adapter = adapter
         listenToFragmentResult()
+        showAnimationSearch()
     }
 
     private fun listenToFragmentResult() {

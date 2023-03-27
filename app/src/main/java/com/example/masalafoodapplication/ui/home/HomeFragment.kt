@@ -10,9 +10,9 @@ import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.models.HomeItem
 import com.example.masalafoodapplication.databinding.FragmentHomeBinding
 import com.example.masalafoodapplication.ui.detailsKitchen.DetailsKitchenFragment
-import com.example.masalafoodapplication.ui.HistoryFragment
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
+import com.example.masalafoodapplication.ui.history.HistoryFragment
 import com.example.masalafoodapplication.ui.home.adapters.HomeAdapter
 import com.example.masalafoodapplication.ui.home.adapters.HomeInteractionListener
 import com.example.masalafoodapplication.ui.quick_recipes.QuickRecipesFragment
