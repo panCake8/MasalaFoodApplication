@@ -5,7 +5,8 @@
         <item name="colorPrimary">@color/nav_selected_text_color</item>
         <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/background_color</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
     <!-- custom style-->
 
