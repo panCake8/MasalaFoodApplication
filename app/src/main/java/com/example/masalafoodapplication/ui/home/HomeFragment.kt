@@ -3,6 +3,7 @@ package com.example.masalafoodapplication.ui.home
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.enums.HomeItemType
 import com.example.masalafoodapplication.data.domain.models.Cuisine
@@ -87,6 +88,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
             else -> {}
         }
     }
+
 
 }
 
