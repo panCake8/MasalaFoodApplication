@@ -34,6 +34,7 @@
         <item name="elevation">@dimen/elevation_small</item>
         <item name="navigationIcon">@drawable/ic_back_black</item>
     </style>
+
     <!-- app bar stroke-->
     <style name="AppBarStroke">
         <item name="android:layout_width">match_parent</item>
