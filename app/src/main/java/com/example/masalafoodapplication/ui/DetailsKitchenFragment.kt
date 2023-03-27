@@ -12,14 +12,14 @@ import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.ui.suggestion.adapters.FoodsAdapter
 import com.example.masalafoodapplication.util.SuggestionOnClick
 
-class DetailsKitchenFragment(val name: String) : BaseFragment<FragmentDetailsKitchenBinding>(),SuggestionOnClick {
+class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(), SuggestionOnClick {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetailsKitchenBinding
         get() = FragmentDetailsKitchenBinding::inflate
     private lateinit var food: ArrayList<Food>
     override fun setup() {
 
-        val adapter=FoodsAdapter(DataManager.getAllFood(),this)
-        binding.detailsRecyclerView.adapter=adapter
+        val adapter = FoodsAdapter(DataManager.getAllFood(), this)
+        binding.detailsRecyclerView.adapter = adapter
 //        parentFragmentManager.setFragmentResultListener(
 //            name,
 //            this

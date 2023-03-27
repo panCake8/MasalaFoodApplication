@@ -41,10 +41,10 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
     }
 
-    fun transitionToWithBackStack(fragment: Fragment) {
+    fun transitionToWithBackStack(fragment: Fragment, tag: String) {
         parentFragmentManager.commit {
             replace(R.id.fragment_container, fragment)
-            addToBackStack(fragment::class.java.simpleName)
+            addToBackStack(tag)
             setReorderingAllowed(true)
         }
     }
@@ -78,4 +78,17 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun newInstance(int: Int, key: String) {
+        val bundle = Bundle()
+        bundle.putInt(key, int)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
+    fun newInstance(string: String, key: String) {
+        val bundle = Bundle()
+        bundle.putString(key, string)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
 }

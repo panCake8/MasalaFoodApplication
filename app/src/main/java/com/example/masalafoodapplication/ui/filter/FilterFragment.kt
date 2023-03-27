@@ -10,6 +10,7 @@ import com.example.masalafoodapplication.databinding.FragmentFilterBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.util.Constants
+import com.example.masalafoodapplication.util.Constants.TAG_EXPLORE
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.slider.Slider
@@ -53,7 +54,7 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
             val selectedChips2 = getSelectedChips(filterChipGroup2)
             val sliderValue = slider.value
             parentFragmentManager.popBackStack()
-            transitionToWithBackStack(ExploreFragment())
+            transitionToWithBackStack(ExploreFragment(), TAG_EXPLORE)
             newInstance(
                 selectedChips1[0], selectedChips2[0], sliderValue.toString(),
                 Constants.FILTER

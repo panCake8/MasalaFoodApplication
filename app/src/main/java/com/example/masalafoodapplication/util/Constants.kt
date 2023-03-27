@@ -33,9 +33,27 @@ object Constants {
     const val SUGGESTIONS = "suggestions"
 
     const val FILTER = "filter"
-    const val BREAKFAST="Breakfast"
-    const val LUNCH="Lunch"
-    const val DINNER="Dinner"
+    const val BREAKFAST = "Breakfast"
+    const val LUNCH = "Lunch"
+    const val DINNER = "Dinner"
     const val UNKNOWN_HOME_ITEM_TYPE = "Unknown home item type"
+
+
+    const val TAG_EXPLORE = "EXPLORE"
+    const val TAG_HOME = "HOME"
+    const val TAG_RANDOM_RECIPE = "RANDOM_RECIPE"
+    const val TAG_SUGGESTIONS = "SUGGESTIONS"
+    const val TAG_SUGGESTION_FILTER = "SUGGESTION_FILTER"
+    const val TAG_FAV = "FAV"
+    const val TAG_HISTORY = "HISTORY"
+    const val TAG_KITCHEN_DETAILS = "KITCHEN_DETAILS"
+    const val TAG_RECIPE_MENU = "RECIPE_MENU"
+    const val TAG_FOOD_DETAILS = "FOOD_DETAILS"
+    const val TAG_FILTER = "FILTER"
+    const val TAG_QUICK_RECIPES = "QUICK_RECIPES"
+    const val TAG_JUST_FOR_YOU = "JUST_FOR_YOU"
+    const val TAG_INGREDIENT = "INGREDIENT"
+
+    const val KEY_FOOD_ID = "KEY_FOOD_ID"
 
 }
