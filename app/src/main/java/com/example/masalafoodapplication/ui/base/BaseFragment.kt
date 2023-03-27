@@ -41,10 +41,10 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
     }
 
-    fun transitionToWithBackStack(fragment: Fragment) {
+    fun transitionToWithBackStack(fragment: Fragment,name: String="") {
         parentFragmentManager.commit {
             replace(R.id.fragment_container, fragment)
-            addToBackStack(fragment::class.java.simpleName)
+            addToBackStack(name)
             setReorderingAllowed(true)
         }
     }
