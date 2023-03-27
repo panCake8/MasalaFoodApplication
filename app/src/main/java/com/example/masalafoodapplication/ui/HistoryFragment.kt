@@ -16,7 +16,7 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
     }
 
     override fun onClicks() {
-        binding.arrowBack.setOnClickListener {
+        binding.historyToolbar.setOnClickListener {
             onBack()
         }
 
