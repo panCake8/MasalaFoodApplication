@@ -99,4 +99,10 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         parentFragmentManager.setFragmentResult(key, bundle)
     }
 
+    fun newInstanceToSuggestion(list: ArrayList<String>, key: String) {
+        val bundle = Bundle()
+        bundle.putStringArrayList(Constants.SUGGESTION_FILTER, list)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
 }

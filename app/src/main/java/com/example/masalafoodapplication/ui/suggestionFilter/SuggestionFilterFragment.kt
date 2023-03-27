@@ -1,7 +1,5 @@
 package com.example.masalafoodapplication.ui.suggestionFilter
 
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -18,8 +16,7 @@ import com.example.masalafoodapplication.util.Constants.TAG_SUGGESTIONS
 class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>(),
     IngredientChipInteractionListener {
 
-    private var toSendData: String = ""
-    private var collectedData = mutableListOf<String>()
+    private var collectedData = ArrayList<String>()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionFilterBinding
         get() = FragmentSuggestionFilterBinding::inflate
 
@@ -31,25 +28,12 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
 
     override fun onClicks() {
         binding.buttonNext.setOnClickListener {
-
-            for (chip in collectedData) {
-                toSendData = "$toSendData$chip,"
-            }
-            Log.d("toSendData", toSendData)
-
-            val bundle = Bundle()
-            bundle.putString(Constants.SUGGESTION_FILTER, toSendData)
-            val suggestionsFragment = SuggestionsFragment()
-            suggestionsFragment.arguments = bundle
-
-
-            if (toSendData.isEmpty()) {
+            if (collectedData.isEmpty()) {
                 Toast.makeText(context, "select ingredients", Toast.LENGTH_SHORT).show()
             } else {
-                toSendData = ""
-                collectedData.clear()
-                parentFragmentManager.popBackStack()
+                newInstanceToSuggestion(collectedData, Constants.SUGGESTION_FILTER)
                 transitionToWithBackStackReplace(SuggestionsFragment(), TAG_SUGGESTIONS)
+                collectedData.clear()
             }
         }
 

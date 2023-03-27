@@ -11,6 +11,7 @@ import com.example.masalafoodapplication.databinding.ActivityBaseBinding
 import com.example.masalafoodapplication.ui.FavouriteFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
+import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
 import com.example.masalafoodapplication.util.CsvParser
 import java.io.BufferedReader
 import java.io.InputStream
@@ -71,7 +72,7 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun initSubViews() {
-        replaceFragment(HomeFragment(), "Home")
+        replaceFragment(SuggestionFilterFragment(), "Home")
     }
 
     private fun replaceFragment(fragment: Fragment, tag: String) {
