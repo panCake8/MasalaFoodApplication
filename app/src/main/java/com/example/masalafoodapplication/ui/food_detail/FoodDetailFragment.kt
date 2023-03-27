@@ -25,7 +25,6 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
     override fun setup() {
         listenToFragmentResult()
-        bindData()
 
 //        parentFragmentManager.setFragmentResultListener(
 //            KEY_FOOD_ID, this
@@ -50,6 +49,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
             KEY_FOOD_ID, this
         ) { _, result ->
             food = getFoodById(result.getInt(KEY_FOOD_ID))
+            bindData()
         }
     }
 
