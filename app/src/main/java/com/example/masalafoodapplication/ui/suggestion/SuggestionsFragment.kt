@@ -2,15 +2,15 @@ package com.example.masalafoodapplication.ui.suggestion
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
+import com.example.masalafoodapplication.ui.suggestion.adapters.SuggestionOnClick
 import com.example.masalafoodapplication.ui.suggestion.adapters.SuggestionsAdapter
 import com.example.masalafoodapplication.util.Constants
-import com.example.masalafoodapplication.util.SuggestionOnClick
-import com.example.masalafoodapplication.util.SuggestionsItems
 
 class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), SuggestionOnClick {
     private var data: List<String>? = null
@@ -19,11 +19,14 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         get() = FragmentSuggestionsBinding::inflate
 
     override fun setup() {
-        listenToFragmentResult()
+//        listenToFragmentResult()
+        val data2 = listOf("salt", "amchur (dry mango powder)", "karela (bitter gourd pavakkai)")
+        adapter = SuggestionsAdapter(bind(data2),this)
+        binding.recyclerSuggestion.adapter = adapter
     }
 
     override fun onClicks() {
-        binding.sugTbTopAppBar.setOnClickListener {
+        binding.toolbarSuggestion.setNavigationOnClickListener {
             onBack()
         }
     }
@@ -64,7 +67,7 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         ) { _, result ->
             data = result.getStringArrayList(Constants.SUGGESTION_FILTER)
             adapter = data?.let { bind(it) }?.let { SuggestionsAdapter(it, this) }!!
-            binding.sugRv.adapter = adapter
+            binding.recyclerSuggestion.adapter = adapter
         }
     }
 
