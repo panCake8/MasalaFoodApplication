@@ -25,10 +25,10 @@
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            motion:layout_constraintTop_toBottomOf="@+id/history_toolbar"
+            motion:layout_constraintTop_toBottomOf="@+id/tool_bar_history"
             android:id="@+id/bottom_sheet" />
         <Constraint
-            android:id="@+id/background_image"
+            android:id="@+id/image_view_history"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
             android:layout_height="480dp"
