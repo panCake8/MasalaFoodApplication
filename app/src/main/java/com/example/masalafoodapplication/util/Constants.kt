@@ -38,9 +38,6 @@ object Constants {
     const val QUICK_RECIPES = "QUICK_RECIPES"
 
     const val FILTER = "filter"
-    const val BREAKFAST = "Breakfast"
-    const val LUNCH = "Lunch"
-    const val DINNER = "Dinner"
     const val UNKNOWN_HOME_ITEM_TYPE = "Unknown home item type"
 
 

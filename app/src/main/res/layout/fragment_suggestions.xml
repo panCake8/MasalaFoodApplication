@@ -12,19 +12,27 @@
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
         android:backgroundTint="@color/background_color"
-        android:elevation="@dimen/elevation_toolbar"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_back_black"
         app:title="@string/suggestion_meals"
         app:titleTextColor="@color/app_bar_text_color" />
+
+    <View
+        android:id="@+id/toolbar_stroke"
+        style="@style/AppBarStroke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_suggestion" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_suggestion"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:clipToPadding="false"
+        android:paddingBottom="12dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_suggestion"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_stroke"
         tools:listitem="@layout/item_suggestions" />
 </androidx.constraintlayout.widget.ConstraintLayout>

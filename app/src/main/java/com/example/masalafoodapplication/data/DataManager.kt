@@ -2,6 +2,7 @@ package com.example.masalafoodapplication.data
 
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.ui.suggestion.SuggestionsFragment
 import com.example.masalafoodapplication.util.Constants
 
 object DataManager : BaseDataManager {
@@ -80,7 +81,7 @@ object DataManager : BaseDataManager {
             }
 
     override fun splitFoodsIntoThreeMeals(meal: String, recipes: List<String>): List<Food> {
-        return if (meal == Constants.BREAKFAST || meal == Constants.DINNER) {
+        return if (meal == SuggestionsFragment.BREAKFAST || meal == SuggestionsFragment.DINNER) {
             searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes < 30 }
         } else {
             searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes > 30 }

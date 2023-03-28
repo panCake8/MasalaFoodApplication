@@ -25,8 +25,8 @@ class DetailsKitchenAdapter(
         val food = foods[position]
         holder.binding.apply {
             imageRecipe.loadImage(food.imageUrl)
-            recipeName.text = food.recipeName
-            prepareTime.text = food.timeMinutes.toString()
+            textRecipeName.text = food.recipeName
+            textPrepareTime.text = food.timeMinutes.toString()
             root.setOnClickListener { listener.onClickListener(food) }
         }
     }

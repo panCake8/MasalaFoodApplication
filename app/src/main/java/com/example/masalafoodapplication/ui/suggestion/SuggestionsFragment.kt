@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.suggestion
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
@@ -19,10 +18,7 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         get() = FragmentSuggestionsBinding::inflate
 
     override fun setup() {
-//        listenToFragmentResult()
-        val data2 = listOf("salt", "amchur (dry mango powder)", "karela (bitter gourd pavakkai)")
-        adapter = SuggestionsAdapter(bind(data2),this)
-        binding.recyclerSuggestion.adapter = adapter
+        listenToFragmentResult()
     }
 
     override fun onClicks() {
@@ -35,19 +31,19 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         val list = mutableListOf<SuggestionsItems>()
         list.add(
             SuggestionsItems(
-                Constants.BREAKFAST, DataManager.splitFoodsIntoThreeMeals(Constants.BREAKFAST, data)
+                BREAKFAST, DataManager.splitFoodsIntoThreeMeals( BREAKFAST, data)
             )
         )
 
         list.add(
             SuggestionsItems(
-                Constants.LUNCH, DataManager.splitFoodsIntoThreeMeals(Constants.LUNCH, data)
+                 LUNCH, DataManager.splitFoodsIntoThreeMeals( LUNCH, data)
             )
         )
 
         list.add(
             SuggestionsItems(
-                Constants.DINNER, DataManager.splitFoodsIntoThreeMeals(Constants.DINNER, data)
+                 DINNER, DataManager.splitFoodsIntoThreeMeals( DINNER, data)
             )
         )
 
@@ -69,6 +65,12 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
             adapter = data?.let { bind(it) }?.let { SuggestionsAdapter(it, this) }!!
             binding.recyclerSuggestion.adapter = adapter
         }
+    }
+
+    companion object{
+        const val BREAKFAST = "Breakfast"
+        const val LUNCH = "Lunch"
+        const val DINNER = "Dinner"
     }
 
 }
