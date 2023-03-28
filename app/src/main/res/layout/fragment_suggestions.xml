@@ -9,27 +9,24 @@
     tools:context=".ui.suggestion.SuggestionsFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/sug_tb_topAppBar"
-        style="@style/AppBar"
+        android:id="@+id/toolbar_suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
         app:title="@string/suggestion_meals"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <View
-        android:id="@+id/sug_toolbar_stroke"
-        style="@style/AppBarStroke"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sug_tb_topAppBar" />
+        app:titleTextColor="@color/app_bar_text_color"
+        android:elevation="@dimen/elevation_toolbar"
+        app:navigationIcon="@drawable/ic_back_black"
+        android:backgroundTint="@color/background_color"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sug_rv"
+        android:id="@+id/recycler_suggestion"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/sug_toolbar_stroke"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_suggestions"
-        android:layout_marginTop="@dimen/margin_small"/>
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_suggestion"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
