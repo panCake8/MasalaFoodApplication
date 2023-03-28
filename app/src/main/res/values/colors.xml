@@ -16,9 +16,10 @@
     <color name="light_black">#5E121212</color>
     <color name="text_on_image_color">#DEFFFFFF</color>
     <color name="text_reset_btn_color">#FF1747</color>
-    <color name="text_chips">#DEFF1747</color>
-
-
+    <color name="text_chips">#DEFAFAFA</color>
+    <color name="text_unselectedChips">#DEFF1747</color>
+    <color name="text_selectedChips">#DEFAFAFA</color>
+    <color name="icon_chips">#DEFAFAFA</color>
     <color name="base_color">#E32227</color>
     <color name="primary_button_color">#FF355F</color>
     <color name="selected_chip_color">#14FF355F</color>
