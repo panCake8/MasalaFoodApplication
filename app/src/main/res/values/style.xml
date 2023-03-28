@@ -141,7 +141,7 @@
     <!--    Item Text Time Food-->
     <style name="ItemText.Time.Food">
         <!--        <item name="android:layout_marginBottom">@dimen/margin_small</item>-->
-        <item name="android:textColor">@color/medium_white</item>
+        <item name="android:textColor">@color/medium_white_light</item>
     </style>
 
     <!--    Item Text Time Kitchen-->
