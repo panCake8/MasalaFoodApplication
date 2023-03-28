@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.util
+package com.example.masalafoodapplication.ui.suggestion
 
 import com.example.masalafoodapplication.data.domain.models.Food
 

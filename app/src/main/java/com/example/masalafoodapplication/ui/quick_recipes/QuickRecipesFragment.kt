@@ -19,12 +19,12 @@ class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>(),
 
 
     override fun setup() {
-        val adapter = QuickRecipesAdapter(DataManager.getAllQuickRecipes(), this)
+        val adapter = QuickRecipesAdapter(DataManager.getRandomQuickRecipes(50), this)
         binding.recyclerQuickRecipe.adapter = adapter
     }
 
     override fun onClicks() {
-        binding.recipesMenuToolbar.setNavigationOnClickListener {
+        binding.quickRecipeToolbar.setOnClickListener {
             onBack()
         }
     }
