@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.domain.Food
+import com.example.masalafoodapplication.util.Constants
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
@@ -32,7 +32,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     }
 
     abstract fun setup()
-    open fun onClicks(){}
+    open fun onClicks() {}
 
     fun transitionTo(fragment: Fragment) {
         parentFragmentManager.commit {
@@ -41,35 +41,28 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
     }
 
-    fun transitionToWithBackStack(fragment: Fragment, name: String) {
+    fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
         parentFragmentManager.commit {
             replace(R.id.fragment_container, fragment)
-                .addToBackStack(name)
+            addToBackStack(tag)
             setReorderingAllowed(true)
         }
     }
 
-    fun newInstance(food: ArrayList<Food>, name: String) {
-        val bundle = Bundle()
-        bundle.putParcelableArrayList(name, food)
-        parentFragmentManager.setFragmentResult(name, bundle)
-    }
-
-    fun newInstance(food: Food, name: String) {
-        val bundle = Bundle()
-        bundle.putParcelable(name, food)
-        parentFragmentManager.setFragmentResult(name, bundle)
-    }
-
-    fun newInstance(foodName: String, ingredient: String, value: String, name: String) {
-        val bundle = Bundle()
-        bundle.putString("foodName", foodName)
-        bundle.putString("cleaned", ingredient)
-        bundle.putString("value", value)
-        parentFragmentManager.setFragmentResult(name, bundle)
+    fun transitionToWithBackStackAdd(fragment: Fragment, fragment2: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+        }
     }
 
     fun onBack() {
+        requireActivity().onBackPressed()
+    }
+
+    fun onBack(id: Int, tag: String) {
+        newInstance(id, tag)
         requireActivity().onBackPressed()
     }
 
@@ -78,4 +71,37 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun newInstanceToExplore(
+        listKitchens: ArrayList<String>,
+        listIngredient: ArrayList<String>,
+        time: Float,
+        key: String
+    ) {
+        val bundle = Bundle().apply {
+            putStringArrayList(Constants.KITCHENS, listKitchens)
+            putStringArrayList(Constants.INGREDIENT, listIngredient)
+            putFloat(Constants.TIME_MINUTES, time)
+        }
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
+    fun newInstance(int: Int, key: String) {
+        val bundle = Bundle()
+        bundle.putInt(key, int)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
+    fun newInstance(string: String, key: String) {
+        val bundle = Bundle()
+        bundle.putString(key, string)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
+    fun newInstanceToSuggestion(list: ArrayList<String>, key: String) {
+        val bundle = Bundle()
+        bundle.putStringArrayList(Constants.SUGGESTION_FILTER, list)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
 }

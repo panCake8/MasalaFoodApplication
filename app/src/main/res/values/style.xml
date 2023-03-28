@@ -34,6 +34,7 @@
         <item name="elevation">@dimen/elevation_small</item>
         <item name="navigationIcon">@drawable/ic_back_black</item>
     </style>
+
     <!-- app bar stroke-->
     <style name="AppBarStroke">
         <item name="android:layout_width">match_parent</item>
@@ -80,8 +81,6 @@
     <!--    Card Parent-->
     <style name="CardRecItem" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_width">match_parent</item>
-<!--        <item name="android:layout_marginEnd">@dimen/margin_medium</item>-->
-<!--        <item name="android:layout_marginBottom">@dimen/margin_medium</item>-->
     </style>
 
 
@@ -114,7 +113,6 @@
         <item name="android:textColor">@color/dark_white</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:layout_marginStart">@dimen/margin_medium</item>
-        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
     </style>
 
     <!--    Item Text Time Parent-->
@@ -123,12 +121,14 @@
         <item name="android:textColor">@color/dark_white</item>
         <item name="android:textSize">@dimen/text_small</item>
         <item name="android:layout_marginStart">@dimen/margin_tiny</item>
+        <item name="android:layout_marginRight">@dimen/margin_tiny</item>
     </style>
 
     <!--    Item Text Name Food-->
     <style name="ItemText.Name.Food">
         <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
         <item name="android:textColor">@color/dark_white</item>
+        <item name="android:textSize">@dimen/text_large</item>
     </style>
 
     <!--    Item Text Name Kitchen-->
@@ -139,7 +139,7 @@
 
     <!--    Item Text Time Food-->
     <style name="ItemText.Time.Food">
-<!--        <item name="android:layout_marginBottom">@dimen/margin_small</item>-->
+        <!--        <item name="android:layout_marginBottom">@dimen/margin_small</item>-->
         <item name="android:textColor">@color/medium_white</item>
     </style>
 
@@ -169,10 +169,6 @@
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
         <item name="android:scaleType">centerCrop</item>
-    </style>
-    <!--Kitchen-->
-    <style name="Poster.Kitchen">
-        <item name="android:layout_height">@dimen/details_kitchen_poster_height</item>
     </style>
     <!--Home-->
     <style name="Poster.Home">
@@ -216,8 +212,10 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/chip_text</item>
-        <item name="checkedIconTint">@color/white</item>
+        <item name="checkedIconTint">@color/icon_chips</item>
         <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="checkedIcon">@drawable/ic_delete</item>
+        <item name="chipCornerRadius">@dimen/radius_small</item>
     </style>
 
     <!--    Card Styles-->
@@ -237,7 +235,10 @@
 
     <!-- chip color selected choice case -->
     <style name="Chips.toggle" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="android:backgroundTint">@color/selected_chip_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
     </style>
     <!-- Slider -->
     <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">
@@ -258,7 +259,7 @@
     </style>
 
 
-    <style name="textView">
+    <style name="TextRecipeNameDetails">
         <item name="android:fontFamily">@font/work_sans_semibold</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_gravity">start</item>
@@ -357,5 +358,14 @@
         <item name="android:textSize">@dimen/text_small</item>
         <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
+    </style>
+    <!--    Card Search-->
+    <style name="CardRecItem.Search" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/card_item_food_height</item>
+        <item name="cardCornerRadius">@dimen/radius_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
     </style>
 </resources>

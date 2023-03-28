@@ -1,83 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/background_color">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/root_card_view1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:elevation="5dp"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="@dimen/radius_large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_large"
+    android:layout_marginBottom="@dimen/margin_large"
+    app:cardCornerRadius="@dimen/radius_medium"
+    app:cardElevation="@dimen/elevation_small">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imv_city1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:contentDescription="@string/popular_dishes"
-                android:scaleType="centerCrop"
-                android:src="@drawable/poster"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearance="@style/rounded_corner"
-                app:shapeAppearanceOverlay="@style/CardView.Dark" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imv_city1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/popular_dishes"
+            android:scaleType="centerCrop"
+            android:src="@drawable/poster"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/rounded_corner"
+            app:shapeAppearanceOverlay="@style/CardView.Dark" />
 
-            <TextView
-                android:id="@+id/txv_city_name1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:textColor="@color/dark_black"
-                android:textSize="@dimen/text_medium"
-                app:layout_constraintStart_toEndOf="@+id/imv_city1"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="City Name" />
+        <TextView
+            android:id="@+id/txv_city_name1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/dark_black"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/line"
+            app:layout_constraintStart_toEndOf="@+id/imv_city1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="City Name" />
 
-            <TextView
-                android:id="@+id/description_tv1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginEnd="32dp"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="@color/medium_black"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView1"
-                app:layout_constraintStart_toEndOf="@+id/imv_city1"
-                app:layout_constraintTop_toBottomOf="@+id/txv_city_name1"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.80" />
 
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_heart"
-                app:layout_constraintBottom_toBottomOf="@+id/imv_city1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imv_city1"
-                android:contentDescription="@string/favourite" />
+        <ImageView
+            android:id="@+id/time_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:contentDescription="@string/favourite"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintBottom_toBottomOf="@+id/imv_city1"
+            app:layout_constraintStart_toEndOf="@id/imv_city1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/time_tv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textColor="@color/medium_black"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView1"
+            app:layout_constraintStart_toEndOf="@+id/time_icon"
+            app:layout_constraintTop_toBottomOf="@+id/txv_city_name1"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
 
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/favourite"
+            android:src="@drawable/ic_heart"
+            app:layout_constraintBottom_toBottomOf="@+id/imv_city1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imv_city1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

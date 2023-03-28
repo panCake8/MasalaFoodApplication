@@ -10,15 +10,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recipe_card"
         android:layout_width="@dimen/food_poster_height"
-        android:layout_height="@dimen/card_item_food_height">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/image_recipe"
-            style="@style/ImageRecItem.Food"
+            style="@style/ImageRecItem"
+            android:layout_height="@dimen/card_item_food_height"
             android:contentDescription="@string/img_description"
             android:foreground="@color/foreground_img_color"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/quick_recipes_image" />
@@ -31,20 +31,15 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="name" />
 
-        <ImageView
-            android:id="@+id/time_icon"
-            style="@style/ItemIcon"
-            android:contentDescription="@string/img_description"
-            android:src="@drawable/ic_clock"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/prepareTime"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/prepareTime"
             style="@style/ItemText.Time.Food"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/time_icon"
+            app:layout_constraintStart_toStartOf="@+id/recipe_name"
+            android:drawableStart="@drawable/ic_clock"
+            android:drawablePadding="4dp"
+            android:gravity="center"
             tools:text="15m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

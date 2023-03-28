@@ -1,17 +1,19 @@
 package com.example.masalafoodapplication.ui.base
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
-import com.example.masalafoodapplication.ui.ExploreFragment
-import com.example.masalafoodapplication.ui.FavouriteFragment
-import com.example.masalafoodapplication.ui.FilterFragment
+import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
+import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
+import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
+import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.CsvParser
 import com.example.masalafoodapplication.util.SetFragmentType
 import java.io.BufferedReader
@@ -49,6 +51,11 @@ class BaseActivity : AppCompatActivity() {
                     true
                 }
 
+                R.id.nav_make_meal -> {
+                    replaceFragment(SuggestionFilterFragment(), "MakeMeal")
+                    true
+                }
+
                 R.id.nav_favourite -> {
                     setFragment(FavouriteFragment(), SetFragmentType.REPLACE, "Fav")
                     true
@@ -63,15 +70,17 @@ class BaseActivity : AppCompatActivity() {
         val inputStream: InputStream = assets.open(CSV_NAME)
         val buffer = BufferedReader(InputStreamReader(inputStream))
         val csvParser = CsvParser()
+        var id = 0
         buffer.forEachLine { line ->
-            val food = csvParser.parse(line)
+            val food = csvParser.parse(line, id)
             DataManager.addFood(food)
+            id++
         }
-
     }
 
+
     private fun initSubViews() {
-        setFragment(FilterFragment(), SetFragmentType.ADD, "Home")
+        setFragment(HomeFragment(), SetFragmentType.ADD, "Home")
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType, tag: String) {
@@ -89,9 +98,22 @@ class BaseActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment, tag: String) {
         supportFragmentManager.commit {
-            supportFragmentManager.popBackStackImmediate()
             replace(binding.fragmentContainer.id, fragment, tag)
             setReorderingAllowed(true)
+        }
+    }
+
+    override fun onBackPressed() {
+        val count = supportFragmentManager.backStackEntryCount
+        if (count == 0) {
+            super.onBackPressed()
+        } else if (count > 0) {
+            supportFragmentManager.popBackStack(
+                Constants.TAG_FOOD_DETAILS,
+                POP_BACK_STACK_INCLUSIVE
+            )
+        } else {
+            supportFragmentManager.popBackStackImmediate()
         }
     }
 

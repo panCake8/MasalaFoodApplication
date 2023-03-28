@@ -15,7 +15,7 @@
     <!-- primary button style-->
     <style name="Button.PrimaryButton">
         <item name="android:backgroundTint">@color/primary_button_color</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <!-- secondary button style-->
     <style name="Button.SecondaryButton">
@@ -181,7 +181,7 @@
     </style>
 
     <!-- chips style-->
-    <style name="Chips_filter" parent="Widget.Material3.ChipGroup">
+    <style name="Chips_choice" parent="Widget.Material3.ChipGroup">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">32dp</item>
         <item name="android:textColor">@color/text_chips</item>
@@ -211,6 +211,17 @@
     <style name="Chips.SelectedChips">
         <item name="android:backgroundTint">@color/selected_chip_color</item>
     </style>
+    <style name="Chips_filter" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="checkedIconTint">@color/icon_chips</item>
+        <item name="checkedIcon">@drawable/ic_delete</item>
+        <item name="chipCornerRadius">@dimen/radius_small</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">@dimen/small_stroke</item>
+    </style>
 
     <!--    Card Styles-->
     <style name="CardTitle">
@@ -229,7 +240,10 @@
 
     <!-- chip color selected choice case -->
     <style name="Chips.toggle" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="android:backgroundTint">@color/selected_chip_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
     </style>
     <!-- Slider -->
     <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">

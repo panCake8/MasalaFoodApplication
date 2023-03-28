@@ -1,30 +1,49 @@
 package com.example.masalafoodapplication.ui.home
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.masalafoodapplication.data.DataManager
-import com.example.masalafoodapplication.data.domain.Cuisine
-import com.example.masalafoodapplication.data.domain.Food
-import com.example.masalafoodapplication.data.domain.HomeItem
 import com.example.masalafoodapplication.data.domain.enums.HomeItemType
+import com.example.masalafoodapplication.data.domain.models.Cuisine
+import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.data.domain.models.HomeItem
 import com.example.masalafoodapplication.databinding.FragmentHomeBinding
+import com.example.masalafoodapplication.ui.detailsKitchen.DetailsKitchenFragment
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
+import com.example.masalafoodapplication.ui.history.HistoryFragment
+import com.example.masalafoodapplication.ui.home.adapters.HomeAdapter
+import com.example.masalafoodapplication.ui.home.adapters.HomeInteractionListener
+import com.example.masalafoodapplication.ui.quick_recipes.QuickRecipesFragment
+import com.example.masalafoodapplication.ui.random_recipes.RandomRecipesFragment
 import com.example.masalafoodapplication.util.Constants.INDIAN
+import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
+import com.example.masalafoodapplication.util.Constants.KEY_FOOD_ID
+import com.example.masalafoodapplication.util.Constants.TAG_FOOD_DETAILS
+import com.example.masalafoodapplication.util.Constants.TAG_HISTORY
+import com.example.masalafoodapplication.util.Constants.TAG_JUST_FOR_YOU
+import com.example.masalafoodapplication.util.Constants.TAG_KITCHEN_DETAILS
+import com.example.masalafoodapplication.util.Constants.TAG_QUICK_RECIPES
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListener {
-
+    private lateinit var homeItems: MutableList<HomeItem<Any>>
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
 
-    override fun setup() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         bindHomeItems()
+    }
+
+    override fun setup() {
+        binding.recyclerHome.adapter = HomeAdapter(homeItems, this)
     }
 
 
     private fun bindHomeItems() {
-        val homeItems = mutableListOf<HomeItem<Any>>()
+        homeItems = mutableListOf()
         homeItems.add(HomeItem(DataManager.getRandomFoodImage(), HomeItemType.BANNER))
         homeItems.add(HomeItem(DataManager.getRandomQuickRecipes(20), HomeItemType.QUICK_RECIPES))
         homeItems.add(HomeItem(DataManager.getCuisines(20), HomeItemType.CUISINES))
@@ -33,54 +52,42 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
             HomeItem(DataManager.getImageByCuisine(INDIAN), HomeItemType.INDIAN_FOOD_HISTORY)
         )
 
-        binding.recyclerHome.adapter = HomeAdapter(homeItems, this)
+
     }
 
-    override fun onBannerClicked() {
-        Toast.makeText(requireContext(), "Banner Clicked", Toast.LENGTH_SHORT).show()
-    }
+    override fun onBannerClicked() {}
 
     override fun onRecipeClicked(food: Food) {
-        Toast.makeText(requireContext(), "Recipe Clicked", Toast.LENGTH_SHORT).show()
+        newInstance(food.id, KEY_FOOD_ID)
+        transitionToWithBackStackReplace(FoodDetailFragment(), TAG_FOOD_DETAILS)
     }
 
     override fun onCuisineClicked(cuisine: Cuisine) {
-        Toast.makeText(requireContext(), "Cuisine Clicked", Toast.LENGTH_SHORT).show()
+        newInstance(cuisine.name, KEY_CUISINE_NAME)
+        transitionToWithBackStackReplace(DetailsKitchenFragment(), TAG_KITCHEN_DETAILS)
     }
 
-    override fun onIndianFoodHistoryClicked() {
-        Toast.makeText(requireContext(), "Indian Food History Clicked", Toast.LENGTH_SHORT).show()
-    }
+    override fun onIndianFoodHistoryClicked() =
+        transitionToWithBackStackReplace(HistoryFragment(), TAG_HISTORY)
 
     override fun onSeeMoreClicked(type: HomeItemType) {
         when (type) {
-            HomeItemType.QUICK_RECIPES -> Toast.makeText(
-                requireContext(),
-                "See More Quick Recipes Clicked",
-                Toast.LENGTH_SHORT
-            ).show()
+            HomeItemType.QUICK_RECIPES -> transitionToWithBackStackReplace(
+                QuickRecipesFragment(), TAG_QUICK_RECIPES
+            )
 
-            HomeItemType.CUISINES -> Toast.makeText(
-                requireContext(),
-                "See More Cuisines Clicked",
-                Toast.LENGTH_SHORT
-            ).show()
+            HomeItemType.JUST_FOR_YOU -> transitionToWithBackStackReplace(
+                RandomRecipesFragment(), TAG_JUST_FOR_YOU
+            )
 
-            HomeItemType.JUST_FOR_YOU -> Toast.makeText(
-                requireContext(),
-                "See More Just For You Clicked",
-                Toast.LENGTH_SHORT
-            ).show()
-
-            HomeItemType.INDIAN_FOOD_HISTORY -> Toast.makeText(
-                requireContext(),
-                "See More Indian Food History Clicked",
-                Toast.LENGTH_SHORT
-            ).show()
+            HomeItemType.INDIAN_FOOD_HISTORY -> transitionToWithBackStackReplace(
+                HistoryFragment(), TAG_HISTORY
+            )
 
             else -> {}
         }
     }
+
 
 }
 

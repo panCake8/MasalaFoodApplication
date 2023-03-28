@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.food_detail.FoodDetailFragment"
-    app:layoutDescription="@xml/fragment_food_detail_scene">
+    app:layoutDescription="@xml/fragment_food_detail_scene"
+    tools:context=".ui.food_detail.FoodDetailFragment">
 
 
     <ImageView
@@ -60,17 +59,6 @@
         app:layout_constraintVertical_bias="0.0"
         tools:context=".ui.FoodDetail.FoodDetailFragment">
 
-        <!--        <View-->
-        <!--            android:id="@+id/view"-->
-        <!--            android:layout_width="72dp"-->
-        <!--            android:layout_height="@dimen/padding_small"-->
-        <!--            android:layout_gravity="center_horizontal"-->
-        <!--            android:layout_marginTop="@dimen/margin_large"-->
-        <!--            android:background="@color/line_color"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,19 +67,18 @@
 
             <TextView
                 android:id="@+id/dishName"
-                style="@style/textView"
+                style="@style/TextRecipeNameDetails"
                 android:layout_width="191dp"
                 android:layout_height="51dp"
                 android:layout_marginStart="@dimen/text_VLarge"
                 android:layout_weight="1"
-                android:fontFamily="@font/poppins"
-                android:textStyle="bold"
+                android:fontFamily="@font/work_sans_semibold"
                 android:text="@string/dish_name"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_VLarge" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/fav"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -110,13 +97,6 @@
             android:layout_margin="@dimen/margin_medium"
             android:orientation="horizontal"
             app:singleSelection="true">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/description"
-                style="@style/Chips.toggle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/description" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/ingredient"
@@ -146,16 +126,35 @@
 
     </LinearLayout>
 
+    <com.borjabravo.readmoretextview.ReadMoreTextView
+        android:id="@+id/description_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_VLarge"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="@dimen/text_VLarge"
+        android:textSize="@dimen/text_large"
+        app:colorClickableText="@color/primary_button_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dishName"
+        app:trimCollapsedText="@string/read_more"
+        app:trimExpandedText="@string/read_less"
+        app:trimLength="115"
+        app:trimMode="trimModeLength" />
+
     <Button
         android:id="@+id/start_button"
         style="@style/Button.PrimaryButton"
+
         android:layout_height="wrap_content"
+
         android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_marginBottom="16dp"
         android:text="@string/start_preparing_btn_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.motion.widget.MotionLayout>
-
