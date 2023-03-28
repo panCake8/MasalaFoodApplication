@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ItemSuggestionsBinding
-import com.example.masalafoodapplication.util.SuggestionOnClick
-import com.example.masalafoodapplication.util.SuggestionsItems
+import com.example.masalafoodapplication.ui.suggestion.SuggestionsItems
 
 class SuggestionsAdapter(
     private val list: List<SuggestionsItems>,
@@ -24,21 +23,24 @@ class SuggestionsAdapter(
 
     override fun onBindViewHolder(holder: SuggestionsHolder, position: Int) {
         val item = list[position]
-        holder.binding.apply {
-            itemTvTitle.text = item.title
-
-            val adapter = FoodsAdapter(item.foods, this@SuggestionsAdapter)
-            itemRvSuggestions.adapter = adapter
-        }
+        holder.bind(item)
     }
 
     override fun getItemCount() = list.size
 
-    class SuggestionsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class SuggestionsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = ItemSuggestionsBinding.bind(itemView)
-    }
+        fun bind(item:SuggestionsItems){
+            binding.apply {
+                textTitleMeal.text = item.title
 
-    override fun onClickListener(food: Food) {
+                val adapter = FoodsAdapter(item.foods, this@SuggestionsAdapter)
+                recyclerSuggestionsMeal.adapter = adapter
+            }
+        }
+    }
+    override fun onClickListener(food:Food) {
         listener.onClickListener(food)
     }
+
 }
