@@ -6,6 +6,7 @@
     android:layout_height="240dp"
     android:layout_marginBottom="@dimen/margin_medium"
     android:layout_marginEnd="@dimen/margin_medium"
+    app:cardCornerRadius="@dimen/radius_medium"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +21,10 @@
             android:contentDescription="@string/img_description"
             android:foreground="@drawable/bg_bottom_linear_transparent"
             android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/quick_recipes_image" />
 
         <TextView
