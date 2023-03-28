@@ -12,6 +12,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
-        tools:listitem="@layout/item_food_suggestions"/>
+        tools:listitem="@layout/item_popular_dishes"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
