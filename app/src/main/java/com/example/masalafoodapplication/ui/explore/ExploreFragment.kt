@@ -79,25 +79,25 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
 
     private fun showLottieAndHideRecycle() {
         binding.recyclerSearchResult.visibility = View.GONE
-        binding.lottieLayer.visibility = View.VISIBLE
+        binding.viewLottieLayer.visibility = View.VISIBLE
     }
 
     private fun showAnimationSearch() {
         binding.apply {
             showLottieAndHideRecycle()
-            lottieLayer.setAnimation(R.raw.search)
+            viewLottieLayer.setAnimation(R.raw.search)
         }
     }
 
     private fun showAnimationNotFound() {
         binding.apply {
             showLottieAndHideRecycle()
-            lottieLayer.setAnimation(R.raw.not_found)
+            viewLottieLayer.setAnimation(R.raw.not_found)
         }
     }
 
     private fun hideAnimation() {
-        binding.lottieLayer.visibility = View.GONE
+        binding.viewLottieLayer.visibility = View.GONE
         binding.recyclerSearchResult.visibility = View.VISIBLE
     }
 

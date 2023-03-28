@@ -71,6 +71,7 @@
     <!--    Image Food-->
     <style name="ImageRecItem.Food">
         <item name="android:layout_height">match_parent</item>
+
     </style>
 
     <!--    Image Kitchen-->

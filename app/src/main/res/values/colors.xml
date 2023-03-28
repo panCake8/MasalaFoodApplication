@@ -18,9 +18,10 @@
     <color name="text_reset_btn_color">#FF1747</color>
     <color name="text_chips">#DEFF1747</color>
 
+
     <color name="base_color">#E32227</color>
     <color name="primary_button_color">#FF355F</color>
-    <color name="selected_chip_color">#14FF1747</color>
+    <color name="selected_chip_color">#14FF355F</color>
     <color name="non_selected_chip_stroke_color">#DEFF1747</color>
     <color name="line_color">#5EFF1747</color>
     <color name="chips_stroke_color">#DEFF1747</color>
