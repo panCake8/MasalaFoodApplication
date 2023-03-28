@@ -6,13 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.data.domain.models.Food
-import com.example.masalafoodapplication.databinding.ItemSearchResulteBinding
+import com.example.masalafoodapplication.databinding.ItemSearchResultBinding
+
 
 class ExploreAdapter(var list: List<Food>, val listener: ExploreListener) :
     RecyclerView.Adapter<ExploreAdapter.ExploreViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExploreViewHolder {
         val binding =
-            ItemSearchResulteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemSearchResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ExploreViewHolder(binding)
     }
 
@@ -20,7 +21,7 @@ class ExploreAdapter(var list: List<Food>, val listener: ExploreListener) :
         val currentFood = list[position]
         holder.binding.apply {
             imageRecipe.loadImage(currentFood.imageUrl)
-            recipeName.text = currentFood.recipeName
+            textRecipeName.text = currentFood.recipeName
             root.setOnClickListener {
                 listener.onClickItem(currentFood)
             }
@@ -31,7 +32,7 @@ class ExploreAdapter(var list: List<Food>, val listener: ExploreListener) :
     override fun getItemCount() = list.size
 
 
-    class ExploreViewHolder(val binding: ItemSearchResulteBinding) :
+    class ExploreViewHolder(val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     fun setData(newList: List<Food>) {
