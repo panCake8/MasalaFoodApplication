@@ -20,12 +20,12 @@ class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>(),
 
 
     override fun setup() {
-        val adapter = RandomRecipesAdapter(DataManager.getAllFood(), this)
+        val adapter = RandomRecipesAdapter(DataManager.getRandomFoods(50), this)
         binding.recyclerRandomRecipes.adapter = adapter
     }
 
     override fun onClicks() {
-        binding.recipesMenuToolbar.setNavigationOnClickListener {
+        binding.recipesMenuToolbar.setOnClickListener {
             onBack()
         }
     }
