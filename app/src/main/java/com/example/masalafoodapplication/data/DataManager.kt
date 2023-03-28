@@ -112,8 +112,16 @@ object DataManager : BaseDataManager {
         favouriteFoodList.add(food)
     }
 
+    override fun isFavorite(food: Food): Boolean{
+        return favouriteFoodList.any {it == food}
+    }
+
     override fun deleteFavourite(index: Int) {
         favouriteFoodList.removeAt(index)
+    }
+
+    override fun deleteFavourite(food: Food) {
+        favouriteFoodList.remove(food)
     }
 
 }

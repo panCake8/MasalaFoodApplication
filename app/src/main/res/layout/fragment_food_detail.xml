@@ -11,7 +11,7 @@
 
 
     <ImageView
-        android:id="@+id/backgroundImage"
+        android:id="@+id/image_background"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:contentDescription="@string/dish_name"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/food_detail_menu_toolbar"
+        android:id="@+id/toolbar"
         style="@style/AppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
         app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineLeft"
+        android:id="@+id/guidline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -51,11 +51,11 @@
         android:layout_gravity="center"
         android:background="@drawable/card_scroll"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/start_button"
+        app:layout_constraintBottom_toTopOf="@+id/button_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/guidline"
         app:layout_constraintVertical_bias="0.0"
         tools:context=".ui.FoodDetail.FoodDetailFragment">
 
@@ -66,31 +66,30 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/dishName"
+                android:id="@+id/text_dishname"
                 style="@style/TextRecipeNameDetails"
                 android:layout_width="191dp"
                 android:layout_height="51dp"
                 android:layout_marginStart="@dimen/text_VLarge"
                 android:layout_weight="1"
-                android:fontFamily="@font/work_sans_semibold"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/dish_name"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_VLarge" />
 
             <ImageView
-                android:id="@+id/fav"
+                android:id="@+id/icon_favorite"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_weight="1"
                 android:contentDescription="@string/steps"
-                android:src="@drawable/ic_love_icon" />
-
+                android:src="@drawable/ic_love_icon_white" />
         </LinearLayout>
 
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/GroupChips"
+            android:id="@+id/chips_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -99,15 +98,16 @@
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/ingredient"
+                android:id="@+id/chip_ingredient"
                 style="@style/Chips.toggle"
+                android:checked="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:text="@string/ingredient" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/steps"
+                android:id="@+id/chip_steps"
                 style="@style/Chips.toggle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
         </com.google.android.material.chip.ChipGroup>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Item_recyclerView"
+            android:id="@+id/recycler_steps_ingredients_items"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/margin_large"
@@ -126,30 +126,10 @@
 
     </LinearLayout>
 
-    <com.borjabravo.readmoretextview.ReadMoreTextView
-        android:id="@+id/description_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/text_VLarge"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="@dimen/text_VLarge"
-        android:textSize="@dimen/text_large"
-        app:colorClickableText="@color/primary_button_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dishName"
-        app:trimCollapsedText="@string/read_more"
-        app:trimExpandedText="@string/read_less"
-        app:trimLength="115"
-        app:trimMode="trimModeLength" />
-
     <Button
-        android:id="@+id/start_button"
+        android:id="@+id/button_start"
         style="@style/Button.PrimaryButton"
-
         android:layout_height="wrap_content"
-
         android:layout_gravity="bottom"
         android:layout_marginBottom="16dp"
         android:text="@string/start_preparing_btn_text"

@@ -36,5 +36,9 @@ interface BaseDataManager {
 
     fun addFavourite(food: Food)
 
+    fun isFavorite(food: Food): Boolean
+
     fun deleteFavourite(index: Int)
+
+    fun deleteFavourite(food: Food)
 }

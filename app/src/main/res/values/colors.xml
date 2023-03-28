@@ -6,7 +6,7 @@
     <color name="nav_non_selected_text_color">#99121212</color>
     <color name="nav_selected_item">#61E32227</color>
     <color name="nav_background">#DEFFFFFF</color>
-    <color name="background_color">#F2fafafa</color>
+    <color name="background_color">#FAFAFA</color>
 
 
     <color name="app_bar_text_color">#1C1B1F</color>

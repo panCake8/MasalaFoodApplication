@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@id/filter_toolbar" />
 
     <TextView
-        android:id="@+id/dishName"
+        android:id="@+id/text_dishname"
         style="@style/Text.TitleChips"
         android:text="@string/kitchens"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
-        app:layout_constraintTop_toBottomOf="@+id/dishName"
+        app:layout_constraintTop_toBottomOf="@+id/text_dishname"
         app:singleSelection="false">
 
         <com.google.android.material.chip.Chip
