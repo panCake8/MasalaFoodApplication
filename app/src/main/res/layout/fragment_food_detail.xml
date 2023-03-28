@@ -16,6 +16,7 @@
         android:layout_height="0dp"
         android:contentDescription="@string/dish_name"
         android:scaleType="fitXY"
+
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toTopOf="@id/imageGuidLine"
         app:layout_constraintEnd_toEndOf="parent"

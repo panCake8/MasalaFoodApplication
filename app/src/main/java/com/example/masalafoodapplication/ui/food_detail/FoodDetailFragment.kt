@@ -1,7 +1,9 @@
 package com.example.masalafoodapplication.ui.food_detail
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
@@ -17,6 +19,8 @@ import com.google.android.material.chip.Chip
 
 class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     private var food: Food? = null
+
+    private lateinit var adapter: FoodDetailAdapter
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodDetailBinding
         get() = FragmentFoodDetailBinding::inflate
 
@@ -50,7 +54,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
     private fun chooseChips(food: Food?) {
         binding.chipsList.setOnCheckedStateChangeListener { group, checkedIds ->
-            val chip: Chip? = group.findViewById(checkedIds[0])
+            val chip: Chip? = checkedIds.firstOrNull()?.let { group.findViewById(it) }
             chip?.let {
                 if (it.text.toString() == Constants.STEPS) {
                     val adapter =
@@ -61,6 +65,11 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
                     val adapter =
                         FoodDetailAdapter(food?.ingredient ?: listOf())
                     binding.recyclerStepsIngredientsItems.adapter = adapter
+                }
+
+                // clear checkedIds if the same chip is clicked twice
+                if (checkedIds.size == 1 && checkedIds[0] == chip.id) {
+                    checkedIds.clear()
                 }
             }
         }

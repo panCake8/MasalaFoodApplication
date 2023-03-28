@@ -22,8 +22,8 @@ class FoodDetailAdapter(val list: List<String>):
     override fun onBindViewHolder(holder: FoodDetailViewHolder, position: Int) {
         val currentReciepy = list[position]
         holder.binding.apply {
-            stepNumberTextview.text = "${position + 1}"
-            stepIngredientTextview.text = currentReciepy
+            textviewStepNumber.text = "${position + 1}"
+            textviewStepIngredient.text = currentReciepy
         }
     }
 
