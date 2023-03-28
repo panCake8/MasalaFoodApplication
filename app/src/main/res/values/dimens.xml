@@ -65,6 +65,7 @@
     <dimen name="food_history_card_height">80dp</dimen>
     <dimen name="rounded_button_size">24dp</dimen>
     <dimen name="recycler_margin_normal">12dp</dimen>
+    <dimen name="height_search_result">0dp</dimen>
 
     <dimen name="elevation_toolbar">2dp</dimen>
 </resources>

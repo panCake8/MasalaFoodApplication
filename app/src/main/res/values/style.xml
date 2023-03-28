@@ -71,6 +71,7 @@
     <!--    Image Food-->
     <style name="ImageRecItem.Food">
         <item name="android:layout_height">match_parent</item>
+
     </style>
 
     <!--    Image Kitchen-->
@@ -212,8 +213,10 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/chip_text</item>
-        <item name="checkedIconTint">@color/white</item>
+        <item name="checkedIconTint">@color/icon_chips</item>
         <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="checkedIcon">@drawable/ic_delete</item>
+        <item name="chipCornerRadius">@dimen/radius_small</item>
     </style>
 
     <!--    Card Styles-->
