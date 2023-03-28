@@ -1,12 +1,15 @@
 package com.example.masalafoodapplication.ui.detailsKitchen
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.data.DatasourceProveider
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.data.repo.RepositoryImpl
 import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitchenAdapter
 import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitchenOnClick
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
@@ -17,41 +20,53 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
     DetailsKitchenOnClick {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetailsKitchenBinding
         get() = FragmentDetailsKitchenBinding::inflate
-
-    override fun setup() {
-        listenToFragmentResult()
-    }
-
-    override fun onClicks() {
-        binding.kitchenToolbar.setNavigationOnClickListener {
-            onBack()
-        }
-    }
-
-    private fun listenToFragmentResult() {
-        parentFragmentManager.setFragmentResultListener(
-            KEY_CUISINE_NAME,
-            this
-        ) { _, result ->
-            val cuisineName = result.getString(KEY_CUISINE_NAME)
-            cuisineName?.let {
-                bindData(DataManager.getRecipesByCuisine(it))
-            }
-        }
-    }
-
-    private fun bindData(recipes: List<Food>) {
-        binding.apply {
-            kitchenToolbar.title = recipes.first().cuisine
-            detailsImgPoster.loadImage(DataManager.getImageByCuisine(recipes.first().cuisine))
-            detailsRecyclerView.adapter =
-                DetailsKitchenAdapter(recipes, this@DetailsKitchenFragment)
-        }
-    }
+//    val repository =
+//        RepositoryImpl(DatasourceProveider.getDataSource(requireActivity().application))
 
     override fun onClickListener(food: Food) {
-        newInstance(food.id, Constants.KEY_FOOD_ID)
-        parentFragmentManager.popBackStack()
-        transitionToWithBackStackReplace(FoodDetailFragment(), Constants.DETAILS_KITCHEN)
+
     }
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        setup()
+//        onClicks()
+//    }
+//
+//    fun setup() {
+//        listenToFragmentResult()
+//    }
+//
+//    fun onClicks() {
+//        binding.kitchenToolbar.setNavigationOnClickListener {
+//            onBack()
+//        }
+//    }
+//
+//    private fun listenToFragmentResult() {
+//        parentFragmentManager.setFragmentResultListener(
+//            KEY_CUISINE_NAME,
+//            this
+//        ) { _, result ->
+//            val cuisineName = result.getString(KEY_CUISINE_NAME)
+//            cuisineName?.let {
+//                bindData(repository.getRecipesByCuisine(it))
+//            }
+//        }
+//    }
+//
+//    private fun bindData(recipes: List<Food>) {
+//        binding.apply {
+//            kitchenToolbar.title = recipes.first().cuisine
+//            detailsImgPoster.loadImage(DataManager.getImageByCuisine(recipes.first().cuisine))
+//            detailsRecyclerView.adapter =
+//                DetailsKitchenAdapter(recipes, this@DetailsKitchenFragment)
+//        }
+//    }
+//
+//    override fun onClickListener(food: Food) {
+//        newInstance(food.id, Constants.KEY_FOOD_ID)
+//        parentFragmentManager.popBackStack()
+//        transitionToWithBackStackReplace(FoodDetailFragment(), Constants.DETAILS_KITCHEN)
+//    }
 }

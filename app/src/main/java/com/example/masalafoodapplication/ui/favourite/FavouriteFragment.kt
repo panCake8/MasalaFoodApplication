@@ -2,9 +2,11 @@ package com.example.masalafoodapplication.ui.favourite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.data.repo.Repository
 import com.example.masalafoodapplication.databinding.FragmentFavouriteBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.favourite.adapter.FavouriteAdapter
 import com.example.masalafoodapplication.ui.favourite.adapter.FavouriteListener
 
@@ -14,15 +16,19 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(), FavouriteLis
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFavouriteBinding
         get() = FragmentFavouriteBinding::inflate
 
-
-    override fun setup() {
-        adapter = FavouriteAdapter(DataManager.getAllFavouriteFood(), this)
-        binding.favRecycle.adapter = adapter
-    }
-
     override fun onClickHeart(position: Int) {
-        DataManager.deleteFavourite(position)
-        adapter.setData(DataManager.getAllFavouriteFood())
+
     }
+
+
+//    override fun setup() {
+//        adapter = FavouriteAdapter(DataManager.getAllFavouriteFood(), this)
+//        binding.favRecycle.adapter = adapter
+//    }
+//
+//    override fun onClickHeart(position: Int) {
+//        DataManager.deleteFavourite(position)
+//        adapter.setData(DataManager.getAllFavouriteFood())
+//    }
 
 }

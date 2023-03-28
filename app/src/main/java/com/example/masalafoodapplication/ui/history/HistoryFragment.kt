@@ -11,15 +11,5 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHistoryBinding
         get() = FragmentHistoryBinding::inflate
 
-
-    override fun setup() {
     }
 
-    override fun onClicks() {
-        binding.historyToolbar.setOnClickListener {
-            onBack()
-        }
-
-    }
-
-}

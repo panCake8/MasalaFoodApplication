@@ -1,13 +1,18 @@
 package com.example.masalafoodapplication.ui.home
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.App
+import com.example.masalafoodapplication.data.DatasourceProveider
+import com.example.masalafoodapplication.data.datasource.DataSourceImpl
 import com.example.masalafoodapplication.data.domain.enums.HomeItemType
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.models.HomeItem
+import com.example.masalafoodapplication.data.repo.RepositoryImpl
 import com.example.masalafoodapplication.databinding.FragmentHomeBinding
 import com.example.masalafoodapplication.ui.detailsKitchen.DetailsKitchenFragment
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -29,6 +34,7 @@ import com.example.masalafoodapplication.util.Constants.TAG_QUICK_RECIPES
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListener {
     private lateinit var homeItems: MutableList<HomeItem<Any>>
+    private val repository = RepositoryImpl((requireActivity().application as App).getDataSource())
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
 
@@ -37,19 +43,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
         bindHomeItems()
     }
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+    }
+
+    fun setup() {
         binding.recyclerHome.adapter = HomeAdapter(homeItems, this)
     }
 
 
     private fun bindHomeItems() {
         homeItems = mutableListOf()
-        homeItems.add(HomeItem(DataManager.getRandomFoodImage(), HomeItemType.BANNER))
-        homeItems.add(HomeItem(DataManager.getRandomQuickRecipes(20), HomeItemType.QUICK_RECIPES))
-        homeItems.add(HomeItem(DataManager.getCuisines(20), HomeItemType.CUISINES))
-        homeItems.add(HomeItem(DataManager.getRandomFoods(20), HomeItemType.JUST_FOR_YOU))
+        homeItems.add(HomeItem(repository.getRandomFoodImage(), HomeItemType.BANNER))
+        homeItems.add(HomeItem(repository.getRandomQuickRecipes(20), HomeItemType.QUICK_RECIPES))
+        homeItems.add(HomeItem(repository.getCuisines(20), HomeItemType.CUISINES))
+        homeItems.add(HomeItem(repository.getRandomFoods(20), HomeItemType.JUST_FOR_YOU))
         homeItems.add(
-            HomeItem(DataManager.getImageByCuisine(INDIAN), HomeItemType.INDIAN_FOOD_HISTORY)
+            HomeItem(repository.getImageByCuisine(INDIAN), HomeItemType.INDIAN_FOOD_HISTORY)
         )
 
 

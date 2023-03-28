@@ -13,51 +13,51 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFilterBinding
         get() = FragmentFilterBinding::inflate
-
-    override fun setup() {
-
-    }
-
-    override fun onClicks() {
-        binding.filterToolbar.setNavigationOnClickListener {
-            onBack()
-        }
-        binding.applyButton.setOnClickListener {
-            val selectedChips1: List<String> = getSelectedChips(binding.filterChipGroup1)
-            val selectedChips2: List<String> = getSelectedChips(binding.filterChipGroup2)
-            val sliderValue = binding.slider.value
-            newInstanceToExplore(
-                selectedChips1 as ArrayList<String>,
-                selectedChips2 as ArrayList<String>,
-                sliderValue,
-                Constants.FILTER
-            )
-            parentFragmentManager.popBackStack(Constants.EXPLORE, 0)
-            transitionToWithBackStackReplace(ExploreFragment(), Constants.FILTER)
-        }
-        binding.resetButton.setOnClickListener {
-            resetChips(binding.filterChipGroup1)
-            resetChips(binding.filterChipGroup2)
-            binding.slider.value = binding.slider.valueFrom
-        }
-    }
-
-    private fun getSelectedChips(chipGroup: ChipGroup): List<String> {
-        val selectedChips: MutableList<String> = mutableListOf()
-        for (i in 0 until chipGroup.childCount) {
-            val chip = chipGroup.getChildAt(i) as Chip
-            if (chip.isChecked) {
-                selectedChips.add(chip.text.toString())
-            }
-        }
-
-        return selectedChips
-    }
-
-    private fun resetChips(chipGroup: ChipGroup) {
-        for (i in 0 until chipGroup.childCount) {
-            val chip = chipGroup.getChildAt(i) as Chip
-            chip.isChecked = false
-        }
-    }
+//
+//    override fun setup() {
+//
+//    }
+//
+//    override fun onClicks() {
+//        binding.filterToolbar.setNavigationOnClickListener {
+//            onBack()
+//        }
+//        binding.applyButton.setOnClickListener {
+//            val selectedChips1: List<String> = getSelectedChips(binding.filterChipGroup1)
+//            val selectedChips2: List<String> = getSelectedChips(binding.filterChipGroup2)
+//            val sliderValue = binding.slider.value
+//            newInstanceToExplore(
+//                selectedChips1 as ArrayList<String>,
+//                selectedChips2 as ArrayList<String>,
+//                sliderValue,
+//                Constants.FILTER
+//            )
+//            parentFragmentManager.popBackStack(Constants.EXPLORE, 0)
+//            transitionToWithBackStackReplace(ExploreFragment(), Constants.FILTER)
+//        }
+//        binding.resetButton.setOnClickListener {
+//            resetChips(binding.filterChipGroup1)
+//            resetChips(binding.filterChipGroup2)
+//            binding.slider.value = binding.slider.valueFrom
+//        }
+//    }
+//
+//    private fun getSelectedChips(chipGroup: ChipGroup): List<String> {
+//        val selectedChips: MutableList<String> = mutableListOf()
+//        for (i in 0 until chipGroup.childCount) {
+//            val chip = chipGroup.getChildAt(i) as Chip
+//            if (chip.isChecked) {
+//                selectedChips.add(chip.text.toString())
+//            }
+//        }
+//
+//        return selectedChips
+//    }
+//
+//    private fun resetChips(chipGroup: ChipGroup) {
+//        for (i in 0 until chipGroup.childCount) {
+//            val chip = chipGroup.getChildAt(i) as Chip
+//            chip.isChecked = false
+//        }
+//    }
 }

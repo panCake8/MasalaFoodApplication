@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.quick_recipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentQuickRecipesBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -17,20 +16,24 @@ class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>(),
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentQuickRecipesBinding
         get() = FragmentQuickRecipesBinding::inflate
 
-
-    override fun setup() {
-        val adapter = QuickRecipesAdapter(DataManager.getRandomQuickRecipes(50), this)
-        binding.recyclerQuickRecipe.adapter = adapter
-    }
-
-    override fun onClicks() {
-        binding.quickRecipeToolbar.setOnClickListener {
-            onBack()
-        }
-    }
-
     override fun onClickRecipesCard(food: Food) {
-        newInstance(food.id, Constants.KEY_FOOD_ID)
-        transitionToWithBackStackReplace(FoodDetailFragment(), Constants.QUICK_RECIPES)
+
     }
+
+
+//    override fun setup() {
+//        val adapter = QuickRecipesAdapter(DataManager.getRandomQuickRecipes(50), this)
+//        binding.recyclerQuickRecipe.adapter = adapter
+//    }
+//
+//    override fun onClicks() {
+//        binding.quickRecipeToolbar.setOnClickListener {
+//            onBack()
+//        }
+//    }
+//
+//    override fun onClickRecipesCard(food: Food) {
+//        newInstance(food.id, Constants.KEY_FOOD_ID)
+//        transitionToWithBackStackReplace(FoodDetailFragment(), Constants.QUICK_RECIPES)
+//    }
 }
