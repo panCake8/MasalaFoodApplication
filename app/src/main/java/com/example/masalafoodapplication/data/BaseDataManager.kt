@@ -24,7 +24,9 @@ interface BaseDataManager {
 
     fun splitFoodsIntoThreeMeals(meal: String, recipes: List<String>): List<Food>
 
-    fun getAllQuickRecipes(): List<Food>
+    fun getAllRandomQuickRecipes(): List<Food>
+
+    fun getAllRandomRecipes(): List<Food>
 
     fun getFoodById(id: Int): Food
 

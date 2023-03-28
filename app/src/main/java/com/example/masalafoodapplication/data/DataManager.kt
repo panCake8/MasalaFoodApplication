@@ -88,7 +88,10 @@ object DataManager : BaseDataManager {
         }
     }
 
-    override fun getAllQuickRecipes() = foodsList.filter { it.timeMinutes < 30 }
+    override fun getAllRandomQuickRecipes() = foodsList.shuffled().filter { it.timeMinutes < 30 }
+
+    override fun getAllRandomRecipes()  = foodsList.shuffled()
+
 
     override fun getFoodById(id: Int) = foodsList.first { it.id == id }
 
