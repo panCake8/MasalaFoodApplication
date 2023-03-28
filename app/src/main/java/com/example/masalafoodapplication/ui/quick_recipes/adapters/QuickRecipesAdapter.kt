@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
-import com.example.masalafoodapplication.databinding.ItemFoodBinding
+import com.example.masalafoodapplication.databinding.ItemRecipeCardBinding
 import com.example.masalafoodapplication.util.loadImage
 
 class QuickRecipesAdapter(val list: List<Food>, val listener: QuickRecipesInteractionListener) :
     RecyclerView.Adapter<QuickRecipesAdapter.RecipesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_food, parent, false)
+            .inflate(R.layout.item_recipe_card, parent, false)
         return RecipesViewHolder(view)
 
     }
@@ -36,7 +36,7 @@ class QuickRecipesAdapter(val list: List<Food>, val listener: QuickRecipesIntera
     }
 
     class RecipesViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = ItemFoodBinding.bind(viewItem)
+        val binding = ItemRecipeCardBinding.bind(viewItem)
     }
 
 

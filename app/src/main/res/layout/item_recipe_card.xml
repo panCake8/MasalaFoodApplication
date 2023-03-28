@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:layout_marginBottom="@dimen/margin_medium"
+    android:layout_marginEnd="@dimen/margin_medium"
+    app:cardCornerRadius="@dimen/radius_medium"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recipe_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/img_description"
+            android:foreground="@drawable/bg_bottom_linear_transparent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/quick_recipes_image" />
+
+        <TextView
+            android:id="@+id/recipe_name"
+            style="@style/ItemText.Name.Food"
+            app:layout_constraintBottom_toTopOf="@+id/prepareTime"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="name" />
+
+        <ImageView
+            android:id="@+id/time_icon"
+            style="@style/ItemIcon"
+            android:contentDescription="@string/img_description"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/prepareTime" />
+
+        <TextView
+            android:id="@+id/prepareTime"
+            style="@style/ItemText.Time.Food"
+            app:layout_constraintBottom_toBottomOf="@id/time_icon"
+            app:layout_constraintLeft_toRightOf="@id/time_icon"
+            app:layout_constraintTop_toTopOf="@id/time_icon"
+            tools:text="15 m" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
