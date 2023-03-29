@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_large"
+    android:layout_marginHorizontal="@dimen/margin_large"
+    android:layout_marginBottom="@dimen/margin_medium"
+    android:backgroundTint="@color/background_color"
     app:cardCornerRadius="@dimen/radius_medium"
-    app:cardElevation="@dimen/elevation_small">
+    app:cardElevation="@dimen/no_elevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -31,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/dark_black"
@@ -46,19 +49,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.80" />
+            app:chainUseRtl="false"
+            app:layout_constraintGuide_percent="0.75" />
 
-        <ImageView
-            android:id="@+id/image_time_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:contentDescription="@string/favourite"
-            android:src="@drawable/ic_clock"
-            app:layout_constraintBottom_toBottomOf="@+id/text_prepareTime"
-            app:layout_constraintStart_toEndOf="@id/image_meal"
-            app:layout_constraintTop_toTopOf="@+id/text_prepareTime"
-            app:tint="@color/black" />
 
         <TextView
             android:id="@+id/text_prepareTime"
@@ -66,11 +59,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:textColor="@color/medium_black"
             android:textSize="@dimen/text_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/favourite_icon"
-            app:layout_constraintStart_toEndOf="@+id/image_time_icon"
+            app:layout_constraintStart_toEndOf="@+id/image_meal"
             app:layout_constraintTop_toBottomOf="@+id/text_recipeName"
             app:layout_constraintVertical_bias="0.0"
             tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />

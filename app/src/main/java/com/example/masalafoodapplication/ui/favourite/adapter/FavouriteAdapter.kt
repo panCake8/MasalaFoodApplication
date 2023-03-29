@@ -22,12 +22,16 @@ class FavouriteAdapter(var list: List<Food>, val listener: FavouriteListener) :
         holder.binding.apply {
             imageMeal.loadImage(currentFood.imageUrl)
             textRecipeName.text = currentFood.recipeName
-            textPrepareTime.text = currentFood.timeMinutes.toString()
+            textPrepareTime.text = currentFood.ingredient.toString()
             favouriteIcon.setOnClickListener {
                 listener.onClickHeart(position)
             }
+            root.setOnClickListener {
+                listener.onClickItem(currentFood)
+            }
         }
     }
+
     override fun getItemCount() = list.size
 
     fun setData(newList: List<Food>) {
