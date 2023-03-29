@@ -11,22 +11,10 @@
         android:layout_width="@dimen/no_width"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/padding_medium"
-        android:text="@string/just_for_you"
-        app:layout_constraintEnd_toStartOf="@id/button_see_more"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Just For You" />
-
-    <ImageView
-        android:id="@+id/button_see_more"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:contentDescription="@string/img_description"
-        android:src="@drawable/ic_more"
-        app:layout_constraintBottom_toBottomOf="@id/text_section"
+        android:text="@string/step_by_step"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/text_section" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_recipes"

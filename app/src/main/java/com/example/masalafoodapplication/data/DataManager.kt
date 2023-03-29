@@ -26,7 +26,7 @@ interface DataManager : Serializable {
 
     fun getFoodById(id: Int): Food
 
-    fun getRecipesByCuisine(cuisine: String): List<Food>
+    fun getRecipesByCuisine(cuisine: String, limit: Int): List<Food>
 
     fun filterData(kitchens: List<String>?, ingredient: List<String>?, time: Float): List<Food>
 
@@ -41,4 +41,10 @@ interface DataManager : Serializable {
     fun deleteFavourite(food: Food)
 
     fun getIngredients(limit: Int): List<String>
+
+    fun getVegetarianRecipes(limit: Int): List<Food>
+
+    fun getMostRichCuisines(limit: Int): List<Cuisine>
+
+    fun getMostStepsRecipes(limit: Int): List<Food>
 }

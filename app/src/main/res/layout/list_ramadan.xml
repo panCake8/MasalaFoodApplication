@@ -11,13 +11,14 @@
         android:layout_width="@dimen/no_width"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/padding_medium"
-        android:text="@string/popular_cuisines"
+        android:text="@string/ramadan_2023"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Just For You" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_cuisines"
+        android:id="@+id/recycler_recipes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"

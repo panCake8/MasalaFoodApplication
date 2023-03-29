@@ -84,8 +84,8 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
 
     override fun getFoodById(id: Int) = recipesData.first { it.id == id }
 
-    override fun getRecipesByCuisine(cuisine: String): List<Food> {
-        return recipesData.filter { it.cuisine == cuisine }
+    override fun getRecipesByCuisine(cuisine: String, limit: Int): List<Food> {
+        return recipesData.filter { it.cuisine == cuisine }.take(limit)
     }
 
     override fun filterData(
@@ -117,4 +117,24 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
         favouriteFoodList.remove(food)
     }
 
+    override fun getMostRichCuisines(limit: Int): List<Cuisine> {
+        return recipesData
+            .groupBy { it.cuisine }
+            .map { Cuisine(it.key, getImageByCuisine(it.key), it.value.size) }
+            .sortedByDescending { it.recipesCount }
+            .take(limit)
+    }
+
+    override fun getVegetarianRecipes(limit: Int): List<Food> {
+        val notAllowedIngredients = listOf("egg", "meat", "fish", "chicken", "beef", "pork", "lamb")
+        return recipesData.shuffled().take(500).filter { food ->
+            food.ingredient.none { ingredient ->
+                notAllowedIngredients.any { ingredient.lowercase().contains(it) }
+            }
+        }
+    }
+
+    override fun getMostStepsRecipes(limit: Int): List<Food> {
+        return recipesData.shuffled().take(500).sortedByDescending { it.steps.size }.take(limit)
+    }
 }

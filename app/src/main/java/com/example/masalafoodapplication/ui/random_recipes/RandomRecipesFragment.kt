@@ -24,7 +24,7 @@ class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>(),
     }
 
     override fun onClicks() {
-        binding.recipesMenuToolbar.setOnClickListener {
+        binding.recipesMenuToolbar.setNavigationOnClickListener {
             onBack()
         }
     }
