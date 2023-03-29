@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
@@ -11,7 +12,10 @@ import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
 import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
+import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
+import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
+import com.example.masalafoodapplication.ui.steps.StepsFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.CsvParser
@@ -42,12 +46,12 @@ class BaseActivity : AppCompatActivity() {
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    setFragment(HomeFragment(), SetFragmentType.REPLACE, "Home")
+                    setFragment(HomeFragment(), "Home")
                     true
                 }
 
                 R.id.nav_explore -> {
-                    setFragment(ExploreFragment(), SetFragmentType.REPLACE, "Explore")
+                    setFragment(ExploreFragment(), "Explore")
                     true
                 }
 
@@ -57,7 +61,7 @@ class BaseActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_favourite -> {
-                    setFragment(FavouriteFragment(), SetFragmentType.REPLACE, "Fav")
+                    setFragment(FavouriteFragment(), "Fav")
                     true
                 }
 
@@ -80,20 +84,16 @@ class BaseActivity : AppCompatActivity() {
 
 
     private fun initSubViews() {
-        setFragment(HomeFragment(), SetFragmentType.ADD, "Home")
+        setFragment(HomeFragment(), "Home")
     }
 
-    private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType, tag: String) {
-        when (setFragmentType) {
-            SetFragmentType.ADD -> addFragment(fragment)
-            SetFragmentType.REPLACE -> replaceFragment(fragment, tag)
-        }
-    }
-
-    private fun addFragment(fragment: Fragment) {
-        supportFragmentManager.commit {
-            add(binding.fragmentContainer.id, fragment)
-        }
+    private fun setFragment(fragment: Fragment, tag: String) {
+        val currentFragment = supportFragmentManager.findFragmentById(binding.fragmentContainer.id)
+        if (currentFragment == null || currentFragment.javaClass != fragment.javaClass)
+            supportFragmentManager.beginTransaction()
+                .replace(binding.fragmentContainer.id, fragment, tag)
+                .addToBackStack(null)
+                .commit()
     }
 
     private fun replaceFragment(fragment: Fragment, tag: String) {
@@ -103,17 +103,45 @@ class BaseActivity : AppCompatActivity() {
         }
     }
 
+
+
+    private fun clearBackStack() {
+        supportFragmentManager.popBackStack(null, POP_BACK_STACK_INCLUSIVE)
+    }
+
     override fun onBackPressed() {
-        val count = supportFragmentManager.backStackEntryCount
-        if (count == 0) {
-            super.onBackPressed()
-        } else if (count > 0) {
-            supportFragmentManager.popBackStack(
-                Constants.TAG_FOOD_DETAILS,
-                POP_BACK_STACK_INCLUSIVE
-            )
-        } else {
-            supportFragmentManager.popBackStackImmediate()
+        val currentFragment = supportFragmentManager.findFragmentById(binding.fragmentContainer.id)
+        val topFragment = supportFragmentManager.fragments.lastOrNull()
+
+        when (currentFragment) {
+            is HomeFragment -> finish()
+            is ExploreFragment, is SuggestionFilterFragment, is FavouriteFragment -> {
+                initSubViews()
+                clearBackStack()
+                binding.navBar.selectedItemId = R.id.nav_home
+            }
+            is FoodDetailFragment, is StepsFragment, is IngredientFragment -> {
+                supportFragmentManager.popBackStack()
+                if (topFragment is ExploreFragment) {
+                    // Change the selected item on the navigation bar to the home icon
+                    initSubViews()
+                    binding.navBar.selectedItemId = R.id.nav_home
+                }
+            }
+            else -> {
+                supportFragmentManager.popBackStackImmediate()
+                val tag = currentFragment?.tag
+                binding.navBar.selectedItemId = getSelectedItemId(tag)
+            }
+        }
+    }
+    private fun getSelectedItemId(tag: String?): Int {
+        return when (tag) {
+            "Home" -> R.id.nav_home
+            "Explore" -> R.id.nav_explore
+            "MakeMeal" -> R.id.nav_make_meal
+            "Fav" -> R.id.nav_favourite
+            else -> R.id.nav_home
         }
     }
 
