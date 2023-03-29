@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/radius_medium"
+    android:layout_marginBottom="@dimen/margin_medium"
+    android:layout_marginHorizontal="@dimen/margin_medium">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/food_poster_height"
+        android:layout_height="@dimen/card_item_food_height">
+
+        <ImageView
+            android:id="@+id/image_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:foreground="@color/foreground_img_color"
+            tools:src="@drawable/quick_recipes_image" />
+
+        <TextView
+            android:id="@+id/text_recipe_name"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/dark_white"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_tiny"
+            app:layout_constraintBottom_toTopOf="@+id/text_prepare_time"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/text_prepare_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_clock"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/medium_white"
+            android:drawablePadding="@dimen/margin_tiny"
+            android:layout_marginBottom="@dimen/margin_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_recipe_name"
+            tools:text="15m" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
