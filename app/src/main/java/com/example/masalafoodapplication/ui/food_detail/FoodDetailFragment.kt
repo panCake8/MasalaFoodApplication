@@ -3,6 +3,7 @@ package com.example.masalafoodapplication.ui.food_detail
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.R
+import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -77,7 +78,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     private fun bindData(recipe: Food) {
-        if (DataManager.isFavorite(recipe)) {
+        if (dataManager.isFavorite(recipe)) {
             binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
         }
         binding.textDishname.text = recipe.recipeName

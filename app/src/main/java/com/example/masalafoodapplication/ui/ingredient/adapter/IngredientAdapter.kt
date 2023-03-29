@@ -8,7 +8,6 @@ import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.enums.FoodDetaisType
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
-import com.example.masalafoodapplication.data.domain.models.HomeItem
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.databinding.ItemImageIngredientBinding
 import com.example.masalafoodapplication.databinding.ItemStepIngredientBinding
@@ -43,8 +42,6 @@ class IngredientAdapter(
             }
             else -> throw Exception(Constants.UNKNOWN_HOME_ITEM_TYPE)
         }
-
-
     }
      override fun getItemCount():Int=foodDetailsItem.size
     override fun getItemViewType(position: Int): Int {
@@ -72,7 +69,7 @@ class IngredientAdapter(
         val binding = ListStepIngredientBinding.bind(viewItem)
       override  fun bind(foodDetailsItem: FoodDetailsItem<Any>) {
           binding.apply {
-              recyclerCheckboxIngredientTest.adapter= IngredientListAdapter(foodDetailsItem.data as Food )
+              recyclerListIngredientStep.adapter= IngredientListAdapter(foodDetailsItem.data as Food )
           }
         }
     }
