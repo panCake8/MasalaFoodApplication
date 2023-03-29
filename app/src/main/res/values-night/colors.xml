@@ -43,4 +43,5 @@
     <color name="light_white">#61121212</color>
     <color name="stroke_search_color">#29FAFAFA</color>
     <color name="text_chips_color">#fafafa</color>
+    <color name="medium_white_light">#99FFFFFF</color>
 </resources>

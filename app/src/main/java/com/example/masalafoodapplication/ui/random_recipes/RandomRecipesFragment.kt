@@ -20,7 +20,7 @@ class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>(),
 
 
     override fun setup() {
-        val adapter = RandomRecipesAdapter(DataManager.getRandomFoods(50), this)
+        val adapter = RandomRecipesAdapter(DataManager.getAllRandomRecipes(), this)
         binding.recyclerRandomRecipes.adapter = adapter
     }
 
