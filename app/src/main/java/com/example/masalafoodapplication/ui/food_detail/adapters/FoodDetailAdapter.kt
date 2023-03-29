@@ -1,7 +1,6 @@
 package com.example.masalafoodapplication.ui.food_detail.adapters
 
 
-
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.ItemFoodDetailBinding
 
-class FoodDetailAdapter(val list: List<String>):
+class FoodDetailAdapter(val list: List<String>) :
     RecyclerView.Adapter<FoodDetailAdapter.FoodDetailViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodDetailViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food_detail, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_food_detail, parent, false)
         return FoodDetailViewHolder(view)
     }
 
@@ -29,7 +29,7 @@ class FoodDetailAdapter(val list: List<String>):
 
     override fun getItemCount() = list.size
 
-    class FoodDetailViewHolder(viewItem: View): RecyclerView.ViewHolder(viewItem) {
+    class FoodDetailViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemFoodDetailBinding.bind(viewItem)
     }
 }

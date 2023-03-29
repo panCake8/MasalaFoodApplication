@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ItemStepIngredientBinding
+
 class StepsAdapter(foods: Food) : RecyclerView.Adapter<StepsAdapter.StepsViewHolder>() {
     private val steps = foods.steps
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StepsViewHolder {
@@ -22,7 +23,6 @@ class StepsAdapter(foods: Food) : RecyclerView.Adapter<StepsAdapter.StepsViewHol
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: StepsViewHolder, position: Int) {
         holder.apply {
-            binding.checkBox.text = "${position + 1}- ${steps[position]}"
             binding.checkBox.text = "${position + 1}- ${steps[position]}"
         }
     }

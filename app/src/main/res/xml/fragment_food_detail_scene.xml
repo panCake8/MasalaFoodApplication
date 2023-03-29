@@ -14,8 +14,7 @@
             motion:touchAnchorId="@id/bottomSheet"
             />
 
-        <KeyFrameSet>
-        </KeyFrameSet>
+        <KeyFrameSet></KeyFrameSet>
     </Transition>
 
     <ConstraintSet android:id="@+id/start">

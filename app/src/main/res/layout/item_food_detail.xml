@@ -27,11 +27,11 @@
 
         <TextView
             android:id="@+id/step_ingredient_textview"
-            style="@style/Text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_large"
+            android:textColor="@color/black"
             android:layout_marginStart="@dimen/margin_small"
             android:text="@string/app_name"
             app:layout_constraintBottom_toBottomOf="parent"
