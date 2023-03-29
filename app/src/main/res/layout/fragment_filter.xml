@@ -39,14 +39,12 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/kashmiri_chip"
             style="@style/Chips_filter"
-            android:checked="true"
             android:text="@string/kashmir"
              />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/moroc_chip"
             style="@style/Chips_filter"
-            android:checked="true"
             android:text="@string/moroc"
              />
 
@@ -128,12 +126,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_large"
         android:stepSize="10.0"
         android:valueFrom="0.0"
         android:valueTo="100.0"
         app:haloColor="@color/selected_chip_color"
         app:labelStyle="@style/Widget.App.Tooltip"
+        android:contentDescription="Enter Recipe Time You Want"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -155,6 +153,7 @@
         style="@style/Button.SecondaryButton"
         android:layout_marginTop="@dimen/margin_medium"
         android:text="@string/reset"
+        android:textColor="@color/primary_button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_apply" />
