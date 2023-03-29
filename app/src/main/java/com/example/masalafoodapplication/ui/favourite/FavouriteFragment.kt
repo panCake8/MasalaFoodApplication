@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.favourite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentFavouriteBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.favourite.adapter.FavouriteAdapter
