@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.ingredient
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants

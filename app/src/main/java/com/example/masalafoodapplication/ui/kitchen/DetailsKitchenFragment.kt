@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.kitchen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
