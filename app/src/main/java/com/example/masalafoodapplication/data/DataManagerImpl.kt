@@ -76,7 +76,7 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
         return if (meal == SuggestionsFragment.BREAKFAST || meal == SuggestionsFragment.DINNER) {
             searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes < 30 }
         } else {
-            searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes > 30 }
+            searchFoodsAccordingSuggestions(recipes).filter { it.timeMinutes >= 30 }
         }
     }
 

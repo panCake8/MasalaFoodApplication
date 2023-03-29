@@ -1,6 +1,7 @@
 package com.example.masalafoodapplication.ui.suggestionFilter
 
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -37,7 +38,7 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
                 Toast.makeText(context, getString(R.string.select_ingredients), Toast.LENGTH_SHORT)
                     .show()
             } else {
-                newInstanceToSuggestion(selectedIngredient, Constants.SUGGESTION_FILTER)
+                newInstanceToSuggestion(selectedIngredient.toString(), Constants.SUGGESTION_FILTER)
                 transitionToWithBackStackReplace(SuggestionsFragment(), TAG_SUGGESTIONS)
                 selectedIngredient.clear()
             }
