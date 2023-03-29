@@ -60,25 +60,17 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
     }
 
 
-    fun getIngredients(limit: Int): List<String> {
-        val ingredientToFilter = mutableListOf<String>()
-        recipesData.forEach { food ->
-            food.ingredient
-                .forEach {
-                    if (!ingredientToFilter.contains(it))
-                        ingredientToFilter.add(it)
-                }
-        }
-        return ingredientToFilter.take(limit)
+    override fun getIngredients(limit: Int): List<String> {
+        return recipesData
+            .flatMap { it.ingredient }
+            .distinct()
+            .shuffled()
+            .take(limit)
     }
 
 
     private fun searchFoodsAccordingSuggestions(recipes: List<String>) =
-        recipesData
-            .filter {
-                it.ingredient
-                    .containsAll(recipes)
-            }
+        recipesData.filter { it.ingredient.containsAll(recipes) }
 
     override fun splitFoodsIntoThreeMeals(meal: String, recipes: List<String>): List<Food> {
         return if (meal == SuggestionsFragment.BREAKFAST || meal == SuggestionsFragment.DINNER) {

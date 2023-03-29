@@ -39,4 +39,6 @@ interface DataManager : Serializable {
     fun deleteFavourite(index: Int)
 
     fun deleteFavourite(food: Food)
+
+    fun getIngredients(limit: Int): List<String>
 }
