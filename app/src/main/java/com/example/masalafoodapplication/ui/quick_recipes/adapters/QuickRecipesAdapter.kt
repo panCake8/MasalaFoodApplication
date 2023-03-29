@@ -25,8 +25,8 @@ class QuickRecipesAdapter(val list: List<Food>, val listener: QuickRecipesIntera
     override fun onBindViewHolder(holder: RecipesViewHolder, position: Int) {
         val currentRecipe = list[position]
         holder.binding.apply {
-            recipeName.text = currentRecipe.recipeName
-            prepareTime.text = currentRecipe.timeMinutes.toString() + "m"
+            textRecipeName.text = currentRecipe.recipeName
+            textPreparationTime.text = currentRecipe.timeMinutes.toString() + "m"
             imageRecipe.loadImage(currentRecipe.imageUrl)
             root.setOnClickListener {
                 listener.onClickRecipesCard(currentRecipe)
