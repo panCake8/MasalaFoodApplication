@@ -3,7 +3,6 @@ package com.example.masalafoodapplication.ui.home
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentHomeBinding
@@ -40,11 +39,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
 
     private fun bindHomeItems() {
         homeItems = mutableListOf()
-        homeItems.add(HomeItem.Banner(DataManager.getRandomFoodImage()))
-        homeItems.add(HomeItem.QuickRecipes(DataManager.getRandomQuickRecipes(20)))
-        homeItems.add(HomeItem.Cuisines(DataManager.getCuisines(20)))
-        homeItems.add(HomeItem.JustForYou(DataManager.getRandomFoods(20)))
-        homeItems.add(HomeItem.FoodHistory(DataManager.getImageByCuisine(INDIAN)))
+        homeItems.add(HomeItem.Banner(dataManager.getRandomFoodImage()))
+        homeItems.add(HomeItem.QuickRecipes(dataManager.getRandomQuickRecipes(20)))
+        homeItems.add(HomeItem.Cuisines(dataManager.getCuisines(20)))
+        homeItems.add(HomeItem.JustForYou(dataManager.getRandomFoods(20)))
+        homeItems.add(HomeItem.FoodHistory(dataManager.getImageByCuisine(INDIAN)))
     }
 
     override fun onBannerClicked() {}
