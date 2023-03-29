@@ -17,7 +17,7 @@
             android:id="@+id/image_recipe"
             style="@style/ImageRecItem.Food"
             android:contentDescription="@string/img_description"
-            android:foreground="@color/foreground_img_color"
+            android:foreground="@drawable/bg_bottom_linear_transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:scaleType="centerCrop"
