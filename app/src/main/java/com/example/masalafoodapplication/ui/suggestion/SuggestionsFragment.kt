@@ -1,5 +1,6 @@
 package com.example.masalafoodapplication.ui.suggestion
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.R
@@ -61,7 +62,10 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
             Constants.SUGGESTION_FILTER,
             this
         ) { _, result ->
-            data = result.getStringArrayList(Constants.SUGGESTION_FILTER)
+            val ingredientAsString = result.getString(Constants.SUGGESTION_FILTER)
+            if (ingredientAsString != null) {
+                data = ingredientAsString.subSequence(1,ingredientAsString.length-1).split(", ")
+            }
             adapter = data?.let { bind(it) }?.let { SuggestionsAdapter(it, this) }!!
             binding.recyclerSuggestion.adapter = adapter
         }
