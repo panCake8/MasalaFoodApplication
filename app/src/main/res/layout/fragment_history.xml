@@ -11,8 +11,8 @@
         android:id="@+id/background_image"
         android:layout_width="match_parent"
         android:layout_height="480dp"
-        android:scaleType="fitXY"
         android:foreground="@drawable/gradient_top_of_image"
+        android:scaleType="fitXY"
         android:src="@drawable/indian_food"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.40" />
+
     <LinearLayout
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
