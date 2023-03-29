@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/radius_medium"
     android:layout_marginBottom="@dimen/margin_medium"
-    android:layout_marginHorizontal="@dimen/margin_medium">
+    android:layout_marginHorizontal="@dimen/margin_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="@dimen/food_poster_height"
