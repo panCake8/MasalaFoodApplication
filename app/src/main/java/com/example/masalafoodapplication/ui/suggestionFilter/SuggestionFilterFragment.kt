@@ -26,14 +26,12 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
     private var selectedIngredient = ArrayList<String>()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionFilterBinding
         get() = FragmentSuggestionFilterBinding::inflate
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setup()
         onClicks()
     }
-
-    fun setup() {
+     fun setup() {
         val adapter =
             SuggestionFilterAdapter(dataManager.getIngredients(30) as MutableList<String>, this)
         binding.recyclerIngredient.adapter = adapter
@@ -41,13 +39,13 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
             .apply { flexDirection = FlexDirection.ROW }
     }
 
-    fun onClicks() {
+     fun onClicks() {
         binding.buttonNext.setOnClickListener {
             if (selectedIngredient.isEmpty()) {
                 Toast.makeText(context, getString(R.string.select_ingredients), Toast.LENGTH_SHORT)
                     .show()
             } else {
-                newInstanceToSuggestion(selectedIngredient, Constants.SUGGESTION_FILTER)
+                newInstanceToSuggestion(selectedIngredient.toString(), Constants.SUGGESTION_FILTER)
                 transitionToWithBackStackReplace(SuggestionsFragment(), TAG_SUGGESTIONS)
                 selectedIngredient.clear()
             }

@@ -20,14 +20,12 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
     private lateinit var adapter: SuggestionsAdapter
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionsBinding
         get() = FragmentSuggestionsBinding::inflate
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setup()
         onClicks()
     }
-
-    fun setup() {
+     fun setup() {
         listenToFragmentResult()
     }
 
@@ -71,7 +69,10 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
             Constants.SUGGESTION_FILTER,
             this
         ) { _, result ->
-            data = result.getStringArrayList(Constants.SUGGESTION_FILTER)
+            val ingredientAsString = result.getString(Constants.SUGGESTION_FILTER)
+            if (ingredientAsString != null) {
+                data = ingredientAsString.subSequence(1,ingredientAsString.length-1).split(", ")
+            }
             adapter = data?.let { bind(it) }?.let { SuggestionsAdapter(it, this) }!!
             binding.recyclerSuggestion.adapter = adapter
         }
