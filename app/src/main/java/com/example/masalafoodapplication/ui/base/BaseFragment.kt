@@ -13,14 +13,14 @@ import com.example.masalafoodapplication.util.Constants
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     private var _binding: VB? = null
-    lateinit var DataManager: DataManager
+    lateinit var dataManager: DataManager
 
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
     val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-      DataManager=(activity as HomeActivity).DataManager
+        dataManager = (activity as HomeActivity).getDataManager()
     }
 
     override fun onCreateView(

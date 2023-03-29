@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.data.domain.enums
+package com.example.masalafoodapplication.ui.home
 
 enum class HomeItemType {
     BANNER,

@@ -18,7 +18,7 @@ class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>(),
 
 
     override fun setup() {
-        val adapter = QuickRecipesAdapter(DataManager.getAllRandomQuickRecipes(), this)
+        val adapter = QuickRecipesAdapter(dataManager.getAllQuickRecipes(), this)
         binding.recyclerQuickRecipe.adapter = adapter
     }
 
