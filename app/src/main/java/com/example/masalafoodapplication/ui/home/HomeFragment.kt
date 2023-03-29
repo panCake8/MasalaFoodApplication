@@ -2,7 +2,11 @@ package com.example.masalafoodapplication.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentHomeBinding
@@ -32,7 +36,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
         bindHomeItems()
     }
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+    }
+
+    fun setup() {
         binding.recyclerHome.adapter = HomeAdapter(homeItems, this)
     }
 
@@ -76,4 +85,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
         }
     }
 
+    private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+        }
+    }
+
+    private fun newInstance(string: String, key: String) {
+        val bundle = Bundle()
+        bundle.putString(key, string)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
+    private fun newInstance(int: Int, key: String) {
+        val bundle = Bundle()
+        bundle.putInt(key, int)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
 }

@@ -1,9 +1,12 @@
 package com.example.masalafoodapplication.ui.explore
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.airbnb.lottie.LottieDrawable
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
@@ -22,7 +25,13 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentExploreBinding
         get() = FragmentExploreBinding::inflate
     private lateinit var adapter: ExploreAdapter
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         adapter = ExploreAdapter(emptyList(), this)
         binding.recyclerSearchResult.adapter = adapter
         listenToFragmentResult()
@@ -47,7 +56,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
         }
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.searchBar.addTextChangedListener {
             if (it.toString().isEmpty())
                 showAnimation(AnimationType.SEARCH)
@@ -109,6 +118,20 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
     override fun onClickItem(food: Food) {
         newInstance(food.id, Constants.KEY_FOOD_ID)
         transitionToWithBackStackReplace(FoodDetailFragment(), Constants.EXPLORE)
+    }
+
+    private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+        }
+    }
+
+    private fun newInstance(int: Int, key: String) {
+        val bundle = Bundle()
+        bundle.putInt(key, int)
+        parentFragmentManager.setFragmentResult(key, bundle)
     }
 }
 

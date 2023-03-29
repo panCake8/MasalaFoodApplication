@@ -1,9 +1,13 @@
 package com.example.masalafoodapplication.ui.suggestionFilter
 
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentSuggestionFilterBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -23,7 +27,13 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionFilterBinding
         get() = FragmentSuggestionFilterBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         val adapter =
             SuggestionFilterAdapter(dataManager.getIngredients(30) as MutableList<String>, this)
         binding.recyclerIngredient.adapter = adapter
@@ -31,7 +41,7 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
             .apply { flexDirection = FlexDirection.ROW }
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.buttonNext.setOnClickListener {
             if (selectedIngredient.isEmpty()) {
                 Toast.makeText(context, getString(R.string.select_ingredients), Toast.LENGTH_SHORT)
@@ -50,6 +60,20 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
             selectedIngredient.add(chip)
         else
             selectedIngredient.remove(chip)
+    }
+
+    private fun newInstanceToSuggestion(list: ArrayList<String>, key: String) {
+        val bundle = Bundle()
+        bundle.putStringArrayList(Constants.SUGGESTION_FILTER, list)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
+    private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+        }
     }
 
 }

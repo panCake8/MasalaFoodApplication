@@ -1,9 +1,12 @@
 package com.example.masalafoodapplication.ui.favourite
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.airbnb.lottie.LottieDrawable
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
@@ -20,8 +23,12 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(), FavouriteLis
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFavouriteBinding
         get() = FragmentFavouriteBinding::inflate
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+    }
 
-    override fun setup() {
+    fun setup() {
         val favouritesFood = dataManager.getAllFavouriteFood()
         if (favouritesFood.isEmpty()) {
             setupAnimation()
@@ -57,4 +64,17 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(), FavouriteLis
         }
     }
 
+    private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+        }
+    }
+
+    private fun newInstance(int: Int, key: String) {
+        val bundle = Bundle()
+        bundle.putInt(key, int)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
 }

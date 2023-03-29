@@ -1,7 +1,11 @@
 package com.example.masalafoodapplication.ui.suggestion
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
@@ -17,11 +21,17 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionsBinding
         get() = FragmentSuggestionsBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         listenToFragmentResult()
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.toolbarSuggestion.setNavigationOnClickListener {
             onBack()
         }
@@ -73,4 +83,21 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         const val DINNER = "Dinner"
     }
 
+    private fun onBack() {
+        requireActivity().onBackPressed()
+    }
+
+    private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+        }
+    }
+
+    private fun newInstance(int: Int, key: String) {
+        val bundle = Bundle()
+        bundle.putInt(key, int)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
 }

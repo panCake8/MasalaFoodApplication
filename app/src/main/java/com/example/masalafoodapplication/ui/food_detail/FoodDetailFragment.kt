@@ -1,8 +1,12 @@
 package com.example.masalafoodapplication.ui.food_detail
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
@@ -20,12 +24,18 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodDetailBinding
         get() = FragmentFoodDetailBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         listenToFragmentResult()
         food?.let { bindData(it) }
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.toolbar.setNavigationOnClickListener {
             onBack()
         }
@@ -95,5 +105,23 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         binding.recyclerStepsIngredientsItems.adapter = adapter
         binding.imageBackground.loadImage(recipe.imageUrl)
         chooseChips(recipe)
+    }
+
+    private fun onBack() {
+        requireActivity().onBackPressed()
+    }
+
+    private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+        }
+    }
+
+    private fun newInstance(int: Int, key: String) {
+        val bundle = Bundle()
+        bundle.putInt(key, int)
+        parentFragmentManager.setFragmentResult(key, bundle)
     }
 }
