@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
 interface BaseInteractionListener
-abstract class BaseAdapter2<T, VB : ViewBinding>(
+abstract class BaseAdapter<T, VB : ViewBinding>(
     private var items: List<T>
-) : RecyclerView.Adapter<BaseAdapter2.ItemViewHolder<VB>>() {
+) : RecyclerView.Adapter<BaseAdapter.ItemViewHolder<VB>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder<VB> {
         val inflater = LayoutInflater.from(parent.context)

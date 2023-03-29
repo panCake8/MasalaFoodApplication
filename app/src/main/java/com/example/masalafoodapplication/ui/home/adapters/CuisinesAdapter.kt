@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.databinding.ItemCuisineBinding
-import com.example.masalafoodapplication.ui.base.BaseAdapter2
+import com.example.masalafoodapplication.ui.base.BaseAdapter
 import com.example.masalafoodapplication.ui.home.HomeInteractionListener
 import com.example.masalafoodapplication.util.loadImage
 
 class CuisinesAdapter(
     items: List<Cuisine>,
     private val listener: HomeInteractionListener
-) : BaseAdapter2<Cuisine, ItemCuisineBinding>(items) {
+) : BaseAdapter<Cuisine, ItemCuisineBinding>(items) {
 
     override fun createBinding(
         inflater: LayoutInflater,

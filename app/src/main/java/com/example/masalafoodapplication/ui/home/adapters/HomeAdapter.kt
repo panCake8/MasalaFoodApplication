@@ -10,7 +10,7 @@ import com.example.masalafoodapplication.databinding.ListQuickRecipesBinding
 import com.example.masalafoodapplication.databinding.ListRamadanBinding
 import com.example.masalafoodapplication.databinding.ListStepByStepRecipesBinding
 import com.example.masalafoodapplication.databinding.ListVegetarianRecipesBinding
-import com.example.masalafoodapplication.ui.base.BaseAdapter2
+import com.example.masalafoodapplication.ui.base.BaseAdapter
 import com.example.masalafoodapplication.ui.home.HomeInteractionListener
 import com.example.masalafoodapplication.ui.home.HomeItem
 import com.example.masalafoodapplication.util.Constants.UNKNOWN_HOME_ITEM_TYPE
@@ -19,7 +19,7 @@ import com.example.masalafoodapplication.util.loadImage
 class HomeAdapter(
     private var items: List<HomeItem>,
     private val listener: HomeInteractionListener,
-) : BaseAdapter2<HomeItem, ViewBinding>(items) {
+) : BaseAdapter<HomeItem, ViewBinding>(items) {
 
     override fun createBinding(
         inflater: LayoutInflater,

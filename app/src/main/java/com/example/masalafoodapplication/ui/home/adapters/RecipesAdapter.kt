@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ItemFoodBinding
-import com.example.masalafoodapplication.ui.base.BaseAdapter2
+import com.example.masalafoodapplication.ui.base.BaseAdapter
 import com.example.masalafoodapplication.ui.home.HomeInteractionListener
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.util.setTime
@@ -12,7 +12,7 @@ import com.example.masalafoodapplication.util.setTime
 class RecipesAdapter(
     items: List<Food>,
     private val listener: HomeInteractionListener,
-) : BaseAdapter2<Food, ItemFoodBinding>(items) {
+) : BaseAdapter<Food, ItemFoodBinding>(items) {
     override fun createBinding(
         inflater: LayoutInflater,
         parent: ViewGroup,
