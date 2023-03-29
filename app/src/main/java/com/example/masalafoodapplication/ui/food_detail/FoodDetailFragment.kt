@@ -77,6 +77,9 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     private fun bindData(recipe: Food) {
+        if (DataManager.isFavorite(recipe)) {
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
+        }
         binding.textDishname.text = recipe.recipeName
         binding.chipsList.check(R.id.ingredients)
         val adapter = FoodDetailAdapter(recipe.ingredientQuantities)
