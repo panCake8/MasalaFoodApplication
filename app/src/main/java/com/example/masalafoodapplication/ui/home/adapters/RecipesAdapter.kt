@@ -23,8 +23,8 @@ class RecipesAdapter(
 
     override fun bind(binding: ItemFoodBinding, item: Food) {
         binding.apply {
-            recipeName.text = item.recipeName
-            prepareTime.text = item.timeMinutes.setTime()
+            textRecipeName.text = item.recipeName
+            textPreparationTime.text = item.timeMinutes.setTime()
             imageRecipe.loadImage(item.imageUrl)
             root.setOnClickListener { listener.onRecipeClicked(item) }
         }

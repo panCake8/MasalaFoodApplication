@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:foreground="@color/foreground_img_color"
+            android:foreground="@drawable/bg_bottom_linear_transparent"
             tools:src="@drawable/quick_recipes_image" />
 
         <TextView

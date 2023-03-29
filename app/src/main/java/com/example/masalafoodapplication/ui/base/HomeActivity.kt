@@ -76,7 +76,7 @@ class HomeActivity : AppCompatActivity() {
 
 
     private fun initSubViews() {
-        setFragment(HomeFragment(), SetFragmentType.REPLACE, "Home")
+        setFragment(HomeFragment(), SetFragmentType.REPLACE, TAG_HOME_FRAGMENT)
     }
 
     private fun setFragment(fragment: Fragment, setFragmentType: SetFragmentType, tag: String) {
@@ -120,3 +120,4 @@ class HomeActivity : AppCompatActivity() {
     }
 
 }
+
