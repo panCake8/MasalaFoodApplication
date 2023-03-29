@@ -21,7 +21,7 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/history_toolbar"
-        style="@style/AppBar_of_history_fragment"
+        style="@style/AppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

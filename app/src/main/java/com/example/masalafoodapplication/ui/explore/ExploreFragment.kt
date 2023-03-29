@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import com.airbnb.lottie.LottieDrawable
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
@@ -77,7 +78,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
     }
 
     private fun showLottieAndHideRecycle() {
-        binding.recyclerSearchResult.visibility = View.GONE
+        binding.recyclerSearchResult.visibility = View.INVISIBLE
         binding.viewLottieLayer.visibility = View.VISIBLE
     }
 
@@ -85,6 +86,9 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
         binding.apply {
             showLottieAndHideRecycle()
             viewLottieLayer.setAnimation(R.raw.search)
+            viewLottieLayer.repeatCount = LottieDrawable.INFINITE
+            viewLottieLayer.playAnimation()
+
         }
     }
 
@@ -92,17 +96,18 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
         binding.apply {
             showLottieAndHideRecycle()
             viewLottieLayer.setAnimation(R.raw.not_found)
+            viewLottieLayer.repeatCount = LottieDrawable.INFINITE
+            viewLottieLayer.playAnimation()
         }
     }
 
     private fun hideAnimation() {
-        binding.viewLottieLayer.visibility = View.GONE
+        binding.viewLottieLayer.visibility = View.INVISIBLE
         binding.recyclerSearchResult.visibility = View.VISIBLE
     }
 
     override fun onClickItem(food: Food) {
         newInstance(food.id, Constants.KEY_FOOD_ID)
-        parentFragmentManager.popBackStack()
         transitionToWithBackStackReplace(FoodDetailFragment(), Constants.EXPLORE)
     }
 }

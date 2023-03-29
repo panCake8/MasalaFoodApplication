@@ -51,12 +51,12 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         binding.chipsList.setOnCheckedStateChangeListener { group, checkedIds ->
             val chip: Chip? = group.findViewById(checkedIds[0])
             chip?.let {
-                if (it.text.toString() == Constants.STEPS) {
+                if (it.text.toString() == getString(R.string.steps)) {
                     val adapter =
                         FoodDetailAdapter(food?.steps ?: listOf())
                     binding.recyclerStepsIngredientsItems.adapter = adapter
 
-                } else if (it.text.toString() == Constants.INGREDIENT) {
+                } else if (it.text.toString() == getString(R.string.ingredient)) {
                     val adapter =
                         FoodDetailAdapter(food?.ingredient ?: listOf())
                     binding.recyclerStepsIngredientsItems.adapter = adapter
@@ -77,7 +77,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     private fun bindData(recipe: Food) {
-        if (DataManager.isFavorite(recipe)) {
+        if (dataManager.isFavorite(recipe)) {
             binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
         }
         binding.textDishname.text = recipe.recipeName

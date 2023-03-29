@@ -23,7 +23,7 @@ class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>(),
     }
 
     override fun onClicks() {
-        binding.quickRecipeToolbar.setOnClickListener {
+        binding.quickRecipeToolbar.setNavigationOnClickListener {
             onBack()
         }
     }

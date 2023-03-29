@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
@@ -20,13 +19,11 @@ import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
 import com.example.masalafoodapplication.ui.steps.StepsFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
-import com.example.masalafoodapplication.util.SetFragmentType
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
     private lateinit var dataManager: DataManager
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initDataManager(savedInstanceState)
@@ -109,7 +106,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val currentFragment = supportFragmentManager.findFragmentById(binding.fragmentContainer.id)
-        val topFragment = supportFragmentManager.fragments.lastOrNull()
+        val fragments = supportFragmentManager.fragments
 
         when (currentFragment) {
             is HomeFragment -> finish()
@@ -120,11 +117,6 @@ class HomeActivity : AppCompatActivity() {
             }
             is FoodDetailFragment, is StepsFragment, is IngredientFragment -> {
                 supportFragmentManager.popBackStack()
-                if (topFragment is ExploreFragment) {
-                    // Change the selected item on the navigation bar to the home icon
-                    initSubViews()
-                    binding.navBar.selectedItemId = R.id.nav_home
-                }
             }
             else -> {
                 supportFragmentManager.popBackStackImmediate()
@@ -133,6 +125,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun getSelectedItemId(tag: String?): Int {
         return when (tag) {
             "Home" -> R.id.nav_home
@@ -140,12 +133,9 @@ class HomeActivity : AppCompatActivity() {
             "MakeMeal" -> R.id.nav_make_meal
             "Fav" -> R.id.nav_favourite
             else -> R.id.nav_home
-    private fun initDataManager(savedInstanceState: Bundle?) {
-        dataManager = when (savedInstanceState) {
-            null -> DataManagerImpl(CsvDataSource(CsvParser(), this))
-            else -> savedInstanceState.getSerializable(KEY_DATA_MANAGER) as DataManager
         }
     }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)

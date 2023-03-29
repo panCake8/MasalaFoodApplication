@@ -12,6 +12,7 @@ import com.example.masalafoodapplication.ui.steps.StepsFragment
 
 class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
     private lateinit var food: Food
+    private lateinit var adapter: IngredientAdapter
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentIngredientBinding
         get() = FragmentIngredientBinding::inflate
 
@@ -25,14 +26,14 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             this
         ) { _, result ->
             food = dataManager.getFoodById(result.getInt(Constants.INGREDIENT))
-            val adapter = IngredientAdapter(food)
+            adapter = IngredientAdapter(food)
             binding.checkboxRecycler.adapter = adapter
         }
     }
 
     override fun onClicks() {
         binding.ingredientToolbar.setNavigationOnClickListener {
-            onBack(food.id, Constants.KEY_FOOD_ID)
+            onBack()
         }
         binding.nextBtn.setOnClickListener {
             newInstance(food.id, Constants.KEY_FOOD_ID)
