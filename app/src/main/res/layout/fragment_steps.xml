@@ -7,57 +7,75 @@
     android:background="@color/background_color">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/steps_toolbar"
+        android:id="@+id/toolbar_steps"
         style="@style/AppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/steps" />
-
-    <ImageView
-        android:id="@+id/bg_steps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_large_x"
-        android:contentDescription="@string/img_description"
+    <View
+        android:id="@+id/toolbar_stroke_steps"
+        style="@style/AppBarStroke"
+        android:layout_marginBottom="@dimen/margin_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/steps_toolbar"
-        app:srcCompat="@drawable/steps" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_large_x"
-        android:layout_marginBottom="@dimen/margin_large"
-        android:fontFamily="@font/work_sans"
-        android:text="@string/start_preparing_your_meal_with_us"
-        android:textColor="@color/dark_black"
-        android:textSize="@dimen/text_large"
-        android:textStyle="normal|bold"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bg_steps" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/checkbox_recycler"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_steps" />
+    <ScrollView
+        android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:nestedScrollingEnabled="true"
-        tools:listitem="@layout/item_step_ingredient"
-        android:layout_marginTop="@dimen/margin_large"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintBottom_toTopOf="@id/finish_btn"
-
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_stroke_steps"
+        app:layout_constraintBottom_toTopOf="@id/button_finish"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/image_ingredient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_large"
+                app:srcCompat="@drawable/steps" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large_x"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/start_preparing_your_meal_with_us"
+                android:textColor="@color/dark_black"
+                android:textSize="@dimen/text_large"
+                android:textStyle="normal|bold"
+                android:layout_gravity="start"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_checkbox_steps"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="true"
+                tools:listitem="@layout/item_step_ingredient"
+                android:layout_marginTop="@dimen/margin_large"
+                />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/finish_btn"
+        android:id="@+id/button_finish"
         style="@style/Button.PrimaryButton"
         android:text="@string/finish"
         app:layout_constraintBottom_toBottomOf="parent"
