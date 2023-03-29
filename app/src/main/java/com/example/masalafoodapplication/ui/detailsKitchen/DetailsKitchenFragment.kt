@@ -3,7 +3,6 @@ package com.example.masalafoodapplication.ui.detailsKitchen
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
@@ -42,7 +41,8 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
     private fun bindData() {
         detailsKitchenItem = mutableListOf()
         parentFragmentManager.setFragmentResultListener(
-            KEY_CUISINE_NAME, this) { _, result ->
+            KEY_CUISINE_NAME, this
+        ) { _, result ->
 
             val detailsKitchen = result.getString(KEY_CUISINE_NAME)
 
@@ -58,6 +58,7 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
                     DetailsItemType.POPULAR_DISHES
                 )
             )
+            binding.toolbarKitchen.title = detailsKitchen.toString()
         }
 
     }
