@@ -64,7 +64,6 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
         return recipesData
             .flatMap { it.ingredient }
             .distinct()
-            .shuffled()
             .take(limit)
     }
 
