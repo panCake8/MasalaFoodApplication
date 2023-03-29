@@ -16,6 +16,7 @@ import com.example.masalafoodapplication.ui.steps.StepsFragment
 
 class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
     private lateinit var food: Food
+    private lateinit var adapter: IngredientAdapter
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentIngredientBinding
         get() = FragmentIngredientBinding::inflate
 
@@ -42,8 +43,8 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
 
 
     override fun onClicks() {
-        binding.toolbarIngredient.setNavigationOnClickListener {
-            onBack(food.id, Constants.KEY_FOOD_ID)
+        binding.ingredientToolbar.setNavigationOnClickListener {
+            onBack()
         }
         binding.buttonNext.setOnClickListener {
             newInstance(food.id, Constants.KEY_FOOD_ID)

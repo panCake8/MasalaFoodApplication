@@ -8,7 +8,6 @@
     <color name="nav_background">#DEFFFFFF</color>
     <color name="background_color">#FAFAFA</color>
 
-
     <color name="app_bar_text_color">#121212</color>
 
     <color name="dark_black">#DE121212</color>
@@ -43,4 +42,6 @@
     <color name="liner_color">#121212</color>
     <color name="medium_white_light">#99FFFFFF</color>
     <color name="back_icon_color">#121212</color>
+    <color name="bottom_sheet_color">#FAFAFA</color>
+    <color name="time_color">#99FAFAFA</color>
 </resources>

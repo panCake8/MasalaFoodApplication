@@ -9,13 +9,11 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_suggestion"
-        android:layout_width="match_parent"
-        android:layout_height="?android:actionBarSize"
-        android:backgroundTint="@color/background_color"
+        style="@style/AppBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_back_black"
-        app:title="@string/suggestion_meals"
-        app:titleTextColor="@color/app_bar_text_color" />
+        app:title="@string/suggestion_meals" />
 
     <View
         android:id="@+id/toolbar_stroke"
@@ -28,8 +26,8 @@
         android:id="@+id/recycler_suggestion"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:clipToPadding="false"
+        android:orientation="vertical"
         android:paddingBottom="12dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

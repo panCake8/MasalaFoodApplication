@@ -1,15 +1,9 @@
 package com.example.masalafoodapplication.util
 
 object Constants {
-    const val HISTORY = "history"
-    const val KEY = "KEY"
     const val ARAB = "Arab"
-    const val ASIAN = "Asian"
     const val INDIAN = "Indian"
-    const val STEPS = "Steps"
-    const val KASHMIRI = "Kashmiri"
     const val INGREDIENT = "Ingredient"
-    const val INGREDIENTQUANTITIES = "IngredientQuantities"
 
     const val TIME_MINUTES = "timeMinutes"
 
@@ -18,9 +12,7 @@ object Constants {
     const val KITCHENS = "kitchen"
     const val FAV = "fav"
     const val FOOD_DETAILS = "foodDetails"
-    const val HOME = "home"
     const val RANDOM_RECIPE = "randomRecipe"
-    const val RECIPE_MENU = "recipeMenu"
     const val SUGGESTION_FILTER = "suggestionFilter"
     const val SUGGESTIONS = "suggestions"
     const val QUICK_RECIPES = "QUICK_RECIPES"
@@ -34,7 +26,6 @@ object Constants {
     const val TAG_KITCHEN_DETAILS = "KITCHEN_DETAILS"
     const val TAG_FOOD_DETAILS = "FOOD_DETAILS"
     const val TAG_QUICK_RECIPES = "QUICK_RECIPES"
-    const val TAG_JUST_FOR_YOU = "JUST_FOR_YOU"
 
 
     const val KEY_FOOD_ID = "KEY_FOOD_ID"

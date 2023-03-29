@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import com.airbnb.lottie.LottieDrawable
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
@@ -25,7 +26,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
         adapter = ExploreAdapter(emptyList(), this)
         binding.recyclerSearchResult.adapter = adapter
         listenToFragmentResult()
-        showAnimationSearch()
+        setupAnimation()
     }
 
     private fun listenToFragmentResult() {
@@ -36,17 +37,20 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
             val time = result.getFloat(Constants.TIME_MINUTES)
             val kitchens = result.getStringArrayList(Constants.KITCHENS)
             val ingredient = result.getStringArrayList(Constants.INGREDIENT)
-            val filterList = dataManager.filterData(kitchens, ingredient, time)
-            adapter = ExploreAdapter(filterList, this)
-            binding.recyclerSearchResult.adapter = adapter
-            hideAnimation()
+            val foodsFilter = dataManager.filterData(kitchens, ingredient, time)
+            if (foodsFilter.isNotEmpty()) {
+                adapter = ExploreAdapter(foodsFilter, this)
+                binding.recyclerSearchResult.adapter = adapter
+                hideAnimation()
+            } else
+                showAnimation(AnimationType.NOT_FOUND)
         }
     }
 
     override fun onClicks() {
         binding.searchBar.addTextChangedListener {
             if (it.toString().isEmpty())
-                showAnimationSearch()
+                showAnimation(AnimationType.SEARCH)
             else {
                 hideAnimation()
                 search(it.toString())
@@ -69,40 +73,41 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
     private fun search(query: String) {
         val searchList = dataManager.search(query)
         if (searchList.isEmpty())
-            showAnimationNotFound()
+            showAnimation(AnimationType.NOT_FOUND)
         else {
             hideAnimation()
             adapter.setData(searchList)
         }
     }
 
-    private fun showLottieAndHideRecycle() {
-        binding.recyclerSearchResult.visibility = View.GONE
-        binding.viewLottieLayer.visibility = View.VISIBLE
-    }
-
-    private fun showAnimationSearch() {
+    private fun setupAnimation() {
         binding.apply {
-            showLottieAndHideRecycle()
             viewLottieLayer.setAnimation(R.raw.search)
+            viewLottieLayer.repeatCount = LottieDrawable.INFINITE
+            viewLottieLayer.playAnimation()
         }
     }
 
-    private fun showAnimationNotFound() {
+    private fun showAnimation(animationType: AnimationType) {
         binding.apply {
-            showLottieAndHideRecycle()
-            viewLottieLayer.setAnimation(R.raw.not_found)
+            binding.recyclerSearchResult.visibility = View.INVISIBLE
+            binding.viewLottieLayer.visibility = View.VISIBLE
+            when (animationType) {
+                AnimationType.SEARCH -> viewLottieLayer.setAnimation(R.raw.search)
+                AnimationType.NOT_FOUND -> viewLottieLayer.setAnimation(R.raw.not_found)
+            }
+            viewLottieLayer.repeatCount = LottieDrawable.INFINITE
+            viewLottieLayer.playAnimation()
         }
     }
 
     private fun hideAnimation() {
-        binding.viewLottieLayer.visibility = View.GONE
+        binding.viewLottieLayer.visibility = View.INVISIBLE
         binding.recyclerSearchResult.visibility = View.VISIBLE
     }
 
     override fun onClickItem(food: Food) {
         newInstance(food.id, Constants.KEY_FOOD_ID)
-        parentFragmentManager.popBackStack()
         transitionToWithBackStackReplace(FoodDetailFragment(), Constants.EXPLORE)
     }
 }

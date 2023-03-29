@@ -6,6 +6,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     app:layoutDescription="@xml/fragment_food_detail_scene"
     tools:context=".ui.food_detail.FoodDetailFragment">
 
@@ -41,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.40" />
+        app:layout_constraintGuide_percent="0.45" />
 
 
     <LinearLayout
@@ -100,9 +101,9 @@
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_ingredient"
                 style="@style/Chips.toggle"
-                android:checked="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:checked="true"
 
                 android:text="@string/ingredient" />
 
@@ -126,15 +127,15 @@
 
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_start"
         style="@style/Button.PrimaryButton"
-        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/margin_large"
         android:text="@string/start_preparing_btn_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.motion.widget.MotionLayout>

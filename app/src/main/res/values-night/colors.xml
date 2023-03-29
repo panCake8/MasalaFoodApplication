@@ -33,7 +33,6 @@
     <color name="background_color">#F2121212</color>
 
 
-
     <color name="white">#121212</color>
     <color name="black">#FFFFFF</color>
     <color name="hint_Search_color">#61FAFAFA</color>
@@ -44,4 +43,6 @@
     <color name="stroke_search_color">#29FAFAFA</color>
     <color name="text_chips_color">#fafafa</color>
     <color name="medium_white_light">#99FFFFFF</color>
+    <color name="bottom_sheet_color">#121212</color>
+    <color name="time_color">#99FAFAFA</color>
 </resources>

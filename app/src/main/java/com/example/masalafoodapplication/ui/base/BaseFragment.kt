@@ -58,8 +58,9 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     fun transitionToWithBackStackAdd(fragment: Fragment, fragment2: Fragment, tag: String) {
         parentFragmentManager.commit {
-            replace(R.id.fragment_container, fragment)
+            add(R.id.fragment_container, fragment)
             addToBackStack(tag)
+                .hide(fragment2)
             setReorderingAllowed(true)
         }
     }
