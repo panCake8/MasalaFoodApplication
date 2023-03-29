@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/margin_large"
-    android:layout_marginBottom="@dimen/margin_large"
+    android:layout_margin="@dimen/margin_large"
     app:cardCornerRadius="@dimen/radius_medium"
     app:cardElevation="@dimen/elevation_small">
 
@@ -14,7 +13,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imv_city1"
+            android:id="@+id/image_meal"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:contentDescription="@string/popular_dishes"
@@ -27,7 +26,7 @@
             app:shapeAppearanceOverlay="@style/CardView.Dark" />
 
         <TextView
-            android:id="@+id/txv_city_name1"
+            android:id="@+id/text_recipeName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
@@ -38,7 +37,7 @@
             android:textSize="@dimen/text_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@id/line"
-            app:layout_constraintStart_toEndOf="@+id/imv_city1"
+            app:layout_constraintStart_toEndOf="@+id/image_meal"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="City Name" />
 
@@ -56,13 +55,13 @@
             android:layout_marginStart="@dimen/margin_medium"
             android:contentDescription="@string/favourite"
             android:src="@drawable/ic_clock"
-            app:layout_constraintBottom_toBottomOf="@+id/imv_city1"
-            app:layout_constraintStart_toEndOf="@id/imv_city1"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/text_prepareTime"
+            app:layout_constraintStart_toEndOf="@id/image_meal"
+            app:layout_constraintTop_toTopOf="@+id/text_prepareTime"
             app:tint="@color/black" />
 
         <TextView
-            android:id="@+id/time_tv1"
+            android:id="@+id/text_prepareTime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
@@ -70,22 +69,22 @@
             android:textColor="@color/medium_black"
             android:textSize="@dimen/text_small"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView1"
+            app:layout_constraintEnd_toStartOf="@+id/favourite_icon"
             app:layout_constraintStart_toEndOf="@+id/image_time_icon"
-            app:layout_constraintTop_toBottomOf="@+id/txv_city_name1"
+            app:layout_constraintTop_toBottomOf="@+id/text_recipeName"
             app:layout_constraintVertical_bias="0.0"
             tools:text="Lorem ipsum dolor sit amet consectetur. Nunc .... " />
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/favourite_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:contentDescription="@string/favourite"
             android:src="@drawable/ic_heart"
-            app:layout_constraintBottom_toBottomOf="@+id/imv_city1"
+            app:layout_constraintBottom_toBottomOf="@+id/image_meal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imv_city1" />
+            app:layout_constraintTop_toTopOf="@+id/image_meal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
