@@ -42,18 +42,25 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
 
     private fun bindData() {
         detailsKitchenItem = mutableListOf()
-        detailsKitchenItem.add(
-            DetailsKitchenItem(
-                dataManager.getRecipesByCuisine("Kashmiri", 20),
-                DetailsItemType.POSTER
+        parentFragmentManager.setFragmentResultListener(
+            KEY_CUISINE_NAME, this) { _, result ->
+
+            val detailsKitchen = result.getString(KEY_CUISINE_NAME)
+
+            detailsKitchenItem.add(
+                DetailsKitchenItem(
+                    dataManager.getRecipesByCuisine(detailsKitchen!!, 20),
+                    DetailsItemType.POSTER
+                )
             )
-        )
-        detailsKitchenItem.add(
-            DetailsKitchenItem(
-                dataManager.getRecipesByCuisine("Kashmiri", 20),
-                DetailsItemType.POPULAR_DISHES
+            detailsKitchenItem.add(
+                DetailsKitchenItem(
+                    dataManager.getRecipesByCuisine(detailsKitchen, 20),
+                    DetailsItemType.POPULAR_DISHES
+                )
             )
-        )
+        }
+
     }
 
     override fun onClickListener(food: Food) {
