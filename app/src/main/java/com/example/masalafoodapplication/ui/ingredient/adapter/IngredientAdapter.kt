@@ -56,9 +56,7 @@ class IngredientAdapter(
         position: Int,
     ) {
         when(holder){
-            is IngredientViewHolder->holder.apply {
-                binding.recyclerCheckboxIngredient.adapter= IngredentAdapter(foodDetailsItem[position].data as Food )
-            }
+            is IngredientViewHolder->holder.bind(foodDetailsItem[position])
             is IngredientImageViewHolder -> holder.apply {  }
             is IngredientTextViewHolder -> holder.apply{}
         }
@@ -68,9 +66,12 @@ class IngredientAdapter(
   }
 
     class IngredientViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
-        val binding = FragmentIngredientBinding.bind(viewItem)
+        val binding = ItemStepIngredientBinding.bind(viewItem)
       override  fun bind(foodDetailsItem: FoodDetailsItem<Any>) {
-
+          binding.apply {
+              checkBox.text="efewf"
+               // recyclerCheckboxIngredient.adapter= IngredentAdapter(foodDetailsItem.data as Food )
+          }
         }
     }
     class IngredientImageViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
