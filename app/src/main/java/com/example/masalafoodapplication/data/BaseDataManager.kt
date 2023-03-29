@@ -26,7 +26,6 @@ interface BaseDataManager {
 
     fun getAllRandomQuickRecipes(): List<Food>
 
-    fun getAllRandomRecipes(): List<Food>
 
     fun getFoodById(id: Int): Food
 
@@ -43,4 +42,6 @@ interface BaseDataManager {
     fun deleteFavourite(index: Int)
 
     fun deleteFavourite(food: Food)
+
+    fun getAllRandomRecipes(): List<Food>
 }
