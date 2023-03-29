@@ -1,8 +1,6 @@
 package com.example.masalafoodapplication.util
 
-import android.annotation.SuppressLint
 import android.widget.ImageView
-import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.masalafoodapplication.R
 
@@ -14,10 +12,11 @@ fun ImageView.loadImage(url: String) {
         .into(this)
 }
 
-@SuppressLint("SetTextI18n")
-fun TextView.setTime(time: Int) {
-    when (time) {
-        in 0..59 -> this.text = "$time m"
-        else -> this.text = "${time / 60} h"
+fun Int.setTime(): String {
+    return when (this) {
+        in 0..60 -> "$this min"
+        else -> (this / 60).toString() + " hr " + (this % 60).toString() + " min"
     }
 }
+
+

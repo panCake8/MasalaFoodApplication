@@ -11,10 +11,11 @@
         android:layout_width="@dimen/no_width"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/padding_medium"
+        android:text="@string/just_for_you"
         app:layout_constraintEnd_toStartOf="@id/button_see_more"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Just For You"/>
+        tools:text="Just For You" />
 
     <ImageView
         android:id="@+id/button_see_more"
