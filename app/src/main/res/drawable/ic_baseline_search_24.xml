@@ -25,7 +25,6 @@
       android:pathData="M18.5,18.5L22,22"
       android:strokeAlpha="0.87"
       android:strokeWidth="1.5"
-      android:fillColor="@color/search_icon_color"
       android:strokeColor="#121212"
       android:strokeLineCap="round"/>
 </vector>

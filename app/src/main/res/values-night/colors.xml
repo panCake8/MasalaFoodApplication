@@ -18,7 +18,6 @@
     <color name="text_unselectedChips">#DEFAFAFA</color>
     <color name="text_selectedChips">#DEFAFAFA</color>
     <color name="icon_chips">#DEFAFAFA</color>
-    <color name="search_icon_color">#FAFAFA</color>
     <color name="search_icon_stroke_color">#61FAFAFA</color>
 
 
@@ -37,7 +36,7 @@
 
     <color name="white">#121212</color>
     <color name="black">#FFFFFF</color>
-    <color name="hint_color">#61FAFAFA</color>
+    <color name="hint_Search_color">#61FAFAFA</color>
     <color name="foreground_img_color">#99121212</color>
     <color name="dark_white">#DEfafafa</color>
     <color name="medium_white">#99121212</color>
