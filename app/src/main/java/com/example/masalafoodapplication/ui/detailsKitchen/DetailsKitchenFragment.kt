@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.detailsKitchen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.loadImage
@@ -35,7 +34,7 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
         ) { _, result ->
             val cuisineName = result.getString(KEY_CUISINE_NAME)
             cuisineName?.let {
-                bindData(DataManager.getRecipesByCuisine(it))
+                bindData(dataManager.getRecipesByCuisine(it))
             }
         }
     }
@@ -43,7 +42,7 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
     private fun bindData(recipes: List<Food>) {
         binding.apply {
             kitchenToolbar.title = recipes.first().cuisine
-            detailsImgPoster.loadImage(DataManager.getImageByCuisine(recipes.first().cuisine))
+            detailsImgPoster.loadImage(dataManager.getImageByCuisine(recipes.first().cuisine))
             detailsRecyclerView.adapter =
                 DetailsKitchenAdapter(recipes, this@DetailsKitchenFragment)
         }
