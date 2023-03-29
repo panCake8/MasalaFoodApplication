@@ -10,7 +10,7 @@
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/recipe_card"
+        android:id="@+id/card_recipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -28,28 +28,28 @@
             tools:src="@drawable/quick_recipes_image" />
 
         <TextView
-            android:id="@+id/recipe_name"
+            android:id="@+id/text_recipe_name"
             style="@style/ItemText.Name.Food"
-            app:layout_constraintBottom_toTopOf="@+id/prepareTime"
+            app:layout_constraintBottom_toTopOf="@+id/text_preparation_time"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             tools:text="name" />
 
         <ImageView
-            android:id="@+id/time_icon"
+            android:id="@+id/image_time_icon"
             style="@style/ItemIcon"
             android:contentDescription="@string/img_description"
             android:src="@drawable/ic_clock"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/prepareTime" />
+            app:layout_constraintRight_toLeftOf="@id/text_preparation_time" />
 
         <TextView
-            android:id="@+id/prepareTime"
+            android:id="@+id/text_preparation_time"
             style="@style/ItemText.Time.Food"
-            app:layout_constraintBottom_toBottomOf="@id/time_icon"
-            app:layout_constraintLeft_toRightOf="@id/time_icon"
-            app:layout_constraintTop_toTopOf="@id/time_icon"
+            app:layout_constraintBottom_toBottomOf="@id/image_time_icon"
+            app:layout_constraintLeft_toRightOf="@id/image_time_icon"
+            app:layout_constraintTop_toTopOf="@id/image_time_icon"
             tools:text="15 m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
