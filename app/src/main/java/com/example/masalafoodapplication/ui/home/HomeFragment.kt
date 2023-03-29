@@ -2,8 +2,8 @@ package com.example.masalafoodapplication.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.enums.HomeItemType
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.data.domain.models.Food
@@ -28,22 +28,18 @@ import com.example.masalafoodapplication.util.Constants.TAG_QUICK_RECIPES
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListener {
-    private lateinit var homeItems: MutableList<HomeItem<Any>>
+    private val homeItems = mutableListOf<HomeItem<Any>>()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        bindHomeItems()
-    }
 
     override fun setup() {
         binding.recyclerHome.adapter = HomeAdapter(homeItems, this)
+        bindHomeItems()
     }
 
 
     private fun bindHomeItems() {
-        homeItems = mutableListOf()
         homeItems.add(HomeItem(DataManager.getRandomFoodImage(), HomeItemType.BANNER))
         homeItems.add(HomeItem(DataManager.getRandomQuickRecipes(20), HomeItemType.QUICK_RECIPES))
         homeItems.add(HomeItem(DataManager.getCuisines(20), HomeItemType.CUISINES))
