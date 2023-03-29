@@ -1,6 +1,8 @@
 package com.example.masalafoodapplication.ui.ingredient
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -16,7 +18,13 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentIngredientBinding
         get() = FragmentIngredientBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         listenToFragmentResult()
     }
 
@@ -31,7 +39,7 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
         }
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.ingredientToolbar.setNavigationOnClickListener {
             onBack()
         }

@@ -1,6 +1,8 @@
 package com.example.masalafoodapplication.ui.quick_recipes
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentQuickRecipesBinding
@@ -16,13 +18,18 @@ class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>(),
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentQuickRecipesBinding
         get() = FragmentQuickRecipesBinding::inflate
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
 
-    override fun setup() {
+    fun setup() {
         val adapter = QuickRecipesAdapter(dataManager.getAllQuickRecipes(), this)
         binding.recyclerQuickRecipe.adapter = adapter
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.quickRecipeToolbar.setNavigationOnClickListener {
             onBack()
         }

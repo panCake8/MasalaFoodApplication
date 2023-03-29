@@ -1,7 +1,9 @@
 package com.example.masalafoodapplication.ui.steps
 
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.databinding.FragmentStepsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -16,7 +18,13 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentStepsBinding
         get() = FragmentStepsBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         listenToFragmentResult()
     }
 
@@ -31,7 +39,7 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
         }
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.stepsToolbar.setNavigationOnClickListener {
             onBack(food.id, Constants.INGREDIENT)
         }

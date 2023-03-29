@@ -1,6 +1,8 @@
 package com.example.masalafoodapplication.ui.food_detail
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.masalafoodapplication.R
@@ -20,12 +22,18 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodDetailBinding
         get() = FragmentFoodDetailBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         listenToFragmentResult()
         food?.let { bindData(it) }
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.toolbar.setNavigationOnClickListener {
             onBack()
         }

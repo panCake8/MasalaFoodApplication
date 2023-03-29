@@ -1,7 +1,9 @@
 package com.example.masalafoodapplication.ui.suggestionFilter
 
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.masalafoodapplication.databinding.FragmentSuggestionFilterBinding
@@ -22,7 +24,13 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionFilterBinding
         get() = FragmentSuggestionFilterBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         val adapter =
             SuggestionFilterAdapter(dataManager.getIngredients(30) as MutableList<String>, this)
         binding.recyclerIngredient.adapter = adapter
@@ -30,7 +38,7 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
             .apply { flexDirection = FlexDirection.ROW }
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.buttonNext.setOnClickListener {
             if (selectedIngredient.isEmpty()) {
                 Toast.makeText(context, "select ingredients", Toast.LENGTH_SHORT).show()

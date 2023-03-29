@@ -1,6 +1,8 @@
 package com.example.masalafoodapplication.ui.suggestion
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
@@ -16,11 +18,17 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionsBinding
         get() = FragmentSuggestionsBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         listenToFragmentResult()
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.toolbarSuggestion.setNavigationOnClickListener {
             onBack()
         }

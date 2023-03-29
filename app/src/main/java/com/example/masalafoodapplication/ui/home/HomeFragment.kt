@@ -2,6 +2,7 @@ package com.example.masalafoodapplication.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.data.domain.models.Food
@@ -32,7 +33,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
         bindHomeItems()
     }
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+
+    }
+
+    fun setup() {
         binding.recyclerHome.adapter = HomeAdapter(homeItems, this)
     }
 

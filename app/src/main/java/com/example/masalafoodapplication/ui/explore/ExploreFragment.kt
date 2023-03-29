@@ -1,5 +1,6 @@
 package com.example.masalafoodapplication.ui.explore
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +23,14 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentExploreBinding
         get() = FragmentExploreBinding::inflate
     private lateinit var adapter: ExploreAdapter
-    override fun setup() {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         adapter = ExploreAdapter(emptyList(), this)
         binding.recyclerSearchResult.adapter = adapter
         listenToFragmentResult()
@@ -47,7 +55,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
         }
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.searchBar.addTextChangedListener {
             if (it.toString().isEmpty())
                 showAnimation(AnimationType.SEARCH)

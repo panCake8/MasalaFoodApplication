@@ -1,6 +1,8 @@
 package com.example.masalafoodapplication.ui.favourite
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.databinding.FragmentFavouriteBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -13,8 +15,12 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(), FavouriteLis
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFavouriteBinding
         get() = FragmentFavouriteBinding::inflate
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+    }
 
-    override fun setup() {
+    fun setup() {
         adapter = FavouriteAdapter(dataManager.getAllFavouriteFood(), this)
         binding.favRecycle.adapter = adapter
     }

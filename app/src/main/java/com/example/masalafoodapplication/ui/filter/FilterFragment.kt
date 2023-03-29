@@ -1,6 +1,8 @@
 package com.example.masalafoodapplication.ui.filter
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.databinding.FragmentFilterBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -14,11 +16,13 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFilterBinding
         get() = FragmentFilterBinding::inflate
 
-    override fun setup() {
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        onClicks()
     }
 
-    override fun onClicks() {
+
+    fun onClicks() {
         binding.filterToolbar.setNavigationOnClickListener {
             onBack()
         }

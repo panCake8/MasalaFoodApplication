@@ -2,6 +2,7 @@ package com.example.masalafoodapplication.ui.detailsKitchen
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -27,14 +28,20 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
         bindData()
     }
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         binding.apply {
             recyclerKitchen.adapter =
                 DetailsKitchenAdapter(detailsKitchenItem, this@DetailsKitchenFragment)
         }
     }
 
-    override fun onClicks() {
+    fun onClicks() {
         binding.toolbarKitchen.setNavigationOnClickListener {
             onBack()
         }
