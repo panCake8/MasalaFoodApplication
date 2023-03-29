@@ -35,6 +35,14 @@ class SuggestionsAdapter(
                 textTitleMeal.text = item.title
                 val adapter = FoodsAdapter(item.foods, this@SuggestionsAdapter)
                 recyclerSuggestionsMeal.adapter = adapter
+
+                if (item.foods.isEmpty()){
+                    binding.recyclerSuggestionsMeal.visibility=View.GONE
+                    binding.textError.visibility=View.VISIBLE
+                }else{
+                    binding.recyclerSuggestionsMeal.visibility=View.VISIBLE
+                    binding.textError.visibility=View.GONE
+                }
             }
         }
     }
