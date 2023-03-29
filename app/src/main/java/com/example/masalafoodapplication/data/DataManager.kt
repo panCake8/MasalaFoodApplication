@@ -2,8 +2,9 @@ package com.example.masalafoodapplication.data
 
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.data.domain.models.Food
+import java.io.Serializable
 
-interface DataManager {
+interface DataManager : Serializable {
 
     fun getAllFood(): List<Food>
 
