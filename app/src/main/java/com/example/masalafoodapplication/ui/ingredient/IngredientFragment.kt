@@ -2,17 +2,19 @@ package com.example.masalafoodapplication.ui.ingredient
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.example.masalafoodapplication.data.domain.enums.FoodDetaisType
+
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
 import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientAdapter
 import com.example.masalafoodapplication.ui.steps.StepsFragment
 
 
 class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
     private lateinit var food: Food
-    private lateinit var adapter: IngredientAdapter
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentIngredientBinding
         get() = FragmentIngredientBinding::inflate
 
@@ -26,16 +28,20 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             this
         ) { _, result ->
             food = dataManager.getFoodById(result.getInt(Constants.INGREDIENT))
-            adapter = IngredientAdapter(food)
-            binding.checkboxRecycler.adapter = adapter
+            val items = mutableListOf<FoodDetailsItem<Any>>()
+            items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_IMAGE))
+            items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_TEXT))
+            items.add(FoodDetailsItem(food, FoodDetaisType.VIEW_TYPE_CHECKBOX))
+            binding.recyclerCheckboxIngredient.adapter = IngredientAdapter(items)
         }
     }
 
+
     override fun onClicks() {
-        binding.ingredientToolbar.setNavigationOnClickListener {
+        binding.toolbarIngredient.setNavigationOnClickListener {
             onBack()
         }
-        binding.nextBtn.setOnClickListener {
+        binding.buttonNext.setOnClickListener {
             newInstance(food.id, Constants.KEY_FOOD_ID)
             transitionToWithBackStackAdd(
                 StepsFragment(),

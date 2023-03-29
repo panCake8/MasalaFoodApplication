@@ -33,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_search_result"
         android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="@dimen/margin_medium"
         android:clipToPadding="false"
         android:orientation="vertical"
         android:visibility="invisible"
