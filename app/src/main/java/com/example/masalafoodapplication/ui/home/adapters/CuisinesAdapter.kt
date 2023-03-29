@@ -1,43 +1,32 @@
 package com.example.masalafoodapplication.ui.home.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.databinding.ItemCuisineBinding
+import com.example.masalafoodapplication.ui.base.BaseAdapter
+import com.example.masalafoodapplication.ui.home.HomeInteractionListener
 import com.example.masalafoodapplication.util.loadImage
 
 class CuisinesAdapter(
-    private val cuisines: List<Cuisine>,
-    private val listener: HomeInteractionListener,
-) : RecyclerView.Adapter<CuisinesAdapter.CuisineViewHolder>() {
+    items: List<Cuisine>,
+    private val listener: HomeInteractionListener
+) : BaseAdapter<Cuisine, ItemCuisineBinding>(items) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuisineViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_cuisine, parent, false)
-        return CuisineViewHolder(view)
+    override fun createBinding(
+        inflater: LayoutInflater,
+        parent: ViewGroup,
+        viewType: Int
+    ): ItemCuisineBinding {
+        return ItemCuisineBinding.inflate(inflater, parent, false)
     }
 
-    override fun getItemCount() = cuisines.size
-
-    override fun onBindViewHolder(holder: CuisineViewHolder, position: Int) {
-        val currentCuisine = cuisines[position]
-        holder.bind(currentCuisine)
-    }
-
-    inner class CuisineViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = ItemCuisineBinding.bind(viewItem)
-
-        fun bind(cuisine: Cuisine) {
-            binding.apply {
-                imageCuisine.loadImage(cuisine.imageUrl)
-                labelCuisineName.text = cuisine.name
-                root.setOnClickListener {
-                    listener.onCuisineClicked(cuisine)
-                }
-            }
+    override fun bind(binding: ItemCuisineBinding, item: Cuisine) {
+        binding.apply {
+            imageCuisine.loadImage(item.imageUrl)
+            textCuisineName.text = item.name
+            textCuisineRecipesCount.text = "${item.recipesCount} recipes"
+            root.setOnClickListener { listener.onCuisineClicked(item) }
         }
     }
-
 }

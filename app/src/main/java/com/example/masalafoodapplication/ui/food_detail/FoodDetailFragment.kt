@@ -3,7 +3,6 @@ package com.example.masalafoodapplication.ui.food_detail
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -39,11 +38,11 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     private fun favoriteIcon(food: Food) {
-        if (DataManager.isFavorite(food)) {
-            DataManager.deleteFavourite(food)
+        if (dataManager.isFavorite(food)) {
+            dataManager.deleteFavourite(food)
             binding.iconFavorite.setImageResource(R.drawable.ic_love_icon_white)
         } else {
-            DataManager.addFavourite(food)
+            dataManager.addFavourite(food)
             binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
         }
     }
@@ -72,12 +71,15 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
             this
         ) { _, result ->
             val recipeId = result.getInt(KEY_FOOD_ID)
-            food = DataManager.getFoodById(recipeId)
+            food = dataManager.getFoodById(recipeId)
             bindData(food!!)
         }
     }
 
     private fun bindData(recipe: Food) {
+        if (DataManager.isFavorite(recipe)) {
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
+        }
         binding.textDishname.text = recipe.recipeName
         binding.chipsList.check(R.id.ingredients)
         val adapter = FoodDetailAdapter(recipe.ingredientQuantities)

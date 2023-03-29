@@ -9,26 +9,27 @@ import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.data.DataManagerImpl
+import com.example.masalafoodapplication.data.datasource.CsvDataSource
+import com.example.masalafoodapplication.data.datasource.utils.CsvParser
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
-import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
+import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
 import com.example.masalafoodapplication.ui.steps.StepsFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
-import com.example.masalafoodapplication.util.Constants
-import com.example.masalafoodapplication.util.CsvParser
 import com.example.masalafoodapplication.util.SetFragmentType
-import java.io.BufferedReader
-import java.io.InputStream
-import java.io.InputStreamReader
 
 
-class BaseActivity : AppCompatActivity() {
-
+class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
+    private lateinit var dataManager: DataManager
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        initDataManager(savedInstanceState)
         super.onCreate(savedInstanceState)
         installSplashScreen()
         binding = ActivityBaseBinding.inflate(layoutInflater)
@@ -39,7 +40,11 @@ class BaseActivity : AppCompatActivity() {
     }
 
     private fun setup() {
-        openAndParseFile()
+
+    }
+
+    fun getDataManager(): DataManager {
+        return dataManager
     }
 
     private fun onClicks() {
@@ -70,18 +75,6 @@ class BaseActivity : AppCompatActivity() {
         }
     }
 
-    private fun openAndParseFile() {
-        val inputStream: InputStream = assets.open(CSV_NAME)
-        val buffer = BufferedReader(InputStreamReader(inputStream))
-        val csvParser = CsvParser()
-        var id = 0
-        buffer.forEachLine { line ->
-            val food = csvParser.parse(line, id)
-            DataManager.addFood(food)
-            id++
-        }
-    }
-
 
     private fun initSubViews() {
         setFragment(HomeFragment(), "Home")
@@ -103,7 +96,12 @@ class BaseActivity : AppCompatActivity() {
         }
     }
 
-
+    private fun initDataManager(savedInstanceState: Bundle?) {
+        dataManager = when (savedInstanceState) {
+            null -> DataManagerImpl(CsvDataSource(CsvParser(), this))
+            else -> savedInstanceState.getSerializable(KEY_DATA_MANAGER) as DataManager
+        }
+    }
 
     private fun clearBackStack() {
         supportFragmentManager.popBackStack(null, POP_BACK_STACK_INCLUSIVE)
@@ -142,11 +140,25 @@ class BaseActivity : AppCompatActivity() {
             "MakeMeal" -> R.id.nav_make_meal
             "Fav" -> R.id.nav_favourite
             else -> R.id.nav_home
+    private fun initDataManager(savedInstanceState: Bundle?) {
+        dataManager = when (savedInstanceState) {
+            null -> DataManagerImpl(CsvDataSource(CsvParser(), this))
+            else -> savedInstanceState.getSerializable(KEY_DATA_MANAGER) as DataManager
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putSerializable(KEY_DATA_MANAGER, dataManager)
+    }
+
     companion object {
-        private const val CSV_NAME = "indian_food.csv"
+        const val KEY_DATA_MANAGER = "DATA_MANAGER"
+        const val TAG_HOME_FRAGMENT = "Home"
+        const val TAG_EXPLORE_FRAGMENT = "Explore"
+        const val TAG_MAKE_MEAL_FRAGMENT = "MakeMeal"
+        const val TAG_FAVOURITE_FRAGMENT = "Favorite"
     }
 
 }
+

@@ -15,7 +15,7 @@
     <string name="breakfast">Breakfast</string>
     <string name="lunch">Lunch</string>
     <string name="just_for_you">Just for you</string>
-    <string name="quick_recipes">Quick recipes</string>
+    <string name="quick_recipes">Quick and easy</string>
     <string name="ingredient">Ingredient</string>
     <string name="steps">Steps</string>
     <string name="dinner">Dinner</string>
@@ -37,7 +37,6 @@
     <string name="history_of_indian_cuisine">History of indian cuisine</string>
     <string name="menu_details">Indian cuisine dates back over 5000 years. Each region has its own traditions, religions and culture that influence its food. Hindus tend to be vegetarian and Muslims tend to have meat dishes, although pork is forbidden. Indian food has been influenced by Mongolian, Persian and Chinese cuisine, among others. The common thread throughout the centuries remains the distinct mixing of spices that invariably give Indian cuisine its flavor and aroma.</string>
     <string name="popular">Popular</string>
-    <string name="cleaned">Cleaned</string>
     <string name="dish_name">Rainbow Sandwich Sugarless</string>
     <string name="start_preparing_btn_text">Start Preparing</string>
     <string name="show_more">show more</string>
@@ -64,9 +63,15 @@
     <string name="tomato">tomato</string>
     <string name="kray">Kray</string>
     <string name="random_recipe">Random recipes</string>
-    <string name="number">1</string>
+    <string name="number">1-</string>
     <string name="indian_food_history">Indian food history</string>
-    <string name="cuisines">Cuisines</string>
+    <string name="popular_cuisines">Most Popular cuisine</string>
     <string name="make_meal">Cook meal</string>
+    <string name="description">description</string>
+    <string name="search_here">search</string>
+    <string name="cuisines">Cuisines</string>
+    <string name="ramadan_2023">Ramadan 2023</string>
+    <string name="vegetarian_recipes">Vegetarian recipes</string>
+    <string name="step_by_step">Step by step</string>
 
 </resources>

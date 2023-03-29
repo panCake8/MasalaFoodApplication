@@ -1,153 +1,119 @@
 package com.example.masalafoodapplication.ui.home.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.domain.models.Cuisine
-import com.example.masalafoodapplication.data.domain.models.Food
-import com.example.masalafoodapplication.data.domain.models.HomeItem
-import com.example.masalafoodapplication.data.domain.enums.HomeItemType
+import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.databinding.ItemBannerBinding
 import com.example.masalafoodapplication.databinding.ItemHistoryBinding
 import com.example.masalafoodapplication.databinding.ListCuisinesBinding
-import com.example.masalafoodapplication.databinding.ListJustForYouBinding
-import com.example.masalafoodapplication.databinding.ListRecipesBinding
+import com.example.masalafoodapplication.databinding.ListQuickRecipesBinding
+import com.example.masalafoodapplication.databinding.ListRamadanBinding
+import com.example.masalafoodapplication.databinding.ListStepByStepRecipesBinding
+import com.example.masalafoodapplication.databinding.ListVegetarianRecipesBinding
+import com.example.masalafoodapplication.ui.base.BaseAdapter
+import com.example.masalafoodapplication.ui.home.HomeInteractionListener
+import com.example.masalafoodapplication.ui.home.HomeItem
 import com.example.masalafoodapplication.util.Constants.UNKNOWN_HOME_ITEM_TYPE
 import com.example.masalafoodapplication.util.loadImage
 
 class HomeAdapter(
-    private val homeItems: List<HomeItem<Any>>,
-    private val listener: HomeInteractionListener
-) :
-    RecyclerView.Adapter<HomeAdapter.BaseHomeViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHomeViewHolder {
+    private var items: List<HomeItem>,
+    private val listener: HomeInteractionListener,
+) : BaseAdapter<HomeItem, ViewBinding>(items) {
+
+    override fun createBinding(
+        inflater: LayoutInflater,
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewBinding {
         return when (viewType) {
-            R.layout.item_banner -> BannerViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_banner,
-                    parent,
-                    false
-                )
-            )
+            BANNER -> ItemBannerBinding.inflate(inflater, parent, false)
+            QUICK_AND_EASY -> ListQuickRecipesBinding.inflate(inflater, parent, false)
+            POPULAR_CUISINES -> ListCuisinesBinding.inflate(inflater, parent, false)
+            RAMADAN_2023 -> ListRamadanBinding.inflate(inflater, parent, false)
+            VEGETARIAN -> ListVegetarianRecipesBinding.inflate(inflater, parent, false)
+            STEP_BY_STEP -> ListStepByStepRecipesBinding.inflate(inflater, parent, false)
+            INDIAN_FOOD_HISTORY -> ItemHistoryBinding.inflate(inflater, parent, false)
+            else -> throw IllegalArgumentException(UNKNOWN_HOME_ITEM_TYPE)
 
-            R.layout.list_recipes -> QuickRecipesViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.list_recipes,
-                    parent,
-                    false
-                )
-            )
-
-            R.layout.list_cuisines -> CuisinesViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.list_cuisines,
-                    parent,
-                    false
-                )
-            )
-
-            R.layout.item_history -> IndianFoodHistoryViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_history,
-                    parent,
-                    false
-                )
-            )
-
-            R.layout.list_just_for_you ->JustForYouRecipesViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.list_just_for_you,
-                    parent,
-                    false
-                ))
-
-            else -> throw Exception(UNKNOWN_HOME_ITEM_TYPE)
         }
     }
 
-    override fun onBindViewHolder(holder: BaseHomeViewHolder, position: Int) {
-        when (holder) {
-            is BannerViewHolder -> holder.bind(homeItems[position])
-            is QuickRecipesViewHolder -> holder.bind(homeItems[position])
-            is JustForYouRecipesViewHolder -> holder.bind(homeItems[position])
-            is CuisinesViewHolder -> holder.bind(homeItems[position])
-            is IndianFoodHistoryViewHolder -> holder.bind(homeItems[position])
+    override fun bind(binding: ViewBinding, item: HomeItem) {
+        when (binding) {
+            is ItemBannerBinding -> bindBanner(binding, item as HomeItem.Banner)
+            is ListQuickRecipesBinding -> bindQuickRecipes(binding, item as HomeItem.QuickAndEasy)
+            is ListCuisinesBinding -> bindPopularCuisines(binding, item as HomeItem.PopularCuisines)
+            is ItemHistoryBinding -> bindIndianFoodHistory(binding, item as HomeItem.FoodHistory)
+            is ListRamadanBinding -> bindRamadan2023(binding, item as HomeItem.Ramadan2023)
+            is ListVegetarianRecipesBinding -> bindVegetarian(binding, item as HomeItem.Vegetarian)
+            is ListStepByStepRecipesBinding -> bindStepByStep(binding, item as HomeItem.StepByStep)
         }
     }
-
-    override fun getItemCount() = homeItems.size
 
     override fun getItemViewType(position: Int): Int {
-        return when (homeItems[position].type) {
-            HomeItemType.BANNER -> R.layout.item_banner
-            HomeItemType.CUISINES -> R.layout.list_cuisines
-            HomeItemType.INDIAN_FOOD_HISTORY -> R.layout.item_history
-            HomeItemType.QUICK_RECIPES -> R.layout.list_recipes
-            HomeItemType.JUST_FOR_YOU -> R.layout.list_just_for_you
-
+        return when (items[position]) {
+            is HomeItem.Banner -> BANNER
+            is HomeItem.QuickAndEasy -> QUICK_AND_EASY
+            is HomeItem.PopularCuisines -> POPULAR_CUISINES
+            is HomeItem.Ramadan2023 -> RAMADAN_2023
+            is HomeItem.Vegetarian -> VEGETARIAN
+            is HomeItem.StepByStep -> STEP_BY_STEP
+            is HomeItem.FoodHistory -> INDIAN_FOOD_HISTORY
         }
     }
 
-    abstract class BaseHomeViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        abstract fun bind(item: HomeItem<Any>)
-    }
-
-    inner class BannerViewHolder(viewItem: View) : BaseHomeViewHolder(viewItem) {
-        private val binding = ItemBannerBinding.bind(viewItem)
-
-        override fun bind(item: HomeItem<Any>) {
-            binding.imageBanner.loadImage(item.data as String)
+    private fun bindBanner(binding: ItemBannerBinding, item: HomeItem.Banner) {
+        binding.apply {
+            imageBanner.loadImage(item.data)
+            root.setOnClickListener { listener.onBannerClicked() }
         }
     }
 
-    inner class QuickRecipesViewHolder(viewItem: View) : BaseHomeViewHolder(viewItem) {
-        private val binding = ListRecipesBinding.bind(viewItem)
-
-        override fun bind(item: HomeItem<Any>) {
-            binding.apply {
-                labelSection.text = itemView.context.getString(R.string.quick_recipes)
-                recyclerRecipes.adapter = QuickRecipesAdapter(item.data as List<Food>, listener)
-                buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
-            }
+    private fun bindQuickRecipes(binding: ListQuickRecipesBinding, item: HomeItem.QuickAndEasy) {
+        binding.apply {
+            recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
+            buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
         }
     }
 
-    inner class JustForYouRecipesViewHolder(viewItem: View) : BaseHomeViewHolder(viewItem) {
-        private val binding = ListJustForYouBinding.bind(viewItem)
-
-        override fun bind(item: HomeItem<Any>) {
-            binding.apply {
-                labelSection.text = itemView.context.getString(R.string.just_for_you)
-                buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
-                recyclerRecipes.adapter = JustForYouAdapter(item.data as List<Food>,listener)
-            }
+    private fun bindRamadan2023(binding: ListRamadanBinding, item: HomeItem.Ramadan2023) {
+        binding.apply {
+            recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
         }
     }
 
-    inner class CuisinesViewHolder(viewItem: View) : BaseHomeViewHolder(viewItem) {
-        private val binding = ListCuisinesBinding.bind(viewItem)
-
-        override fun bind(item: HomeItem<Any>) {
-            binding.apply {
-                labelSection.text = itemView.context.getString(R.string.cuisines)
-                recyclerCuisines.adapter = CuisinesAdapter(item.data as List<Cuisine>, listener)
-                root.setOnClickListener { listener.onSeeMoreClicked(item.type) }
-            }
+    private fun bindVegetarian(binding: ListVegetarianRecipesBinding, item: HomeItem.Vegetarian) {
+        binding.apply {
+            recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
         }
     }
 
-    inner class IndianFoodHistoryViewHolder(viewItem: View) : BaseHomeViewHolder(viewItem) {
-        private val binding = ItemHistoryBinding.bind(viewItem)
-
-        override fun bind(item: HomeItem<Any>) {
-            binding.apply {
-                labelFoodHistory.text = itemView.context.getString(R.string.indian_food_history)
-                imageFoodHistory.loadImage(item.data as String)
-                root.setOnClickListener { listener.onIndianFoodHistoryClicked() }
-            }
+    private fun bindStepByStep(binding: ListStepByStepRecipesBinding, item: HomeItem.StepByStep) {
+        binding.apply {
+            recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
         }
     }
 
+    private fun bindPopularCuisines(binding: ListCuisinesBinding, item: HomeItem.PopularCuisines) {
+        binding.recyclerCuisines.adapter = CuisinesAdapter(item.data, listener)
+    }
+
+
+    private fun bindIndianFoodHistory(binding: ItemHistoryBinding, item: HomeItem.FoodHistory) {
+        binding.apply {
+            imageFoodHistory.loadImage(item.data)
+            root.setOnClickListener { listener.onIndianFoodHistoryClicked() }
+        }
+    }
+
+    companion object {
+        const val BANNER = 0
+        const val RAMADAN_2023 = 1
+        const val QUICK_AND_EASY = 2
+        const val POPULAR_CUISINES = 3
+        const val VEGETARIAN = 4
+        const val STEP_BY_STEP = 5
+        const val INDIAN_FOOD_HISTORY = 6
+    }
 }

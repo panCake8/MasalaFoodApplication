@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.ingredient
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
@@ -25,7 +24,7 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             Constants.INGREDIENT,
             this
         ) { _, result ->
-            food = DataManager.getFoodById(result.getInt(Constants.INGREDIENT))
+            food = dataManager.getFoodById(result.getInt(Constants.INGREDIENT))
             val adapter = IngredientAdapter(food)
             binding.checkboxRecycler.adapter = adapter
         }
