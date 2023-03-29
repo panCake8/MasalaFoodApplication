@@ -17,7 +17,7 @@ import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
 
 class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
     DetailsKitchenOnClick {
-    private lateinit var detailsKitchenItem:MutableList<DetailsKitchenItem<Any>>
+    private lateinit var detailsKitchenItem: MutableList<DetailsKitchenItem<Any>>
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetailsKitchenBinding
         get() = FragmentDetailsKitchenBinding::inflate
 
@@ -42,8 +42,18 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
 
     private fun bindData() {
         detailsKitchenItem = mutableListOf()
-        detailsKitchenItem.add(DetailsKitchenItem(DataManager.getRecipesByCuisine("Kashmiri"),DetailsItemType.POSTER))
-        detailsKitchenItem.add(DetailsKitchenItem(DataManager.getRecipesByCuisine("Kashmiri"),DetailsItemType.POPULAR_DISHES))
+        detailsKitchenItem.add(
+            DetailsKitchenItem(
+                dataManager.getRecipesByCuisine("Kashmiri"),
+                DetailsItemType.POSTER
+            )
+        )
+        detailsKitchenItem.add(
+            DetailsKitchenItem(
+                dataManager.getRecipesByCuisine("Kashmiri"),
+                DetailsItemType.POPULAR_DISHES
+            )
+        )
     }
 
     override fun onClickListener(food: Food) {
