@@ -13,7 +13,9 @@ import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.databinding.ItemImageIngredientBinding
 import com.example.masalafoodapplication.databinding.ItemStepIngredientBinding
 import com.example.masalafoodapplication.databinding.ItemTextIngredientBinding
+import com.example.masalafoodapplication.databinding.ListStepIngredientBinding
 import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
+import com.example.masalafoodapplication.util.Constants
 
 
 class IngredientAdapter(
@@ -34,13 +36,14 @@ class IngredientAdapter(
                     .inflate(R.layout.item_text_ingredient,parent,false)
                 return IngredientTextViewHolder(view)
             }
-            R.layout.item_step_ingredient -> {
+            R.layout.list_step_ingredient -> {
                 val view=LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_step_ingredient,parent,false)
+                    .inflate(R.layout.list_step_ingredient,parent,false)
                 return IngredientViewHolder(view)
             }
+            else -> throw Exception(Constants.UNKNOWN_HOME_ITEM_TYPE)
         }
-        return  super.createViewHolder(parent,viewType)
+
 
     }
      override fun getItemCount():Int=foodDetailsItem.size
@@ -48,7 +51,7 @@ class IngredientAdapter(
         return when (foodDetailsItem[position].type) {
             FoodDetaisType.VIEW_TYPE_IMAGE -> R.layout.item_image_ingredient
             FoodDetaisType.VIEW_TYPE_TEXT->R.layout.item_text_ingredient
-            FoodDetaisType.VIEW_TYPE_CHECKBOX->R.layout.item_step_ingredient
+            FoodDetaisType.VIEW_TYPE_CHECKBOX->R.layout.list_step_ingredient
         }
     }
     override fun onBindViewHolder(
@@ -57,8 +60,8 @@ class IngredientAdapter(
     ) {
         when(holder){
             is IngredientViewHolder->holder.bind(foodDetailsItem[position])
-            is IngredientImageViewHolder -> holder.apply {  }
-            is IngredientTextViewHolder -> holder.apply{}
+            is IngredientImageViewHolder -> holder.bind(foodDetailsItem[position])
+            is IngredientTextViewHolder -> holder.bind(foodDetailsItem[position])
         }
     }
   abstract  class BaseViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem){
@@ -66,11 +69,10 @@ class IngredientAdapter(
   }
 
     class IngredientViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
-        val binding = ItemStepIngredientBinding.bind(viewItem)
+        val binding = ListStepIngredientBinding.bind(viewItem)
       override  fun bind(foodDetailsItem: FoodDetailsItem<Any>) {
           binding.apply {
-              checkBox.text="efewf"
-//                recyclerCheckboxIngredient.adapter= IngredientListAdapter(foodDetailsItem.data as Food )
+              recyclerCheckboxIngredientTest.adapter= IngredientListAdapter(foodDetailsItem.data as Food )
           }
         }
     }
@@ -80,13 +82,13 @@ class IngredientAdapter(
             binding.apply {
 
             }
-            TODO("Not yet implemented")
+
         }
     }
     class IngredientTextViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
         val binding = ItemTextIngredientBinding.bind(viewItem)
         override fun bind(item: FoodDetailsItem<Any>) {
-            TODO("Not yet implemented")
+
         }
     }
 }

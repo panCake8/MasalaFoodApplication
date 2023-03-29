@@ -20,15 +20,11 @@ override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientVie
 
 override fun getItemCount(): Int = ingeredient.size
 
-
-
 override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
-
     holder.apply {
         binding.checkBox.text = "${position + 1}- ${ingeredient[position]}"
     }
 }
-
 class IngredientViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
     val binding = ItemStepIngredientBinding.bind(viewItem)
 }
