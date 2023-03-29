@@ -77,7 +77,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     private fun bindData(recipe: Food) {
-        if (DataManager.isFavorite(recipe)) {
+        if (dataManager.isFavorite(recipe)) {
             binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
         }
         binding.textDishname.text = recipe.recipeName
