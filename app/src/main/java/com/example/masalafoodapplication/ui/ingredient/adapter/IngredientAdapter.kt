@@ -70,7 +70,7 @@ class IngredientAdapter(
       override  fun bind(foodDetailsItem: FoodDetailsItem<Any>) {
           binding.apply {
               checkBox.text="efewf"
-               // recyclerCheckboxIngredient.adapter= IngredentAdapter(foodDetailsItem.data as Food )
+//                recyclerCheckboxIngredient.adapter= IngredientListAdapter(foodDetailsItem.data as Food )
           }
         }
     }
