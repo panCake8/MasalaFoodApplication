@@ -18,7 +18,7 @@
         android:contentDescription="@string/dish_name"
         android:scaleType="fitXY"
         android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toTopOf="@id/imageGuidLine"
+        app:layout_constraintBottom_toTopOf="@id/guidline_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,11 +31,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/imageGuidLine"
+        android:id="@+id/guidline_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="329dp" />
+        app:layout_constraintGuide_percent="0.50" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidline"
@@ -46,7 +46,7 @@
 
 
     <LinearLayout
-        android:id="@+id/bottomSheet"
+        android:id="@+id/sheet_bottom"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
@@ -67,7 +67,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/text_dishname"
+                android:id="@+id/text_dish_name"
                 style="@style/TextRecipeNameDetails"
                 android:layout_width="191dp"
                 android:layout_height="51dp"

@@ -11,10 +11,9 @@
         <OnSwipe
             motion:dragDirection="dragUp"
             motion:touchAnchorSide="top"
-            motion:touchAnchorId="@id/bottomSheet"
+            motion:touchAnchorId="@id/sheet_bottom"
             />
-
-        <KeyFrameSet></KeyFrameSet>
+        
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -32,13 +31,13 @@
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
             motion:layout_constraintTop_toBottomOf="@+id/toolbar"
-            android:id="@+id/bottomSheet" />
+            android:id="@+id/sheet_bottom" />
         <Constraint
             android:id="@+id/image_background"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            motion:layout_constraintBottom_toTopOf="@id/imageGuidLine"
+            motion:layout_constraintBottom_toTopOf="@id/guidline_image"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             android:alpha="0" />
