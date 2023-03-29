@@ -24,7 +24,7 @@ class CuisinesAdapter(
     override fun bind(binding: ItemCuisineBinding, item: Cuisine) {
         binding.apply {
             imageCuisine.loadImage(item.imageUrl)
-            labelCuisineName.text = item.name
+            textCuisineName.text = item.name
             root.setOnClickListener { listener.onCuisineClicked(item) }
         }
     }

@@ -21,7 +21,7 @@
             tools:src="@drawable/quick_recipes_image" />
 
         <TextView
-            android:id="@+id/label_cuisine_name"
+            android:id="@+id/text_cuisine_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_large"
