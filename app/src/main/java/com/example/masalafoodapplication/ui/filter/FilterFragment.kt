@@ -22,9 +22,9 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
         binding.filterToolbar.setNavigationOnClickListener {
             onBack()
         }
-        binding.applyButton.setOnClickListener {
-            val selectedChips1: List<String> = getSelectedChips(binding.filterChipGroup1)
-            val selectedChips2: List<String> = getSelectedChips(binding.filterChipGroup2)
+        binding.buttonApply.setOnClickListener {
+            val selectedChips1: List<String> = getSelectedChips(binding.filterChipKitchens)
+            val selectedChips2: List<String> = getSelectedChips(binding.filterChipComponent)
             val sliderValue = binding.slider.value
             newInstanceToExplore(
                 selectedChips1 as ArrayList<String>,
@@ -35,9 +35,9 @@ class FilterFragment : BaseFragment<FragmentFilterBinding>() {
             parentFragmentManager.popBackStack(Constants.EXPLORE, 0)
             transitionToWithBackStackReplace(ExploreFragment(), Constants.FILTER)
         }
-        binding.resetButton.setOnClickListener {
-            resetChips(binding.filterChipGroup1)
-            resetChips(binding.filterChipGroup2)
+        binding.buttonReset.setOnClickListener {
+            resetChips(binding.filterChipKitchens)
+            resetChips(binding.filterChipComponent)
             binding.slider.value = binding.slider.valueFrom
         }
     }
