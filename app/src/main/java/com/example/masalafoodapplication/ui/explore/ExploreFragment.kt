@@ -38,9 +38,12 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
             val kitchens = result.getStringArrayList(Constants.KITCHENS)
             val ingredient = result.getStringArrayList(Constants.INGREDIENT)
             val foodsFilter = dataManager.filterData(kitchens, ingredient, time)
-            adapter = ExploreAdapter(foodsFilter, this)
-            binding.recyclerSearchResult.adapter = adapter
-            hideAnimation()
+            if (foodsFilter.isNotEmpty()) {
+                adapter = ExploreAdapter(foodsFilter, this)
+                binding.recyclerSearchResult.adapter = adapter
+                hideAnimation()
+            } else
+                showAnimation(AnimationType.NOT_FOUND)
         }
     }
 

@@ -36,7 +36,7 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
                 Toast.makeText(context, "select ingredients", Toast.LENGTH_SHORT).show()
             } else {
                 newInstanceToSuggestion(selectedIngredient, Constants.SUGGESTION_FILTER)
-                transitionToWithBackStackReplace(SuggestionsFragment(), TAG_SUGGESTIONS)
+                transitionToWithBackStackAdd(SuggestionsFragment(), this, TAG_SUGGESTIONS)
                 selectedIngredient.clear()
             }
         }

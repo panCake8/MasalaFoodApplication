@@ -18,6 +18,7 @@ import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
 import com.example.masalafoodapplication.ui.steps.StepsFragment
+import com.example.masalafoodapplication.ui.suggestion.SuggestionsFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
 
 
@@ -105,17 +106,14 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val currentFragment = supportFragmentManager.findFragmentById(binding.fragmentContainer.id)
-        val fragments = supportFragmentManager.fragments
-
-        when (currentFragment) {
+        when (val currentFragment = supportFragmentManager.findFragmentById(binding.fragmentContainer.id)) {
             is HomeFragment -> finish()
             is ExploreFragment, is SuggestionFilterFragment, is FavouriteFragment -> {
                 initSubViews()
                 clearBackStack()
                 binding.navBar.selectedItemId = R.id.nav_home
             }
-            is FoodDetailFragment, is StepsFragment, is IngredientFragment -> {
+            is FoodDetailFragment, is StepsFragment, is IngredientFragment, is SuggestionsFragment -> {
                 supportFragmentManager.popBackStack()
             }
             else -> {
