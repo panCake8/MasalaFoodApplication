@@ -23,7 +23,6 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         bindData()
     }
 

@@ -1,4 +1,5 @@
-<com.google.android.material.checkbox.MaterialCheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.checkbox.MaterialCheckBox
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/checkBox"
@@ -8,7 +9,7 @@
     android:layout_marginTop="@dimen/margin_medium"
     android:fontFamily="@font/work_sans"
     android:layoutDirection="rtl"
-    android:textColor="@color/black"
+    android:textColor="@color/dark_black"
     android:textSize="@dimen/text_medium"
     app:buttonTint="@color/primary_button_color"
     tools:text="@string/start_preparing_your_meal_with_us" />

@@ -66,9 +66,12 @@
     <string name="indian_food_history">تاريخ الاكل الهندي</string>
     <string name="popular_cuisines">المطابخ الاكثر شهرة</string>
     <string name="cuisines">المطابخ</string>
-    <string name="make_meal">اطبخ وجبتك</string>
+    <string name="make_meal">وجبتك</string>
     <string name="ramadan_2023">رمضان 2023</string>
     <string name="vegetarian_recipes">وصفات نباتية</string>
     <string name="step_by_step">خطوة بخطوة</string>
 
+    <string name="added">تمت الاضافة!</string>
+    <string name="deleted">تم الحذف!</string>
+    <string name="select_ingredients">يجب اختيار واحدة علي الاقل</string>
 </resources>

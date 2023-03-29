@@ -8,6 +8,7 @@ import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.ItemFoodSuggestionsBinding
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.util.setTime
 
 class FoodsAdapter(private val foods: List<Food>, private val listener: SuggestionOnClick) :
     RecyclerView.Adapter<FoodsAdapter.FoodsViewHolder>() {
@@ -33,7 +34,7 @@ class FoodsAdapter(private val foods: List<Food>, private val listener: Suggesti
             binding.apply {
                 imageRecipe.loadImage(food.imageUrl)
                 textRecipeName.text = food.recipeName
-                textPrepareTime.text = "${food.timeMinutes} m"
+                textPrepareTime.text = food.timeMinutes.setTime()
                 root.setOnClickListener { listener.onClickListener(food) }
             }
         }

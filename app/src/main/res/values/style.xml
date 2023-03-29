@@ -49,7 +49,7 @@
 
     <!--    Image Curve Large-->
     <style name="ImageCurve.Large">
-        <item name="cornerSize">12%</item>
+        <item name="cornerSize">@dimen/radius_medium</item>
     </style>
     <!--    Image Curve-->
     <style name="RecyclerStyle">

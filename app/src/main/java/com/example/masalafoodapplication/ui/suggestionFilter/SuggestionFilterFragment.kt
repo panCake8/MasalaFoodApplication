@@ -4,6 +4,7 @@ package com.example.masalafoodapplication.ui.suggestionFilter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentSuggestionFilterBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.adapter.SuggestionFilterInteractionListener
@@ -33,10 +34,11 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
     override fun onClicks() {
         binding.buttonNext.setOnClickListener {
             if (selectedIngredient.isEmpty()) {
-                Toast.makeText(context, "select ingredients", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.select_ingredients), Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 newInstanceToSuggestion(selectedIngredient, Constants.SUGGESTION_FILTER)
-                transitionToWithBackStackAdd(SuggestionsFragment(), this, TAG_SUGGESTIONS)
+                transitionToWithBackStackReplace(SuggestionsFragment(), TAG_SUGGESTIONS)
                 selectedIngredient.clear()
             }
         }
