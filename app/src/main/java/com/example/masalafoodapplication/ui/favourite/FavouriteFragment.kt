@@ -15,13 +15,13 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(), FavouriteLis
 
 
     override fun setup() {
-        adapter = FavouriteAdapter(DataManager.getAllFavouriteFood(), this)
+        adapter = FavouriteAdapter(dataManager.getAllFavouriteFood(), this)
         binding.favRecycle.adapter = adapter
     }
 
     override fun onClickHeart(position: Int) {
-        DataManager.deleteFavourite(position)
-        adapter.setData(DataManager.getAllFavouriteFood())
+        dataManager.deleteFavourite(position)
+        adapter.setData(dataManager.getAllFavouriteFood())
     }
 
 }

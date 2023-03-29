@@ -8,18 +8,21 @@ import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.DataManagerImpl
+import com.example.masalafoodapplication.data.datasource.CsvDataSource
+import com.example.masalafoodapplication.data.datasource.utils.CsvParser
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
-import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
+import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
-import com.example.masalafoodapplication.util.CsvParser
 import com.example.masalafoodapplication.util.SetFragmentType
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
-    lateinit var DataManager: DataManager
+    private lateinit var dataManager: DataManager
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -31,7 +34,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setup() {
-        openAndParseFile()
+        initDataManager()
+    }
+
+    fun getDataManager(): DataManager {
+        return dataManager
     }
 
     private fun onClicks() {
@@ -62,26 +69,6 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun openAndParseFile() {
-//        val inputStream: InputStream = assets.open(CSV_NAME)
-//        val buffer = BufferedReader(InputStreamReader(inputStream))
-//        val csvParser = CsvParser()
-//        var id = 0
-//        buffer.forEachLine { line ->
-//            val food = csvParser.parse(line, id)
-////            DataManagerImpl.addFood(food)
-//            id++
-//        }
-//        val csvParser = CsvParser()
-//        val DataManager: com.example.masalafoodapplication.data.DataManager = DataManager(
-//            csvParser, this@HomeActivity
-//        )
-//        val list = DataManager.getAllFood()
-//        list.size
-        val csvParser = CsvParser()
-        DataManager = DataManagerImpl(csvParser, this.application)
-    }
-
 
     private fun initSubViews() {
         setFragment(HomeFragment(), SetFragmentType.REPLACE, "Home")
@@ -107,26 +94,9 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-//        val count = supportFragmentManager.backStackEntryCount
-//        if (count == 0) {
-        super.onBackPressed()
-//        } else if (count > 0) {
-//            supportFragmentManager.popBackStack(
-//                Constants.TAG_FOOD_DETAILS,
-//                POP_BACK_STACK_INCLUSIVE
-//            )
-//        } else {
-//            supportFragmentManager.popBackStackImmediate()
-//        }
-    }
-
-    companion object {
-        private const val CSV_NAME = "indian_food.csv"
-//        val csvParser = CsvParser()
-//        val DataManagerImpl: DataManagerImpl = DataManagerImpl(
-//            csvParser, HomeActivity()
-//        )
+    private fun initDataManager() {
+        val dataSource = CsvDataSource(CsvParser(), applicationContext)
+        dataManager = DataManagerImpl(dataSource)
     }
 
 }
