@@ -10,18 +10,30 @@ sealed class HomeItem {
         val type: HomeItemType = HomeItemType.BANNER
     ) : HomeItem()
 
-    data class QuickRecipes(
+    data class Ramadan2023(
         val data: List<Food>,
-        val type: HomeItemType = HomeItemType.QUICK_RECIPES
+        val type: HomeItemType = HomeItemType.RAMADAN_2023
     ) : HomeItem()
 
-    data class JustForYou(
+    data class QuickAndEasy(
         val data: List<Food>,
-        val type: HomeItemType = HomeItemType.JUST_FOR_YOU
+        val type: HomeItemType = HomeItemType.QUICK_AND_EASY
     ) : HomeItem()
 
-    data class Cuisines(val data: List<Cuisine>, val type: HomeItemType = HomeItemType.CUISINES) :
-        HomeItem()
+    data class Vegetarian(
+        val data: List<Food>,
+        val type: HomeItemType = HomeItemType.VEGETARIAN
+    ) : HomeItem()
+
+    data class StepByStep(
+        val data: List<Food>,
+        val type: HomeItemType = HomeItemType.STEP_BY_STEP
+    ) : HomeItem()
+
+    data class PopularCuisines(
+        val data: List<Cuisine>,
+        val type: HomeItemType = HomeItemType.POPULAR_CUISINES
+    ) : HomeItem()
 
     data class FoodHistory(
         val data: String,

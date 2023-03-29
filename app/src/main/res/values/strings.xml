@@ -15,7 +15,7 @@
     <string name="breakfast">Breakfast</string>
     <string name="lunch">Lunch</string>
     <string name="just_for_you">Just for you</string>
-    <string name="quick_recipes">Quick recipes</string>
+    <string name="quick_recipes">Quick and easy</string>
     <string name="ingredient">Ingredient</string>
     <string name="steps">Steps</string>
     <string name="dinner">Dinner</string>
@@ -65,9 +65,13 @@
     <string name="random_recipe">Random recipes</string>
     <string name="number">1-</string>
     <string name="indian_food_history">Indian food history</string>
-    <string name="cuisines">Cuisines</string>
+    <string name="popular_cuisines">Most Popular cuisine</string>
     <string name="make_meal">Cook meal</string>
     <string name="description">description</string>
     <string name="search_here">search</string>
+    <string name="cuisines">Cuisines</string>
+    <string name="ramadan_2023">Ramadan 2023</string>
+    <string name="vegetarian_recipes">Vegetarian recipes</string>
+    <string name="step_by_step">Step by step</string>
 
 </resources>

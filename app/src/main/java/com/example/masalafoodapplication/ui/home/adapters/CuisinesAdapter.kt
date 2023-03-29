@@ -25,6 +25,7 @@ class CuisinesAdapter(
         binding.apply {
             imageCuisine.loadImage(item.imageUrl)
             textCuisineName.text = item.name
+            textCuisineRecipesCount.text = "${item.recipesCount} recipes"
             root.setOnClickListener { listener.onCuisineClicked(item) }
         }
     }

@@ -11,13 +11,13 @@
         android:layout_width="@dimen/no_width"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/padding_medium"
-        android:text="@string/popular_cuisines"
+        android:text="@string/vegetarian_recipes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_cuisines"
+        android:id="@+id/recycler_recipes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"

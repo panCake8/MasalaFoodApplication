@@ -6,8 +6,10 @@ import androidx.viewbinding.ViewBinding
 import com.example.masalafoodapplication.databinding.ItemBannerBinding
 import com.example.masalafoodapplication.databinding.ItemHistoryBinding
 import com.example.masalafoodapplication.databinding.ListCuisinesBinding
-import com.example.masalafoodapplication.databinding.ListJustForYouBinding
 import com.example.masalafoodapplication.databinding.ListQuickRecipesBinding
+import com.example.masalafoodapplication.databinding.ListRamadanBinding
+import com.example.masalafoodapplication.databinding.ListStepByStepRecipesBinding
+import com.example.masalafoodapplication.databinding.ListVegetarianRecipesBinding
 import com.example.masalafoodapplication.ui.base.BaseAdapter2
 import com.example.masalafoodapplication.ui.home.HomeInteractionListener
 import com.example.masalafoodapplication.ui.home.HomeItem
@@ -19,14 +21,6 @@ class HomeAdapter(
     private val listener: HomeInteractionListener,
 ) : BaseAdapter2<HomeItem, ViewBinding>(items) {
 
-    companion object {
-        const val BANNER = 0
-        const val QUICK_RECIPES = 1
-        const val CUISINES = 2
-        const val JUST_FOR_YOU = 3
-        const val INDIAN_FOOD_HISTORY = 4
-    }
-
     override fun createBinding(
         inflater: LayoutInflater,
         parent: ViewGroup,
@@ -34,31 +28,37 @@ class HomeAdapter(
     ): ViewBinding {
         return when (viewType) {
             BANNER -> ItemBannerBinding.inflate(inflater, parent, false)
-            QUICK_RECIPES -> ListQuickRecipesBinding.inflate(inflater, parent, false)
-            CUISINES -> ListCuisinesBinding.inflate(inflater, parent, false)
-            JUST_FOR_YOU -> ListJustForYouBinding.inflate(inflater, parent, false)
+            QUICK_AND_EASY -> ListQuickRecipesBinding.inflate(inflater, parent, false)
+            POPULAR_CUISINES -> ListCuisinesBinding.inflate(inflater, parent, false)
+            RAMADAN_2023 -> ListRamadanBinding.inflate(inflater, parent, false)
+            VEGETARIAN -> ListVegetarianRecipesBinding.inflate(inflater, parent, false)
+            STEP_BY_STEP -> ListStepByStepRecipesBinding.inflate(inflater, parent, false)
             INDIAN_FOOD_HISTORY -> ItemHistoryBinding.inflate(inflater, parent, false)
             else -> throw IllegalArgumentException(UNKNOWN_HOME_ITEM_TYPE)
+
         }
     }
 
     override fun bind(binding: ViewBinding, item: HomeItem) {
         when (binding) {
             is ItemBannerBinding -> bindBanner(binding, item as HomeItem.Banner)
-            is ListQuickRecipesBinding -> bindQuickRecipes(binding, item as HomeItem.QuickRecipes)
-            is ListCuisinesBinding -> bindCuisines(binding, item as HomeItem.Cuisines)
-            is ListJustForYouBinding -> bindJustForYou(binding, item as HomeItem.JustForYou)
+            is ListQuickRecipesBinding -> bindQuickRecipes(binding, item as HomeItem.QuickAndEasy)
+            is ListCuisinesBinding -> bindPopularCuisines(binding, item as HomeItem.PopularCuisines)
             is ItemHistoryBinding -> bindIndianFoodHistory(binding, item as HomeItem.FoodHistory)
-            else -> throw IllegalArgumentException(UNKNOWN_HOME_ITEM_TYPE)
+            is ListRamadanBinding -> bindRamadan2023(binding, item as HomeItem.Ramadan2023)
+            is ListVegetarianRecipesBinding -> bindVegetarian(binding, item as HomeItem.Vegetarian)
+            is ListStepByStepRecipesBinding -> bindStepByStep(binding, item as HomeItem.StepByStep)
         }
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (items[position]) {
             is HomeItem.Banner -> BANNER
-            is HomeItem.QuickRecipes -> QUICK_RECIPES
-            is HomeItem.Cuisines -> CUISINES
-            is HomeItem.JustForYou -> JUST_FOR_YOU
+            is HomeItem.QuickAndEasy -> QUICK_AND_EASY
+            is HomeItem.PopularCuisines -> POPULAR_CUISINES
+            is HomeItem.Ramadan2023 -> RAMADAN_2023
+            is HomeItem.Vegetarian -> VEGETARIAN
+            is HomeItem.StepByStep -> STEP_BY_STEP
             is HomeItem.FoodHistory -> INDIAN_FOOD_HISTORY
         }
     }
@@ -70,28 +70,50 @@ class HomeAdapter(
         }
     }
 
-    private fun bindQuickRecipes(binding: ListQuickRecipesBinding, item: HomeItem.QuickRecipes) {
+    private fun bindQuickRecipes(binding: ListQuickRecipesBinding, item: HomeItem.QuickAndEasy) {
         binding.apply {
             recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
             buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
         }
     }
 
-    private fun bindCuisines(binding: ListCuisinesBinding, item: HomeItem.Cuisines) {
+    private fun bindRamadan2023(binding: ListRamadanBinding, item: HomeItem.Ramadan2023) {
+        binding.apply {
+            recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
+        }
+    }
+
+    private fun bindVegetarian(binding: ListVegetarianRecipesBinding, item: HomeItem.Vegetarian) {
+        binding.apply {
+            recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
+        }
+    }
+
+    private fun bindStepByStep(binding: ListStepByStepRecipesBinding, item: HomeItem.StepByStep) {
+        binding.apply {
+            recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
+        }
+    }
+
+    private fun bindPopularCuisines(binding: ListCuisinesBinding, item: HomeItem.PopularCuisines) {
         binding.recyclerCuisines.adapter = CuisinesAdapter(item.data, listener)
     }
 
-    private fun bindJustForYou(binding: ListJustForYouBinding, item: HomeItem.JustForYou) {
-        binding.apply {
-            recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
-            buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
-        }
-    }
 
     private fun bindIndianFoodHistory(binding: ItemHistoryBinding, item: HomeItem.FoodHistory) {
         binding.apply {
             imageFoodHistory.loadImage(item.data)
             root.setOnClickListener { listener.onIndianFoodHistoryClicked() }
         }
+    }
+
+    companion object {
+        const val BANNER = 0
+        const val RAMADAN_2023 = 1
+        const val QUICK_AND_EASY = 2
+        const val POPULAR_CUISINES = 3
+        const val VEGETARIAN = 4
+        const val STEP_BY_STEP = 5
+        const val INDIAN_FOOD_HISTORY = 6
     }
 }

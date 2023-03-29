@@ -44,13 +44,13 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
         detailsKitchenItem = mutableListOf()
         detailsKitchenItem.add(
             DetailsKitchenItem(
-                dataManager.getRecipesByCuisine("Kashmiri"),
+                dataManager.getRecipesByCuisine("Kashmiri", 20),
                 DetailsItemType.POSTER
             )
         )
         detailsKitchenItem.add(
             DetailsKitchenItem(
-                dataManager.getRecipesByCuisine("Kashmiri"),
+                dataManager.getRecipesByCuisine("Kashmiri", 20),
                 DetailsItemType.POPULAR_DISHES
             )
         )

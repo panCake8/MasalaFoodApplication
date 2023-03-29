@@ -14,7 +14,7 @@
     <string name="breakfast">الإفطار</string>
     <string name="lunch">الغداء</string>
     <string name="just_for_you">خصيصًا لك</string>
-    <string name="quick_recipes">وصفات سريعة</string>
+    <string name="quick_recipes">سهل وسريع</string>
     <string name="ingredient">المكونات</string>
     <string name="steps">الخطوات</string>
     <string name="dinner">العشاء</string>
@@ -64,7 +64,11 @@
     <string name="cuisine">المطابخ</string>
     <string name="number">1</string>
     <string name="indian_food_history">تاريخ الاكل الهندي</string>
+    <string name="popular_cuisines">المطابخ الاكثر شهرة</string>
     <string name="cuisines">المطابخ</string>
     <string name="make_meal">اطبخ وجبتك</string>
+    <string name="ramadan_2023">رمضان 2023</string>
+    <string name="vegetarian_recipes">وصفات نباتية</string>
+    <string name="step_by_step">خطوة بخطوة</string>
 
 </resources>
