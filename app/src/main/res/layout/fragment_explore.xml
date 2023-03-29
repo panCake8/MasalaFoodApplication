@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color">
+
     <com.mindorks.editdrawabletext.EditDrawableText
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
@@ -12,42 +13,45 @@
         android:layout_marginHorizontal="@dimen/margin_large"
         android:layout_marginTop="@dimen/margin_medium"
         android:background="@drawable/search_view"
+        android:drawableLeft="@drawable/ic_search"
         android:drawableRight="@drawable/ic_filter"
-        android:drawableLeft="@drawable/search_icon2"
         android:drawablePadding="@dimen/padding_medium"
-        android:hint="@string/search_here"
+        android:hint="@string/text_search"
         android:inputType="text"
         android:maxLength="50"
         android:paddingHorizontal="@dimen/padding_large"
-        android:textColorHint="@color/hint_color"
+        android:textColorHint="@color/hint_Search_color"
         android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlHardcoded"
-        />
+        tools:ignore="RtlHardcoded" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_searchResult"
+        android:id="@+id/recycler_search_result"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="@dimen/height_search_result"
+        android:layout_marginHorizontal="12dp"
+        android:clipToPadding="false"
         android:orientation="vertical"
         android:visibility="visible"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/search_bar"
+        app:spanCount="2"
+        tools:listitem="@layout/item_search_result" />
+
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie_layer"
-        android:layout_width="256dp"
+        android:id="@+id/view_lottie_layer"
+        android:layout_width="@dimen/lotti_layer_width"
         android:layout_height="wrap_content"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/search" />

@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -37,7 +36,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
             val time = result.getFloat(Constants.TIME_MINUTES)
             val kitchens = result.getStringArrayList(Constants.KITCHENS)
             val ingredient = result.getStringArrayList(Constants.INGREDIENT)
-            val filterList = DataManager.filterData(kitchens, ingredient, time)
+            val filterList = dataManager.filterData(kitchens, ingredient, time)
             adapter = ExploreAdapter(filterList, this)
             binding.recyclerSearchResult.adapter = adapter
             hideAnimation()
@@ -68,7 +67,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
     }
 
     private fun search(query: String) {
-        val searchList = DataManager.search(query)
+        val searchList = dataManager.search(query)
         if (searchList.isEmpty())
             showAnimationNotFound()
         else {
@@ -79,25 +78,25 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
 
     private fun showLottieAndHideRecycle() {
         binding.recyclerSearchResult.visibility = View.GONE
-        binding.lottieLayer.visibility = View.VISIBLE
+        binding.viewLottieLayer.visibility = View.VISIBLE
     }
 
     private fun showAnimationSearch() {
         binding.apply {
             showLottieAndHideRecycle()
-            lottieLayer.setAnimation(R.raw.search)
+            viewLottieLayer.setAnimation(R.raw.search)
         }
     }
 
     private fun showAnimationNotFound() {
         binding.apply {
             showLottieAndHideRecycle()
-            lottieLayer.setAnimation(R.raw.not_found)
+            viewLottieLayer.setAnimation(R.raw.not_found)
         }
     }
 
     private fun hideAnimation() {
-        binding.lottieLayer.visibility = View.GONE
+        binding.viewLottieLayer.visibility = View.GONE
         binding.recyclerSearchResult.visibility = View.VISIBLE
     }
 

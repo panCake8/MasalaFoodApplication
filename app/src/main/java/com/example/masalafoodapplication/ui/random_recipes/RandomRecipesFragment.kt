@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.random_recipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentRandomRecipesBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -20,7 +19,7 @@ class RandomRecipesFragment : BaseFragment<FragmentRandomRecipesBinding>(),
 
 
     override fun setup() {
-        val adapter = RandomRecipesAdapter(DataManager.getAllFood(), this)
+        val adapter = RandomRecipesAdapter(dataManager.getAllQuickRecipes(), this)
         binding.recyclerRandomRecipes.adapter = adapter
     }
 

@@ -1,10 +1,10 @@
-package com.example.masalafoodapplication.ui.home.adapters
+package com.example.masalafoodapplication.ui.home
 
 import com.example.masalafoodapplication.data.domain.models.Cuisine
 import com.example.masalafoodapplication.data.domain.models.Food
-import com.example.masalafoodapplication.data.domain.enums.HomeItemType
+import com.example.masalafoodapplication.ui.base.BaseInteractionListener
 
-interface HomeInteractionListener {
+interface HomeInteractionListener : BaseInteractionListener {
     fun onBannerClicked()
 
     fun onRecipeClicked(food: Food)

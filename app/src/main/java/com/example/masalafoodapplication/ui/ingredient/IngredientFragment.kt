@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.enums.FoodDetaisType
+
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
@@ -28,7 +29,8 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             Constants.INGREDIENT,
             this
         ) { _, result ->
-            food = DataManager.getFoodById(result.getInt(Constants.INGREDIENT))
+
+            food = dataManager.getFoodById(result.getInt(Constants.INGREDIENT))
             val items  =mutableListOf<FoodDetailsItem<Any>>()
             items.add(FoodDetailsItem("",FoodDetaisType.VIEW_TYPE_IMAGE))
             items.add(FoodDetailsItem("",FoodDetaisType.VIEW_TYPE_TEXT))

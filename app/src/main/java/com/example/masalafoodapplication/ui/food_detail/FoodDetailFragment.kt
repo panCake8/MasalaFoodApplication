@@ -3,7 +3,6 @@ package com.example.masalafoodapplication.ui.food_detail
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -26,32 +25,41 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     override fun onClicks() {
-        binding.foodDetailMenuToolbar.setOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             onBack()
         }
-        binding.fav.setOnClickListener {
-            food?.let { it1 -> DataManager.addFavourite(it1) }
+        binding.iconFavorite.setOnClickListener {
+            food?.let { it1 -> favoriteIcon(it1) }
         }
-        binding.startButton.setOnClickListener {
+        binding.buttonStart.setOnClickListener {
             newInstance(food!!.id, Constants.INGREDIENT)
             transitionToWithBackStackReplace(IngredientFragment(), Constants.FOOD_DETAILS)
         }
     }
 
+    private fun favoriteIcon(food: Food) {
+        if (dataManager.isFavorite(food)) {
+            dataManager.deleteFavourite(food)
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon_white)
+        } else {
+            dataManager.addFavourite(food)
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
+        }
+    }
 
     private fun chooseChips(food: Food?) {
-        binding.GroupChips.setOnCheckedStateChangeListener { group, checkedIds ->
+        binding.chipsList.setOnCheckedStateChangeListener { group, checkedIds ->
             val chip: Chip? = group.findViewById(checkedIds[0])
             chip?.let {
                 if (it.text.toString() == Constants.STEPS) {
                     val adapter =
                         FoodDetailAdapter(food?.steps ?: listOf())
-                    binding.ItemRecyclerView.adapter = adapter
+                    binding.recyclerStepsIngredientsItems.adapter = adapter
 
                 } else if (it.text.toString() == Constants.INGREDIENT) {
                     val adapter =
                         FoodDetailAdapter(food?.ingredient ?: listOf())
-                    binding.ItemRecyclerView.adapter = adapter
+                    binding.recyclerStepsIngredientsItems.adapter = adapter
                 }
             }
         }
@@ -63,17 +71,20 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
             this
         ) { _, result ->
             val recipeId = result.getInt(KEY_FOOD_ID)
-            food = DataManager.getFoodById(recipeId)
+            food = dataManager.getFoodById(recipeId)
             bindData(food!!)
         }
     }
 
     private fun bindData(recipe: Food) {
-        binding.dishName.text = recipe.recipeName
-        binding.GroupChips.check(R.id.ingredients)
+        if (DataManager.isFavorite(recipe)) {
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
+        }
+        binding.textDishname.text = recipe.recipeName
+        binding.chipsList.check(R.id.ingredients)
         val adapter = FoodDetailAdapter(recipe.ingredientQuantities)
-        binding.ItemRecyclerView.adapter = adapter
-        binding.backgroundImage.loadImage(recipe.imageUrl)
+        binding.recyclerStepsIngredientsItems.adapter = adapter
+        binding.imageBackground.loadImage(recipe.imageUrl)
         chooseChips(recipe)
     }
 }

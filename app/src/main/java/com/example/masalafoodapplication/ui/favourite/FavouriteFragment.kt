@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.favourite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.databinding.FragmentFavouriteBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.favourite.adapter.FavouriteAdapter
@@ -16,13 +15,13 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(), FavouriteLis
 
 
     override fun setup() {
-        adapter = FavouriteAdapter(DataManager.getAllFavouriteFood(), this)
+        adapter = FavouriteAdapter(dataManager.getAllFavouriteFood(), this)
         binding.favRecycle.adapter = adapter
     }
 
     override fun onClickHeart(position: Int) {
-        DataManager.deleteFavourite(position)
-        adapter.setData(DataManager.getAllFavouriteFood())
+        dataManager.deleteFavourite(position)
+        adapter.setData(dataManager.getAllFavouriteFood())
     }
 
 }

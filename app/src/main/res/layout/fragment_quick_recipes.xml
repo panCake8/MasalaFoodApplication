@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
+   >
 
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/recipes_menu_toolbar"
+        android:id="@+id/quick_recipe_toolbar"
         style="@style/AppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
         style="@style/AppBarStroke"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recipes_menu_toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/quick_recipe_toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_quick_recipe"
@@ -29,5 +29,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_stroke"
-        tools:listitem="@layout/item_food" />
+        tools:listitem="@layout/item_recipe_card" />
 </androidx.constraintlayout.widget.ConstraintLayout>

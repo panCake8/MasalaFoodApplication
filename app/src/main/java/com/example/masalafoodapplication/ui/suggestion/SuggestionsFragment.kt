@@ -2,15 +2,13 @@ package com.example.masalafoodapplication.ui.suggestion
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
+import com.example.masalafoodapplication.ui.suggestion.adapters.SuggestionOnClick
 import com.example.masalafoodapplication.ui.suggestion.adapters.SuggestionsAdapter
 import com.example.masalafoodapplication.util.Constants
-import com.example.masalafoodapplication.util.SuggestionOnClick
-import com.example.masalafoodapplication.util.SuggestionsItems
 
 class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), SuggestionOnClick {
     private var data: List<String>? = null
@@ -23,7 +21,7 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
     }
 
     override fun onClicks() {
-        binding.sugTbTopAppBar.setOnClickListener {
+        binding.toolbarSuggestion.setNavigationOnClickListener {
             onBack()
         }
     }
@@ -32,19 +30,19 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         val list = mutableListOf<SuggestionsItems>()
         list.add(
             SuggestionsItems(
-                Constants.BREAKFAST, DataManager.splitFoodsIntoThreeMeals(Constants.BREAKFAST, data)
+                BREAKFAST, dataManager.splitFoodsIntoThreeMeals( BREAKFAST, data)
             )
         )
 
         list.add(
             SuggestionsItems(
-                Constants.LUNCH, DataManager.splitFoodsIntoThreeMeals(Constants.LUNCH, data)
+                 LUNCH, dataManager.splitFoodsIntoThreeMeals( LUNCH, data)
             )
         )
 
         list.add(
             SuggestionsItems(
-                Constants.DINNER, DataManager.splitFoodsIntoThreeMeals(Constants.DINNER, data)
+                 DINNER, dataManager.splitFoodsIntoThreeMeals( DINNER, data)
             )
         )
 
@@ -64,8 +62,14 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         ) { _, result ->
             data = result.getStringArrayList(Constants.SUGGESTION_FILTER)
             adapter = data?.let { bind(it) }?.let { SuggestionsAdapter(it, this) }!!
-            binding.sugRv.adapter = adapter
+            binding.recyclerSuggestion.adapter = adapter
         }
+    }
+
+    companion object{
+        const val BREAKFAST = "Breakfast"
+        const val LUNCH = "Lunch"
+        const val DINNER = "Dinner"
     }
 
 }

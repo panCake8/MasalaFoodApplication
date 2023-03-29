@@ -3,13 +3,16 @@ package com.example.masalafoodapplication.ui.steps
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
+import com.example.masalafoodapplication.data.domain.enums.FoodDetaisType
 import com.example.masalafoodapplication.databinding.FragmentStepsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.data.domain.models.Food
-import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
+import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
 import com.example.masalafoodapplication.ui.steps.steps.StepsAdapter
+
+
+
 
 
 class StepsFragment : BaseFragment<FragmentStepsBinding>() {
@@ -26,10 +29,14 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
         parentFragmentManager.setFragmentResultListener(
             Constants.KEY_FOOD_ID,
             this
-        ){_,result->
-            food=DataManager.getFoodById(result.getInt(Constants.KEY_FOOD_ID))
-            val adapter=StepsAdapter(food)
-            binding.recyclerCheckboxSteps.adapter=adapter
+        ) { _, result ->
+            food = dataManager.getFoodById(result.getInt(Constants.KEY_FOOD_ID))
+            val items  =mutableListOf<FoodDetailsItem<Any>>()
+            items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_IMAGE))
+            items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_TEXT))
+            items.add(FoodDetailsItem(food, FoodDetaisType.VIEW_TYPE_CHECKBOX))
+            binding.recyclerCheckboxSteps.adapter = StepsAdapter(items, this)
+
 
         }
     }
