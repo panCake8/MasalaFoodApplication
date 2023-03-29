@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.ingredient
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.enums.FoodDetaisType
 
 import com.example.masalafoodapplication.databinding.FragmentIngredientBinding
@@ -16,34 +15,30 @@ import com.example.masalafoodapplication.ui.steps.StepsFragment
 
 class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
     private lateinit var food: Food
-    private lateinit var adapter: IngredientAdapter
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentIngredientBinding
         get() = FragmentIngredientBinding::inflate
 
     override fun setup() {
         listenToFragmentResult()
-
-
     }
+
     private fun listenToFragmentResult() {
         parentFragmentManager.setFragmentResultListener(
             Constants.INGREDIENT,
             this
         ) { _, result ->
-
             food = dataManager.getFoodById(result.getInt(Constants.INGREDIENT))
-            val items  =mutableListOf<FoodDetailsItem<Any>>()
-            items.add(FoodDetailsItem("",FoodDetaisType.VIEW_TYPE_IMAGE))
-            items.add(FoodDetailsItem("",FoodDetaisType.VIEW_TYPE_TEXT))
-            items.add(FoodDetailsItem(food,FoodDetaisType.VIEW_TYPE_CHECKBOX))
-            binding.recyclerCheckboxIngredient.adapter = IngredientAdapter(items, this)
-
+            val items = mutableListOf<FoodDetailsItem<Any>>()
+            items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_IMAGE))
+            items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_TEXT))
+            items.add(FoodDetailsItem(food, FoodDetaisType.VIEW_TYPE_CHECKBOX))
+            binding.recyclerCheckboxIngredient.adapter = IngredientAdapter(items)
         }
     }
 
 
     override fun onClicks() {
-        binding.ingredientToolbar.setNavigationOnClickListener {
+        binding.toolbarIngredient.setNavigationOnClickListener {
             onBack()
         }
         binding.buttonNext.setOnClickListener {

@@ -9,7 +9,7 @@ import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
-import com.example.masalafoodapplication.ui.steps.steps.StepsAdapter
+import com.example.masalafoodapplication.ui.steps.adapter.StepsAdapter
 
 
 
@@ -17,7 +17,6 @@ import com.example.masalafoodapplication.ui.steps.steps.StepsAdapter
 
 class StepsFragment : BaseFragment<FragmentStepsBinding>() {
     private lateinit var food: Food
-    private lateinit var adapter: StepsAdapter
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentStepsBinding
         get() = FragmentStepsBinding::inflate
 
@@ -35,14 +34,12 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
             items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_IMAGE))
             items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_TEXT))
             items.add(FoodDetailsItem(food, FoodDetaisType.VIEW_TYPE_CHECKBOX))
-            binding.recyclerCheckboxSteps.adapter = StepsAdapter(items, this)
-
-
+            binding.recyclerCheckboxSteps.adapter = StepsAdapter(items)
         }
     }
 
     override fun onClicks() {
-        binding.stepsToolbar.setNavigationOnClickListener {
+        binding.toolbarSteps.setNavigationOnClickListener {
             onBack(food.id, Constants.INGREDIENT)
         }
         binding.buttonFinish.setOnClickListener {
