@@ -1,37 +1,93 @@
 package com.example.masalafoodapplication.ui.ingredient.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
+import com.example.masalafoodapplication.data.domain.enums.FoodDetaisType
 import com.example.masalafoodapplication.data.domain.models.Food
-import com.example.masalafoodapplication.databinding.ItemStepIngredientBinding
+import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
+import com.example.masalafoodapplication.databinding.ItemImageIngredientBinding
+import com.example.masalafoodapplication.databinding.ItemTextIngredientBinding
+import com.example.masalafoodapplication.databinding.ListStepIngredientBinding
+import com.example.masalafoodapplication.util.Constants
 
 
-class IngredientAdapter(foods: Food) :
-    RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>() {
+class IngredientAdapter(
+    private val foodDetailsItem: List<FoodDetailsItem<Any>>
+) :
+    RecyclerView.Adapter<IngredientAdapter.BaseViewHolder>() {
 
-    private val ingeredient = foods.ingredientQuantities
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_step_ingredient, parent, false)
-        return IngredientViewHolder(view)
-    }
-
-    override fun getItemCount(): Int = ingeredient.size
-
-
-    @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
-        holder.apply {
-            binding.checkBox.text = "${position + 1}- ${ingeredient[position]}"
-            binding.checkBox.text = "${position + 1}- ${ingeredient[position]}"
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
+        when (viewType) {
+            R.layout.item_image_ingredient -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_image_ingredient, parent, false)
+                return IngredientImageViewHolder(view)
+            }
+            R.layout.item_text_ingredient -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_text_ingredient, parent, false)
+                return IngredientTextViewHolder(view)
+            }
+            R.layout.list_step_ingredient -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.list_step_ingredient, parent, false)
+                return IngredientViewHolder(view)
+            }
+            else -> throw Exception(Constants.UNKNOWN_HOME_ITEM_TYPE)
         }
     }
 
-    class IngredientViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = ItemStepIngredientBinding.bind(viewItem)
+    override fun getItemCount(): Int = foodDetailsItem.size
+
+    override fun getItemViewType(position: Int): Int {
+        return when (foodDetailsItem[position].type) {
+            FoodDetaisType.VIEW_TYPE_IMAGE -> R.layout.item_image_ingredient
+            FoodDetaisType.VIEW_TYPE_TEXT -> R.layout.item_text_ingredient
+            FoodDetaisType.VIEW_TYPE_CHECKBOX -> R.layout.list_step_ingredient
+        }
+    }
+
+    override fun onBindViewHolder(
+        holder: BaseViewHolder,
+        position: Int,
+    ) {
+        when (holder) {
+            is IngredientViewHolder -> holder.bind(foodDetailsItem[position])
+            is IngredientImageViewHolder -> holder.bind(foodDetailsItem[position])
+            is IngredientTextViewHolder -> holder.bind(foodDetailsItem[position])
+        }
+    }
+
+    abstract class BaseViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+        abstract fun bind(item: FoodDetailsItem<Any>)
+    }
+
+    class IngredientViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
+        val binding = ListStepIngredientBinding.bind(viewItem)
+        override fun bind(item: FoodDetailsItem<Any>) {
+            binding.apply {
+                recyclerListIngredientStep.adapter = IngredientListAdapter(item.data as Food)
+            }
+        }
+    }
+
+    class IngredientImageViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
+        val binding = ItemImageIngredientBinding.bind(viewItem)
+        override fun bind(item: FoodDetailsItem<Any>) {
+            binding.apply {
+
+            }
+
+        }
+    }
+
+    class IngredientTextViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
+        val binding = ItemTextIngredientBinding.bind(viewItem)
+        override fun bind(item: FoodDetailsItem<Any>) {
+
+        }
     }
 }

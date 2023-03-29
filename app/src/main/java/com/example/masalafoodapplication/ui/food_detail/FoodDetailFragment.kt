@@ -1,9 +1,13 @@
 package com.example.masalafoodapplication.ui.food_detail
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -20,38 +24,60 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFoodDetailBinding
         get() = FragmentFoodDetailBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+
+    fun setup() {
         listenToFragmentResult()
         food?.let { bindData(it) }
     }
 
-    override fun onClicks() {
-        binding.foodDetailMenuToolbar.setOnClickListener {
+    fun onClicks() {
+        binding.toolbar.setNavigationOnClickListener {
             onBack()
         }
-        binding.fav.setOnClickListener {
-            food?.let { it1 -> DataManager.addFavourite(it1) }
+        binding.iconFavorite.setOnClickListener {
+            food?.let { it1 -> favoriteIcon(it1) }
         }
-        binding.startButton.setOnClickListener {
+        binding.buttonStart.setOnClickListener {
             newInstance(food!!.id, Constants.INGREDIENT)
             transitionToWithBackStackReplace(IngredientFragment(), Constants.FOOD_DETAILS)
         }
     }
 
+    private fun favoriteIcon(food: Food) {
+        if (dataManager.isFavorite(food)) {
+            dataManager.deleteFavourite(food)
+            Toast.makeText(requireContext(), getString(R.string.deleted), Toast.LENGTH_SHORT).show()
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon_white)
+        } else {
+            dataManager.addFavourite(food)
+            Toast.makeText(requireContext(), getString(R.string.added), Toast.LENGTH_SHORT).show()
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
+        }
+    }
 
     private fun chooseChips(food: Food?) {
-        binding.GroupChips.setOnCheckedStateChangeListener { group, checkedIds ->
-            val chip: Chip? = group.findViewById(checkedIds[0])
-            chip?.let {
-                if (it.text.toString() == Constants.STEPS) {
-                    val adapter =
-                        FoodDetailAdapter(food?.steps ?: listOf())
-                    binding.ItemRecyclerView.adapter = adapter
-
-                } else if (it.text.toString() == Constants.INGREDIENT) {
-                    val adapter =
-                        FoodDetailAdapter(food?.ingredient ?: listOf())
-                    binding.ItemRecyclerView.adapter = adapter
+        binding.chipsList.setOnCheckedStateChangeListener { group, checkedIds ->
+            if (checkedIds.size != 0) {
+                val chip: Chip? = group.findViewById(checkedIds[0])
+                chip?.let {
+                    if (it.text.toString() == getString(R.string.steps)) {
+                        val adapter =
+                            FoodDetailAdapter(food?.steps ?: listOf())
+                        binding.recyclerStepsIngredientsItems.adapter = adapter
+                        binding.chipIngredient.isClickable = true
+                        binding.chipSteps.isClickable = false
+                    } else if (it.text.toString() == getString(R.string.ingredient)) {
+                        val adapter =
+                            FoodDetailAdapter(food?.ingredientQuantities ?: listOf())
+                        binding.recyclerStepsIngredientsItems.adapter = adapter
+                        binding.chipIngredient.isClickable = false
+                        binding.chipSteps.isClickable = true
+                    }
                 }
             }
         }
@@ -63,17 +89,39 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
             this
         ) { _, result ->
             val recipeId = result.getInt(KEY_FOOD_ID)
-            food = DataManager.getFoodById(recipeId)
+            food = dataManager.getFoodById(recipeId)
             bindData(food!!)
         }
     }
 
     private fun bindData(recipe: Food) {
-        binding.dishName.text = recipe.recipeName
-        binding.GroupChips.check(R.id.ingredients)
+        if (dataManager.isFavorite(recipe)) {
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
+        }
+        binding.textDishName.text = recipe.recipeName
+        binding.chipsList.check(R.id.ingredients)
         val adapter = FoodDetailAdapter(recipe.ingredientQuantities)
-        binding.ItemRecyclerView.adapter = adapter
-        binding.backgroundImage.loadImage(recipe.imageUrl)
+        binding.chipIngredient.isClickable = false
+        binding.recyclerStepsIngredientsItems.adapter = adapter
+        binding.imageBackground.loadImage(recipe.imageUrl)
         chooseChips(recipe)
+    }
+
+    private fun onBack() {
+        requireActivity().onBackPressed()
+    }
+
+    private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+        }
+    }
+
+    private fun newInstance(int: Int, key: String) {
+        val bundle = Bundle()
+        bundle.putInt(key, int)
+        parentFragmentManager.setFragmentResult(key, bundle)
     }
 }

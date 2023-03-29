@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.ItemFoodSuggestionsBinding
-import com.example.masalafoodapplication.util.SuggestionOnClick
 import com.example.masalafoodapplication.util.loadImage
 import com.example.masalafoodapplication.data.domain.models.Food
+import com.example.masalafoodapplication.util.setTime
 
 class FoodsAdapter(private val foods: List<Food>, private val listener: SuggestionOnClick) :
     RecyclerView.Adapter<FoodsAdapter.FoodsViewHolder>() {
@@ -23,18 +23,25 @@ class FoodsAdapter(private val foods: List<Food>, private val listener: Suggesti
 
     override fun onBindViewHolder(holder: FoodsViewHolder, position: Int) {
         val food = foods[position]
-        holder.binding.apply {
-            imageRecipe.loadImage(food.imageUrl)
-            recipeName.text = food.recipeName
-            prepareTime.text = food.timeMinutes.toString()
-            root.setOnClickListener { listener.onClickListener(food) }
-        }
+        holder.bind(food)
     }
 
     override fun getItemCount() = foods.size
 
-    class FoodsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class FoodsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = ItemFoodSuggestionsBinding.bind(itemView)
+        fun bind(food:Food){
+            binding.apply {
+                imageRecipe.loadImage(food.imageUrl)
+                textRecipeName.text = food.recipeName
+                textPrepareTime.text = food.timeMinutes.setTime()
+                root.setOnClickListener { listener.onClickListener(food) }
+            }
+        }
     }
 
+}
+
+interface SuggestionOnClick{
+    fun onClickListener(food: Food)
 }

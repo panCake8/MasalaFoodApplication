@@ -20,11 +20,14 @@ class FavouriteAdapter(var list: List<Food>, val listener: FavouriteListener) :
     override fun onBindViewHolder(holder: FavouriteHolder, position: Int) {
         val currentFood = list[position]
         holder.binding.apply {
-            imvCity1.loadImage(currentFood.imageUrl)
-            txvCityName1.text = currentFood.recipeName
-            timeTv1.text = currentFood.timeMinutes.toString()
-            imageView1.setOnClickListener {
+            imageMeal.loadImage(currentFood.imageUrl)
+            textRecipeName.text = currentFood.recipeName
+            textPrepareTime.text = currentFood.ingredient.toString()
+            favouriteIcon.setOnClickListener {
                 listener.onClickHeart(position)
+            }
+            root.setOnClickListener {
+                listener.onClickItem(currentFood)
             }
         }
     }

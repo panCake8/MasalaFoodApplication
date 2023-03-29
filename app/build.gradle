@@ -1,3 +1,4 @@
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -66,7 +67,9 @@ dependencies {
     implementation 'com.borjabravo:readmoretextview:2.1.0'
 
     //lottie
-    implementation "com.airbnb.android:lottie:3.4.0"
+    implementation "com.airbnb.android:lottie:6.0.0"
 
     implementation 'com.github.MindorksOpenSource:EditDrawableText:1.1.0'
+
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
 }

@@ -39,22 +39,19 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/kashmiri_chip"
             style="@style/Chips_filter"
-            android:checked="true"
-            android:text="@string/kashmir"
-             />
+            android:checked="false"
+            android:text="@string/kashmir" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/moroc_chip"
             style="@style/Chips_filter"
-            android:checked="true"
-            android:text="@string/moroc"
-             />
+            android:checked="false"
+            android:text="@string/moroc" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/southIndian_chip"
             style="@style/Chips_filter"
-            android:text="@string/south_indian"
-            />
+            android:text="@string/south_indian" />
     </com.google.android.material.chip.ChipGroup>
 
     <TextView
@@ -75,44 +72,37 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/kray_chip"
             style="@style/Chips_filter"
-            android:text="@string/kray"
-             />
+            android:text="@string/kray" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/tomato_chip"
             style="@style/Chips_filter"
-            android:text="@string/tomato"
-             />
+            android:text="@string/tomato" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/onion_chip"
             style="@style/Chips_filter"
-            android:text="@string/onion"
-             />
+            android:text="@string/onion" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/mustard_chip"
             style="@style/Chips_filter"
-            android:text="@string/mustard"
-             />
+            android:text="@string/mustard" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/meat_chip"
             style="@style/Chips_filter"
-            android:text="@string/meat"
-             />
+            android:text="@string/meat" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chicken_chip"
             style="@style/Chips_filter"
-            android:text="@string/chicken"
-             />
+            android:text="@string/chicken" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/soup_chip"
             style="@style/Chips_filter"
-            android:text="@string/soup"
-             />
+            android:text="@string/soup" />
 
     </com.google.android.material.chip.ChipGroup>
 
@@ -128,7 +118,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_large"
-        android:layout_marginTop="١٦dp"
         android:stepSize="10.0"
         android:valueFrom="0.0"
         android:valueTo="100.0"

@@ -21,7 +21,7 @@
             tools:src="@drawable/quick_recipes_image" />
 
         <TextView
-            android:id="@+id/label_food_history"
+            android:id="@+id/text_food_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_large"
@@ -29,6 +29,8 @@
             android:text="@string/history_of_indian_food"
             android:textColor="@color/dark_white"
             android:textSize="@dimen/text_large"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/no_width"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,9 +44,9 @@
             android:contentDescription="@string/img_description"
             android:padding="@dimen/padding_small"
             android:src="@drawable/ic_arrow_right"
-            app:layout_constraintBottom_toBottomOf="@id/label_food_history"
+            app:layout_constraintBottom_toBottomOf="@id/text_food_history"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/label_food_history" />
+            app:layout_constraintTop_toTopOf="@id/text_food_history" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -16,7 +16,7 @@
         android:theme="@style/Theme.MasalaFoodApplication"
         tools:targetApi="31">
         <activity
-            android:name=".ui.base.BaseActivity"
+            android:name=".ui.base.HomeActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MyApp.MySplash">

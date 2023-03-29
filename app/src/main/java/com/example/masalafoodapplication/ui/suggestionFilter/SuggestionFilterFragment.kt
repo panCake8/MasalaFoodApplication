@@ -1,39 +1,53 @@
 package com.example.masalafoodapplication.ui.suggestionFilter
 
+
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.masalafoodapplication.data.DataManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.databinding.FragmentSuggestionFilterBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
-import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientChipAdapter
-import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientChipInteractionListener
+import com.example.masalafoodapplication.ui.suggestionFilter.adapter.SuggestionFilterInteractionListener
 import com.example.masalafoodapplication.ui.suggestion.SuggestionsFragment
+import com.example.masalafoodapplication.ui.suggestionFilter.adapter.SuggestionFilterAdapter
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.Constants.TAG_SUGGESTIONS
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayoutManager
 
 
 class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>(),
-    IngredientChipInteractionListener {
+    SuggestionFilterInteractionListener {
 
-    private var collectedData = ArrayList<String>()
+    private var selectedIngredient = ArrayList<String>()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSuggestionFilterBinding
         get() = FragmentSuggestionFilterBinding::inflate
-
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+        onClicks()
+    }
+     fun setup() {
         val adapter =
-            IngredientChipAdapter(DataManager.getIngredients(30) as MutableList<String>, this)
+            SuggestionFilterAdapter(dataManager.getIngredients(30) as MutableList<String>, this)
         binding.recyclerIngredient.adapter = adapter
+        binding.recyclerIngredient.layoutManager = FlexboxLayoutManager(context)
+            .apply { flexDirection = FlexDirection.ROW }
     }
 
-    override fun onClicks() {
+     fun onClicks() {
         binding.buttonNext.setOnClickListener {
-            if (collectedData.isEmpty()) {
-                Toast.makeText(context, "select ingredients", Toast.LENGTH_SHORT).show()
+            if (selectedIngredient.isEmpty()) {
+                Toast.makeText(context, getString(R.string.select_ingredients), Toast.LENGTH_SHORT)
+                    .show()
             } else {
-                newInstanceToSuggestion(collectedData, Constants.SUGGESTION_FILTER)
+                newInstanceToSuggestion(selectedIngredient.toString(), Constants.SUGGESTION_FILTER)
                 transitionToWithBackStackReplace(SuggestionsFragment(), TAG_SUGGESTIONS)
-                collectedData.clear()
+                selectedIngredient.clear()
             }
         }
 
@@ -41,9 +55,23 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
 
     override fun onChipClicks(chip: String, checked: Boolean) {
         if (checked)
-            collectedData.add(chip)
+            selectedIngredient.add(chip)
         else
-            collectedData.remove(chip)
+            selectedIngredient.remove(chip)
+    }
+
+    private fun newInstanceToSuggestion(string: String, key: String) {
+        val bundle = Bundle()
+        bundle.putString(Constants.SUGGESTION_FILTER, string)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
+    private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
+        parentFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(tag)
+            setReorderingAllowed(true)
+        }
     }
 
 }

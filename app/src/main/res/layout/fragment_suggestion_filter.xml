@@ -5,15 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/toolbar_stroke"
-        style="@style/AppBarStroke"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
-        android:id="@+id/image_Chief"
+        android:id="@+id/imageview_Chief_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
@@ -21,10 +14,10 @@
         android:src="@drawable/chief_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_stroke" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/textview_label_ingredient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_large"
@@ -35,31 +28,20 @@
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_Chief" />
+        app:layout_constraintTop_toBottomOf="@+id/imageview_Chief_image" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_ingredient"
         android:layout_width="match_parent"
         android:layout_height="@dimen/no_height"
-        android:layout_gravity="top"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_marginHorizontal="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_medium"
-        app:chipSpacingHorizontal="8dp"
-        app:chipSpacingVertical="8dp"
         app:layout_constraintBottom_toTopOf="@+id/button_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_ingredient"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            app:spanCount="8"
-            tools:listitem="@layout/item_ingredient_chips" />
-    </com.google.android.material.chip.ChipGroup>
+        app:layout_constraintTop_toBottomOf="@+id/textview_label_ingredient"
+        tools:listitem="@layout/item_ingredient_chips" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_next"
