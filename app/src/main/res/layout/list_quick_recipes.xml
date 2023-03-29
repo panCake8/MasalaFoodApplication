@@ -11,6 +11,7 @@
         android:layout_width="@dimen/no_width"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/padding_medium"
+        android:text="@string/quick_recipes"
         app:layout_constraintEnd_toStartOf="@id/button_see_more"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

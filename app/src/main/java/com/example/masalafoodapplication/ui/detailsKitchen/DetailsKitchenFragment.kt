@@ -13,6 +13,7 @@ import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitche
 import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitchenOnClick
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.util.Constants
+import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
 
 class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
     DetailsKitchenOnClick {

@@ -2,7 +2,6 @@ package com.example.masalafoodapplication.ui.quick_recipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentQuickRecipesBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -19,7 +18,7 @@ class QuickRecipesFragment : BaseFragment<FragmentQuickRecipesBinding>(),
 
 
     override fun setup() {
-        val adapter = QuickRecipesAdapter(DataManager.getRandomQuickRecipes(50), this)
+        val adapter = QuickRecipesAdapter(dataManager.getAllQuickRecipes(), this)
         binding.recyclerQuickRecipe.adapter = adapter
     }
 

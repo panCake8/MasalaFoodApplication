@@ -11,6 +11,7 @@
         android:id="@+id/background_image"
         android:layout_width="match_parent"
         android:layout_height="480dp"
+        android:scaleType="fitXY"
         android:foreground="@drawable/gradient_top_of_image"
         android:src="@drawable/indian_food"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,8 +21,7 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/history_toolbar"
-        style="@style/AppBar"
-        app:navigationIconTint="@color/black"
+        style="@style/AppBar_of_history_fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
