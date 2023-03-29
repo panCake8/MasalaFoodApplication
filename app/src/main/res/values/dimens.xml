@@ -68,4 +68,5 @@
     <dimen name="height_search_result">0dp</dimen>
 
     <dimen name="elevation_toolbar">2dp</dimen>
+    <dimen name="lotti_layer_width">200dp</dimen>
 </resources>

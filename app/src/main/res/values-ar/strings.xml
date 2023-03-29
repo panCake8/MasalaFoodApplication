@@ -37,7 +37,8 @@
     <string name="dish_name">شطيرة قوس قزح خالية من السكر</string>
     <string name="start_preparing_btn_text">ابدأ التحضير</string>
     <string name="show_more">عرض المزيد</string>
-    <string name="search_here">البحث هنا</string>
+    <string name="search_here">"البحث هنا "</string>
+    <string name="text_search">بحث</string>
     <string name="salad">سلطة</string>
     <string name="chickpea">حمص</string>
     <string name="koshmibir">كشمير</string>
