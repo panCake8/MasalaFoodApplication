@@ -60,9 +60,9 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
             selectedIngredient.remove(chip)
     }
 
-    private fun newInstanceToSuggestion(list: ArrayList<String>, key: String) {
+    private fun newInstanceToSuggestion(string: String, key: String) {
         val bundle = Bundle()
-        bundle.putStringArrayList(Constants.SUGGESTION_FILTER, list)
+        bundle.putString(Constants.SUGGESTION_FILTER, string)
         parentFragmentManager.setFragmentResult(key, bundle)
     }
 
