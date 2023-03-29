@@ -30,19 +30,19 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         val list = mutableListOf<SuggestionsItems>()
         list.add(
             SuggestionsItems(
-                BREAKFAST, DataManager.splitFoodsIntoThreeMeals( BREAKFAST, data)
+                BREAKFAST, dataManager.splitFoodsIntoThreeMeals( BREAKFAST, data)
             )
         )
 
         list.add(
             SuggestionsItems(
-                 LUNCH, DataManager.splitFoodsIntoThreeMeals( LUNCH, data)
+                 LUNCH, dataManager.splitFoodsIntoThreeMeals( LUNCH, data)
             )
         )
 
         list.add(
             SuggestionsItems(
-                 DINNER, DataManager.splitFoodsIntoThreeMeals( DINNER, data)
+                 DINNER, dataManager.splitFoodsIntoThreeMeals( DINNER, data)
             )
         )
 

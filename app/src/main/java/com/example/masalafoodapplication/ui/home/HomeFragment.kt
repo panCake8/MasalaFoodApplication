@@ -1,8 +1,6 @@
 package com.example.masalafoodapplication.ui.home
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.data.domain.enums.HomeItemType
 import com.example.masalafoodapplication.data.domain.models.Cuisine
@@ -40,12 +38,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
 
 
     private fun bindHomeItems() {
-        homeItems.add(HomeItem(DataManager.getRandomFoodImage(), HomeItemType.BANNER))
-        homeItems.add(HomeItem(DataManager.getRandomQuickRecipes(20), HomeItemType.QUICK_RECIPES))
-        homeItems.add(HomeItem(DataManager.getCuisines(20), HomeItemType.CUISINES))
-        homeItems.add(HomeItem(DataManager.getRandomFoods(20), HomeItemType.JUST_FOR_YOU))
+        homeItems.add(HomeItem(dataManager.getRandomFoodImage(), HomeItemType.BANNER))
+        homeItems.add(HomeItem(dataManager.getRandomQuickRecipes(20), HomeItemType.QUICK_RECIPES))
+        homeItems.add(HomeItem(dataManager.getCuisines(20), HomeItemType.CUISINES))
+        homeItems.add(HomeItem(dataManager.getRandomFoods(20), HomeItemType.JUST_FOR_YOU))
         homeItems.add(
-            HomeItem(DataManager.getImageByCuisine(INDIAN), HomeItemType.INDIAN_FOOD_HISTORY)
+            HomeItem(dataManager.getImageByCuisine(INDIAN), HomeItemType.INDIAN_FOOD_HISTORY)
         )
 
 

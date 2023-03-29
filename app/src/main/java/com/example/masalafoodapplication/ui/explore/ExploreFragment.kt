@@ -36,7 +36,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
             val time = result.getFloat(Constants.TIME_MINUTES)
             val kitchens = result.getStringArrayList(Constants.KITCHENS)
             val ingredient = result.getStringArrayList(Constants.INGREDIENT)
-            val filterList = DataManager.filterData(kitchens, ingredient, time)
+            val filterList = dataManager.filterData(kitchens, ingredient, time)
             adapter = ExploreAdapter(filterList, this)
             binding.recyclerSearchResult.adapter = adapter
             hideAnimation()
@@ -67,7 +67,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
     }
 
     private fun search(query: String) {
-        val searchList = DataManager.search(query)
+        val searchList = dataManager.search(query)
         if (searchList.isEmpty())
             showAnimationNotFound()
         else {

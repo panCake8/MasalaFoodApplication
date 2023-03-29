@@ -24,7 +24,7 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             Constants.INGREDIENT,
             this
         ) { _, result ->
-            food = DataManager.getFoodById(result.getInt(Constants.INGREDIENT))
+            food = dataManager.getFoodById(result.getInt(Constants.INGREDIENT))
             val adapter = IngredientAdapter(food)
             binding.checkboxRecycler.adapter = adapter
         }
