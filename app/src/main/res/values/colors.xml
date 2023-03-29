@@ -43,4 +43,5 @@
     <color name="medium_white_light">#99FFFFFF</color>
     <color name="back_icon_color">#121212</color>
     <color name="bottom_sheet_color">#FAFAFA</color>
+    <color name="time_color">#99FAFAFA</color>
 </resources>

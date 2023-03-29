@@ -8,8 +8,11 @@ import com.example.masalafoodapplication.databinding.FragmentSuggestionFilterBin
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.adapter.SuggestionFilterInteractionListener
 import com.example.masalafoodapplication.ui.suggestion.SuggestionsFragment
+import com.example.masalafoodapplication.ui.suggestionFilter.adapter.SuggestionFilterAdapter
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.Constants.TAG_SUGGESTIONS
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayoutManager
 
 
 class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>(),
@@ -20,11 +23,11 @@ class SuggestionFilterFragment : BaseFragment<FragmentSuggestionFilterBinding>()
         get() = FragmentSuggestionFilterBinding::inflate
 
     override fun setup() {
-//        val adapter =
-//            SuggestionFilterAdapter(DataManagerImpl.getIngredients(30) as MutableList<String>, this)
-//        binding.recyclerIngredient.adapter = adapter
-//        binding.recyclerIngredient.layoutManager = FlexboxLayoutManager(context)
-//            .apply { flexDirection = FlexDirection.ROW }
+        val adapter =
+            SuggestionFilterAdapter(dataManager.getIngredients(30) as MutableList<String>, this)
+        binding.recyclerIngredient.adapter = adapter
+        binding.recyclerIngredient.layoutManager = FlexboxLayoutManager(context)
+            .apply { flexDirection = FlexDirection.ROW }
     }
 
     override fun onClicks() {

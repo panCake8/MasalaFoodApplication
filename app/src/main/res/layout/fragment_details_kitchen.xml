@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,30 +10,28 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_kitchen"
-        android:layout_width="match_parent"
-        android:layout_height="?android:actionBarSize"
-        android:backgroundTint="@color/background_color"
+        style="@style/AppBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_back_black"
-        app:title="@string/kitchens"
-        app:titleTextColor="@color/app_bar_text_color" />
+        app:title="@string/kitchens" />
 
     <View
         android:id="@+id/toolbar_stroke"
         style="@style/AppBarStroke"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_kitchen"/>
+        app:layout_constraintTop_toBottomOf="@id/toolbar_kitchen" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_kitchen"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/margin_medium"
-        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_stroke"
-        tools:listitem="@layout/item_poster_ketchen"/>
+        tools:listitem="@layout/item_poster_ketchen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
