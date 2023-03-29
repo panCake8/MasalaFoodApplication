@@ -2,6 +2,7 @@ package com.example.masalafoodapplication.ui.food_detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
@@ -40,26 +41,33 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     private fun favoriteIcon(food: Food) {
         if (dataManager.isFavorite(food)) {
             dataManager.deleteFavourite(food)
+            Toast.makeText(requireContext(), "Deleted!", Toast.LENGTH_SHORT).show()
             binding.iconFavorite.setImageResource(R.drawable.ic_love_icon_white)
         } else {
             dataManager.addFavourite(food)
+            Toast.makeText(requireContext(), "Added!", Toast.LENGTH_SHORT).show()
             binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
         }
     }
 
     private fun chooseChips(food: Food?) {
         binding.chipsList.setOnCheckedStateChangeListener { group, checkedIds ->
-            val chip: Chip? = group.findViewById(checkedIds[0])
-            chip?.let {
-                if (it.text.toString() == getString(R.string.steps)) {
-                    val adapter =
-                        FoodDetailAdapter(food?.steps ?: listOf())
-                    binding.recyclerStepsIngredientsItems.adapter = adapter
-
-                } else if (it.text.toString() == getString(R.string.ingredient)) {
-                    val adapter =
-                        FoodDetailAdapter(food?.ingredient ?: listOf())
-                    binding.recyclerStepsIngredientsItems.adapter = adapter
+            if (checkedIds.size != 0) {
+                val chip: Chip? = group.findViewById(checkedIds[0])
+                chip?.let {
+                    if (it.text.toString() == getString(R.string.steps)) {
+                        val adapter =
+                            FoodDetailAdapter(food?.steps ?: listOf())
+                        binding.recyclerStepsIngredientsItems.adapter = adapter
+                        binding.chipIngredient.isClickable = true
+                        binding.chipSteps.isClickable = false
+                    } else if (it.text.toString() == getString(R.string.ingredient)) {
+                        val adapter =
+                            FoodDetailAdapter(food?.ingredientQuantities ?: listOf())
+                        binding.recyclerStepsIngredientsItems.adapter = adapter
+                        binding.chipIngredient.isClickable = false
+                        binding.chipSteps.isClickable = true
+                    }
                 }
             }
         }
@@ -83,6 +91,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         binding.textDishname.text = recipe.recipeName
         binding.chipsList.check(R.id.ingredients)
         val adapter = FoodDetailAdapter(recipe.ingredientQuantities)
+        binding.chipIngredient.isClickable = false
         binding.recyclerStepsIngredientsItems.adapter = adapter
         binding.imageBackground.loadImage(recipe.imageUrl)
         chooseChips(recipe)
