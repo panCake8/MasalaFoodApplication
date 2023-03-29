@@ -2,6 +2,7 @@ package com.example.masalafoodapplication.ui.suggestion
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentSuggestionsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -30,19 +31,19 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         val list = mutableListOf<SuggestionsItems>()
         list.add(
             SuggestionsItems(
-                BREAKFAST, dataManager.splitFoodsIntoThreeMeals( BREAKFAST, data)
+                getString(R.string.breakfast), dataManager.splitFoodsIntoThreeMeals(BREAKFAST, data)
             )
         )
 
         list.add(
             SuggestionsItems(
-                 LUNCH, dataManager.splitFoodsIntoThreeMeals( LUNCH, data)
+                getString(R.string.lunch), dataManager.splitFoodsIntoThreeMeals(LUNCH, data)
             )
         )
 
         list.add(
             SuggestionsItems(
-                 DINNER, dataManager.splitFoodsIntoThreeMeals( DINNER, data)
+                getString(R.string.dinner), dataManager.splitFoodsIntoThreeMeals(DINNER, data)
             )
         )
 
@@ -66,7 +67,7 @@ class SuggestionsFragment : BaseFragment<FragmentSuggestionsBinding>(), Suggesti
         }
     }
 
-    companion object{
+    companion object {
         const val BREAKFAST = "Breakfast"
         const val LUNCH = "Lunch"
         const val DINNER = "Dinner"

@@ -33,7 +33,6 @@ class SuggestionsAdapter(
         fun bind(item:SuggestionsItems){
             binding.apply {
                 textTitleMeal.text = item.title
-
                 val adapter = FoodsAdapter(item.foods, this@SuggestionsAdapter)
                 recyclerSuggestionsMeal.adapter = adapter
             }

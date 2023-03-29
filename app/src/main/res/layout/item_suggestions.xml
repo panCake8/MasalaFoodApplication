@@ -8,12 +8,13 @@
 
     <TextView
         android:id="@+id/text_title_meal"
+        style="@style/SectionHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/SectionHeader"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/breakfast"/>
+        tools:text="@string/breakfast" />
 
 
     <androidx.recyclerview.widget.RecyclerView

@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.masalafoodapplication.R
-import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
@@ -42,11 +41,11 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     private fun favoriteIcon(food: Food) {
         if (dataManager.isFavorite(food)) {
             dataManager.deleteFavourite(food)
-            Toast.makeText(requireContext(), "Deleted!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.deleted), Toast.LENGTH_SHORT).show()
             binding.iconFavorite.setImageResource(R.drawable.ic_love_icon_white)
         } else {
             dataManager.addFavourite(food)
-            Toast.makeText(requireContext(), "Added!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.added), Toast.LENGTH_SHORT).show()
             binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
         }
     }

@@ -49,22 +49,22 @@ class HomeActivity : AppCompatActivity() {
         binding.navBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    setFragment(HomeFragment(), "Home")
+                    setFragment(HomeFragment(), TAG_HOME_FRAGMENT)
                     true
                 }
 
                 R.id.nav_explore -> {
-                    setFragment(ExploreFragment(), "Explore")
+                    setFragment(ExploreFragment(), TAG_EXPLORE_FRAGMENT)
                     true
                 }
 
                 R.id.nav_make_meal -> {
-                    replaceFragment(SuggestionFilterFragment(), "MakeMeal")
+                    replaceFragment(SuggestionFilterFragment(), TAG_MAKE_MEAL_FRAGMENT)
                     true
                 }
 
                 R.id.nav_favourite -> {
-                    setFragment(FavouriteFragment(), "Fav")
+                    setFragment(FavouriteFragment(), TAG_FAVOURITE_FRAGMENT)
                     true
                 }
 
@@ -106,7 +106,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        when (val currentFragment = supportFragmentManager.findFragmentById(binding.fragmentContainer.id)) {
+        when (val currentFragment =
+            supportFragmentManager.findFragmentById(binding.fragmentContainer.id)) {
             is HomeFragment -> finish()
             is ExploreFragment, is SuggestionFilterFragment, is FavouriteFragment -> {
                 initSubViews()
@@ -126,10 +127,10 @@ class HomeActivity : AppCompatActivity() {
 
     private fun getSelectedItemId(tag: String?): Int {
         return when (tag) {
-            "Home" -> R.id.nav_home
-            "Explore" -> R.id.nav_explore
-            "MakeMeal" -> R.id.nav_make_meal
-            "Fav" -> R.id.nav_favourite
+            TAG_HOME_FRAGMENT -> R.id.nav_home
+            TAG_EXPLORE_FRAGMENT -> R.id.nav_explore
+            TAG_MAKE_MEAL_FRAGMENT -> R.id.nav_make_meal
+            TAG_FAVOURITE_FRAGMENT -> R.id.nav_favourite
             else -> R.id.nav_home
         }
     }
