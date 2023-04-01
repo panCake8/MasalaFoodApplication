@@ -74,4 +74,5 @@
     <string name="added">تمت الاضافة!</string>
     <string name="deleted">تم الحذف!</string>
     <string name="select_ingredients">يجب اختيار واحدة علي الاقل</string>
+    <string name="text_not_food">لا يوجد اكلات </string>
 </resources>

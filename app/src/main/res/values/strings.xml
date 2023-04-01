@@ -78,4 +78,5 @@
     <string name="deleted">Deleted!</string>
     <string name="select_ingredients">select ingredients</string>
     <string name="here_you_can_add_your_favourite_recieps">Here you can add your favourite recieps</string>
+    <string name="text_not_food">There is no food</string>
 </resources>
