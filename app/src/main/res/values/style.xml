@@ -114,6 +114,7 @@
         <item name="android:textColor">@color/dark_white</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
     </style>
 
     <!--    Item Text Time Parent-->
@@ -129,7 +130,6 @@
     <style name="ItemText.Name.Food">
         <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
         <item name="android:textColor">@color/dark_white</item>
-        <item name="android:textSize">@dimen/text_large</item>
     </style>
 
     <!--    Item Text Name Kitchen-->
@@ -140,8 +140,10 @@
 
     <!--    Item Text Time Food-->
     <style name="ItemText.Time.Food">
-        <!--        <item name="android:layout_marginBottom">@dimen/margin_small</item>-->
-        <item name="android:textColor">@color/medium_white</item>
+        <item name="android:textColor">@color/medium_white_light</item>
+        <item name="android:lineSpacingExtra">@dimen/no_width</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_marginStart">@dimen/margin_small</item>
     </style>
 
     <!--    Item Text Time Kitchen-->
@@ -297,7 +299,7 @@
     <style name="SectionHeader">
         <item name="fontFamily">@font/work_sans_medium</item>
         <item name="android:textColor">@color/nav_selected_text_color</item>
-        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textSize">@dimen/text_large</item>
         <item name="android:layout_marginStart">@dimen/margin_large</item>
     </style>
 
