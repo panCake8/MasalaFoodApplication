@@ -299,7 +299,7 @@
     <style name="SectionHeader">
         <item name="fontFamily">@font/work_sans_medium</item>
         <item name="android:textColor">@color/nav_selected_text_color</item>
-        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textSize">@dimen/text_large</item>
         <item name="android:layout_marginStart">@dimen/margin_large</item>
     </style>
 
