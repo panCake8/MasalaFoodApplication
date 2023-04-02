@@ -11,6 +11,7 @@ import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
 import com.example.masalafoodapplication.databinding.ItemImageIngredientBinding
 import com.example.masalafoodapplication.databinding.ItemTextIngredientBinding
 import com.example.masalafoodapplication.databinding.ListStepBinding
+import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientListAdapter
 import com.example.masalafoodapplication.util.Constants
 
 class StepsAdapter(
@@ -46,7 +47,9 @@ class StepsAdapter(
             FoodDetaisType.VIEW_TYPE_CHECKBOX -> R.layout.list_step
         }
     }
-
+    fun getStepListAdapter(food:Food): StepListAdapter {
+        return StepListAdapter(food)
+    }
     override fun onBindViewHolder(
         holder: BaseViewHolder,
         position: Int,

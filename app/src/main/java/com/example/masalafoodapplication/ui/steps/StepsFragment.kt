@@ -5,17 +5,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.masalafoodapplication.data.domain.enums.FoodDetaisType
 import com.example.masalafoodapplication.databinding.FragmentStepsBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
+import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientAdapter
+import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientListAdapter
+import com.example.masalafoodapplication.ui.steps.adapter.StepListAdapter
 import com.example.masalafoodapplication.ui.steps.adapter.StepsAdapter
-
 
 class StepsFragment : BaseFragment<FragmentStepsBinding>() {
     private lateinit var food: Food
+    private lateinit var stepListAdapter: StepListAdapter
+
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentStepsBinding
         get() = FragmentStepsBinding::inflate
 
@@ -40,6 +45,8 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
             items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_TEXT))
             items.add(FoodDetailsItem(food, FoodDetaisType.VIEW_TYPE_CHECKBOX))
             binding.recyclerCheckboxSteps.adapter = StepsAdapter(items)
+            stepListAdapter= StepsAdapter(items).getStepListAdapter(food)!!;
+
         }
     }
 
@@ -48,7 +55,16 @@ class StepsFragment : BaseFragment<FragmentStepsBinding>() {
             onBack(food.id, Constants.INGREDIENT)
         }
         binding.buttonFinish.setOnClickListener {
-            parentFragmentManager.popBackStack(Constants.FOOD_DETAILS, 1)
+            if (!::stepListAdapter.isInitialized) {
+                return@setOnClickListener
+            }
+            val checkedCount =  stepListAdapter.getCheckedCount()
+            val totalCount =  stepListAdapter.itemCount
+            if (checkedCount < totalCount) {
+                Toast.makeText(requireContext(), "you should have Complete all steps to finish", Toast.LENGTH_SHORT).show()
+            } else {
+                parentFragmentManager.popBackStack(Constants.FOOD_DETAILS, 1)
+            }
         }
     }
 

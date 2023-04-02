@@ -18,7 +18,6 @@ class IngredientAdapter(
     private val foodDetailsItem: List<FoodDetailsItem<Any>>
 ) :
     RecyclerView.Adapter<IngredientAdapter.BaseViewHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         when (viewType) {
             R.layout.item_image_ingredient -> {
@@ -68,8 +67,10 @@ class IngredientAdapter(
     class IngredientViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
         val binding = ListIngrdientBinding.bind(viewItem)
         override fun bind(item: FoodDetailsItem<Any>) {
+
             binding.apply {
                 recyclerListIngredient.adapter = IngredientListAdapter(item.data as Food)
+
             }
         }
     }
@@ -78,10 +79,12 @@ class IngredientAdapter(
         val binding = ItemImageIngredientBinding.bind(viewItem)
         override fun bind(item: FoodDetailsItem<Any>) {
             binding.apply {
-
             }
 
         }
+    }
+    fun getIngredientListAdapter(food:Food): IngredientListAdapter {
+        return IngredientListAdapter(food)
     }
 
     class IngredientTextViewHolder(viewItem: View) : BaseViewHolder(viewItem) {

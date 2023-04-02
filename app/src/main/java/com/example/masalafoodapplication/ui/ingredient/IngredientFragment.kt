@@ -1,6 +1,7 @@
 package com.example.masalafoodapplication.ui.ingredient
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ import com.example.masalafoodapplication.ui.steps.StepsFragment
 
 class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
     private lateinit var food: Food
+    private lateinit var ingredientListAdapter: IngredientListAdapter
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentIngredientBinding
         get() = FragmentIngredientBinding::inflate
 
@@ -46,6 +48,7 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             items.add(FoodDetailsItem("", FoodDetaisType.VIEW_TYPE_TEXT))
             items.add(FoodDetailsItem(food, FoodDetaisType.VIEW_TYPE_CHECKBOX))
             binding.recyclerCheckboxIngredient.adapter = IngredientAdapter(items)
+            ingredientListAdapter= IngredientAdapter(items).getIngredientListAdapter(food)!!;
         }
     }
 
@@ -55,24 +58,21 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             onBack()
         }
         binding.buttonNext.setOnClickListener {
-//            val checkedCount = binding.recyclerCheckboxIngredient.adapter?.let { adapter ->
-//                (adapter as IngredientListAdapter).getCheckedCount()
-//            } ?: 0
-//
-//            val totalCount = binding.recyclerCheckboxIngredient.adapter?.let { adapter ->
-//                (adapter as IngredientListAdapter).itemCount
-//            } ?: 0
-//
-//            if (checkedCount < totalCount) {
-//              Toast.makeText(requireContext(), "you should have all ingredient to make recipe", Toast.LENGTH_SHORT).show()
-//            } else {
+            if (!::ingredientListAdapter.isInitialized) {
+                return@setOnClickListener
+            }
+            val checkedCount =  ingredientListAdapter.getCheckedCount()
+            val totalCount =  ingredientListAdapter.itemCount
+            if (checkedCount < totalCount) {
+              Toast.makeText(requireContext(), "you should have all ingredient to make recipe", Toast.LENGTH_SHORT).show()
+            } else {
                 newInstance(food.id, Constants.KEY_FOOD_ID)
                 transitionToWithBackStackAdd(
                     StepsFragment(),
                     this@IngredientFragment,
                     Constants.INGREDIENT
                 )
-//            }
+          }
         }
     }
 

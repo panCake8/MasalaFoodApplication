@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ItemStepCheckboxBinding
-
+private val checkedPositions = mutableSetOf<Int>()
 class StepListAdapter(foods: Food) :
     RecyclerView.Adapter<StepListAdapter.StepViewHolder>() {
     private val steps = foods.steps
@@ -25,9 +25,17 @@ class StepListAdapter(foods: Food) :
         holder.apply {
             binding.checkBox.text = "Step #${position + 1}"
             binding.textStepDescription.text = "${steps[position]}"
+            binding.checkBox.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                   checkedPositions.add(position)
+                } else {
+                    checkedPositions.remove(position)
+                }
+            }
 
         }
     }
+    fun getCheckedCount(): Int=checkedPositions.size
 
     class StepViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemStepCheckboxBinding.bind(viewItem)
