@@ -41,7 +41,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     fun onClicks() {
-        binding.buttonBack.setOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             onBack()
         }
         binding.iconFavorite.setOnClickListener {
