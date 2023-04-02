@@ -8,22 +8,22 @@
 
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/quick_recipe_toolbar"
+        android:id="@+id/title_toolbar"
         style="@style/AppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/quick_recipes" />
+        tools:title="@string/quick_recipes" />
 
     <View
         android:id="@+id/toolbar_stroke"
         style="@style/AppBarStroke"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quick_recipe_toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/title_toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_quick_recipe"
+        android:id="@+id/recycler_see_more"
         style="@style/RecyclerStyle"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"

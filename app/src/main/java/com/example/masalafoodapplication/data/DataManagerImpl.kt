@@ -15,17 +15,17 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
         return recipesData
     }
 
-    override fun getRandomQuickRecipes(limit: Int): List<Food> {
+    override fun getRandomQuickRecipes(limit: Int?): List<Food> {
         return recipesData
             .filter { it.timeMinutes < 30 }
             .shuffled()
-            .take(limit)
+            .take(limit ?: recipesData.size)
     }
 
-    override fun getRandomFoods(limit: Int): List<Food> {
+    override fun getRandomFoods(limit: Int?): List<Food> {
         return recipesData
             .shuffled()
-            .take(limit)
+            .take(limit ?: recipesData.size)
     }
 
     override fun search(value: String) =
@@ -33,13 +33,13 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
             it.recipeName.lowercase().contains(value)
         }
 
-    override fun getCuisines(limit: Int): List<Cuisine> {
+    override fun getCuisines(limit: Int?): List<Cuisine> {
         return recipesData
             .map { it.cuisine }
             .distinct()
             .map { Cuisine(it, getImageByCuisine(it)) }
             .shuffled()
-            .take(limit)
+            .take(limit ?: recipesData.size)
     }
 
     override fun getRandomFoodImage(): String {
@@ -60,11 +60,11 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
     }
 
 
-    override fun getIngredients(limit: Int): List<String> {
+    override fun getIngredients(limit: Int?): List<String> {
         return recipesData
             .flatMap { it.ingredient }
             .distinct()
-            .take(limit)
+            .take(limit ?: recipesData.size)
     }
 
 
@@ -79,12 +79,12 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
         }
     }
 
-    override fun getAllQuickRecipes() = recipesData.filter { it.timeMinutes < 30 }
-
     override fun getFoodById(id: Int) = recipesData.first { it.id == id }
 
-    override fun getRecipesByCuisine(cuisine: String, limit: Int): List<Food> {
-        return recipesData.filter { it.cuisine == cuisine }.take(limit)
+    override fun getRecipesByCuisine(cuisine: String, limit: Int?): List<Food> {
+        return recipesData
+            .filter { it.cuisine == cuisine }
+            .take(limit ?: recipesData.size)
     }
 
     override fun filterData(
@@ -116,24 +116,34 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
         favouriteFoodList.remove(food)
     }
 
-    override fun getMostRichCuisines(limit: Int): List<Cuisine> {
+    override fun getMostRichCuisines(limit: Int?): List<Cuisine> {
         return recipesData
             .groupBy { it.cuisine }
             .map { Cuisine(it.key, getImageByCuisine(it.key), it.value.size) }
             .sortedByDescending { it.recipesCount }
-            .take(limit)
+            .take(limit ?: recipesData.size)
     }
 
-    override fun getVegetarianRecipes(limit: Int): List<Food> {
+    override fun getVegetarianRecipes(limit: Int?): List<Food> {
         val notAllowedIngredients = listOf("egg", "meat", "fish", "chicken", "beef", "pork", "lamb")
-        return recipesData.shuffled().take(500).filter { food ->
-            food.ingredient.none { ingredient ->
-                notAllowedIngredients.any { ingredient.lowercase().contains(it) }
+        return recipesData
+            .shuffled()
+            .filter { food ->
+                food.ingredient.none { ingredient ->
+                    notAllowedIngredients.any {
+                        ingredient.lowercase().contains(it)
+                    }
+                }
             }
-        }
+            .take(limit ?: recipesData.size)
+
     }
 
-    override fun getMostStepsRecipes(limit: Int): List<Food> {
-        return recipesData.shuffled().take(500).sortedByDescending { it.steps.size }.take(limit)
+    override fun getMostStepsRecipes(limit: Int?): List<Food> {
+        return recipesData
+            .shuffled()
+            .sortedByDescending { it.steps.size }
+            .take(limit ?: recipesData.size)
     }
+
 }
