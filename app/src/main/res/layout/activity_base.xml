@@ -16,6 +16,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/balck_8"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_container" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_bar"
         style="@style/Widget.MaterialComponents.BottomNavigationView"
@@ -33,4 +39,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_items" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
