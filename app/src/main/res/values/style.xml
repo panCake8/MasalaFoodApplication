@@ -38,7 +38,7 @@
     <style name="AppBarStroke">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/small_stroke</item>
-        <item name="android:background">@color/stroke_app_bar</item>
+        <item name="android:background">@color/balck_8</item>
     </style>
 
     <!--    Image Curve-->
