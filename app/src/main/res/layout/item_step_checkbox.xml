@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/margin_large"
-    android:layout_marginTop="@dimen/margin_medium"
     android:fontFamily="@font/work_sans"
     android:layoutDirection="rtl"
     android:textColor="@color/dark_black"
