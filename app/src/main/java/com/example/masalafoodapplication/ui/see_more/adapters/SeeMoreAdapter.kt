@@ -1,4 +1,4 @@
-package com.example.masalafoodapplication.ui.quick_recipes.adapters
+package com.example.masalafoodapplication.ui.see_more.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ItemRecipeCardBinding
 import com.example.masalafoodapplication.util.loadImage
 
-class QuickRecipesAdapter(val list: List<Food>, val listener: QuickRecipesInteractionListener) :
-    RecyclerView.Adapter<QuickRecipesAdapter.RecipesViewHolder>() {
+class SeeMoreAdapter(val list: List<Food>, val listener: SeeMoreInteractionListener) :
+    RecyclerView.Adapter<SeeMoreAdapter.RecipesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_recipe_card, parent, false)
