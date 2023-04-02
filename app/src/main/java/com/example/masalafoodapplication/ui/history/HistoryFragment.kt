@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.masalafoodapplication.databinding.FragmentHistoryBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.base.HomeActivity
 
 
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
@@ -27,5 +28,6 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
     private fun onBack() {
         requireActivity().onBackPressed()
+        (activity as HomeActivity).showBottomNavBar()
     }
 }

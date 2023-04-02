@@ -10,6 +10,7 @@ import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentSeeMoreBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.base.HomeActivity
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.ui.home.HomeItemType
 import com.example.masalafoodapplication.ui.see_more.adapters.SeeMoreAdapter
@@ -28,7 +29,12 @@ class SeeMoreFragment : BaseFragment<FragmentSeeMoreBinding>(),
         onClicks()
     }
 
+    private fun hideNaveBar() {
+        (activity as HomeActivity).hideBottomNavBar()
+    }
+
     fun setup() {
+        hideNaveBar()
         listenToFragmentResult()
     }
 

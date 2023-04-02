@@ -44,6 +44,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
     }
 
     fun setup() {
+        (activity as HomeActivity).showBottomNavBar()
         binding.recyclerHome.adapter = HomeAdapter(homeItems, this)
     }
 
