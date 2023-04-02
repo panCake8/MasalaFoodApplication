@@ -11,13 +11,13 @@ import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentFoodDetailBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.base.HomeActivity
 import com.example.masalafoodapplication.ui.food_detail.adapters.FoodDetailAdapter
 import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.util.Constants.KEY_FOOD_ID
 import com.example.masalafoodapplication.util.loadImage
 import com.google.android.material.chip.Chip
-
 
 class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     private var food: Food? = null
@@ -31,12 +31,17 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
     }
 
     fun setup() {
+        hideNaveBar()
         listenToFragmentResult()
         food?.let { bindData(it) }
     }
 
+    private fun hideNaveBar() {
+        (activity as HomeActivity).hideBottomNavBar()
+    }
+
     fun onClicks() {
-        binding.toolbar.setNavigationOnClickListener {
+        binding.buttonBack.setOnClickListener {
             onBack()
         }
         binding.iconFavorite.setOnClickListener {
@@ -52,11 +57,11 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
         if (dataManager.isFavorite(food)) {
             dataManager.deleteFavourite(food)
             Toast.makeText(requireContext(), getString(R.string.deleted), Toast.LENGTH_SHORT).show()
-            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon_white)
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon_new_version_outlined__2_)
         } else {
             dataManager.addFavourite(food)
             Toast.makeText(requireContext(), getString(R.string.added), Toast.LENGTH_SHORT).show()
-            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon_new_version)
         }
     }
 
@@ -96,7 +101,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
     private fun bindData(recipe: Food) {
         if (dataManager.isFavorite(recipe)) {
-            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon)
+            binding.iconFavorite.setImageResource(R.drawable.ic_love_icon_new_version)
         }
         binding.textDishName.text = recipe.recipeName
         binding.chipsList.check(R.id.ingredients)
@@ -109,6 +114,7 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
     private fun onBack() {
         requireActivity().onBackPressed()
+        (activity as HomeActivity).showBottomNavBar()
     }
 
     private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {

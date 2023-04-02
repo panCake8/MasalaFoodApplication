@@ -3,6 +3,7 @@ package com.example.masalafoodapplication.ui.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import androidx.fragment.app.commit
@@ -43,6 +44,14 @@ class HomeActivity : AppCompatActivity() {
 
     fun getDataManager(): DataManager {
         return dataManager
+    }
+
+    fun hideBottomNavBar() {
+        binding.navBar.isGone = true
+    }
+
+    fun showBottomNavBar() {
+        binding.navBar.isGone = false
     }
 
     private fun onClicks() {
@@ -114,8 +123,12 @@ class HomeActivity : AppCompatActivity() {
                 clearBackStack()
                 binding.navBar.selectedItemId = R.id.nav_home
             }
-            is FoodDetailFragment, is StepsFragment, is IngredientFragment, is SuggestionsFragment -> {
+            is StepsFragment, is IngredientFragment, is SuggestionsFragment -> {
                 supportFragmentManager.popBackStack()
+            }
+            is FoodDetailFragment -> {
+                supportFragmentManager.popBackStack()
+                showBottomNavBar()
             }
             else -> {
                 supportFragmentManager.popBackStackImmediate()

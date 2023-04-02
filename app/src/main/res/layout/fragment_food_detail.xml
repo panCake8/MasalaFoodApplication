@@ -29,6 +29,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/button_back"
+        android:layout_width="@dimen/rounded_button_size"
+        android:layout_height="@dimen/rounded_button_size"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:background="@drawable/bg_transparent_circle"
+        android:contentDescription="@string/img_description"
+        android:padding="@dimen/padding_small"
+        android:src="@drawable/ic_back_black"
+        app:layout_constraintTop_toTopOf="@id/parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidline_image"
@@ -82,10 +93,10 @@
                 android:id="@+id/icon_favorite"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:contentDescription="@string/steps"
-                android:src="@drawable/ic_love_icon_white" />
+                android:src="@drawable/ic_love_icon_new_version_outlined__2_" />
         </LinearLayout>
 
 
