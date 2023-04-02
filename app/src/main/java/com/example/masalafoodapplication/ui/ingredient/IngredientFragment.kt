@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.example.masalafoodapplication.R
@@ -15,6 +16,7 @@ import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
 import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientAdapter
+import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientListAdapter
 import com.example.masalafoodapplication.ui.steps.StepsFragment
 
 
@@ -53,13 +55,24 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
             onBack()
         }
         binding.buttonNext.setOnClickListener {
-            newInstance(food.id, Constants.KEY_FOOD_ID)
-            transitionToWithBackStackAdd(
-                StepsFragment(),
-                this@IngredientFragment,
-                Constants.INGREDIENT
-            )
-
+//            val checkedCount = binding.recyclerCheckboxIngredient.adapter?.let { adapter ->
+//                (adapter as IngredientListAdapter).getCheckedCount()
+//            } ?: 0
+//
+//            val totalCount = binding.recyclerCheckboxIngredient.adapter?.let { adapter ->
+//                (adapter as IngredientListAdapter).itemCount
+//            } ?: 0
+//
+//            if (checkedCount < totalCount) {
+//              Toast.makeText(requireContext(), "you should have all ingredient to make recipe", Toast.LENGTH_SHORT).show()
+//            } else {
+                newInstance(food.id, Constants.KEY_FOOD_ID)
+                transitionToWithBackStackAdd(
+                    StepsFragment(),
+                    this@IngredientFragment,
+                    Constants.INGREDIENT
+                )
+//            }
         }
     }
 

@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
-import com.example.masalafoodapplication.databinding.ItemStepIngredientBinding
+import com.example.masalafoodapplication.databinding.ItemStepCheckboxBinding
 
 class StepListAdapter(foods: Food) :
     RecyclerView.Adapter<StepListAdapter.StepViewHolder>() {
     private val steps = foods.steps
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StepViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_step_ingredient, parent, false)
+            .inflate(R.layout.item_step_checkbox, parent, false)
         return StepViewHolder(view)
     }
 
@@ -23,12 +23,14 @@ class StepListAdapter(foods: Food) :
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: StepViewHolder, position: Int) {
         holder.apply {
-            binding.checkBox.text = "${position + 1}- ${steps[position]}"
+            binding.checkBox.text = "Step #${position + 1}"
+            binding.textStepDescription.text = "${steps[position]}"
+
         }
     }
 
     class StepViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = ItemStepIngredientBinding.bind(viewItem)
+        val binding = ItemStepCheckboxBinding.bind(viewItem)
     }
 
 }

@@ -10,7 +10,7 @@ import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
 import com.example.masalafoodapplication.databinding.ItemImageIngredientBinding
 import com.example.masalafoodapplication.databinding.ItemTextIngredientBinding
-import com.example.masalafoodapplication.databinding.ListStepIngredientBinding
+import com.example.masalafoodapplication.databinding.ListIngrdientBinding
 import com.example.masalafoodapplication.util.Constants
 
 
@@ -31,9 +31,9 @@ class IngredientAdapter(
                     .inflate(R.layout.item_text_ingredient, parent, false)
                 return IngredientTextViewHolder(view)
             }
-            R.layout.list_step_ingredient -> {
+            R.layout.list_ingrdient -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.list_step_ingredient, parent, false)
+                    .inflate(R.layout.list_ingrdient, parent, false)
                 return IngredientViewHolder(view)
             }
             else -> throw Exception(Constants.UNKNOWN_HOME_ITEM_TYPE)
@@ -46,7 +46,7 @@ class IngredientAdapter(
         return when (foodDetailsItem[position].type) {
             FoodDetaisType.VIEW_TYPE_IMAGE -> R.layout.item_image_ingredient
             FoodDetaisType.VIEW_TYPE_TEXT -> R.layout.item_text_ingredient
-            FoodDetaisType.VIEW_TYPE_CHECKBOX -> R.layout.list_step_ingredient
+            FoodDetaisType.VIEW_TYPE_CHECKBOX -> R.layout.list_ingrdient
         }
     }
 
@@ -66,10 +66,10 @@ class IngredientAdapter(
     }
 
     class IngredientViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
-        val binding = ListStepIngredientBinding.bind(viewItem)
+        val binding = ListIngrdientBinding.bind(viewItem)
         override fun bind(item: FoodDetailsItem<Any>) {
             binding.apply {
-                recyclerListIngredientStep.adapter = IngredientListAdapter(item.data as Food)
+                recyclerListIngredient.adapter = IngredientListAdapter(item.data as Food)
             }
         }
     }

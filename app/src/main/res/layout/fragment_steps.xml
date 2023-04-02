@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:nestedScrollingEnabled="true"
-                tools:listitem="@layout/item_step_ingredient"
+                tools:listitem="@layout/item_step_checkbox"
                 android:layout_marginTop="@dimen/margin_large"
                 app:layout_constraintTop_toBottomOf="@id/toolbar_stroke_steps"
                 app:layout_constraintBottom_toTopOf="@id/button_finish"

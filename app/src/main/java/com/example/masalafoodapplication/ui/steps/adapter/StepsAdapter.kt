@@ -10,7 +10,7 @@ import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
 import com.example.masalafoodapplication.databinding.ItemImageIngredientBinding
 import com.example.masalafoodapplication.databinding.ItemTextIngredientBinding
-import com.example.masalafoodapplication.databinding.ListStepIngredientBinding
+import com.example.masalafoodapplication.databinding.ListStepBinding
 import com.example.masalafoodapplication.util.Constants
 
 class StepsAdapter(
@@ -29,9 +29,9 @@ class StepsAdapter(
                     .inflate(R.layout.item_text_step, parent, false)
                 return StepTextViewHolder(view)
             }
-            R.layout.list_step_ingredient -> {
+            R.layout.list_step -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.list_step_ingredient, parent, false)
+                    .inflate(R.layout.list_step, parent, false)
                 return StepViewHolder(view)
             }
             else -> throw Exception(Constants.UNKNOWN_HOME_ITEM_TYPE)
@@ -43,7 +43,7 @@ class StepsAdapter(
         return when (foodDetailsItem[position].type) {
             FoodDetaisType.VIEW_TYPE_IMAGE -> R.layout.item_image_step
             FoodDetaisType.VIEW_TYPE_TEXT -> R.layout.item_text_step
-            FoodDetaisType.VIEW_TYPE_CHECKBOX -> R.layout.list_step_ingredient
+            FoodDetaisType.VIEW_TYPE_CHECKBOX -> R.layout.list_step
         }
     }
 
@@ -63,10 +63,10 @@ class StepsAdapter(
     }
 
     class StepViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
-        val binding = ListStepIngredientBinding.bind(viewItem)
+        val binding = ListStepBinding.bind(viewItem)
         override fun bind(item: FoodDetailsItem<Any>) {
             binding.apply {
-                recyclerListIngredientStep.adapter = StepListAdapter(item.data as Food)
+                recyclerListStep.adapter = StepListAdapter(item.data as Food)
             }
         }
     }
