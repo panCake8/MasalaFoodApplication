@@ -54,7 +54,6 @@ class SeeMoreFragment : BaseFragment<FragmentSeeMoreBinding>(),
             setReorderingAllowed(true)
         }
     }
-
     private fun newInstance(int: Int, key: String) {
         val bundle = Bundle()
         bundle.putInt(key, int)
