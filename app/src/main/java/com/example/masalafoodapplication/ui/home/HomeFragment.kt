@@ -15,7 +15,7 @@ import com.example.masalafoodapplication.ui.detailsKitchen.DetailsKitchenFragmen
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.ui.history.HistoryFragment
 import com.example.masalafoodapplication.ui.home.adapters.HomeAdapter
-import com.example.masalafoodapplication.ui.quick_recipes.QuickRecipesFragment
+import com.example.masalafoodapplication.ui.see_more.SeeMoreFragment
 import com.example.masalafoodapplication.util.Constants.ARAB
 import com.example.masalafoodapplication.util.Constants.INDIAN
 import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
@@ -84,7 +84,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
             HomeItemType.QUICK_AND_EASY,
             -> {
                 newInstance(type, KEY_SEE_MORE)
-                transitionToWithBackStackReplace(QuickRecipesFragment(), TAG_SEE_MORE)
+                transitionToWithBackStackReplace(SeeMoreFragment(), TAG_SEE_MORE)
             }
 
             else -> {}
