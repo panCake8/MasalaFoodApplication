@@ -15,7 +15,6 @@
         android:layout_marginEnd="@dimen/margin_small"
         android:src="@drawable/ic_icon_dot"
         android:contentDescription="@string/tomato" />
-    
     <TextView
         android:id="@+id/step_ingredient_textview"
         android:layout_width="wrap_content"
