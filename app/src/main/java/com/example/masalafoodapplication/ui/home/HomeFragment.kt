@@ -20,10 +20,11 @@ import com.example.masalafoodapplication.util.Constants.ARAB
 import com.example.masalafoodapplication.util.Constants.INDIAN
 import com.example.masalafoodapplication.util.Constants.KEY_CUISINE_NAME
 import com.example.masalafoodapplication.util.Constants.KEY_FOOD_ID
+import com.example.masalafoodapplication.util.Constants.KEY_SEE_MORE
 import com.example.masalafoodapplication.util.Constants.TAG_FOOD_DETAILS
 import com.example.masalafoodapplication.util.Constants.TAG_HISTORY
 import com.example.masalafoodapplication.util.Constants.TAG_KITCHEN_DETAILS
-import com.example.masalafoodapplication.util.Constants.TAG_QUICK_RECIPES
+import com.example.masalafoodapplication.util.Constants.TAG_SEE_MORE
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListener {
@@ -52,7 +53,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
         homeItems.add(HomeItem.QuickAndEasy(dataManager.getRandomQuickRecipes(20)))
         homeItems.add(HomeItem.PopularCuisines(dataManager.getMostRichCuisines(20)))
         homeItems.add(HomeItem.Vegetarian(dataManager.getVegetarianRecipes(20)))
-        homeItems.add(HomeItem.StepByStep(dataManager.getMostStepsRecipes(20)))
+        homeItems.add(HomeItem.StepByStep(dataManager.getMostStepsRecipes(5)))
         homeItems.add(HomeItem.FoodHistory(dataManager.getImageByCuisine(INDIAN)))
     }
 
@@ -73,13 +74,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
 
     override fun onSeeMoreClicked(type: HomeItemType) {
         when (type) {
-            HomeItemType.QUICK_AND_EASY -> transitionToWithBackStackReplace(
-                QuickRecipesFragment(), TAG_QUICK_RECIPES
-            )
-
             HomeItemType.INDIAN_FOOD_HISTORY -> transitionToWithBackStackReplace(
                 HistoryFragment(), TAG_HISTORY
             )
+
+            HomeItemType.VEGETARIAN,
+            HomeItemType.RAMADAN_2023,
+            HomeItemType.STEP_BY_STEP,
+            HomeItemType.QUICK_AND_EASY,
+            -> {
+                newInstance(type, KEY_SEE_MORE)
+                transitionToWithBackStackReplace(QuickRecipesFragment(), TAG_SEE_MORE)
+            }
 
             else -> {}
         }
@@ -102,6 +108,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
     private fun newInstance(int: Int, key: String) {
         val bundle = Bundle()
         bundle.putInt(key, int)
+        parentFragmentManager.setFragmentResult(key, bundle)
+    }
+
+    private fun newInstance(type: HomeItemType, key: String) {
+        val bundle = Bundle()
+        bundle.putSerializable(key, type)
         parentFragmentManager.setFragmentResult(key, bundle)
     }
 }

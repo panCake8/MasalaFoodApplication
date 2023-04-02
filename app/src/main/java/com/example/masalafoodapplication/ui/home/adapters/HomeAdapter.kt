@@ -80,18 +80,21 @@ class HomeAdapter(
     private fun bindRamadan2023(binding: ListRamadanBinding, item: HomeItem.Ramadan2023) {
         binding.apply {
             recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
+            buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
         }
     }
 
     private fun bindVegetarian(binding: ListVegetarianRecipesBinding, item: HomeItem.Vegetarian) {
         binding.apply {
             recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
+            buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
         }
     }
 
     private fun bindStepByStep(binding: ListStepByStepRecipesBinding, item: HomeItem.StepByStep) {
         binding.apply {
             recyclerRecipes.adapter = RecipesAdapter(item.data, listener)
+            buttonSeeMore.setOnClickListener { listener.onSeeMoreClicked(item.type) }
         }
     }
 

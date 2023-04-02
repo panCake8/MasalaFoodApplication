@@ -8,13 +8,13 @@ interface DataManager : Serializable {
 
     fun getAllFood(): List<Food>
 
-    fun getRandomQuickRecipes(limit: Int): List<Food>
+    fun getRandomQuickRecipes(limit: Int? = null): List<Food>
 
-    fun getRandomFoods(limit: Int): List<Food>
+    fun getRandomFoods(limit: Int? = null): List<Food>
 
     fun search(value: String): List<Food>
 
-    fun getCuisines(limit: Int): List<Cuisine>
+    fun getCuisines(limit: Int? = null): List<Cuisine>
 
     fun getRandomFoodImage(): String
 
@@ -22,11 +22,10 @@ interface DataManager : Serializable {
 
     fun splitFoodsIntoThreeMeals(meal: String, recipes: List<String>): List<Food>
 
-    fun getAllQuickRecipes(): List<Food>
 
     fun getFoodById(id: Int): Food
 
-    fun getRecipesByCuisine(cuisine: String, limit: Int): List<Food>
+    fun getRecipesByCuisine(cuisine: String, limit: Int? = null): List<Food>
 
     fun filterData(kitchens: List<String>?, ingredient: List<String>?, time: Float): List<Food>
 
@@ -40,11 +39,11 @@ interface DataManager : Serializable {
 
     fun deleteFavourite(food: Food)
 
-    fun getIngredients(limit: Int): List<String>
+    fun getIngredients(limit: Int? = null): List<String>
 
-    fun getVegetarianRecipes(limit: Int): List<Food>
+    fun getVegetarianRecipes(limit: Int? = null): List<Food>
 
-    fun getMostRichCuisines(limit: Int): List<Cuisine>
+    fun getMostRichCuisines(limit: Int? = null): List<Cuisine>
 
-    fun getMostStepsRecipes(limit: Int): List<Food>
+    fun getMostStepsRecipes(limit: Int? = null): List<Food>
 }
