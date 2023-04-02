@@ -49,7 +49,7 @@ class SeeMoreFragment : BaseFragment<FragmentSeeMoreBinding>(),
 
     private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
         parentFragmentManager.commit {
-            replace(R.id.fragment_container, fragment)
+            add(R.id.fragment_container, fragment)
             addToBackStack(tag)
             setReorderingAllowed(true)
         }
