@@ -1,6 +1,7 @@
 package com.example.masalafoodapplication.ui.base
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isGone
@@ -12,6 +13,7 @@ import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.DataManagerImpl
 import com.example.masalafoodapplication.data.datasource.CsvDataSource
 import com.example.masalafoodapplication.data.datasource.utils.CsvParser
+import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
 import com.example.masalafoodapplication.ui.detailsKitchen.DetailsKitchenFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
@@ -130,10 +132,7 @@ class HomeActivity : AppCompatActivity() {
             }
             is FoodDetailFragment -> {
                 supportFragmentManager.popBackStack()
-                if(currentFragment is HomeFragment)
-                    showBottomNavBar()
-                else
-                    hideBottomNavBar()
+                hideBottomNavBar()
             }
             else -> {
                 supportFragmentManager.popBackStackImmediate()
