@@ -13,11 +13,13 @@ import com.example.masalafoodapplication.data.DataManagerImpl
 import com.example.masalafoodapplication.data.datasource.CsvDataSource
 import com.example.masalafoodapplication.data.datasource.utils.CsvParser
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
+import com.example.masalafoodapplication.ui.detailsKitchen.DetailsKitchenFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
 import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
 import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
+import com.example.masalafoodapplication.ui.see_more.SeeMoreFragment
 import com.example.masalafoodapplication.ui.steps.StepsFragment
 import com.example.masalafoodapplication.ui.suggestion.SuggestionsFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
@@ -128,12 +130,16 @@ class HomeActivity : AppCompatActivity() {
             }
             is FoodDetailFragment -> {
                 supportFragmentManager.popBackStack()
-                showBottomNavBar()
+                if(currentFragment is HomeFragment)
+                    showBottomNavBar()
+                else
+                    hideBottomNavBar()
             }
             else -> {
                 supportFragmentManager.popBackStackImmediate()
                 val tag = currentFragment?.tag
                 binding.navBar.selectedItemId = getSelectedItemId(tag)
+                showBottomNavBar()
             }
         }
     }

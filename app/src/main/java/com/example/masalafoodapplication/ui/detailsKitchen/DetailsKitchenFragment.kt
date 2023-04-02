@@ -10,6 +10,7 @@ import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentDetailsKitchenBinding
+import com.example.masalafoodapplication.ui.base.HomeActivity
 import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsItemType
 import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitchenAdapter
 import com.example.masalafoodapplication.ui.detailsKitchen.adapter.DetailsKitchenItem
@@ -36,6 +37,7 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
     }
 
     fun setup() {
+        (activity as HomeActivity).hideBottomNavBar()
         binding.apply {
             recyclerKitchen.adapter =
                 DetailsKitchenAdapter(detailsKitchenItem, this@DetailsKitchenFragment)
@@ -50,6 +52,7 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
 
     private fun onBack() {
         requireActivity().onBackPressed()
+        (activity as HomeActivity).showBottomNavBar()
     }
 
     private fun bindData() {

@@ -14,6 +14,7 @@ import com.example.masalafoodapplication.ui.base.BaseFragment
 import com.example.masalafoodapplication.util.Constants
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.data.domain.models.FoodDetailsItem
+import com.example.masalafoodapplication.ui.base.HomeActivity
 import com.example.masalafoodapplication.ui.ingredient.adapter.IngredientAdapter
 import com.example.masalafoodapplication.ui.steps.StepsFragment
 
@@ -30,9 +31,12 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
     }
 
     fun setup() {
+        hideNaveBar()
         listenToFragmentResult()
     }
-
+    private fun hideNaveBar() {
+        (activity as HomeActivity).hideBottomNavBar()
+    }
     private fun listenToFragmentResult() {
         parentFragmentManager.setFragmentResultListener(
             Constants.INGREDIENT,
@@ -65,6 +69,7 @@ class IngredientFragment : BaseFragment<FragmentIngredientBinding>() {
 
     private fun onBack() {
         requireActivity().onBackPressed()
+        (activity as HomeActivity).showBottomNavBar()
     }
 
     private fun transitionToWithBackStackAdd(fragment: Fragment, fragment2: Fragment, tag: String) {
