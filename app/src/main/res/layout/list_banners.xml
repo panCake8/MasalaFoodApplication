@@ -4,4 +4,5 @@
     android:id="@+id/viewpager_banners"
     android:layout_width="match_parent"
     android:layout_height="@dimen/food_poster_height"
+    android:layout_marginVertical="@dimen/margin_large"
     app:layout_constraintTop_toTopOf="parent" />

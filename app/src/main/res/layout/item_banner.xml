@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/margin_large"
+    android:layout_marginHorizontal="@dimen/margin_large"
     app:cardCornerRadius="@dimen/radius_medium">
 
     <androidx.constraintlayout.widget.ConstraintLayout
