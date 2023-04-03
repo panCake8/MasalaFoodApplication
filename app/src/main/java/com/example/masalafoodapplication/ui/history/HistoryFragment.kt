@@ -28,6 +28,5 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
     private fun onBack() {
         requireActivity().onBackPressed()
-        (activity as HomeActivity).showBottomNavBar()
     }
 }

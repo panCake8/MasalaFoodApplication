@@ -52,7 +52,6 @@ class DetailsKitchenFragment : BaseFragment<FragmentDetailsKitchenBinding>(),
 
     private fun onBack() {
         requireActivity().onBackPressed()
-        (activity as HomeActivity).showBottomNavBar()
     }
 
     private fun bindData() {
