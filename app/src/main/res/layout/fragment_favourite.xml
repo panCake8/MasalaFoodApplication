@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_large"
         android:fontFamily="@font/poppins_semibold"
-        android:text="@string/here_you_can_add_your_favourite_recieps"
+        android:text="@string/here_you_can_add_your_favourite_recipes"
         android:textColor="@color/black"
         android:textSize="@dimen/text_medium"
         app:layout_constraintEnd_toEndOf="parent"
