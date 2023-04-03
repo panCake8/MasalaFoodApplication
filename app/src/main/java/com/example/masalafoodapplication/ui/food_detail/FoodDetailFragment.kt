@@ -114,7 +114,6 @@ class FoodDetailFragment : BaseFragment<FragmentFoodDetailBinding>() {
 
     private fun onBack() {
         requireActivity().onBackPressed()
-        (activity as HomeActivity).showBottomNavBar()
     }
 
     private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
