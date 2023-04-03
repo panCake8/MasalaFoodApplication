@@ -75,4 +75,5 @@
     <string name="deleted">تم الحذف!</string>
     <string name="select_ingredients">يجب اختيار واحدة علي الاقل</string>
     <string name="text_not_food">لا يوجد اكلات </string>
+    <string name="here_you_can_add_your_favourite_recipes">هنا يمكنك اضافة وصفاتك المفضلة</string>
 </resources>

@@ -50,7 +50,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeInteractionListene
 
     private fun bindHomeItems() {
         homeItems = mutableListOf()
-        homeItems.add(HomeItem.Banner(dataManager.getRandomFoodImage()))
+        homeItems.add(HomeItem.Banners(dataManager.getRandomImages(5)))
         homeItems.add(HomeItem.Ramadan2023(dataManager.getRecipesByCuisine(ARAB, 20)))
         homeItems.add(HomeItem.QuickAndEasy(dataManager.getRandomQuickRecipes(20)))
         homeItems.add(HomeItem.PopularCuisines(dataManager.getMostRichCuisines(20)))

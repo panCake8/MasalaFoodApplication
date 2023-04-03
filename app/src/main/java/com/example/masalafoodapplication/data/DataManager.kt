@@ -16,7 +16,7 @@ interface DataManager : Serializable {
 
     fun getCuisines(limit: Int? = null): List<Cuisine>
 
-    fun getRandomFoodImage(): String
+    fun getRandomFoodImages(limit: Int? = null): String
 
     fun getImageByCuisine(cuisine: String): String
 
@@ -46,4 +46,6 @@ interface DataManager : Serializable {
     fun getMostRichCuisines(limit: Int? = null): List<Cuisine>
 
     fun getMostStepsRecipes(limit: Int? = null): List<Food>
+
+    fun getRandomImages(limit: Int? = null): List<String>
 }

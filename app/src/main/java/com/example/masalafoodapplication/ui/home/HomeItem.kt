@@ -5,8 +5,8 @@ import com.example.masalafoodapplication.data.domain.models.Food
 
 
 sealed class HomeItem {
-    data class Banner(
-        val data: String,
+    data class Banners(
+        val data: List<String>,
         val type: HomeItemType = HomeItemType.BANNER
     ) : HomeItem()
 
