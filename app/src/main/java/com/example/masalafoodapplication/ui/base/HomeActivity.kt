@@ -1,7 +1,6 @@
 package com.example.masalafoodapplication.ui.base
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isGone
@@ -13,15 +12,13 @@ import com.example.masalafoodapplication.data.DataManager
 import com.example.masalafoodapplication.data.DataManagerImpl
 import com.example.masalafoodapplication.data.datasource.CsvDataSource
 import com.example.masalafoodapplication.data.datasource.utils.CsvParser
-import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.ActivityBaseBinding
-import com.example.masalafoodapplication.ui.detailsKitchen.DetailsKitchenFragment
 import com.example.masalafoodapplication.ui.explore.ExploreFragment
-import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.ui.favourite.FavouriteFragment
+import com.example.masalafoodapplication.ui.food_detail.FoodDetailFragment
 import com.example.masalafoodapplication.ui.home.HomeFragment
+import com.example.masalafoodapplication.ui.home.HomeItemType
 import com.example.masalafoodapplication.ui.ingredient.IngredientFragment
-import com.example.masalafoodapplication.ui.see_more.SeeMoreFragment
 import com.example.masalafoodapplication.ui.steps.StepsFragment
 import com.example.masalafoodapplication.ui.suggestion.SuggestionsFragment
 import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFragment
@@ -30,6 +27,7 @@ import com.example.masalafoodapplication.ui.suggestionFilter.SuggestionFilterFra
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
     private lateinit var dataManager: DataManager
+    var seeMoreHomeItemType: HomeItemType? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initDataManager(savedInstanceState)
@@ -127,13 +125,16 @@ class HomeActivity : AppCompatActivity() {
                 clearBackStack()
                 binding.navBar.selectedItemId = R.id.nav_home
             }
+
             is StepsFragment, is IngredientFragment, is SuggestionsFragment -> {
                 supportFragmentManager.popBackStack()
             }
+
             is FoodDetailFragment -> {
                 supportFragmentManager.popBackStack()
                 hideBottomNavBar()
             }
+
             else -> {
                 supportFragmentManager.popBackStackImmediate()
                 val tag = currentFragment?.tag
