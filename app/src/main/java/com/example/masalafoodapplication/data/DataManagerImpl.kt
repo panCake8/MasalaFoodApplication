@@ -42,10 +42,10 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
             .take(limit ?: recipesData.size)
     }
 
-    override fun getRandomFoodImage(): String {
+    override fun getRandomFoodImages(limit: Int?): String {
         return recipesData
             .shuffled()
-            .take(1)
+            .take(limit ?: recipesData.size)
             .map { it.imageUrl }
             .first()
     }
@@ -144,6 +144,13 @@ class DataManagerImpl(dataSource: MasalaFoodDataSource) : DataManager {
             .shuffled()
             .sortedByDescending { it.steps.size }
             .take(limit ?: recipesData.size)
+    }
+
+    override fun getRandomImages(limit: Int?): List<String> {
+        return recipesData
+            .shuffled()
+            .take(limit ?: 1)
+            .map { it.imageUrl }
     }
 
 }

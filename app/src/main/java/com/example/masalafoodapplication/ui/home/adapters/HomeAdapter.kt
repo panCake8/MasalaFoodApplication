@@ -3,8 +3,9 @@ package com.example.masalafoodapplication.ui.home.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.example.masalafoodapplication.databinding.ItemBannerBinding
+import androidx.viewpager2.widget.ViewPager2
 import com.example.masalafoodapplication.databinding.ItemHistoryBinding
+import com.example.masalafoodapplication.databinding.ListBannersBinding
 import com.example.masalafoodapplication.databinding.ListCuisinesBinding
 import com.example.masalafoodapplication.databinding.ListQuickRecipesBinding
 import com.example.masalafoodapplication.databinding.ListRamadanBinding
@@ -27,7 +28,7 @@ class HomeAdapter(
         viewType: Int
     ): ViewBinding {
         return when (viewType) {
-            BANNER -> ItemBannerBinding.inflate(inflater, parent, false)
+            BANNER -> ListBannersBinding.inflate(inflater, parent, false)
             QUICK_AND_EASY -> ListQuickRecipesBinding.inflate(inflater, parent, false)
             POPULAR_CUISINES -> ListCuisinesBinding.inflate(inflater, parent, false)
             RAMADAN_2023 -> ListRamadanBinding.inflate(inflater, parent, false)
@@ -35,13 +36,12 @@ class HomeAdapter(
             STEP_BY_STEP -> ListStepByStepRecipesBinding.inflate(inflater, parent, false)
             INDIAN_FOOD_HISTORY -> ItemHistoryBinding.inflate(inflater, parent, false)
             else -> throw IllegalArgumentException(UNKNOWN_HOME_ITEM_TYPE)
-
         }
     }
 
     override fun bind(binding: ViewBinding, item: HomeItem) {
         when (binding) {
-            is ItemBannerBinding -> bindBanner(binding, item as HomeItem.Banner)
+            is ListBannersBinding -> bindBanners(binding, item as HomeItem.Banners)
             is ListQuickRecipesBinding -> bindQuickRecipes(binding, item as HomeItem.QuickAndEasy)
             is ListCuisinesBinding -> bindPopularCuisines(binding, item as HomeItem.PopularCuisines)
             is ItemHistoryBinding -> bindIndianFoodHistory(binding, item as HomeItem.FoodHistory)
@@ -53,7 +53,7 @@ class HomeAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return when (items[position]) {
-            is HomeItem.Banner -> BANNER
+            is HomeItem.Banners -> BANNER
             is HomeItem.QuickAndEasy -> QUICK_AND_EASY
             is HomeItem.PopularCuisines -> POPULAR_CUISINES
             is HomeItem.Ramadan2023 -> RAMADAN_2023
@@ -63,10 +63,10 @@ class HomeAdapter(
         }
     }
 
-    private fun bindBanner(binding: ItemBannerBinding, item: HomeItem.Banner) {
+    private fun bindBanners(binding: ListBannersBinding, item: HomeItem.Banners) {
         binding.apply {
-            imageBanner.loadImage(item.data)
-            root.setOnClickListener { listener.onBannerClicked() }
+            viewpagerBanners.adapter = BannersAdapter(item.data)
+            startAutoScroll(viewpagerBanners)
         }
     }
 
@@ -108,6 +108,16 @@ class HomeAdapter(
             imageFoodHistory.loadImage(item.data)
             root.setOnClickListener { listener.onIndianFoodHistoryClicked() }
         }
+    }
+
+    private fun startAutoScroll(viewPager2: ViewPager2) {
+        viewPager2.postDelayed({
+            val currentItem = viewPager2.currentItem
+            val lastItem = viewPager2.adapter?.itemCount?.minus(1) ?: 0
+            val nextItem = if (currentItem == lastItem) 0 else currentItem + 1
+            viewPager2.setCurrentItem(nextItem, true)
+            startAutoScroll(viewPager2)
+        }, 3000)
     }
 
     companion object {
