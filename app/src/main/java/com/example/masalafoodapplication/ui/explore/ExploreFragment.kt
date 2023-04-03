@@ -12,6 +12,7 @@ import com.example.masalafoodapplication.R
 import com.example.masalafoodapplication.data.domain.models.Food
 import com.example.masalafoodapplication.databinding.FragmentExploreBinding
 import com.example.masalafoodapplication.ui.base.BaseFragment
+import com.example.masalafoodapplication.ui.base.HomeActivity
 import com.example.masalafoodapplication.ui.explore.adapters.ExploreAdapter
 import com.example.masalafoodapplication.ui.explore.adapters.ExploreListener
 import com.example.masalafoodapplication.ui.filter.FilterFragment
@@ -36,6 +37,11 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(), ExploreListener 
         binding.recyclerSearchResult.adapter = adapter
         listenToFragmentResult()
         setupAnimation()
+        showBottomNavBar()
+    }
+
+    private fun showBottomNavBar() {
+        (activity as HomeActivity).showBottomNavBar()
     }
 
     private fun listenToFragmentResult() {
