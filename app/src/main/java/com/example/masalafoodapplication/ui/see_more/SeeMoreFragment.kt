@@ -27,6 +27,11 @@ class SeeMoreFragment : BaseFragment<FragmentSeeMoreBinding>(),
         super.onViewCreated(view, savedInstanceState)
         setup()
         onClicks()
+
+        val currentType = (activity as HomeActivity).seeMoreHomeItemType
+        if (currentType != null) {
+            bindFragment(currentType)
+        }
     }
 
     private fun hideNaveBar() {
@@ -55,41 +60,50 @@ class SeeMoreFragment : BaseFragment<FragmentSeeMoreBinding>(),
 
     private fun transitionToWithBackStackReplace(fragment: Fragment, tag: String) {
         parentFragmentManager.commit {
-            add(R.id.fragment_container, fragment)
+            replace(R.id.fragment_container, fragment)
             addToBackStack(tag)
             setReorderingAllowed(true)
         }
     }
+
     private fun newInstance(int: Int, key: String) {
         val bundle = Bundle()
         bundle.putInt(key, int)
         parentFragmentManager.setFragmentResult(key, bundle)
     }
+
     private fun listenToFragmentResult() {
         parentFragmentManager.setFragmentResultListener(
             Constants.KEY_SEE_MORE,
             this
         ) { _, result ->
             val type = result.getSerializable(Constants.KEY_SEE_MORE) as HomeItemType
+            (activity as HomeActivity).seeMoreHomeItemType = type
             bindFragment(type)
         }
     }
-    private fun bindData(list: List<Food>,stringId:Int){
+
+    private fun bindData(list: List<Food>, stringId: Int) {
         val adapter = SeeMoreAdapter(list, this)
         binding.recyclerSeeMore.adapter = adapter
         binding.titleToolbar.title = getString(stringId)
     }
-    private fun bindFragment(type:HomeItemType){
-        when(type){
+
+    private fun bindFragment(type: HomeItemType) {
+        when (type) {
             HomeItemType.QUICK_AND_EASY ->
-                bindData(dataManager.getRandomQuickRecipes(),R.string.quick_recipes)
+                bindData(dataManager.getRandomQuickRecipes(), R.string.quick_recipes)
+
             HomeItemType.STEP_BY_STEP ->
-                bindData(dataManager.getMostStepsRecipes(),R.string.step_by_step)
+                bindData(dataManager.getMostStepsRecipes(), R.string.step_by_step)
+
             HomeItemType.RAMADAN_2023 ->
-                bindData(dataManager.getRecipesByCuisine(Constants.ARAB),R.string.ramadan_2023)
+                bindData(dataManager.getRecipesByCuisine(Constants.ARAB), R.string.ramadan_2023)
+
             HomeItemType.VEGETARIAN ->
-                bindData(dataManager.getVegetarianRecipes(),R.string.vegetarian_recipes)
-            else ->{}
+                bindData(dataManager.getVegetarianRecipes(), R.string.vegetarian_recipes)
+
+            else -> {}
 
         }
     }
