@@ -15,6 +15,7 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
         get() = FragmentHistoryBinding::inflate
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (activity as HomeActivity).hideBottomNavBar()
         super.onViewCreated(view, savedInstanceState)
         onClicks()
     }
@@ -23,7 +24,6 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
         binding.historyToolbar.setNavigationOnClickListener {
             onBack()
         }
-
     }
 
     private fun onBack() {
