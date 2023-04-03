@@ -22,6 +22,7 @@ class ExploreAdapter(var list: List<Food>, val listener: ExploreListener) :
         holder.binding.apply {
             imageRecipe.loadImage(currentFood.imageUrl)
             textRecipeName.text = currentFood.recipeName
+            textPreparationTime.text =currentFood.timeMinutes.toString() + "m"
             root.setOnClickListener {
                 listener.onClickItem(currentFood)
             }
