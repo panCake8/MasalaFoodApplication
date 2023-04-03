@@ -8,6 +8,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:ignore="UseCompoundDrawables">
+
     <ImageView
         android:layout_width="@dimen/_12dp"
         android:layout_height="@dimen/_12dp"
@@ -15,6 +16,7 @@
         android:layout_marginEnd="@dimen/margin_small"
         android:src="@drawable/ic_icon_dot"
         android:contentDescription="@string/tomato" />
+
     <TextView
         android:id="@+id/step_ingredient_textview"
         android:layout_width="wrap_content"
@@ -30,4 +32,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/step_number_textview"
         app:layout_constraintTop_toTopOf="parent" />
+
 </LinearLayout>
